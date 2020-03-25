@@ -2,13 +2,16 @@
 
 namespace App\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
+    use Sluggable;
     protected $fillable = [
 
         'name',
+        'slug',
         'job_title',
         'ethnicity_id',
         'address',
@@ -20,6 +23,16 @@ class Staff extends Model
         'school_id',
 
     ];
+
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
 
     public function grades(){

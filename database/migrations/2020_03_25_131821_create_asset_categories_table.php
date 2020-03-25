@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubjectsTable extends Migration
+class CreateAssetCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('asset_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('slug')->nullable();
-            $table->integer('grade_id')->unsigned();
             $table->longText('remarks')->nullable();
             $table->integer('school_id')->unsigned();
             $table->timestamps();
@@ -31,6 +29,6 @@ class CreateSubjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('asset_categories');
     }
 }

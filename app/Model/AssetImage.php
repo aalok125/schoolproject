@@ -4,22 +4,18 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class AssetImage extends Model
 {
-
     protected $fillable = [
-
-        'album_id',
-        'title',
+        'asset_id',
         'image',
         'school_id',
-
     ];
 
 
-    public function album(){
+    public function asset(){
 
-        return $this->belongsTo(Album::class, 'album_id');
+        return $this->belongsTo(Asset::class, 'asset_id');
     }
 
     public function school(){
