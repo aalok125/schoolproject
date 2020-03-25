@@ -2,12 +2,36 @@
 
 namespace App\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Grade extends Model
 
 
 {
+
+    use Sluggable;
+   protected $fillable = [
+
+       'title',
+       'slug',
+       'remarks',
+       'school_id',
+
+   ];
+
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
+
+
+
     public function grades(){
 
         return $this->belongsToMany(Grade::class, 'exam_grade', 'grade_id');

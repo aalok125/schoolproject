@@ -2,18 +2,30 @@
 
 namespace App\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Exam extends Model
 {
+    use Sluggable;
     protected $fillable = [
 
         'title',
+        'slug',
         'start_date',
         'remarks',
         'school_id',
 
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
 
 

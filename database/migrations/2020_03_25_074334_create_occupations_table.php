@@ -16,6 +16,7 @@ class CreateOccupationsTable extends Migration
         Schema::create('occupations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->string('slug')->nullable();
             $table->longText('remarks')->nullable();
             $table->timestamps();
         });

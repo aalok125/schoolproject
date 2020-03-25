@@ -16,6 +16,7 @@ class CreateEthnicitiesTable extends Migration
         Schema::create('ethnicities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->string('slug')->nullable();
             $table->longText('remarks')->nullable();
             $table->timestamps();
         });

@@ -15,6 +15,9 @@ class CreateAssetCategoriesTable extends Migration
     {
         Schema::create('asset_categories', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->longText('remarks')->nullable();
+            $table->integer('school_id')->unsigned();
             $table->timestamps();
         });
     }
