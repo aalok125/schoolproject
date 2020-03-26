@@ -12,6 +12,5 @@ class StaffClassSubject extends Model
         'grade_id',
         'subject_id',
         'school_id',
-
     ];
 }

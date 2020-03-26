@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">*Breadcrumb2*</li> -->
                 </ol>
             </div>
-            <h5 class="page-title">Grades</h5>
+            <h5 class="page-title">Staff Types</h5>
             
         </div>
     </div>
@@ -63,12 +63,12 @@
                                         data-toggle="modal" data-target="#edit_content{{$content->id}}">
                                         <i class="fa fa-edit"></i>
                                     </button>
-                                    @include('admin.grade.edit')
+                                    @include('admin.staff_type.edit')
                                     <button class="btn btn-danger"
                                         data-toggle="modal" data-target="#delete_content{{$content->id}}">
                                         <i class="fa fa-trash"></i>
                                     </button>
-                                    @include('admin.grade.delete')
+                                    @include('admin.staff_type.delete')
                                 </td>
                             </tr>
                             @endforeach

@@ -1,10 +1,10 @@
 <div class="modal fade" id="add_content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" action="{{ route('admin.grade.add') }}">
+        <form method="post" action="{{ route('admin.staff_type.add') }}">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Grade</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Staff Type</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

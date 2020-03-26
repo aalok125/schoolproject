@@ -4,14 +4,14 @@
         @csrf
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete Grade </h5>
+            <h5 class="modal-title" id="exampleModalLabel">Delete Staff Type</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
             Are you sure you want to DELETE this content?
-            <input type="hidden" name="grade_id" value="{{ $content->id }}">
+            <input type="hidden" name="staff_type_id" value="{{ $content->id }}">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
