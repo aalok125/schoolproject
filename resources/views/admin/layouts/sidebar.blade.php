@@ -24,6 +24,13 @@
                                 </a>
                             </li>
 
+                            </li><li>
+                                <a href="{{ route('admin.students') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Students <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
+
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-briefcase"></i> <span> Elements </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
