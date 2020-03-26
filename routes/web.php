@@ -22,4 +22,11 @@ Route::group([
 ], function (){
 
     Route::get('/dashboard','IndexController@index')->name('dashboard');
+
+//    Student Route
+
+    Route::get('students', 'StudentController@index')->name('students');
+    Route::get('student/create', 'StudentController@create')->name('student.create');
+    Route::get('student/store', 'StudentController@store')->name('student.store');
+
 });

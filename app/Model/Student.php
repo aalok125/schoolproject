@@ -12,6 +12,7 @@ class Student extends Model
 
         'name',
         'slug',
+        'image',
         'grade_id',
         'ethnicity_id',
         'address',
