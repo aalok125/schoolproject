@@ -54,6 +54,10 @@ class Grade extends Model
 
         return $this->belongsTo(School::class, 'school_id');
     }
+
+    public function subjects(){
+        return $this->hasMany(Subject::class,'grade_id');
+    }
 }
 
 

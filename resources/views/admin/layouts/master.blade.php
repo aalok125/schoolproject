@@ -21,6 +21,9 @@
 
     <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet" type="text/css">
 
+    <!-- Sweet Alert -->
+    <link href="{{ asset('admin/assets/plugins/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+
     @stack('styles')
     <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
 </head>
@@ -99,6 +102,11 @@
 <script src="{{ asset('admin/assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
 <!-- dashboard -->
 <script src="{{ asset('admin/assets/pages/dashboard.js') }}"></script>
+
+ <!-- Sweet-Alert  -->
+ <script src="{{ asset('admin/assets/plugins/sweet-alert2/sweetalert2.min.js') }}"></script>
+<script src="{{ asset('admin/assets/pages/sweet-alert.init.js') }}"></script>
+
 <!-- App js -->
 <script src="{{ asset('admin/assets/js/app.js') }}"></script>
 <script>

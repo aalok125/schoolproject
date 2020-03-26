@@ -37,4 +37,8 @@ class Subject extends Model
 
         return $this->belongsTo(School::class, 'school_id');
     }
+
+    public function staffs(){
+        return $this->belongsToMany(Staff::class,'staff_class_subjects','subject_id');
+    }
 }
