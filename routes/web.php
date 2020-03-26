@@ -27,6 +27,7 @@ Route::group([
 
     Route::get('students', 'StudentController@index')->name('students');
     Route::get('student/create', 'StudentController@create')->name('student.create');
-    Route::get('student/store', 'StudentController@store')->name('student.store');
+    Route::post('student/store', 'StudentController@store')->name('student.store');
+    Route::get('students/json', 'StudentController@getJson')->name('students.json');
 
 });

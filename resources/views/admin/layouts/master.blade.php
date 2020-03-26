@@ -49,6 +49,8 @@
             <div class="page-content-wrapper ">
                 <div class="container-fluid">
 
+                    @include('admin.layouts.success')
+                    @include('admin.layouts.error')
                 {{--Heading and Breadcrumbs--}}
                 @yield('headers')
 

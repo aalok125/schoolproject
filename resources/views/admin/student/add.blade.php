@@ -43,7 +43,7 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label>Full Name</label>
-                                    <input type="text" name="address" class="form-control" required placeholder="Full Name"/>
+                                    <input type="text" name="name" class="form-control" required placeholder="Full Name"/>
                                 </div>
 
                                 <div class="row">
