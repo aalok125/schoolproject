@@ -24,12 +24,23 @@
                                 </a>
                             </li>
 
-                            </li><li>
+                            <li>
                                 <a href="{{ route('admin.students') }}" class="waves-effect">
-                                    <i class="dripicons-meter"></i>
+                                    <i class="dripicons-user-group"></i>
                                     <span> Students <span class="badge badge-success badge-pill float-right">3</span></span>
                                 </a>
                             </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-user-id"></i> <span> Staff Setup </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('admin.staff_type.all') }}">Staff Types</a></li>
+                                    <li><a href="{{ route('admin.staff.all') }}">Staffs</a></li>
+                                    <li><a href="{{ route('admin.staffbygrade.all') }}">Staff-Class-Subject</a></li>
+                                </ul>
+                            </li>
+
+
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-briefcase"></i> <span> Elements </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
