@@ -30,6 +30,18 @@
                                     <span> Students <span class="badge badge-success badge-pill float-right">3</span></span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.occupations') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Occupation <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.ethnicitys') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Ethnicity <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-user-id"></i> <span> Staff Setup </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>

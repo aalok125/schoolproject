@@ -84,11 +84,42 @@ Route::group([
         Route::get('/','StaffClassController@index')->name('all');
         Route::post('/add','StaffClassController@add')->name('add');
     });
+
+
+
 //    Student Route
 
     Route::get('students', 'StudentController@index')->name('students');
     Route::get('student/create', 'StudentController@create')->name('student.create');
     Route::post('student/store', 'StudentController@store')->name('student.store');
+    Route::post('student/update', 'StudentController@update')->name('student.update');
     Route::get('students/json', 'StudentController@getJson')->name('students.json');
+    Route::get('student/edit/{id}', 'StudentController@edit')->name('student.edit');
+    Route::get('student/delete/{id}', 'StudentController@destroy')->name('student.delete');
+
+
+
+//    Occupation Route
+
+    Route::get('occupations', 'OccupationController@index')->name('occupations');
+    Route::get('occupation/create', 'OccupationController@create')->name('occupation.create');
+    Route::post('occupation/store', 'OccupationController@store')->name('occupation.store');
+    Route::post('occupation/update', 'OccupationController@update')->name('occupation.update');
+    Route::get('occupation/json', 'OccupationController@getJson')->name('occupation.json');
+    Route::get('occupation/edit/{id}', 'OccupationController@edit')->name('occupation.edit');
+    Route::get('occupation/delete/{id}', 'OccupationController@destroy')->name('occupation.delete');
+
+
+
+
+//    Ethnicity Route
+
+    Route::get('ethnicitys', 'EthnicityController@index')->name('ethnicitys');
+    Route::get('ethnicity/create', 'EthnicityController@create')->name('ethnicity.create');
+    Route::post('ethnicity/store', 'EthnicityController@store')->name('ethnicity.store');
+    Route::post('ethnicity/update', 'EthnicityController@update')->name('ethnicity.update');
+    Route::get('ethnicitys/json', 'EthnicityController@getJson')->name('ethnicitys.json');
+    Route::get('ethnicity/edit/{id}', 'EthnicityController@edit')->name('ethnicity.edit');
+    Route::get('ethnicity/delete/{id}', 'EthnicityController@destroy')->name('ethnicity.delete');
 
 });

@@ -22,6 +22,7 @@ class CreateStudentsTable extends Migration
             $table->integer('ethnicity_id')->unsigned();
             $table->text('address')->nullable();
             $table->enum('gender', ['Male', 'Female', 'Other']);
+            $table->enum('religion', ['Hindu', 'Christian', 'Buddhism', 'Islam', 'Other']);
             $table->date('DOB')->nullable();
             $table->string('guardian_name')->nullable();
             $table->string('guardian_phone')->nullable();

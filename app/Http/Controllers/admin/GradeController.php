@@ -13,7 +13,7 @@ class GradeController extends Controller
         return view('admin.grade.index',compact('contents'));
     }
     public function add(Request $request){
-        // dd($request);
+         dd($request);
         $grade = new Grade();
         $grade->school_id = 1;
         $grade->title = $request->title;

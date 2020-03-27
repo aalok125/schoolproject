@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Model\Ethnicity;
+use App\Model\Occupation;
 use App\Model\Student;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Image;
 
 class StudentController extends Controller
@@ -27,7 +30,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('admin.student.add');
+        $ethnicitys = Ethnicity::all();
+        $occupations = Occupation::all();
+        return view('admin.student.add', compact('ethnicitys', 'occupations'));
     }
 
     /**
@@ -97,7 +102,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view('admin.student.edit', compact('student'));
     }
 
     /**
@@ -107,9 +113,46 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+            'grade_id'=>'required',
+            'guardian_name'=>'required',
+        ]);
+
+        $student = Student::where('id', $request->student_id)->first();
+        $student->name = $request->name;
+        $student->grade_id = $request->grade_id;
+        $student->ethnicity_id = $request->ethnicity_id;
+        $student->address = $request->address;
+        $student->gender = $request->gender;
+        $student->DOB = $request->DOB;
+        $student->guardian_name = $request->guardian_name;
+        $student->guardian_phone = $request->guardian_phone;
+        $student->guardian_email = $request->email;
+        $student->occupation_id = $request->occupation_id;
+        $student->school_id = 1;
+
+        if($request->file('image')){
+            if($student->image){
+                File::delete(public_path('images/students/thumbnail/'.$student->image));
+                File::delete(public_path('images/students/'.$student->image));
+            }
+            $image = $request->file('image');
+            imageUpload($image, 'images/students/thumbnail/', 'images/students/');
+            $student->image = time().$image->getClientOriginalName();
+        }
+
+        $response = $student->update();
+
+        if($response){
+
+            return redirect()->back()->with('success', 'Student Successfully Updated.');
+        }
+        else{
+            return redirect()->back()->with('error', '...........Error.........');
+        }
     }
 
     /**
@@ -120,7 +163,21 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student =Student::find($id);
+        if($student->image){
+            File::delete(public_path('images/students/thumbnail/'.$student->image));
+            File::delete(public_path('images/students/'.$student->image));
+        }
+
+        $response = $student->delete();
+
+        if($response){
+
+            return redirect()->back()->with('success', 'Student Successfully Deleted.');
+        }
+        else{
+            return redirect()->back()->with('error', '...........Error.........');
+        }
     }
 
 

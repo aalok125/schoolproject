@@ -17,6 +17,7 @@ class Student extends Model
         'ethnicity_id',
         'address',
         'gender',
+        'religion',
         'DOB',
         'guardian_name',
         'guardian_phone',

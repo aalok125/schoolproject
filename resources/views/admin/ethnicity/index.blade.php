@@ -14,11 +14,11 @@
             <div class="float-right page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                    <li class="breadcrumb-item"><a href="#">Students</a></li>
+                    <li class="breadcrumb-item"><a href="#">Ethnicity</a></li>
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Students </h5>
+            <h5 class="page-title"> Ethnicity </h5>
         </div>
     </div>
     <!-- end row -->
@@ -33,18 +33,16 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Student List<a href="{{ route('admin.student.create') }}" class="btn btn-primary waves-effect waves-light float-right">Add New</a></h4>
 
-
+                    <h4 class="mt-0 header-title">Ethnicity List<button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">Add New</button></h4>
+                        @include('admin.ethnicity.add')
+                    <div class="modal fade edu-edit-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    </div>
                     <table id="datatable-students" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
                             <th>S.N</th>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Grade</th>
-                            <th>Age</th>
-                            <th>Gender</th>
+                            <th>Title</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -86,7 +84,7 @@
             bFilter: true,
             bInfo: false,
             bAutoWidth: false,
-            ajax: "{{ route('admin.students.json') }}",
+            ajax: "{{ route('admin.ethnicitys.json') }}",
             columns: [
                 {
                     data: 'count',
@@ -95,45 +93,19 @@
                     }
                 },
                 {
-                    data: 'name',
+                    data: 'title',
                     render: function (data, type, row) {
-                        return row.name;
-                    }
-                },
-                {
-                    data: 'image',
-                    render: function (data, type, row) {
-                        return '<img src=' + row.image + ' >';
-                    }
-                },
-                {
-                    data: 'grade_id',
-                    render: function (data, type, row) {
-                        return row.grade_id;
-                    }
-                },
-                {
-                    data: 'age',
-                    render: function (data, type, row) {
-                        return row.age;
-                    }
-                },
-                {
-                    data: 'gender',
-                    render: function (data, type, row) {
-                        return row.gender;
+                        return row.title;
                     }
                 },
                 {
                     data: 'id',
                     orderable: false,
                     render: function (data, type, row) {
-                        var tempEditUrl = "{{ route('admin.student.edit', ':id') }}";
-                        tempEditUrl = tempEditUrl.replace(':id', data);
-                        var tempDeleteUrl = "{{ route('admin.student.delete', ':id') }}";
+                        var tempDeleteUrl = "{{ route('admin.ethnicity.delete', ':id') }}";
                         tempDeleteUrl = tempDeleteUrl.replace(':id', data);
                         var actions = '';
-                        actions += "<a href=" + tempEditUrl + " class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i></a>";
+                        actions += "<button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i></button>";
                         actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i></a>";
                         return actions;
                     }
@@ -141,6 +113,24 @@
             ]
         });
     });
+</script>
+
+
+<script>
+    $(document).on("click", ".btn-edit-row", function (e) {
+        e.preventDefault();
+        $this = $(this);
+        var id = $this.attr('data-id');
+
+        var tempEditUrl = "{{ route('admin.ethnicity.edit', ':id') }}";
+        tempEditUrl = tempEditUrl.replace(':id', id);
+        console.log(tempEditUrl);
+        var $modal = $('.edu-edit-new');
+        $modal.load(tempEditUrl, function (response) {
+            $modal.modal('show');
+        });
+    });
+
 </script>
 
 @endpush
