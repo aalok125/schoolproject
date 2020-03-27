@@ -85,7 +85,22 @@ Route::group([
         Route::post('/add','StaffClassController@add')->name('add');
     });
 
+    //Album ROUTES
+    Route::group([
+        'prefix'=>'album',
+        'as' => 'album.',
+    ], function(){
+        Route::get('/','AlbumController@index')->name('all');
+        Route::post('/add','AlbumController@add')->name('add');
+        Route::post('/edit/{album_id}','AlbumController@edit')->name('edit');
+        Route::post('/delete','AlbumController@delete')->name('delete');
+        //gallery
+        Route::get('/gallery/{album_slug}','GalleryController@gallery')->name('gallery');
+        Route::get('/get_images/{album_id}','GalleryController@get_gallery')->name('get_images');
+        Route::post('/upload/{gallery_id}','GalleryController@upload')->name('upload_gallery');
+        Route::get('/delete_image/{gallery_id}','GalleryController@delete')->name('delete_gallery');
 
+    });
 
 //    Student Route
 
