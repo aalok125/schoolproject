@@ -61,8 +61,8 @@ class StudentController extends Controller
 
         if($request->file('image')){
             $image = $request->file('image');
-            imageUpload($image, 'images/students/thumbnail/', 'images/students/');
-            $student->image = time().$image->getClientOriginalName();
+            $db_path = imageUpload($image,  'images/students/');
+            $student->image = $db_path;
         }
 
         $response = $student->save();

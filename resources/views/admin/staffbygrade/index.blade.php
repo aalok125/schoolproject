@@ -21,9 +21,8 @@
         <div class="col-sm-12">
             <div class="float-right page-breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                    <!-- <li class="breadcrumb-item"><a href="#">*Breadcrumb1*</a></li>
-                    <li class="breadcrumb-item active">*Breadcrumb2*</li> -->
+                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route('admin.staffbygrade.all') }}">Staff-Grade-Subject</a></li>
                 </ol>
             </div>
             <h5 class="page-title">Staff By Grades</h5>

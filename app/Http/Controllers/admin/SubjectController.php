@@ -23,10 +23,10 @@ class SubjectController extends Controller
         $subject->remarks = $request->remarks;
 
         if($subject->save()){
-            return redirect()->back()->with('success','New Staff Type Added Successfully');
+            return redirect()->back()->with('success','New Subject Added Successfully');
         }
         else{
-            return redirect()->back()->with('error','New Staff Type Add Failed');
+            return redirect()->back()->with('error','New Subject Add Failed');
         }
 
     }
@@ -38,20 +38,20 @@ class SubjectController extends Controller
         $subject->remarks = $request->remarks;
 
         if($subject->save()){
-            return redirect()->back()->with('success','Staff Type Edited Successfully');
+            return redirect()->back()->with('success','Subject Edited Successfully');
         }
         else{
-            return redirect()->back()->with('error','Staff Type Edit Failed');
+            return redirect()->back()->with('error','Subject Edit Failed');
         }
     }
 
     public function delete(Request $request){
         if($subject = Subject::findOrFail($request->subject_id)){
             $subject->delete();
-            return redirect()->back()->with('success','Staff Type Deleted Successfully');
+            return redirect()->back()->with('success','Subject Deleted Successfully');
         }
         else{
-            return redirect()->back()->with('error','Staff Type Delete Failed, Please Reload The Page');
+            return redirect()->back()->with('error','Subject Delete Failed, Please Reload The Page');
         }
     }
 }

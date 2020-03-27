@@ -13,9 +13,8 @@
         <div class="col-sm-12">
             <div class="float-right page-breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                    <!-- <li class="breadcrumb-item"><a href="#">*Breadcrumb1*</a></li>
-                    <li class="breadcrumb-item active">*Breadcrumb2*</li> -->
+                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route('admin.subject.all') }}">Subjects</a></li>
                 </ol>
             </div>
             <h5 class="page-title">Subjects</h5>
@@ -61,12 +60,12 @@
                                 <td>{{$content->grade->title}}</td>
                                 <td>{{$content->remarks}}</td>
                                 <td>
-                                    <button class="btn btn-primary"
+                                    <button class="btn btn-primary btn-icon-text mr-2 p-1"
                                         data-toggle="modal" data-target="#edit_content{{$content->id}}">
                                         <i class="fa fa-edit"></i>
                                     </button>
                                     @include('admin.subject.edit')
-                                    <button class="btn btn-danger"
+                                    <button class="btn btn-danger btn-icon-text mr-2 p-1"
                                         data-toggle="modal" data-target="#delete_content{{$content->id}}">
                                         <i class="fa fa-trash"></i>
                                     </button>

@@ -62,6 +62,9 @@ Route::group([
         'as' => 'staff.',
     ], function(){
         Route::get('/','StaffController@index')->name('all');
+        Route::get('/qualifications/{staff_slug}','StaffController@qualifications_edit')->name('qualifications');
+        Route::post('/qualifications/{staff_slug}','StaffController@qualifications_update')->name('qualifications_update');
+        Route::get('/certificates/{staff_slug}','StaffController@certificates_edit')->name('certificates');
         Route::get('/detail/{staff_slug}','StaffController@details')->name('details');
         Route::get('/add','StaffController@add')->name('add');
         Route::post('/store','StaffController@store')->name('store');

@@ -17,6 +17,7 @@ class CreateStaffTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->nullable();
+            $table->string('image')->nullable();
             $table->string('job_title')->nullable();
             $table->integer('ethnicity_id')->unsigned();
             $table->text('address')->nullable();

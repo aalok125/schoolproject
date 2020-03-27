@@ -9,6 +9,7 @@ use App\Model\StaffExprience;
 use App\Model\StaffType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Image;
 
 class StaffController extends Controller
 {
@@ -47,41 +48,17 @@ class StaffController extends Controller
         $staff->email = $request->email;
         $staff->staff_type_id = $request->staff_type_id;
 
-        $save = $staff->save();
-        if($save) {
-            if (isset($request->exp)) {
-                $exp = $request->exp;
-                $keys = array_keys($exp['organization_name']);
-                foreach ($keys as $key) {
-                    $experience = new StaffExprience();
-                    $experience->staff_id = $staff->id;
-                    $experience->school_id = 1;
-                    $experience->organization_name = $exp['organization_name'][$key];
-                    $experience->job_title = $exp['job_title'][$key];
-                    $experience->job_location = $exp['job_location'][$key];
-                    $experience->start_date = $exp['start_date'][$key];
-                    $experience->end_date = $exp['end_date'][$key];
-                    $experience->save();
-                }
-            }
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $db_path = imageUpload($image,  'images/staff/');
+            $staff->image = $db_path;
+        }
 
-            if($request->hasFile('certificate_file')){
-                foreach ($request->file('certificate_file') as $key => $image){
-                    $doc = new StaffDocument();
-                    $filename = time().'-'.rand(1000,9999).'.'.$image->getClientOriginalExtension();
-                    $image->move(public_path().'/admin/staff/documents/',$filename);
-                    $db_filename = '/admin/staff/documents/'.$filename;
-                    $doc->title = $request->certificate_title[$key];
-                    $doc->file = $db_filename;
-                    $doc->staff_id = $staff->id;
-                    $doc->school_id = 1;
-                    $doc->save();
-                }
-            }
-            return redirect('/admin/staff')->with('success','New Staff Added Successfully');
+        if($staff->save()) {
+            return redirect()->route('admin.staff.all')->with('success','New Staff Added Successfully');
         }
         else{
-            return redirect('/admin/staff')->with('error','New Staff Add Failed');
+            return redirect()->back()->with('error','New Staff Add Failed');
         }
 
     }
@@ -114,29 +91,11 @@ class StaffController extends Controller
         $save = $staff->update();
 
         if($save) {
-            foreach ($staff->expriences as $exp){
-                $exp->delete();
-            }
-            if (isset($request->exp)) {
-                $exp = $request->exp;
-                $keys = array_keys($exp['organization_name']);
-                foreach ($keys as $key) {
-                    $experience = new StaffExprience();
-                    $experience->staff_id = $staff->id;
-                    $experience->school_id = 1;
-                    $experience->organization_name = $exp['organization_name'][$key];
-                    $experience->job_title = $exp['job_title'][$key];
-                    $experience->job_location = $exp['job_location'][$key];
-                    $experience->start_date = $exp['start_date'][$key];
-                    $experience->end_date = $exp['end_date'][$key];
-                    $experience->save();
-                }
-            }
 
-            return redirect()->back()->with('success','New Staff Edited Successfully');
+            return redirect()->route('admin.staff.all')->with('success','Staff Edited Successfully');
         }
         else{
-            return redirect('/admins/staff')->with('error','New Staff Add Failed');
+            return redirect()->back()->with('error','Staff Edit Failed');
         }
 
     }
@@ -166,6 +125,51 @@ class StaffController extends Controller
         }
     }
 
+    public function qualifications_edit($staff_slug){
+        if($staff = Staff::where('slug',$staff_slug)->first()) {
+            return view('admin.staff.qualifications',compact('staff'));
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
+    public function qualifications_update(Request $request,$staff_slug){
+        $staff = Staff::where('slug',$staff_slug)->first();
+        foreach ($staff->expriences as $exp){
+            $exp->delete();
+        }
+        if (isset($request->exp)) {
+//                    dd($request);
+            $exp = $request->exp;
+            $keys = array_keys($exp['organization_name']);
+            foreach ($keys as $key) {
+                $experience = new StaffExprience();
+                $experience->staff_id = $staff->id;
+                $experience->school_id = 1;
+                $experience->organization_name = $exp['organization_name'][$key];
+                $experience->job_title = $exp['job_title'][$key];
+                $experience->job_location = $exp['job_location'][$key];
+                $experience->start_date = $exp['start_date'][$key];
+                $experience->end_date = $exp['end_date'][$key];
+                $experience->save();
+            }
+            return redirect()->route('admin.staff.all')->with('success','Staff Qualifications Edited Successfully');
+        }
+        else{
+            return redirect()->back()->with('error','Staff Qualification Edit Failed');
+        }
+    }
+
+    public function certificates_edit($staff_slug){
+        if($staff = Staff::where('slug',$staff_slug)->first()) {
+            return view('admin.staff.certificates',compact('staff'));
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
     public function upload_doc(Request $request,$staff_id){
 //        return dd($request);
         $staff = Staff::find($staff_id);
@@ -179,7 +183,12 @@ class StaffController extends Controller
             $doc->file = $db_filename;
             $doc->staff_id = $staff->id;
             $doc->school_id = 1;
-            $doc->save();
+        }
+        if($doc->save()){
+            return response()->json("File Added",200);
+        }
+        else{
+            return response()->json("Error",400);
         }
     }
     public function delete_doc($id){
@@ -200,6 +209,5 @@ class StaffController extends Controller
         $staff = Staff::findOrFail($id);
         $files = StaffDocument::where('staff_id',$staff->id)->get();
         return $files;
-
     }
 }

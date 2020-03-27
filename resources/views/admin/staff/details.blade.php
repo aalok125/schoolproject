@@ -114,7 +114,9 @@
         .image_preview_image{
             height: 150px;
             width: auto;
-
+        }
+        .nav {
+            margin-top: 60px;
         }
     </style>
 @endpush
@@ -126,9 +128,9 @@
         <div class="col-sm-12">
             <div class="float-right page-breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                    <li class="breadcrumb-item"><a href="#">*Breadcrumb1*</a></li>
-                    <li class="breadcrumb-item active">*Breadcrumb2*</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
+                    <li class="breadcrumb-item "><a href="{{ route('admin.staff.all') }}">Staffs</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route('admin.staff.details',$staff->slug) }}">{{ $staff->name }}</a></li>
                 </ol>
             </div>
             <h5 class="page-title">Staff Profile</h5>
@@ -146,11 +148,12 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file"/>
-                        </div>
+                        <img src="
+                            @if(isset($staff->image))
+                            {{asset($staff->image)}}
+                            @else
+                            {{asset('admin/img/profile_icon.png')}}
+                            @endif" alt=""/>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -177,9 +180,25 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('admin.staff.edit',$staff->slug) }}">
-                        <input type="button" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </a>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle profile-edit-btn" data-toggle="dropdown">Edit Profile <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('admin.staff.edit',$staff->slug) }}">
+                                        Edit Basic Info</a>
+                                </li>
+                                <li><a href="{{ route('admin.staff.qualifications',$staff->slug) }}">
+                                        Edit Qualifications</a>
+                                </li>
+                                <li><a href="{{ route('admin.staff.certificates',$staff->slug) }}">
+                                        Edit Certificates</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    {{--<a href="{{ route('admin.staff.edit',$staff->slug) }}">--}}
+                        {{--<input type="button" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>--}}
+                    {{--</a>--}}
                 </div>
             </div>
             <div class="row">
@@ -297,6 +316,7 @@
                                 @endforeach
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -307,5 +327,12 @@
 @push('scripts')
 
 {{--Page specific scripts--}}
+<script>
+    $('ul.nav li.dropdown').hover(function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+    }, function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+    });
+</script>
 
 @endpush
