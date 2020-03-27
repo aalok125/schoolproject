@@ -24,10 +24,23 @@
                                 </a>
                             </li>
 
-                            </li><li>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.students') }}" class="waves-effect">
                                     <i class="dripicons-meter"></i>
                                     <span> Students <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.occupations') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Occupation <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.ethnicitys') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Ethnicity <span class="badge badge-success badge-pill float-right">3</span></span>
                                 </a>
                             </li>
 
