@@ -42,6 +42,27 @@
                                     <span> Ethnicity <span class="badge badge-success badge-pill float-right">3</span></span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.assets') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Asset <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="{{ route('admin.album.all') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Album <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+
+
+                            <li>
+                                <a href="{{ route('admin.grade.all') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Grade <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-user-id"></i> <span> Staff Setup </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>

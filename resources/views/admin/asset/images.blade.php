@@ -4,12 +4,12 @@
 @push('styles')
 
 {{--Page specific styles--}}
-    <style>
-        .preview_image img{
-            max-width: 200px;
-            height: auto;
-        }
-    </style>
+<style>
+    .preview_image img{
+        max-width: 200px;
+        height: auto;
+    }
+</style>
 
 @endpush
 
@@ -21,11 +21,11 @@
             <div class="float-right page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                    <li class="breadcrumb-item "><a href="{{ route('admin.album.all') }}">Albums</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('admin.album.gallery',$album->slug) }}">{{ $album->title }}</a></li>
+                    <li class="breadcrumb-item "><a href="{{ route('admin.album.all') }}">Asset</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ route('admin.album.gallery',$asset->slug) }}">{{ $asset->title }}</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Name : {{ $album->name }}</h5>
+            <h5 class="page-title">Name : {{ $asset->title }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -39,7 +39,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="text-center">Image Upload Section For Album:</h5>
+                    <h5 class="text-center">Image Upload Section For {{ $asset->title }}:</h5>
 
                     <div class="row">
                         <div class="col-md-12">
@@ -54,7 +54,7 @@
                                 <div class="row">
                                     <div class="col-md-4 form-group">
                                         <label for="">Image File</label>
-                                        <input id="image_submit" type="file" name="album_image" class="form-control">
+                                        <input id="image_submit" type="file" name="asset_image" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
     function get_images(){
 
         $.ajax({
-            url: '{{ route('admin.album.get_images',$album->id) }}',
+            url: '{{ route('admin.asset.get_image',$asset->id) }}',
             contentType : false,
             processData : false,
             method: 'get',
@@ -136,7 +136,7 @@
         var formData = new FormData();
         var myFile = $('#image_submit').prop('files')[0];
         console.log(myFile);
-        formData.append('album_image',myFile);
+        formData.append('asset_image',myFile);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content'),
@@ -144,7 +144,7 @@
         });
 
         $.ajax({
-            url: '{{ route("admin.album.upload_gallery",$album->id)}}',
+            url: '{{ route("admin.asset.upload",$asset->id)}}',
             contentType: false,
             processData: false,
             method: 'POST',
@@ -169,7 +169,7 @@
     jQuery(document).on('click', '.delete_document', function (e) {
         e.preventDefault();
         var imageId = $(this).val();
-        var url = '{{ route("admin.album.delete_gallery",":imageId") }}';
+        var url = '{{ route("admin.asset.image_delete",":imageId") }}';
         url = url.replace(':imageId',imageId);
         $.ajax({
             url: url,

@@ -137,4 +137,26 @@ Route::group([
     Route::get('ethnicity/edit/{id}', 'EthnicityController@edit')->name('ethnicity.edit');
     Route::get('ethnicity/delete/{id}', 'EthnicityController@destroy')->name('ethnicity.delete');
 
+
+//    Asset Route
+
+    Route::get('assets', 'AssetController@index')->name('assets');
+    Route::get('asset/create/{id}', 'AssetController@create')->name('asset.create');
+    Route::post('asset/store', 'AssetController@store')->name('asset.store');
+    Route::post('asset/update', 'AssetController@update')->name('asset.update');
+    Route::get('asset/json', 'AssetController@getJson')->name('asset.json');
+    Route::get('asset/edit/{id}', 'AssetController@edit')->name('asset.edit');
+    Route::get('asset/delete/{id}', 'AssetController@destroy')->name('asset.delete');
+    Route::get('asset/image/{slug}', 'AssetController@addImage')->name('asset.image');
+    Route::get('asset/get_image/{id}', 'AssetController@getImages')->name('asset.get_image');
+    Route::post('asset/upload/{id}','AssetController@upload')->name('asset.upload');
+    Route::get('asset/image_delete/{id}','AssetController@deleteImage')->name('asset.image_delete');
+
+
+    Route::post('asset/category/store', 'AssetController@categoryStore')->name('asset.category.store');
+    Route::get('asset/category/json', 'AssetController@getCategoryJtore')->name('asset.category.json');
+    Route::get('asset/category/edit/{id}', 'AssetController@categoryEdit')->name('asset.category.edit');
+    Route::get('asset/category/delete/{id}', 'AssetController@categoryDelete')->name('asset.category.delete');
+    Route::post('asset/category/update', 'AssetController@categoryUpdate')->name('asset.category.update');
+
 });
