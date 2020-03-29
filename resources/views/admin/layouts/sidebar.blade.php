@@ -87,9 +87,15 @@
                                 </ul>
                             </li>
 
-
-
-
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-article"></i> <span>Bulletin</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('admin.event.all') }}">Events</a></li>
+                                    <li><a href="{{ route('admin.staff.all') }}">News</a></li>
+                                    <li><a href="{{ route('admin.notice.all') }}">Notice</a></li>
+                                    <li><a href="#">Tender</a></li>
+                                </ul>
+                            </li>
 
                         </ul>
                     </div>

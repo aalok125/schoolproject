@@ -76,6 +76,7 @@ class StaffController extends Controller
     }
 
     public function update(Request $request, $staff_slug){
+//        dd($request);
         $staff = Staff::where('slug',$staff_slug)->first();
 
         $staff->name = $request->name;
@@ -89,6 +90,12 @@ class StaffController extends Controller
         $staff->staff_type_id = $request->staff_type_id;
 
         $save = $staff->update();
+
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $db_path = imageUpload($image,  'images/staff/');
+            $staff->image = $db_path;
+        }
 
         if($save) {
 
