@@ -10,6 +10,9 @@ class GradeController extends Controller
 {
     public function index(){
         $contents = Grade::all();
+        foreach ($contents as $content){
+            $content->studentCount = $content->students()->count();
+        }
         return view('admin.grade.index',compact('contents'));
     }
     public function add(Request $request){

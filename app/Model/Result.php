@@ -22,7 +22,7 @@ class Result extends Model
         return $this->belongsTo(School::class, 'school_id');
     }
 
-    public function belongsTo(){
+    public function garde(){
 
         return $this->belongsTo(Grade::class, 'grade_id');
     }

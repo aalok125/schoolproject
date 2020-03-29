@@ -159,4 +159,19 @@ Route::group([
     Route::get('asset/category/delete/{id}', 'AssetController@categoryDelete')->name('asset.category.delete');
     Route::post('asset/category/update', 'AssetController@categoryUpdate')->name('asset.category.update');
 
+
+
+
+    //    Ethnicity Route
+
+    Route::get('exams', 'ExamController@index')->name('exams');
+    Route::get('exam/create', 'ExamController@create')->name('exam.create');
+    Route::post('exam/store', 'ExamController@store')->name('exam.store');
+    Route::post('exam/update', 'ExamController@update')->name('exam.update');
+    Route::get('exam/json', 'ExamController@getJson')->name('exam.json');
+    Route::get('exam/edit/{id}', 'ExamController@edit')->name('exam.edit');
+    Route::get('exam/delete/{id}', 'ExamController@destroy')->name('exam.delete');
+    Route::get('exam/result/{id}/{grade_id}', 'ExamController@examResult')->name('exam.result');
+    Route::post('exam/result/update', 'ExamController@examResultUpdate')->name('exam.result.update');
+
 });

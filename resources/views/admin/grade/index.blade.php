@@ -45,6 +45,7 @@
                         <tr>
                             <th>S.No</th>
                             <th>Title</th>
+                            <th>Total Student</th>
                             <th>Remarks</th>
                             <th>Action</th>
                         </tr>
@@ -55,7 +56,8 @@
                             @foreach($contents as $content)
                             <tr>
                                 <td>{{ $content->id }}</td>
-                                <td>{{$content->title}}</td>
+                                <td>Class {{$content->title}}</td>
+                                <td> {{$content->studentCount}}</td>
                                 <td>{{$content->remarks}}</td>
                                 <td>
                                     <button class="btn btn-primary btn-icon-text mr-2 p-1"

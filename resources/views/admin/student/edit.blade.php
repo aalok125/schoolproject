@@ -53,8 +53,11 @@
                                             <label>Grade</label>
                                             <select class="form-control" name="grade_id">
                                                 <option>Select Grade</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
+                                                @foreach($grades as $grade)
+                                                    <option @if($grade->id == $student->grade_id) selected @endif value="{{ $grade->id }}">
+                                                        {{ $grade->title }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -63,8 +66,11 @@
                                             <label>Ethnicity</label>
                                             <select class="form-control" name="ethnicity_id">
                                                 <option value="">Select Ethnicity</option>
-                                                <option value="1">Bahun</option>
-                                                <option value="2">Magar</option>
+                                                @foreach($ethnicitys as $ethnicity)
+                                                    <option @if($ethnicity->id == $student->ethnicity_id) selected @endif value="{{ $ethnicity->id }}">
+                                                        {{ $ethnicity->title }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -98,8 +104,11 @@
                                             <button class="btn btn-sm btn-primary waves-effect waves-light float-right">Add New</button>
                                             <select class="form-control" name="occupation_id">
                                                 <option>Select Occupation</option>
-                                                <option value="1">Farmer</option>
-                                                <option value="2">Teacher</option>
+                                                @foreach($occupations as $occupation)
+                                                    <option @if($occupation->id == $student->occupation_id) selected @endif value="{{ $occupation->id }}">
+                                                        {{ $occupation->title }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

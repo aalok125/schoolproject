@@ -52,8 +52,11 @@
                                             <label>Grade</label>
                                             <select class="form-control" name="grade_id">
                                                 <option>Select Grade</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
+                                                @foreach($grades as $grade)
+                                                    <option value="{{ $grade->id }}">
+                                                        {{ $grade->title }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

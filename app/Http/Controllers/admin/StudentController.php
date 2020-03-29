@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Model\Ethnicity;
+use App\Model\Grade;
 use App\Model\Occupation;
 use App\Model\Student;
 use Carbon\Carbon;
@@ -32,7 +33,8 @@ class StudentController extends Controller
     {
         $ethnicitys = Ethnicity::all();
         $occupations = Occupation::all();
-        return view('admin.student.add', compact('ethnicitys', 'occupations'));
+        $grades = Grade::all();
+        return view('admin.student.add', compact('ethnicitys', 'occupations', 'grades'));
     }
 
     /**
@@ -102,8 +104,11 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
+        $ethnicitys = Ethnicity::all();
+        $occupations = Occupation::all();
+        $grades = Grade::all();
         $student = Student::find($id);
-        return view('admin.student.edit', compact('student'));
+        return view('admin.student.edit', compact('student', 'ethnicitys', 'occupations', 'grades'));
     }
 
     /**
@@ -136,12 +141,18 @@ class StudentController extends Controller
 
         if($request->file('image')){
             if($student->image){
-                File::delete(public_path('images/students/thumbnail/'.$student->image));
-                File::delete(public_path('images/students/'.$student->image));
+                $file_path = public_path().'/'.$student->image;
+                $thumbnail_path = public_path().'/thumbnail/'.$student->image;
+                if(file_exists($file_path)){
+                    unlink($file_path);
+                }
+                if(file_exists($thumbnail_path)){
+                    unlink($thumbnail_path);
+                }
             }
             $image = $request->file('image');
-            imageUpload($image, 'images/students/thumbnail/', 'images/students/');
-            $student->image = time().$image->getClientOriginalName();
+            $db_filename = imageUpload($image,'images/students/');
+            $student->image = $db_filename;
         }
 
         $response = $student->update();
@@ -165,8 +176,14 @@ class StudentController extends Controller
     {
         $student =Student::find($id);
         if($student->image){
-            File::delete(public_path('images/students/thumbnail/'.$student->image));
-            File::delete(public_path('images/students/'.$student->image));
+            $file_path = public_path().'/'.$student->image;
+            $thumbnail_path = public_path().'/thumbnail/'.$student->image;
+            if(file_exists($file_path)){
+                unlink($file_path);
+            }
+            if(file_exists($thumbnail_path)){
+                unlink($thumbnail_path);
+            }
         }
 
         $response = $student->delete();
@@ -189,7 +206,7 @@ class StudentController extends Controller
             $student->count = $count;
             $birthdate = Carbon::parse($student->DOB);
             $student->age =$birthdate->diffInYears($todayDate, false);
-            $student->image = asset('images/students/thumbnail/'.$student->image);
+            $student->image = asset('thumbnail/'.$student->image);
             $count++;
         }
         return datatables($students)->toJson();
