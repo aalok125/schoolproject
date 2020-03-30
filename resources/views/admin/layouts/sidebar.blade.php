@@ -30,6 +30,17 @@
                                     <span> Students <span class="badge badge-success badge-pill float-right">3</span></span>
                                 </a>
                             </li>
+
+
+
+                            <li>
+                                <a href="{{ route('admin.sliders') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Slider <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
+
+
                             <li>
                                 <a href="{{ route('admin.occupations') }}" class="waves-effect">
                                     <i class="dripicons-meter"></i>
@@ -100,6 +111,16 @@
                                     <li><a href="{{ route('admin.staff.all') }}">News</a></li>
                                     <li><a href="{{ route('admin.notice.all') }}">Notice</a></li>
                                     <li><a href="#">Tender</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-article"></i> <span>About</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('admin.basic.info') }}">Basic Info</a></li>
+                                    <li><a href="{{ route('admin.about') }}">About</a></li>
+                                    <li><a href="{{ route('admin.history') }}">History</a></li>
+                                    <li><a href="{{ route('admin.welcome.message') }}">Welcome Message</a></li>
                                 </ul>
                             </li>
 

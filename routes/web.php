@@ -229,4 +229,25 @@ Route::group([
     Route::get('committee/edit/{id}', 'CommitteeController@edit')->name('committee.edit');
     Route::get('committee/delete/{id}', 'CommitteeController@destroy')->name('committee.delete');
 
+
+
+//    Committees Route
+
+    Route::get('about', 'AboutController@about')->name('about');
+    Route::get('history', 'AboutController@history')->name('history');
+    Route::get('welcome-message', 'AboutController@welcomeMessage')->name('welcome.message');
+    Route::get('basic-info', 'AboutController@basicInfo')->name('basic.info');
+    Route::post('about/update', 'AboutController@update')->name('about.update');
+
+
+//    Slider Route
+
+    Route::get('sliders', 'SliderController@index')->name('sliders');
+    Route::get('slider/create', 'SliderController@create')->name('slider.create');
+    Route::post('slider/store', 'SliderController@store')->name('slider.store');
+    Route::post('slider/update', 'SliderController@update')->name('slider.update');
+    Route::get('slider/json', 'SliderController@getJson')->name('slider.json');
+    Route::get('slider/edit/{id}', 'SliderController@edit')->name('slider.edit');
+    Route::get('slider/delete/{id}', 'SliderController@destroy')->name('slider.delete');
+
 });

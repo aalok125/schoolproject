@@ -22,7 +22,7 @@
             \File::makeDirectory($thumbnailPath, 0777, true, true);
 
         }
-        $ImageUpload->resize(250,250);
+        $ImageUpload->resizeCanvas(250,250, 'center', false, 'fff');
         $ImageUpload = $ImageUpload->save($thumbnailPath.$time.$file->getClientOriginalName());
         return $db_path;
     }
