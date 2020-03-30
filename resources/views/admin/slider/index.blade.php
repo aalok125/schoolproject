@@ -43,6 +43,8 @@
                         <tr>
                             <th>S.N</th>
                             <th>Title</th>
+                            <th>Image</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
