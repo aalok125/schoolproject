@@ -142,6 +142,19 @@ Route::group([
         Route::get('/changestatus/{notice_id}','NoticeController@changestatus')->name('changestatus');
     });
 
+    Route::group([
+        'prefix'=>'tenders',
+        'as' => 'tender.',
+    ], function(){
+        Route::get('/','TenderController@index')->name('all');
+        Route::get('/add','TenderController@add')->name('add');
+        Route::post('/add','TenderController@store')->name('store');
+        Route::get('/edit/{notice_slug}','TenderController@edit')->name('edit');
+        Route::post('/edit/{notice_slug}','TenderController@update')->name('update');
+        Route::post('/delete','TenderController@delete')->name('delete');
+        Route::get('/changestatus/{notice_id}','TenderController@changestatus')->name('changestatus');
+    });
+
 
 //    Student Route
 

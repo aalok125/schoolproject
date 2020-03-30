@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Tender extends Model
