@@ -25,7 +25,7 @@ Route::group([
 
     //Grade (CLASS) CRUD
     Route::group([
-        'prefix'=>'grade',
+        'prefix'=>'grades',
         'as' => 'grade.',
     ], function(){
         Route::get('/','GradeController@index')->name('all');
@@ -36,7 +36,7 @@ Route::group([
 
     //SUBJECT CRUD
     Route::group([
-        'prefix'=>'subject',
+        'prefix'=>'subjects',
         'as' => 'subject.',
     ], function(){
         Route::get('/','SubjectController@index')->name('all');
@@ -47,7 +47,7 @@ Route::group([
 
     //STAFF TYPE CRUD
     Route::group([
-        'prefix'=>'staff_type',
+        'prefix'=>'staff_types',
         'as' => 'staff_type.',
     ], function(){
         Route::get('/','StaffTypeController@index')->name('all');
@@ -58,7 +58,7 @@ Route::group([
 
     //STAFF CRUD
     Route::group([
-        'prefix'=>'staff',
+        'prefix'=>'staffs',
         'as' => 'staff.',
     ], function(){
         Route::get('/','StaffController@index')->name('all');
@@ -78,7 +78,7 @@ Route::group([
 
     //STAFF-CLASS-SUBJECT ROUTES
     Route::group([
-        'prefix'=>'staffbygrade',
+        'prefix'=>'staffsbygrade',
         'as' => 'staffbygrade.',
     ], function(){
         Route::get('/','StaffClassController@index')->name('all');
@@ -87,7 +87,7 @@ Route::group([
 
     //Album ROUTES
     Route::group([
-        'prefix'=>'album',
+        'prefix'=>'albums',
         'as' => 'album.',
     ], function(){
         Route::get('/','AlbumController@index')->name('all');
@@ -101,6 +101,47 @@ Route::group([
         Route::get('/delete_image/{gallery_id}','GalleryController@delete')->name('delete_gallery');
 
     });
+
+    Route::group([
+        'prefix'=>'events',
+        'as' => 'event.',
+    ], function(){
+        Route::get('/','EventController@index')->name('all');
+        Route::get('/add','EventController@add')->name('add');
+        Route::post('/add','EventController@store')->name('store');
+        Route::get('/edit/{event_slug}','EventController@edit')->name('edit');
+        Route::post('/edit/{event_slug}','EventController@update')->name('update');
+        Route::post('/delete','EventController@delete')->name('delete');
+        Route::get('/changestatus/{event_id}','EventController@changestatus')->name('changestatus');
+    });
+
+
+    Route::group([
+        'prefix'=>'news',
+        'as' => 'news.',
+    ], function(){
+        Route::get('/','NewsController@index')->name('all');
+        Route::get('/add','NewsController@add')->name('add');
+        Route::post('/add','NewsController@store')->name('store');
+        Route::get('/edit/{news_slug}','NewsController@edit')->name('edit');
+        Route::post('/edit/{news_slug}','NewsController@update')->name('update');
+        Route::post('/delete','NewsController@delete')->name('delete');
+        Route::get('/changestatus/{news_id}','NewsController@changestatus')->name('changestatus');
+    });
+
+    Route::group([
+        'prefix'=>'notice',
+        'as' => 'notice.',
+    ], function(){
+        Route::get('/','NoticeController@index')->name('all');
+        Route::get('/add','NoticeController@add')->name('add');
+        Route::post('/add','NoticeController@store')->name('store');
+        Route::get('/edit/{notice_slug}','NoticeController@edit')->name('edit');
+        Route::post('/edit/{notice_slug}','NoticeController@update')->name('update');
+        Route::post('/delete','NoticeController@delete')->name('delete');
+        Route::get('/changestatus/{notice_id}','NoticeController@changestatus')->name('changestatus');
+    });
+
 
 //    Student Route
 
