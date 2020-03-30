@@ -162,7 +162,7 @@ Route::group([
 
 
 
-    //    Ethnicity Route
+    //    Exam Route
 
     Route::get('exams', 'ExamController@index')->name('exams');
     Route::get('exam/create', 'ExamController@create')->name('exam.create');
@@ -173,5 +173,19 @@ Route::group([
     Route::get('exam/delete/{id}', 'ExamController@destroy')->name('exam.delete');
     Route::get('exam/result/{id}/{grade_id}', 'ExamController@examResult')->name('exam.result');
     Route::post('exam/result/update', 'ExamController@examResultUpdate')->name('exam.result.update');
+
+
+
+
+
+//    Committees Route
+
+    Route::get('committees', 'CommitteeController@index')->name('committees');
+    Route::get('committee/create', 'CommitteeController@create')->name('committee.create');
+    Route::post('committee/store', 'CommitteeController@store')->name('committee.store');
+    Route::post('committee/update', 'CommitteeController@update')->name('committee.update');
+    Route::get('committee/json', 'CommitteeController@getJson')->name('committee.json');
+    Route::get('committee/edit/{id}', 'CommitteeController@edit')->name('committee.edit');
+    Route::get('committee/delete/{id}', 'CommitteeController@destroy')->name('committee.delete');
 
 });

@@ -86,6 +86,12 @@
                                     <li><a href="{{ route('admin.staffbygrade.all') }}">Staff-Class-Subject</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.committees') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> Committee <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
+                            </li>
 
 
 
