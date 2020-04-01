@@ -18,6 +18,7 @@ class CreateStaffTypesTable extends Migration
             $table->string('title')->nullable();
             $table->longText('remarks')->nullable();
             $table->integer('school_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

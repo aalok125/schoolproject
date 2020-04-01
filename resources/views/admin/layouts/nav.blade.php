@@ -3,7 +3,11 @@
     <div class="topbar-left	d-none d-lg-block">
         <div class="text-center">
 
-            <a href="index.html" class="logo"><img src="assets/images/logo.png" height="20" alt="logo"></a>
+            <a href="{{ url('admins/dashboard') }}" class="logo">
+                @if(getAbout('logo'))
+                    <img src="{{ asset('thumbnail/'.getAbout('logo')) }}" style="width: 70px;" alt="logo">
+                @endif
+            </a>
         </div>
     </div>
 
@@ -127,12 +131,13 @@
             <li class="list-inline-item dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="false" aria-expanded="false">
-                    <img src="assets/images/users/user-1.jpg" alt="user" class="rounded-circle">
+                    @if(\Auth::user()->image)
+                        <img src="{{ asset('thumbnail/'.\Auth::user()->image) }}" alt="{{ \Auth::user()->name }}" class="rounded-circle">
+                    @endif
+
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
                     <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><span class="badge badge-success mt-1 float-right">5</span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a>
-                    <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a>
                     <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
                 </div>
             </li>

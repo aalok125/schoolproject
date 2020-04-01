@@ -34,19 +34,16 @@
             <div class="card mini-stat m-b-30">
                 <div class="p-3 bg-primary text-white">
                     <div class="mini-stat-icon">
-                        <i class="mdi mdi-cube-outline float-right mb-0"></i>
+                        <i class="mdi mdi-account-multiple float-right mb-0"></i>
                     </div>
-                    <h6 class="text-uppercase mb-0">New Orders</h6>
+                    <h6 class="text-uppercase mb-0">Total Student</h6>
                 </div>
                 <div class="card-body">
-                    <div class="border-bottom pb-4">
-                        <span class="badge badge-success"> +11% </span> <span class="ml-2 text-muted">From previous period</span>
-                    </div>
                     <div class="mt-4 text-muted">
                         <div class="float-right">
-                            <p class="m-0">Last : 1325</p>
+                            <p class="m-0"><a href="#">View</a></p>
                         </div>
-                        <h5 class="m-0">1456<i class="mdi mdi-arrow-up text-success ml-2"></i></h5>
+                        <h5 class="m-0">{{ getAbout('total_student') }}</h5>
                         
                     </div>
                 </div>
@@ -56,20 +53,17 @@
             <div class="card mini-stat m-b-30">
                 <div class="p-3 bg-primary text-white">
                     <div class="mini-stat-icon">
-                        <i class="mdi mdi-account-network float-right mb-0"></i>
+                        <i class="mdi mdi-account-box-outline float-right mb-0"></i>
                     </div>
-                    <h6 class="text-uppercase mb-0">New Users</h6>
+                    <h6 class="text-uppercase mb-0">Total Staff</h6>
                 </div>
                 <div class="card-body">
-                    <div class="border-bottom pb-4">
-                            <span class="badge badge-success"> +22% </span> <span class="ml-2 text-muted">From previous period</span>
-                    </div>
                     <div class="mt-4 text-muted">
                         <div class="float-right">
-                            <p class="m-0">Last : 3426</p>
+                            <p class="m-0"><a href="#">View More</a></p>
                         </div>
-                        <h5 class="m-0">3567<i class="mdi mdi-arrow-up text-success ml-2"></i></h5>
-                        
+                        <h5 class="m-0">{{ $staff->count() }}</h5>
+
                     </div>
                 </div>
             </div>
@@ -78,20 +72,17 @@
             <div class="card mini-stat m-b-30">
                 <div class="p-3 bg-primary text-white">
                     <div class="mini-stat-icon">
-                        <i class="mdi mdi-tag-text-outline float-right mb-0"></i>
+                        <i class="mdi mdi-gender-female float-right mb-0"></i>
                     </div>
-                    <h6 class="text-uppercase mb-0">Average Price</h6>
+                    <h6 class="text-uppercase mb-0">Total Male</h6>
                 </div>
                 <div class="card-body">
-                    <div class="border-bottom pb-4">
-                        <span class="badge badge-danger"> -02% </span> <span class="ml-2 text-muted">From previous period</span>
-                    </div>
                     <div class="mt-4 text-muted">
                         <div class="float-right">
-                            <p class="m-0">Last : 15.8</p>
+                            <p class="m-0"><a href="#">View</a></p>
                         </div>
-                        <h5 class="m-0">14.5<i class="mdi mdi-arrow-down text-danger ml-2"></i></h5>
-                        
+                        <h5 class="m-0">{{ getAbout('male_student') }}</h5>
+
                     </div>
                 </div>
             </div>
@@ -100,20 +91,17 @@
             <div class="card mini-stat m-b-30">
                 <div class="p-3 bg-primary text-white">
                     <div class="mini-stat-icon">
-                        <i class="mdi mdi-cart-outline float-right mb-0"></i>
+                        <i class="mdi mdi-gender-male float-right mb-0"></i>
                     </div>
-                    <h6 class="text-uppercase mb-0">Total Sales</h6>
+                    <h6 class="text-uppercase mb-0">Total Female</h6>
                 </div>
                 <div class="card-body">
-                    <div class="border-bottom pb-4">
-                        <span class="badge badge-success"> +10% </span> <span class="ml-2 text-muted">From previous period</span>
-                    </div>
                     <div class="mt-4 text-muted">
                         <div class="float-right">
-                            <p class="m-0">Last : 14256</p>
+                            <p class="m-0"><a href="#">View</a></p>
                         </div>
-                        <h5 class="m-0">15234<i class="mdi mdi-arrow-up text-success ml-2"></i></h5>
-                        
+                        <h5 class="m-0">{{ getAbout('female_student') }}</h5>
+
                     </div>
                 </div>
             </div>
@@ -148,6 +136,12 @@
             </div>
         </div>
         <div class="col-xl-4">
+
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div class="card m-b-30">
                 <div class="card-body">
                     <h4 class="mt-0 header-title">Revenue</h4>
@@ -170,7 +164,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
     <!-- end row -->
     <div class="row">
@@ -415,6 +408,135 @@
 
 @push('scripts')
 
-    {{--Page specific scripts--}}
+    <script>
+        !function ($) {
+            "use strict";
+
+            var Dashboard = function () {
+            };
+
+
+            //creates area chart
+            Dashboard.prototype.createAreaChart = function (element, pointSize, lineWidth, data, xkey, ykeys, labels, lineColors) {
+                Morris.Area({
+                    element: element,
+                    pointSize: 0,
+                    lineWidth: 0,
+                    data: data,
+                    xkey: xkey,
+                    ykeys: ykeys,
+                    labels: labels,
+                    resize: true,
+                    gridLineColor: '#eee',
+                    hideHover: 'auto',
+                    lineColors: lineColors,
+                    fillOpacity: 0.7,
+                    behaveLikeLine: true
+                });
+            },
+
+                //creates area chart
+                Dashboard.prototype.createBarChart  = function(element, data, xkey, ykeys, labels, lineColors) {
+                    Morris.Bar({
+                        element: element,
+                        data: data,
+                        xkey: xkey,
+                        ykeys: ykeys,
+                        labels: labels,
+                        gridLineColor: '#eef0f2',
+                        barSizeRatio: 0.4,
+                        resize: true,
+                        hideHover: 'auto',
+                        barColors: lineColors
+                    });
+                },
+
+                //creates Donut chart
+                Dashboard.prototype.createDonutChart = function (element, data, colors) {
+                    Morris.Donut({
+                        element: element,
+                        data: data,
+                        resize: true,
+                        colors: colors,
+                    });
+                },
+
+                //donut
+                $('.peity-donut').each(function () {
+                    $(this).peity("donut", $(this).data());
+                });
+
+            //pie
+            $('.peity-pie').each(function () {
+                $(this).peity("pie", $(this).data());
+            });
+
+            /* BEGIN SVG WEATHER ICON */
+            if (typeof Skycons !== 'undefined'){
+                var icons = new Skycons(
+                    {"color": "#fff"},
+                    {"resizeClear": true}
+                    ),
+                    list  = [
+                        "clear-day", "clear-night", "partly-cloudy-day",
+                        "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                        "fog"
+                    ],
+                    i;
+
+                for(i = list.length; i--; )
+                    icons.set(list[i], list[i]);
+                icons.play();
+            };
+
+            Dashboard.prototype.init = function () {
+
+                //creating area chart
+                var $areaData = [
+                    {y: '2012', a: 0, b: 0, c:0},
+                    {y: '2013', a: 150, b: 45, c:15},
+                    {y: '2014', a: 60, b: 150, c:195},
+                    {y: '2015', a: 180, b: 36, c:21},
+                    {y: '2016', a: 90, b: 60, c:360},
+                    {y: '2017', a: 75, b: 240, c:120},
+                    {y: '2018', a: 30, b: 30, c:30}
+                ];
+                this.createAreaChart('morris-area-example', 0, 0, $areaData, 'y', ['a', 'b', 'c'], ['Series A', 'Series B', 'Series C'], ['#ff5560', '#fcc24c', '#508aeb']);
+
+                //creating bar chart
+                var $barData = [
+                    {y: '1', a: 75, b: 65, c: 65},
+                    {y: '2', a: 50, b: 40, c: 65},
+                    {y: '3', a: 75, b: 65, c: 65},
+                    {y: '4', a: 100, b: 90, c: 65},
+                    {y: '5', a: 90, b: 75, c: 65},
+                    {y: '6', a: 90, b: 75, c: 65},
+                    {y: '7', a: 90, b: 75, c: 65},
+                    {y: '8', a: 90, b: 75, c: 65},
+                    {y: '9', a: 90, b: 75, c: 65},
+                    {y: '10', a: 90, b: 75, c: 65},
+                ];
+                this.createBarChart('morris-bar-example', $barData, 'y', ['a', 'b', 'c'], ['Total', 'Male', 'Female'], ['#508aeb', '#fcc24c', '#54cc96']);
+
+                //creating donut chart
+                var $donutData = [
+                    {label: "Bitcoin", value: 12},
+                    {label: "Ethereum", value: 42},
+                    {label: "Cardano", value: 20},
+                    {label: "Ripple", value: 26}
+                ];
+                this.createDonutChart('morris-donut-example', $donutData, ['#54cc96', "#508aeb", '#ff5560', '#fcc24c']);
+
+            },
+                //init
+                $.Dashboard = new Dashboard, $.Dashboard.Constructor = Dashboard
+        }(window.jQuery),
+
+//initializing
+            function ($) {
+                "use strict";
+                $.Dashboard.init();
+            }(window.jQuery);
+    </script>
 
 @endpush

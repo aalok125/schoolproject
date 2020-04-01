@@ -4,10 +4,13 @@ namespace App\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ethnicity extends Model
 {
     use Sluggable;
+
+    use SoftDeletes;
     protected $fillable = [
 
         'title',

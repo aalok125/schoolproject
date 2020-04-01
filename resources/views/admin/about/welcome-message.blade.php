@@ -39,14 +39,78 @@
                     <form class="" action="{{ route('admin.about.update') }}" method="post" enctype="multipart/form-data">
 
                         {{ csrf_field() }}
+
+
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Welcome Message</label>
-                                    <textarea name="welcome_message" style="height: 500px;" class="summernote">
-                                    {{ getAbout('welcome_message') }}
-                                    </textarea>
+
+                                <ul class="nav nav-pills nav-justified" role="tablist">
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link active" data-toggle="tab" href="#home-1" role="tab">Welcome Message</a>
+                                    </li>
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link" data-toggle="tab" href="#profile-1" role="tab">Adhyaksh Message</a>
+                                    </li>
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link" data-toggle="tab" href="#messages-1" role="tab">Principal Message</a>
+                                    </li>
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active p-3" id="home-1" role="tabpanel">
+                                        <div class="form-group">
+                                            <label>Welcome Message</label>
+                                            <textarea name="welcome_message" style="height: 500px;" class="summernote">
+                                                {{ getAbout('welcome_message') }}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane p-3" id="profile-1" role="tabpanel">
+                                        <div class="form-group">
+                                            <label>Adhyaksh Image</label>
+                                            <input type="file" name="adhyaksh_image" class="form-control">
+                                            @if(getAbout('adhyaksh_image'))
+                                                <img src="{{ asset('/thumbnail/'.getAbout('adhyaksh_image')) }}" style="width: 100px;">
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Adhyaksh Message</label>
+                                            <textarea name="adhyaksh_message" style="height: 500px;" class="summernote">
+                                                {{ getAbout('adhyaksh_message') }}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane p-3" id="messages-1" role="tabpanel">
+                                        <div class="form-group">
+                                            <label>Principal Image</label>
+                                            <input type="file" name="principal_image" class="form-control">
+                                            @if(getAbout('principal_image'))
+                                                <img src="{{ asset('/thumbnail/'.getAbout('principal_image')) }}" style="width: 100px;">
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Principal Message</label>
+                                            <textarea name="principal_message" style="height: 500px;" class="summernote">
+                                                {{ getAbout('principal_message') }}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane p-3" id="settings-1" role="tabpanel">
+                                        <p class="font-14 mb-0">
+                                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
+                                            art party before they sold out master cleanse gluten-free squid
+                                            scenester freegan cosby sweater. Fanny pack portland seitan DIY,
+                                            art party locavore wolf cliche high life echo park Austin. Cred
+                                            vinyl keffiyeh DIY salvia PBR, banh mi before they sold out
+                                            farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral,
+                                            mustache readymade thundercats keffiyeh craft beer marfa
+                                            ethical. Wolf salvia freegan, sartorial keffiyeh echo park
+                                            vegan.
+                                        </p>
+                                    </div>
                                 </div>
+
 
 
 

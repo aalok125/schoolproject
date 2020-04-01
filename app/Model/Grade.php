@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Grade extends Model
 
@@ -11,6 +12,7 @@ class Grade extends Model
 {
 
     use Sluggable;
+    use SoftDeletes;
    protected $fillable = [
 
        'title',

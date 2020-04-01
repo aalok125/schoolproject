@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Model\Exam;
 use App\Model\Grade;
 use App\Model\Result;
+use App\Model\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -21,9 +22,11 @@ class ExamController extends Controller
     {
         $grades = Grade::all();
         $exams = Exam::all();
+
         $count = 1;
         foreach ($exams as $exam){
             $exam->count = $count;
+            $exam->month = \Carbon\Carbon::parse($exam->start_date)->format('m');
             $exam->grade = $exam->grades->pluck('title');
             $count++;
         }
@@ -213,6 +216,32 @@ class ExamController extends Controller
             return redirect()->back()->with('error', '...........Error.........');
         }
 
+    }
+
+
+    public function examPassStudent($id){
+        $grades = Grade::all();
+        $grade = Grade::find($id);
+        $students = $grade->students;
+        return view('admin.exam.pass-student', compact('grade', 'students', 'grades'));
+
+
+    }
+
+
+    public function examPassStudentUpdate(Request $request){
+
+        $grade_id = $request->grade_id;
+        $students = $request->student;
+
+        foreach ($students as $student){
+
+            $updateStudent = Student::find((int)$student);
+            $updateStudent->grade_id = $grade_id;
+            $updateStudent->update();
+        }
+
+        return redirect()->route('admin.exams')->with('success', 'Successfully Updated.');
     }
 
 

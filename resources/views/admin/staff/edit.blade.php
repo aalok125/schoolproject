@@ -83,18 +83,6 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="ethnicity">Ethnicity:</label>
-                                    <select name="ethnicity_id" id="ethnicity" class="form-control">
-                                        <option value="" disabled>Select Ethnicity</option>
-                                        @foreach($ethnicities as $ethnicity)
-                                            <option value="{{$ethnicity->id}}"
-                                                    @if($staff->ethnicity_id == $ethnicity->id) selected @endif
-                                            >
-                                                {{ $ethnicity->title }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="phone">Phone:</label>
                                     <input type="text" name="phone" value="{{$staff->phone}}" id="phone" class="form-control">
                                 </div>
@@ -127,6 +115,10 @@
                                 <div class="form-group">
                                     <label for="DOB">DOB:</label>
                                     <input type="date" name="DOB" value="{{$staff->DOB}}" id="DOB" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="DOB">Join Date:</label>
+                                    <input type="date" name="join_date" value="{{$staff->join_date}}" id="DOB" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="photo">Profile Image</label>

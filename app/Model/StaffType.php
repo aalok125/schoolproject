@@ -3,9 +3,11 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class StaffType extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
 
         'title',

@@ -19,9 +19,18 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('admin.student.index');
+        $grade = Grade::find($id);
+        return view('admin.student.index', compact('grade'));
+    }
+
+
+
+    public function studentbyGrade()
+    {
+        $grades = Grade::all();
+        return view('admin.student.grade', compact('grades'));
     }
 
     /**
@@ -198,8 +207,9 @@ class StudentController extends Controller
     }
 
 
-    public function getJson(){
-        $students = Student::all();
+    public function getJson($id){
+        $grade = Grade::find($id);
+        $students = $grade->students;
         $count = 1;
         $todayDate = Carbon::parse(date('Y-m-d'));
         foreach ($students as $student){

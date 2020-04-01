@@ -33,7 +33,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Student List<a href="{{ route('admin.student.create') }}" class="btn btn-primary waves-effect waves-light float-right">Add New</a></h4>
+                    <h4 class="mt-0 header-title">Grade {{ $grade->title }} Student List<a href="{{ route('admin.student.create') }}" class="btn btn-primary waves-effect waves-light float-right">Add New</a></h4>
 
 
                     <table id="datatable-students" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -86,7 +86,7 @@
             bFilter: true,
             bInfo: false,
             bAutoWidth: false,
-            ajax: "{{ route('admin.students.json') }}",
+            ajax: "{{ route('admin.students.json', $grade->id) }}",
             columns: [
                 {
                     data: 'count',

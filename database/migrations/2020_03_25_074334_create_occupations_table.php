@@ -18,6 +18,7 @@ class CreateOccupationsTable extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
             $table->longText('remarks')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

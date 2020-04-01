@@ -18,10 +18,12 @@ Route::get('/', function () {
 Route::group([
     'prefix' => '/admins',
     'as' => 'admin.',
-    'namespace'=>'admin'
+    'namespace'=>'admin',
+    'middleware' => ['auth']
 ], function (){
 
     Route::get('/dashboard','IndexController@index')->name('dashboard');
+    Route::get('/getstudentjson','IndexController@getStudentJson')->name('dashboard.student.json');
 
     //Grade (CLASS) CRUD
     Route::group([
@@ -158,11 +160,12 @@ Route::group([
 
 //    Student Route
 
-    Route::get('students', 'StudentController@index')->name('students');
+    Route::get('students/{id}', 'StudentController@index')->name('students');
+    Route::get('studentsbygrade', 'StudentController@studentbyGrade')->name('grade.students');
     Route::get('student/create', 'StudentController@create')->name('student.create');
     Route::post('student/store', 'StudentController@store')->name('student.store');
     Route::post('student/update', 'StudentController@update')->name('student.update');
-    Route::get('students/json', 'StudentController@getJson')->name('students.json');
+    Route::get('students/json/{id}', 'StudentController@getJson')->name('students.json');
     Route::get('student/edit/{id}', 'StudentController@edit')->name('student.edit');
     Route::get('student/delete/{id}', 'StudentController@destroy')->name('student.delete');
 
@@ -227,6 +230,8 @@ Route::group([
     Route::get('exam/delete/{id}', 'ExamController@destroy')->name('exam.delete');
     Route::get('exam/result/{id}/{grade_id}', 'ExamController@examResult')->name('exam.result');
     Route::post('exam/result/update', 'ExamController@examResultUpdate')->name('exam.result.update');
+    Route::get('exam/pass/student/{id}/', 'ExamController@examPassStudent')->name('exam.pass.student');
+    Route::post('exam/pass/student/update/', 'ExamController@examPassStudentUpdate')->name('exam.pass.student.student');
 
 
 
@@ -251,6 +256,7 @@ Route::group([
     Route::get('welcome-message', 'AboutController@welcomeMessage')->name('welcome.message');
     Route::get('basic-info', 'AboutController@basicInfo')->name('basic.info');
     Route::post('about/update', 'AboutController@update')->name('about.update');
+    Route::get('about/student', 'AboutController@aboutStudent')->name('about.student');
 
 
 //    Slider Route
@@ -263,4 +269,22 @@ Route::group([
     Route::get('slider/edit/{id}', 'SliderController@edit')->name('slider.edit');
     Route::get('slider/delete/{id}', 'SliderController@destroy')->name('slider.delete');
 
+
+
+//    User Route
+
+    Route::get('users', 'UserController@index')->name('users');
+    Route::get('user/create', 'UserController@create')->name('user.create');
+    Route::post('user/store', 'UserController@store')->name('user.store');
+    Route::post('user/update', 'UserController@update')->name('user.update');
+    Route::get('user/json', 'UserController@getJson')->name('user.json');
+    Route::get('user/edit/{id}', 'UserController@edit')->name('user.edit');
+    Route::get('user/delete/{id}', 'UserController@destroy')->name('user.delete');
+
 });
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

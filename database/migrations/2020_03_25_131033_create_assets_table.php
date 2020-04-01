@@ -21,6 +21,7 @@ class CreateAssetsTable extends Migration
             $table->longText('remarks')->nullable();
             $table->integer('asset_category_id')->unsigned();
             $table->integer('school_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

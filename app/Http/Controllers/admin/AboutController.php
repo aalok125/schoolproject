@@ -28,6 +28,12 @@ class AboutController extends Controller
     }
 
 
+    public function aboutStudent(){
+
+        return view('admin.about.student');
+    }
+
+
     public function basicInfo(){
 
         return view('admin.about.basic-info');
@@ -52,7 +58,16 @@ class AboutController extends Controller
             'youtube_link',
             'history',
             'welcome_message',
-            'about'
+            'about',
+            'adhyaksh_image',
+            'adhyaksh_message',
+            'principal_image',
+            'principal_message',
+            'total_student',
+            'male_student',
+            'female_student',
+            'dalit_student',
+            'disable_student'
         );
 
         foreach ($inputs as $inputKey => $inputValue) {

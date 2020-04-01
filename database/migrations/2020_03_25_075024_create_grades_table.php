@@ -19,6 +19,7 @@ class CreateGradesTable extends Migration
             $table->string('slug')->nullable();
             $table->longText('remarks')->nullable();
             $table->integer('school_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

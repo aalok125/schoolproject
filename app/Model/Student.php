@@ -4,9 +4,11 @@ namespace App\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
 {
+    use SoftDeletes;
     use  Sluggable;
     protected $fillable = [
 
@@ -17,6 +19,7 @@ class Student extends Model
         'ethnicity_id',
         'address',
         'gender',
+        'disability',
         'religion',
         'DOB',
         'guardian_name',

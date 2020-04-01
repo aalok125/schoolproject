@@ -92,13 +92,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" value="{{ $student->guardian_email }}" name="email" class="form-control" placeholder="Email"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Guardian Occupation</label>
                                             <button class="btn btn-sm btn-primary waves-effect waves-light float-right">Add New</button>
@@ -127,6 +121,16 @@
                                     </select>
                                 </div>
 
+
+                                <div class="form-group">
+                                    <label>Disability</label>
+                                    <select class="form-control" name="disability">
+                                        <option>Select Disability</option>
+                                        <option value="No" @if($student->disability == "No") selected @endif >No</option>
+                                        <option value="Yes" @if($student->gender == "Yes") selected @endif >Yes</option>
+                                    </select>
+                                </div>
+
                                 <div class="form-group">
                                     <label>Religion</label>
                                     <select class="form-control" name="religion">
@@ -151,7 +155,7 @@
                                     <input type="file" name="image" class="form-control" />
 
                                     @if($student->image)
-                                    <img src="{{ asset('images/students/thumbnail/'.$student->image) }}">
+                                    <img src="{{ asset('/thumbnail/'.$student->image) }}">
                                         @endif
                                 </div>
 

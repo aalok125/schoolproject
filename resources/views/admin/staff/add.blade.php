@@ -80,15 +80,6 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="ethnicity">Ethnicity:</label>
-                                    <select name="ethnicity_id" id="ethnicity" class="form-control" required>
-                                        <option value="" selected disabled>Select Ethnicity</option>
-                                        @foreach($ethnicities as $ethnicity)
-                                            <option value="{{$ethnicity->id}}">{{ $ethnicity->title }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="phone">Phone:</label>
                                     <input type="text" name="phone" id="phone" class="form-control" required>
                                 </div>
@@ -115,6 +106,10 @@
                                 <div class="form-group">
                                     <label for="DOB">DOB:</label>
                                     <input type="date" name="DOB" id="DOB" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="DOB">Join Date:</label>
+                                    <input type="date" name="join_date" id="DOB" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="photo">Profile Image</label>

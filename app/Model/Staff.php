@@ -4,16 +4,18 @@ namespace App\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Staff extends Model
 {
     use Sluggable;
+    use SoftDeletes;
     protected $fillable = [
 
         'name',
         'slug',
         'job_title',
-        'ethnicity_id',
+        'join_date',
         'address',
         'gender',
         'DOB',
@@ -44,12 +46,6 @@ class Staff extends Model
     public function subjects(){
 
         return $this->belongsToMany(Subject::class, 'staff_class_subjects', 'staff_id');
-    }
-
-
-    public function ethnicity(){
-
-        return $this->belongsTo(Ethnicity::class, 'ethnicity_id');
     }
 
 

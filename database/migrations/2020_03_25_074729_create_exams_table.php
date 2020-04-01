@@ -20,6 +20,7 @@ class CreateExamsTable extends Migration
             $table->date('start_date')->nullable();
             $table->longText('remarks')->nullable();
             $table->integer('school_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

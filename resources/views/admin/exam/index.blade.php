@@ -82,6 +82,9 @@
                                                     </td>
                                                     <td>
                                                         <button type='button'  class='btn btn-primary btn-icon-text mr-2 p-1 btn-result-row' grade-id="{{ $grade->id }}" data-id="{{ $exam->id }}"><i class=" mdi mdi-plus btn-icon-prepend"></i>Result</button>
+                                                        @if($exam->month >= 9)
+                                                        <a href='{{ route('admin.exam.pass.student', $grade->id) }}'  class='btn btn-success btn-icon-text mr-2 p-1'><i class=" mdi mdi-plus btn-icon-prepend"></i>Upgrade Student</a>
+                                                            @endif
                                                     </td>
                                                 </tr>
                                             @endforeach

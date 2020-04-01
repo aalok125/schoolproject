@@ -91,13 +91,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" name="email" class="form-control" placeholder="Email"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Guardian Occupation</label>
                                             <button class="btn btn-sm btn-primary waves-effect waves-light float-right">Add New</button>
@@ -125,7 +119,14 @@
                                         <option value="Other">Other</option>
                                     </select>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>Disability</label>
+                                    <select class="form-control" name="disability">
+                                        <option>Select Disability</option>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label>Religion</label>
                                     <select class="form-control" name="religion">

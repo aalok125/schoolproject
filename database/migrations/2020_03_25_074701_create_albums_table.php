@@ -18,6 +18,7 @@ class CreateAlbumsTable extends Migration
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->integer('school_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

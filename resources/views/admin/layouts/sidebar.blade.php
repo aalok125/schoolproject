@@ -7,7 +7,11 @@
     <div class="left-side-logo d-block d-lg-none">
         <div class="text-center">
 
-            <a href="index.html" class="logo"><img src="assets/images/logo-dark.png" height="20" alt="logo"></a>
+            <a href="{{ url('admins/dashboard') }}" class="logo">
+                @if(getAbout('logo'))
+                <img src="{{ asset('thumbnail/'.getAbout('logo')) }}" style="width: 70px;" alt="logo">
+                    @endif
+            </a>
         </div>
     </div>
 
@@ -15,17 +19,16 @@
                     
                     <div id="sidebar-menu">
                         <ul>
-                            <li class="menu-title">Main</li>
 
                             <li>
-                                <a href="index.html" class="waves-effect">
+                                <a href="{{ url('admins/dashboard') }}" class="waves-effect">
                                     <i class="dripicons-meter"></i>
                                     <span> Dashboard <span class="badge badge-success badge-pill float-right">3</span></span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.students') }}" class="waves-effect">
+                                <a href="{{ route('admin.grade.students') }}" class="waves-effect">
                                     <i class="dripicons-user-group"></i>
                                     <span> Students <span class="badge badge-success badge-pill float-right">3</span></span>
                                 </a>
@@ -120,8 +123,17 @@
                                     <li><a href="{{ route('admin.basic.info') }}">Basic Info</a></li>
                                     <li><a href="{{ route('admin.about') }}">About</a></li>
                                     <li><a href="{{ route('admin.history') }}">History</a></li>
-                                    <li><a href="{{ route('admin.welcome.message') }}">Welcome Message</a></li>
+                                    <li><a href="{{ route('admin.welcome.message') }}">Message</a></li>
+                                    <li><a href="{{ route('admin.about.student') }}">Student</a></li>
                                 </ul>
+                            </li>
+
+
+                            <li>
+                                <a href="{{ route('admin.users') }}" class="waves-effect">
+                                    <i class="dripicons-meter"></i>
+                                    <span> User <span class="badge badge-success badge-pill float-right">3</span></span>
+                                </a>
                             </li>
 
                         </ul>

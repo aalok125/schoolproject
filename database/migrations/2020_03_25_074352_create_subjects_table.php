@@ -20,6 +20,7 @@ class CreateSubjectsTable extends Migration
             $table->integer('grade_id')->unsigned();
             $table->longText('remarks')->nullable();
             $table->integer('school_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

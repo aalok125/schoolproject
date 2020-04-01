@@ -40,7 +40,7 @@ class StaffController extends Controller
         $staff->school_id = 1;
         $staff->name = $request->name;
         $staff->job_title = $request->job_title;
-        $staff->ethnicity_id = $request->ethnicity_id ;
+        $staff->join_date = $request->join_date ;
         $staff->address = $request->address;
         $staff->gender = $request->gender;
         $staff->DOB = $request->DOB;
@@ -81,7 +81,7 @@ class StaffController extends Controller
 
         $staff->name = $request->name;
         $staff->job_title = $request->job_title;
-        $staff->ethnicity_id = $request->ethnicity_id ;
+        $staff->join_date = $request->join_date ;
         $staff->address = $request->address;
         $staff->gender = $request->gender;
         $staff->DOB = $request->DOB;
