@@ -5,6 +5,7 @@ namespace App\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Ethnicity extends Model
 {
@@ -26,6 +27,15 @@ class Ethnicity extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['title', 'slug', 'remarks'];
+
+    public function getDescriptionForEvent($eventName)
+    {
+        return "{$eventName}";
     }
 
 

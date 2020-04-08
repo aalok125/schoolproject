@@ -22,6 +22,7 @@ Route::group([
     'middleware' => ['auth']
 ], function (){
 
+
     Route::get('/dashboard','IndexController@index')->name('dashboard');
     Route::get('/getstudentjson','IndexController@getStudentJson')->name('dashboard.student.json');
 
@@ -155,6 +156,16 @@ Route::group([
         Route::post('/edit/{tender_slug}','TenderController@update')->name('update');
         Route::post('/delete','TenderController@delete')->name('delete');
         Route::get('/changestatus/{tender_id}','TenderController@changestatus')->name('changestatus');
+    });
+
+    Route::group([
+        'prefix'=>'logs',
+        'as' => 'log.',
+    ], function(){
+        Route::get('/','LogController@index')->name('all');
+        Route::get('/getJson/{school_id}','LogController@getJson')->name('Json');
+        Route::get('/getJson/details/{log_id}','LogController@details')->name('details');
+
     });
 
 

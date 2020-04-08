@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Result extends Model
 {
@@ -16,6 +17,15 @@ class Result extends Model
         'school_id',
 
     ];
+
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['exam_id', 'grade_id','file','remarks'];
+
+    public function getDescriptionForEvent($eventName)
+    {
+        return "{$eventName}";
+    }
 
     public function exam(){
 

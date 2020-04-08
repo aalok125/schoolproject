@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class AssetImage extends Model
 {
@@ -12,6 +13,14 @@ class AssetImage extends Model
         'school_id',
     ];
 
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['asset_id', 'image', 'school_id'];
+
+    public function getDescriptionForEvent($eventName)
+    {
+        return "{$eventName}";
+    }
 
     public function asset(){
 

@@ -5,6 +5,7 @@ namespace App\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Exam extends Model
 {
@@ -29,7 +30,14 @@ class Exam extends Model
         ];
     }
 
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['title', 'slug', 'start_date', 'remarks', 'school_id'];
 
+    public function getDescriptionForEvent($eventName)
+    {
+        return "{$eventName}";
+    }
 
     public function grades(){
 

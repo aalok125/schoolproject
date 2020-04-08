@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class AssetCategory extends Model
 {
@@ -14,6 +15,14 @@ class AssetCategory extends Model
         'school_id',
     ];
 
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['title', 'remakrs', 'school_id'];
+
+    public function getDescriptionForEvent($eventName)
+    {
+        return "{$eventName}";
+    }
 
     public function assets(){
 

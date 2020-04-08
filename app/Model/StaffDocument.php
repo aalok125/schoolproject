@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class StaffDocument extends Model
 {
@@ -14,6 +15,15 @@ class StaffDocument extends Model
         'school_id',
 
     ];
+
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['title', 'file','staff_id','school_id'];
+
+    public function getDescriptionForEvent($eventName)
+    {
+        return "{$eventName}";
+    }
 
 
     public function staff(){

@@ -7,6 +7,7 @@ use App\Model\Staff;
 use App\Model\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\Activitylog\Models\Activity;
 
 class IndexController extends Controller
 {
@@ -14,6 +15,7 @@ class IndexController extends Controller
         $staff = Staff::all();
         return view('admin.index', compact('staff'));
     }
+
 
     public function getStudentJson(){
 

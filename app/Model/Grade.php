@@ -5,15 +5,14 @@ namespace App\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Grade extends Model
-
-
 {
-
     use Sluggable;
     use SoftDeletes;
-   protected $fillable = [
+
+    protected $fillable = [
 
        'title',
        'slug',
@@ -32,7 +31,14 @@ class Grade extends Model
         ];
     }
 
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['title', 'slug','remarks','school_id'];
 
+    public function getDescriptionForEvent($eventName)
+    {
+        return "{$eventName}";
+    }
 
     public function grades(){
 

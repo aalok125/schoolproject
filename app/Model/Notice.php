@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Notice extends Model
 {
@@ -27,5 +28,14 @@ class Notice extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['title', 'slug','image','content','status','school_id'];
+
+    public function getDescriptionForEvent($eventName)
+    {
+        return "{$eventName}";
     }
 }

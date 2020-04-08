@@ -5,6 +5,7 @@ namespace App\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Subject extends Model
 {
@@ -18,6 +19,16 @@ class Subject extends Model
         'grade_id',
         'school_id',
 
+    ];
+
+    use LogsActivity;
+    protected static $logOnlyDirty = true;
+    protected static $logAttributes = ['name',
+        'title',
+        'slug',
+        'remarks',
+        'grade_id',
+        'school_id',
     ];
 
     public function sluggable()
