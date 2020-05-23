@@ -223,7 +223,9 @@
                                     <label>Ethnicity</label>
                                 </div>
                                 <div class="col-md-6">
+                                    @if(isset($staff->ethnicity))
                                     <p>{{ $staff->ethnicity->title }}</p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row">
@@ -276,16 +278,18 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            @php $count=1; @endphp
-                                            @foreach($staff->expriences as $exp)
-                                                <td>{{ $count }}</td>
-                                                <td>{{ $exp->organization_name }}</td>
-                                                <td>{{ $exp->job_title }}</td>
-                                                <td>{{ $exp->job_location }}</td>
-                                                <td>{{ $exp->start_date }}</td>
-                                                <td>{{ $exp->end_date }}</td>
-                                            @php $count++; @endphp
-                                            @endforeach
+                                            @if(isset($staff->expriences))
+                                                @php $count=1; @endphp
+                                                @foreach($staff->expriences as $exp)
+                                                    <td>{{ $count }}</td>
+                                                    <td>{{ $exp->organization_name }}</td>
+                                                    <td>{{ $exp->job_title }}</td>
+                                                    <td>{{ $exp->job_location }}</td>
+                                                    <td>{{ $exp->start_date }}</td>
+                                                    <td>{{ $exp->end_date }}</td>
+                                                @php $count++; @endphp
+                                                @endforeach
+                                            @endif
                                         </tr>
                                         </tbody>
                                     </table>
@@ -294,26 +298,28 @@
                         </div>
                         <div class="tab-pane fade" id="certificate" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
-                                @foreach($staff->documents as $doc)
-                                <div class="col-md-4 ">
-                                    <div class="card" style="box-shadow: 5px 10px 6px #888888;">
-                                        <div class="card-header text-center">
-                                            <a href="{{ asset($doc->file) }}">
-                                            <span>{{ $doc->title }}</span>
-                                            </a>
+                                @if(isset($staff->documents))
+                                    @foreach($staff->documents as $doc)
+                                    <div class="col-md-4 ">
+                                        <div class="card" style="box-shadow: 5px 10px 6px #888888;">
+                                            <div class="card-header text-center">
+                                                <a href="{{ asset($doc->file) }}">
+                                                <span>{{ $doc->title }}</span>
+                                                </a>
+                                            </div>
+                                            <div class="card-body">
+                                                <a href="{{ asset($doc->file) }}">
+                                                <img class="image_preview_image" src="{{asset('admin/img/document_logo.png')}}" alt="">
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <a href="{{ asset($doc->file) }}">
-                                            <img class="image_preview_image" src="{{asset('admin/img/document_logo.png')}}" alt="">
-                                            </a>
-                                        </div>
+                                        {{--<a href="{{ asset($doc->file) }}">--}}
+                                            {{--<img class="image_preview_image" src="{{asset('admin/img/document_logo.png')}}" alt="">--}}
+                                            {{--<p></p>--}}
+                                        {{--</a>--}}
                                     </div>
-                                    {{--<a href="{{ asset($doc->file) }}">--}}
-                                        {{--<img class="image_preview_image" src="{{asset('admin/img/document_logo.png')}}" alt="">--}}
-                                        {{--<p></p>--}}
-                                    {{--</a>--}}
-                                </div>
-                                @endforeach
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

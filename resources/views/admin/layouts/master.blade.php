@@ -119,6 +119,14 @@
         });
     });
 </script>
+
+<script>
+    jQuery(function() {
+        jQuery('#selectlanguage').change(function() {
+            this.form.submit();
+        });
+    });
+</script>
 @stack('scripts')
 
 </body>

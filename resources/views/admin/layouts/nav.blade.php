@@ -15,10 +15,13 @@
 
         <ul class="list-inline float-right mb-0">
             <li class="list-inline-item notification-list dropdown d-none d-sm-inline-block">
-                <form role="search" class="app-search">
+                <form role="search" method="post" action="{{ route('admin.setlanguage') }}">
+                    {{ csrf_field() }}
                     <div class="form-group mb-0">
-                        <input type="text" class="form-control" placeholder="Search..">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <select class="form-control" name="language" id="selectlanguage">
+                            <option value="nep" @if(\Session::get('lang_session') == "nep") selected @endif >Nepali</option>
+                            <option value="eng" @if(\Session::get('lang_session') == "eng") selected @endif >English</option>
+                        </select>
                     </div>
                 </form>
             </li>

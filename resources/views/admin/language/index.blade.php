@@ -34,7 +34,7 @@
                 <div class="card-body">
 
 
-                    <h4 class="mt-0 header-title">Language List<button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">Add New</button></h4>
+                    <h4 class="mt-0 header-title">Language List<button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new1111">Add New</button></h4>
                         @include('admin.language.add')
                     <div class="modal fade edu-edit-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     </div>
@@ -116,11 +116,11 @@
                     data: 'id',
                     orderable: false,
                     render: function (data, type, row) {
-                        var tempDeleteUrl = "{{ route('admin.ethnicity.delete', ':id') }}";
+                        var tempDeleteUrl = "{{ route('admin.language.delete', ':id') }}";
                         tempDeleteUrl = tempDeleteUrl.replace(':id', data);
                         var actions = '';
                         actions += "<button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i></button>";
-                        actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i></a>";
+//                        actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i></a>";
                         return actions;
                     }
                 },
@@ -145,6 +145,59 @@
         });
     });
 
+</script>
+
+
+<script>
+    $(document).on('submit', '#languageForm', function (e) {
+        e.preventDefault();
+        $(this).attr('disabled');
+        var form = new FormData($('#languageForm')[0]);
+        var params = $('#languageForm').serializeArray();
+
+        var myUrl = "{{ route('admin.language.store') }}";
+
+        $.each(params, function (i, val) {
+            form.append(val.name, val.value)
+        });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: myUrl,
+            contentType: false,
+            processData: false,
+            data: form,
+            beforeSend: function (data) {
+            },
+            success: function (data) {
+//                Swal.fire({
+//                    position: 'top-end',
+//                    type: data.status,
+//                    title: data.message,
+//                    showConfirmButton: false,
+//                    timer: 1500
+//                });
+
+                $('#languageForm')[0].reset();
+
+                $('#datatable-students').DataTable().ajax.reload();;
+
+//                $('.edu-add-new').modal('hide');
+            },
+            error: function (err) {
+                if (err.status == 422) {
+                    $.each(err.responseJSON.errors, function (i, error) {
+                        var el = $(document).find('[name="' + i + '"]');
+                        el.after($('<span style="color: red;">' + error[0] + '</span>').fadeOut(15000));
+                    });
+                }
+            }
+        });
+    });
 </script>
 
 @endpush

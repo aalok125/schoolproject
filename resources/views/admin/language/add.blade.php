@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="" action="{{ route('admin.language.store') }}" method="post" enctype="multipart/form-data">
+                <form class="" id="languageForm" method="post" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
                     <div class="form-group">
@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                         <label>Nepali</label>
-                        <input type="text" name="nepali_name" class="form-control" required placeholder="Nepali Title"/>
+                        <input type="text" name="nepali_name" class="form-control" placeholder="Nepali Title"/>
                     </div>
                     <button type="submit" class="btn btn-success waves-effect waves-light float-right">Save</button>
                 </form>

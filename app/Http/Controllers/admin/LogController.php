@@ -18,7 +18,7 @@ class LogController extends Controller
 
     public function getJson($school_id){
         if($user = User::where('school_id',$school_id)->first()) {
-            $logs = Activity::where('causer_id', $user->id)->where('causer_type', 'App\User')->orderBy('created_at', 'asc')->get();
+            $logs = Activity::where('causer_type', 'App\User')->orderBy('created_at', 'asc')->get();
             $count = 1;
             foreach ($logs as $log) {
                 $log->count = $count;

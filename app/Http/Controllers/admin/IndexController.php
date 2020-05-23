@@ -7,6 +7,8 @@ use App\Model\Staff;
 use App\Model\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Spatie\Activitylog\Models\Activity;
 
 class IndexController extends Controller
@@ -14,6 +16,12 @@ class IndexController extends Controller
     public function index(){
         $staff = Staff::all();
         return view('admin.index', compact('staff'));
+    }
+
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 
 
@@ -28,5 +36,14 @@ class IndexController extends Controller
         }
 
         return $grades;
+    }
+
+    public function setLanguage(Request $request){
+
+        $language= $request->language;
+        \Session::put('lang_session', $language);
+
+        return redirect()->back();
+
     }
 }

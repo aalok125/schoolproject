@@ -11,8 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group([
+    'as' => 'front.',
+    'namespace'=>'front',
+    'middleware' => []
+], function () {
+    Route::get('/','IndexController@home')->name('home');
+    Route::get('/contact','IndexController@contact')->name('contact');
+    Route::get('/gallery','IndexController@gallery')->name('gallery');
+
+    Route::get('/news','NewsNoticeController@news')->name('news');
+    Route::get('/news/{id}','NewsNoticeController@singleNews')->name('singleNews');
+
+    Route::get('/events','NewsNoticeController@events')->name('events');
+    Route::get('/event/{id}','NewsNoticeController@singleEvent')->name('singleEvent');
+
+    Route::get('/notice','NewsNoticeController@notice')->name('notice');
+    Route::get('/single-notice/{id}','NewsNoticeController@singleNotice')->name('singleNotice');
+
+    Route::get('/members/teachers','MemberController@teachers')->name('teachers');
+    Route::get('/members/administration','MemberController@administration')->name('administration');
+
 });
 
 Route::group([
@@ -24,6 +44,8 @@ Route::group([
 
 
     Route::get('/dashboard','IndexController@index')->name('dashboard');
+    Route::get('/logout','IndexController@logout')->name('logout');
+    Route::post('/setlanguage','IndexController@setLanguage')->name('setlanguage');
     Route::get('/getstudentjson','IndexController@getStudentJson')->name('dashboard.student.json');
 
     //Grade (CLASS) CRUD
@@ -292,7 +314,22 @@ Route::group([
     Route::get('user/edit/{id}', 'UserController@edit')->name('user.edit');
     Route::get('user/delete/{id}', 'UserController@destroy')->name('user.delete');
 
+
+
+
+//    Language Route
+
+    Route::get('languages', 'LanguageController@index')->name('languages');
+    Route::get('language/create', 'LanguageController@create')->name('language.create');
+    Route::post('language/store', 'LanguageController@store')->name('language.store');
+    Route::post('language/update', 'LanguageController@update')->name('language.update');
+    Route::get('language/json', 'LanguageController@getJson')->name('language.json');
+    Route::get('language/edit/{id}', 'LanguageController@edit')->name('language.edit');
+    Route::get('language/delete/{id}', 'LanguageController@destroy')->name('language.delete');
+
 });
+
+
 
 
 
