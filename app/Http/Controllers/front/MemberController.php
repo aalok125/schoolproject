@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class MemberController extends Controller
 {
     public function administration(){
-
+        return view('front.members.administration');
     }
 
     public function teachers(){

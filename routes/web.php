@@ -20,15 +20,20 @@ Route::group([
     Route::get('/','IndexController@home')->name('home');
     Route::get('/contact','IndexController@contact')->name('contact');
     Route::get('/gallery','IndexController@gallery')->name('gallery');
+    Route::get('/about','IndexController@about')->name('about');
+    Route::get('/mission-vision','IndexController@mission_vision')->name('mission-vision');
+    Route::get('/principal-note','IndexController@principal_note')->name('principal-note');
+    Route::get('/asset/{id}','IndexController@asset_category')->name('asset_category');
 
     Route::get('/news','NewsNoticeController@news')->name('news');
     Route::get('/news/{id}','NewsNoticeController@singleNews')->name('singleNews');
-
     Route::get('/events','NewsNoticeController@events')->name('events');
     Route::get('/event/{id}','NewsNoticeController@singleEvent')->name('singleEvent');
+    Route::get('/notices','NewsNoticeController@notice')->name('notice');
+    Route::get('/notice/{id}','NewsNoticeController@singleNotice')->name('singleNotice');
 
-    Route::get('/notice','NewsNoticeController@notice')->name('notice');
-    Route::get('/single-notice/{id}','NewsNoticeController@singleNotice')->name('singleNotice');
+    Route::get('/tenders','TenderController@tender')->name('tender');
+    Route::get('/tender/{id}','TenderController@singleTender')->name('singleTender');
 
     Route::get('/members/teachers','MemberController@teachers')->name('teachers');
     Route::get('/members/administration','MemberController@administration')->name('administration');

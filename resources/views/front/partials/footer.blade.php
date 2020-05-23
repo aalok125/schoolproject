@@ -4,13 +4,13 @@
             <div class="col-lg-3 col-md-6">
                 <div class="img-logo-container ">
                     <img
-                            src="assets/images/school-logo.png"
+                            src="{{ asset(isset($settings['logo']) ? $settings['logo'] : 'front/assets/images/school-logo.png') }}"
                             class="img-fluid"
                             alt=""
                     />
                 </div>
-                <div class="company_name text-center">Durbar High School</div>
-                <div class="company_address">Jamal, Kathmandu</div>
+                <div class="company_name text-center">{{ isset($settings['name']) ? $settings['name'] : "High School" }} </div>
+                <div class="company_address">{{ isset($settings['address']) ? $settings['address'] : "Jamal, Kathmandu" }}</div>
             </div>
 
             <div class="col-lg-3 col-md-6 ">
@@ -130,7 +130,7 @@
         <hr style="background: #dbdbdb" />
         <div class="bottom-footer d-flex justify-content-between">
             <div class="copywrite">
-                Copyright &copy; 2019 Durbar High School. All Rights Reserved.
+                Copyright &copy; 2020 {{ isset($settings['name']) ? $settings['name'] : "High School" }}. All Rights Reserved.
             </div>
             <ul class="privacy-link d-flex justify-content-between">
                 <li>

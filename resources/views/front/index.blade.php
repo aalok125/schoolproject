@@ -21,21 +21,21 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img
-                            src="assets/images/banner1.jpg"
+                            src="{{ asset('front/assets/images/banner1.jpg') }}"
                             alt="Los Angeles"
                             class="img-fluid"
                     />
                 </div>
                 <div class="carousel-item">
                     <img
-                            src="assets/images/banner2.jpg"
+                            src="{{ asset('front/assets/images/banner2.jpg') }}"
                             alt="Chicago"
                             class="img-fluid"
                     />
                 </div>
                 <div class="carousel-item">
                     <img
-                            src="assets/images/banner3.jpg"
+                            src="{{ asset('front/assets/images/banner3.jpg') }}"
                             alt="New York"
                             class="img-fluid"
                     />
