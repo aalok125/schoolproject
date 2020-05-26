@@ -133,7 +133,7 @@
         </div>
         <div class="col-xl-3">
             <a href="{{ route('admin.news.all') }}">
-            <div class="card m-b-30 text-white bg-primary">
+            <div class="card m-b-30 text-white bg-info">
                 <div class="card-body">
                     <blockquote class="card-bodyquote mb-0">
                         <p class="quick-links">School News.</p>
@@ -197,7 +197,7 @@
         </div>
         <div class="col-xl-3">
             <a href="{{ route('admin.album.all') }}">
-                <div class="card m-b-30 text-white bg-primary">
+                <div class="card m-b-30 text-white bg-info">
                     <div class="card-body">
                         <blockquote class="card-bodyquote mb-0">
                             <p class="quick-links">School Album.</p>
