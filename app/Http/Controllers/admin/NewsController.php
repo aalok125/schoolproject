@@ -18,7 +18,7 @@ class NewsController extends Controller
     }
 
     public function store(Request $request){
-         dd($request);
+//         dd($request);
         $News = new News();
         $News->school_id = 1;
         $News->title = $request->title;

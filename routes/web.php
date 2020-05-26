@@ -19,11 +19,13 @@ Route::group([
 ], function () {
     Route::get('/','IndexController@home')->name('home');
     Route::get('/contact','IndexController@contact')->name('contact');
-    Route::get('/gallery','IndexController@gallery')->name('gallery');
     Route::get('/about','IndexController@about')->name('about');
     Route::get('/mission-vision','IndexController@mission_vision')->name('mission-vision');
     Route::get('/principal-note','IndexController@principal_note')->name('principal-note');
     Route::get('/asset/{id}','IndexController@asset_category')->name('asset_category');
+
+    Route::get('/gallery','IndexController@gallery')->name('gallery');
+    Route::get('/gallery/{album_slug}','IndexController@singleAlbum')->name('singleAlbum');
 
     Route::get('/news','NewsNoticeController@news')->name('news');
     Route::get('/news/{id}','NewsNoticeController@singleNews')->name('singleNews');
@@ -36,6 +38,7 @@ Route::group([
     Route::get('/tender/{id}','TenderController@singleTender')->name('singleTender');
 
     Route::get('/members/teachers','MemberController@teachers')->name('teachers');
+    Route::get('/members/teacher/{id}','MemberController@teacherDetail')->name('teacherDetail');
     Route::get('/members/administration','MemberController@administration')->name('administration');
 
 });
@@ -49,6 +52,7 @@ Route::group([
 
 
     Route::get('/dashboard','IndexController@index')->name('dashboard');
+    Route::get('/dashboard/barGraph','IndexController@genderByClass')->name('genderByClass');
     Route::get('/logout','IndexController@logout')->name('logout');
     Route::post('/setlanguage','IndexController@setLanguage')->name('setlanguage');
     Route::get('/getstudentjson','IndexController@getStudentJson')->name('dashboard.student.json');

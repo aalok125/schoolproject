@@ -59,34 +59,18 @@
                 </div>
                 <div class="col-md-4">
                     <div class="sidebar-section">
-                        <div class="sidebar-title">Recent News</div>
-                        @if($context->recent_news->isNotEmpty())
+                        <div class="sidebar-title">Recent Notices</div>
+                        @if($context->recent_notices->isNotEmpty())
                             <ul>
-                                @foreach($context->recent_news as $news)
+                                @foreach($context->recent_notices as $notice)
                                     <li>
-                                        <a href="{{ route('front.singleNews',$news->id) }}">{{$news->title}}</a>
+                                        <a href="{{ route('front.singleNotice',$notice->id) }}">{{$notice->title}}</a>
                                     </li>
                                 @endforeach
                             </ul>
                         @else
-                            <span>No recent news to show.</span>
+                            <span>No recent notices to show.</span>
                         @endif
-
-                        <hr />
-
-                        <div class="sidebar-title">Recent Events</div>
-                        @if($context->recent_events->isNotEmpty())
-                            <ul>
-                                @foreach($context->recent_events as $event)
-                                    <li>
-                                        <a href="{{ route('front.singleEvent',$event->id) }}">{{ $event->title }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @else
-                            <span>No recent events to show.</span>
-                        @endif
-
                     </div>
                 </div>
             </div>

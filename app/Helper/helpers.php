@@ -31,4 +31,28 @@ function getLanguage($key){
     return null;
 }
 
+function schoolStudentsCount($school_id){
+    $grades = \App\Model\Grade::where('school_id',$school_id)->get();
+    $students = 0;
+    foreach ($grades as $grade){
+        $students += isset($grade->students)? $grade->students->count() : 0;
+    }
+    return $students;
+}
+
+function schoolAdministrationCount($school_id){
+    $staffTypes = \App\Model\StaffType::where('school_id',$school_id)->where('title','!=','Teacher')->get();
+    $admins = 0;
+    foreach ($staffTypes as $type){
+        $admins += isset($type->staffs) ? $type->staffs->count() : 0;
+    }
+    return $admins;
+}
+function schoolTeacherCount($school_id)
+{
+    $staffType = \App\Model\StaffType::where('school_id', $school_id)->where('title', 'Teacher')->first();
+    return isset($staffType->staffs) ? $staffType->staffs->count() : 0;
+}
+
+
 ?>

@@ -34,7 +34,7 @@
                                 @if($context->news->isNotEmpty())
                                     @foreach($context->news as $news)
                                         <div class="col-md-6">
-                                            <a href="{{ route('singleNews',$news->id) }}">
+                                            <a href="{{ route('front.singleNews',$news->id) }}">
                                                 <div class="img-container">
                                                     <img
                                                             src="{{ asset(isset($news->image)?$news->image:"front/assets/images/banner1.jpg") }}"

@@ -18,29 +18,36 @@
                 <li data-target="#hospitalCarousel" data-slide-to="2"></li>
             </ul>
 
+
+            @if($context->sliders->isNotEmpty())
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img
-                            src="{{ asset('front/assets/images/banner1.jpg') }}"
-                            alt="Los Angeles"
-                            class="img-fluid"
-                    />
+                @foreach($context->sliders as $slider)
+                <div class="carousel-item {{ $context->sliders[0]->id == $slider->id ? 'active' : '' }}">
+                    <a href="{{isset($slider->link)?$slider->link:"#"}}">
+                        <img
+                                src="{{ asset($slider->image) }}"
+                                alt="{{ $slider->title }}"
+                                class="img-fluid"
+                        />
+                    </a>
                 </div>
-                <div class="carousel-item">
-                    <img
-                            src="{{ asset('front/assets/images/banner2.jpg') }}"
-                            alt="Chicago"
-                            class="img-fluid"
-                    />
-                </div>
-                <div class="carousel-item">
-                    <img
-                            src="{{ asset('front/assets/images/banner3.jpg') }}"
-                            alt="New York"
-                            class="img-fluid"
-                    />
-                </div>
+                @endforeach
+                {{--<div class="carousel-item">--}}
+                    {{--<img--}}
+                            {{--src="{{ asset('front/assets/images/banner2.jpg') }}"--}}
+                            {{--alt="Chicago"--}}
+                            {{--class="img-fluid"--}}
+                    {{--/>--}}
+                {{--</div>--}}
+                {{--<div class="carousel-item">--}}
+                    {{--<img--}}
+                            {{--src="{{ asset('front/assets/images/banner3.jpg') }}"--}}
+                            {{--alt="New York"--}}
+                            {{--class="img-fluid"--}}
+                    {{--/>--}}
+                {{--</div>--}}
             </div>
+            @endif
 
             <a
                     class="carousel-control-prev"
@@ -71,10 +78,10 @@
                                     class="carousel slide"
                                     data-ride="carousel"
                             >
-                                @if($context->notices->isNotEmpty())
+                                @if($context->slider_notices->isNotEmpty())
                                     <div class="carousel-inner">
-                                        @foreach($context->notices as $notice)
-                                        <div class="carousel-item @if($notice->id == $context->notices[0]->id) active @endif">
+                                        @foreach($context->slider_notices as $notice)
+                                        <div class="carousel-item @if($notice->id == $context->slider_notices[0]->id) active @endif">
                                             <a href="">{{$notice->title}}</a>
                                         </div>
                                         @endforeach
@@ -91,20 +98,14 @@
                     </div>
                     <div class="welcome-content">
                         <div class="title">
-                            Welcome to Durbar High School
+                            Welcome to {{ isset($settings['name']) ? $settings['name'] : "High School" }}
                         </div>
 
                         <div class="description">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
-                            labore hic consequuntur pariatur nulla, id obcaecati at rem
-                            illo saepe quidem odit architecto eligendi harum assumenda
-                            unde reiciendis! Cum, quo.Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Quod labore hic consequuntur
-                            pariatur nulla, id obcaecati at rem illo saepe quidem odit
-                            architecto eligendi harum assumenda unde reiciendis! Cum, quo.
+                            {!! isset($settings['welcome_message']) ? $settings['welcome_message'] : ''  !!}
                         </div>
                         <div class="button-container">
-                            <a href="/about">Read More</a>
+                            <a href="{{ route('front.about') }}">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -167,13 +168,13 @@
                         <div class="event-tabs">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#news">
+                                    <a class="nav-link active" data-toggle="tab" href="#news">
                                         News Update
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a
-                                            class="nav-link active"
+                                            class="nav-link"
                                             data-toggle="tab"
                                             href="#tendernotice"
                                     >
@@ -201,181 +202,135 @@
                             <div class="tab-content">
                                 <div class="tab-pane container active" id="news">
                                     <div class="tab-detail">
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    News ipsum dolor, sit amet consectetur adipisicing
-                                                    elit. Veniam sed, facere eligendi sint dolorum
-                                                    officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
+                                        @if($context->news->isNotEmpty())
+                                            @foreach($context->news as $news)
+                                                <div class="tab-item">
+                                                    <div class="title">
+                                                        <a href="{{ route('front.singleNews',$news->id) }}">
+                                                            {{ $news->title }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="info">
+                                                        <div class="date">
+                                                            {{ isset($news->created_at)?$news->created_at->format('Y-m-d'):"" }}
+                                                        </div>
+                                                        <div class="morebtn">
+                                                            <a href="{{ route('front.singleNews',$news->id) }}">
+                                                                View <i class="fa fa-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="tab-item">
+                                                <div class="title">
                                                     <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
+                                                        No News Available Currently.
                                                     </a>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    News ipsum dolor, sit amet consectetur adipisicing
-                                                    elit. Veniam sed, facere eligendi sint dolorum
-                                                    officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
-                                                    <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
-                                                    </a>
+                                                <div class="info">
+                                                    {{--<div class="date">2076-12-12</div>--}}
+                                                    <div class="morebtn">
+                                                        <a href="#">
+                                                            View <i class="fa fa-arrow-right"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    Lorem ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
-                                                    <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endif
                                     </div>
                                     <div class="morebtn">
-                                        <a href="/notice">
+                                        <a href="{{ route('front.news') }}">
                                             View More <i class="fa fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-pane container fade" id="tendernotice">
                                     <div class="tab-detail">
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    tendernotice ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
+                                        @if($context->tenders->isNotEmpty())
+                                            @foreach($context->tenders as $tender)
+                                                <div class="tab-item">
+                                                    <div class="title">
+                                                        <a href="{{ route('front.singleTender',$tender->id) }}">
+                                                            {{ $tender->title }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="info">
+                                                        {{--<div class="date">2076-12-12</div>--}}
+                                                        <div class="morebtn">
+                                                            <a href="{{ route('front.singleTender',$tender->id) }}">
+                                                                View <i class="fa fa-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="tab-item">
+                                                <div class="title">
                                                     <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
+                                                        No tenders availbale currently.
                                                     </a>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    tendernotice ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
-                                                    <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
-                                                    </a>
+                                                <div class="info">
+                                                    {{--<div class="date">2076-12-12</div>--}}
+                                                    <div class="morebtn">
+                                                        <a href="#">
+                                                            View <i class="fa fa-arrow-right"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    Lorem ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
-                                                    <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endif
                                     </div>
                                     <div class="morebtn">
-                                        <a href="/news">
+                                        <a href="{{ route('front.tender') }}">
                                             View More <i class="fa fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-pane container fade" id="events">
                                     <div class="tab-detail">
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    Events dolor, sit amet consectetur adipisicing
-                                                    elit. Veniam sed, facere eligendi sint dolorum
-                                                    officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
+                                        @if($context->events->isNotEmpty())
+                                            @foreach($context->events as $event)
+                                                <div class="tab-item">
+                                                    <div class="title">
+                                                        <a href="{{ route('front.singleEvent',$event->id) }}">
+                                                            {{ $event->title }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="info">
+                                                        {{--<div class="date">2076-12-12</div>--}}
+                                                        <div class="morebtn">
+                                                            <a href="{{ route('front.singleEvent',$event->id) }}">
+                                                                View <i class="fa fa-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="tab-item">
+                                                <div class="title">
                                                     <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
+                                                        No events availbale currently.
                                                     </a>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    Events ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
-                                                    <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
-                                                    </a>
+                                                <div class="info">
+                                                    {{--<div class="date">2076-12-12</div>--}}
+                                                    <div class="morebtn">
+                                                        <a href="#">
+                                                            View <i class="fa fa-arrow-right"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    Lorem ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
-                                                    <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endif
                                     </div>
                                     <div class="morebtn">
                                         ser
-                                        <a href="/event">
+                                        <a href="{{ route('front.events') }}">
                                             View More <i class="fa fa-arrow-right"></i>
                                         </a>
                                     </div>
@@ -453,42 +408,39 @@
 
                         <div class="tab-pane container active">
                             <div class="tab-detail">
-                                <div class="tab-item">
-                                    <div class="title">
-                                        <a href="">
-                                            Notice ipsum dolor, sit amet consectetur adipisicing
-                                            elit. Veniam sed, facere eligendi sint dolorum officia
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="date">2076-12-12</div>
-                                        <div class="morebtn">
+                                @if($context->slider_notices->isNotEmpty())
+                                    @foreach($context->slider_notices as $notice)
+                                        <div class="tab-item">
+                                            <div class="title">
+                                                <a href="">
+                                                    {{$notice->title}}
+                                                </a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="date">
+                                                    {{ isset($notice->created_at)?$notice->created_at->format('Y-m-d'):"" }}
+                                                </div>
+                                                <div class="morebtn">
+                                                    <a href="{{ route('front.singleNotice',$notice->id) }}">
+                                                        View <i class="fa fa-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="tab-item">
+                                        <div class="title">
                                             <a href="">
-                                                View <i class="fa fa-arrow-right"></i>
+                                                No Notice Available !!
                                             </a>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
 
-                                <div class="tab-item">
-                                    <div class="title">
-                                        <a href="">
-                                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                                            elit. Veniam sed, facere eligendi sint dolorum officia
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="date">2076-12-12</div>
-                                        <div class="morebtn">
-                                            <a href="">
-                                                View <i class="fa fa-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="morebtn">
-                                <a href="/notice">
+                                <a href="{{ route('front.notice') }}">
                                     View More <i class="fa fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -503,53 +455,29 @@
             Facilities
         </div>
         <div class="sub-title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint deserunt
-            consequuntur dicta, cupiditate odit repellat, ex veniam dolor
+            Our School is equipped with many facilities
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="facility-item">
-                        <div class="img-container">
-                            <img
-                                    src="assets/images/computerlab.jpg"
-                                    alt=""
-                                    class="img-fluid"
-                            />
+                @if($context->asset_categories->isNotEmpty())
+                    @foreach($context->asset_categories as $category)
+                        {{--@dd($category)--}}
+                        <div class="col-md-4">
+                            <div class="facility-item">
+                                <div class="img-container">
+                                    <img
+                                            src="{{ asset( isset($category->preview_image) ? $category->preview_image :"front/assets/images/computerlab.jpg") }}"
+                                            alt=""
+                                            class="img-fluid"
+                                    />
+                                </div>
+                                <div class="facility-title">
+                                    {{ $category->title }}
+                                </div>
+                            </div>
                         </div>
-                        <div class="facility-title">
-                            Computer Lab
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="facility-item">
-                        <div class="img-container">
-                            <img
-                                    src="assets/images/library.jpg"
-                                    alt=""
-                                    class="img-fluid"
-                            />
-                        </div>
-                        <div class="facility-title">
-                            Library
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="facility-item">
-                        <div class="img-container">
-                            <img
-                                    src="assets/images/sciencelab.jpg"
-                                    alt=""
-                                    class="img-fluid"
-                            />
-                        </div>
-                        <div class="facility-title">
-                            Science Lab
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -568,7 +496,7 @@
                     <div class="counter">
                         <h2
                                 class="timer count-title count-number"
-                                data-to="25"
+                                data-to="{{$context->administration_count}}"
                                 data-speed="3000"
                         ></h2>
                         <p class="count-text ">Administration Member</p>
@@ -578,7 +506,7 @@
                     <div class="counter">
                         <h2
                                 class="timer count-title count-number"
-                                data-to="45"
+                                data-to="{{$context->teacher_count}}"
                                 data-speed="3000"
                         ></h2>
                         <p class="count-text ">Our Excellent Teachers</p>
@@ -588,8 +516,8 @@
                     <div class="counter">
                         <h2
                                 class="timer count-title count-number"
-                                data-to="1000"
-                                data-speed="2000"
+                                data-to="{{ $context->student_count }}"
+                                data-speed="3000"
                         ></h2>
                         <p class="count-text ">Our Geniues Students</p>
                     </div>

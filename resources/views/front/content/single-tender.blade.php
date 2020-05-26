@@ -17,7 +17,7 @@
     </div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"> </i> Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ asset('front.home') }}"><i class="fa fa-home"> </i> Home</a></li>
 
             <li class="breadcrumb-item active" aria-current="page">
                 Tender Notice
@@ -32,66 +32,35 @@
                         <div class="notice-section">
                             <div class="notice-detail-wrapper">
                                 <div class="main-title">
-                                    Tender Notice title for Durbar High School will be placed here.
+                                    {{ $tender->title }}
                                 </div>
                                 <div class="long-description">
-                                    <p>
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit. Dolores esse impedit, dolorum porro sapiente
-                                        natus? Placeat nesciunt ducimus laborum minima, minus
-                                        tempora consectetur suscipit veniam tenetur repudiandae
-                                        expedita exercitationem dolorum? Lorem ipsum dolor, sit
-                                        amet consectetur adipisicing elit. Dolores esse impedit,
-                                        dolorum porro sapiente natus? Placeat nesciunt ducimus
-                                        laborum minima, minus tempora consectetur suscipit
-                                        veniam tenetur repudiandae expedita exercitationem
-                                        dolorum?
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                                        elit. Dolores esse impedit, dolorum porro sapiente
-                                        natus? Placeat nesciunt ducimus laborum minima, minus
-                                        tempora consectetur suscipit veniam tenetur repudiandae
-                                        expedita exercitationem dolorum? Lorem ipsum dolor, sit
-                                        amet consectetur adipisicing elit. Dolores esse impedit,
-                                        dolorum porro sapiente natus? Placeat nesciunt ducimus
-                                        laborum minima, minus tempora consectetur suscipit
-                                        veniam tenetur repudiandae expedita exercitationem
-                                        dolorum?
-                                    </p>
+                                    <p>{{ $tender->content }}</p>
 
                                 </div>
                                 <div class="download-title">
-                                    Additional Documents
+                                    File Attachment
                                 </div>
                                 <ul>
+                                    @if(isset($tender->file))
                                     <li>
                                         <div class="document-name">
-                                            This is the first document that can be download.
+                                            This is the document that can be download.
                                         </div>
                                         <div class="download-icon">
-                                            <a href=""> <i class="fa fa-download"></i></a>
+                                            <a href="{{ asset($tender->file) }}" target="_blank"> <i class="fa fa-download"></i></a>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="document-name">
-                                            This is the first document that can be download.
-                                        </div>
-                                        <div class="download-icon">
-                                            <a href=""> <i class="fa fa-download"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="document-name">
-                                            This is the first document that can be download.
-                                        </div>
-                                        <div class="download-icon">
-                                            <a href=""> <i class="fa fa-download"></i></a>
-                                        </div>
-                                    </li>
+                                    @else
+                                        <li>
+                                            <div class="document-name">
+                                                No Attachments Available.
+                                            </div>
+                                        </li>
+                                    @endif
                                 </ul>
                                 <div class="date">
-                                    Publish Date: March 10, 2020
+                                    Publish Date: {{ $tender->created_at->format('Y-m-d') }}
                                 </div>
                             </div>
                         </div>
@@ -99,37 +68,19 @@
                 </div>
                 <div class="col-md-4">
                     <div class="sidebar-section">
-                        <div class="sidebar-title">Recent News</div>
-                        <ul>
-                            <li>
-                                <a href="">Recent Notice Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Notice Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Notice Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Notice Title will be placed Here</a>
-                            </li>
-                        </ul>
-                        <hr />
-                        <div class="sidebar-title">Recent Events</div>
-                        <ul>
-                            <li>
-                                <a href="">Recent Events Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Events Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Events Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Events Title will be placed Here</a>
-                            </li>
-                        </ul>
+                        <div class="sidebar-title">Other Tenders</div>
+                        @if($context->recent_tenders->isNotEmpty())
+                            <ul>
+                                @foreach($context->recent_tenders as $tend)
+                                    <li>
+                                        <a href="{{ route('front.singleNews',$tend->id) }}">{{$tend->title}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <span>No recent tenders to show.</span>
+                        @endif
+
                     </div>
                 </div>
             </div>

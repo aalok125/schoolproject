@@ -29,108 +29,31 @@
                 Albums
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="album-container">
-                        <a href="single-gallery.html">
-                            <div class="img-container">
-                                <img src="assets/images/banner1.jpg" alt="" />
+                @if($albums->isNotEmpty())
+                    @foreach($albums as $album)
+                        <div class="col-md-4">
+                            <div class="album-container">
+                                <a href="{{ route('front.singleAlbum',$album->slug) }}">
+                                    <div class="img-container">
+                                        <img src="{{ asset(isset($album->gallerys) ? $album->gallerys->first()->image : 'front/assets/images/banner1.jpg') }}" alt="{{$album->title}}" />
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="view">
+                                            <i class="fa fa-eye"></i>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="overlay">
-                                <div class="view">
-                                    <i class="fa fa-eye"></i>
-                                </div>
+                            <div class="album-title">
+                                Album Name
                             </div>
-                        </a>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-md-4">
+                        <span>No Albums Present</span>
                     </div>
-                    <div class="album-title">
-                        Album Name
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="album-container">
-                        <a href="single-gallery.html">
-                            <div class="img-container">
-                                <img src="assets/images/banner1.jpg" alt="" />
-                            </div>
-                            <div class="overlay">
-                                <div class="view">
-                                    <i class="fa fa-eye"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="album-title">
-                        Album Name
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="album-container">
-                        <a href="single-gallery.html">
-                            <div class="img-container">
-                                <img src="assets/images/banner1.jpg" alt="" />
-                            </div>
-                            <div class="overlay">
-                                <div class="view">
-                                    <i class="fa fa-eye"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="album-title">
-                        Album Name
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="album-container">
-                        <a href="single-gallery.html">
-                            <div class="img-container">
-                                <img src="assets/images/banner1.jpg" alt="" />
-                            </div>
-                            <div class="overlay">
-                                <div class="view">
-                                    <i class="fa fa-eye"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="album-title">
-                        Album Name
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="album-container">
-                        <a href="single-gallery.html">
-                            <div class="img-container">
-                                <img src="assets/images/banner1.jpg" alt="" />
-                            </div>
-                            <div class="overlay">
-                                <div class="view">
-                                    <i class="fa fa-eye"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="album-title">
-                        Album Name
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="album-container">
-                        <a href="single-gallery.html">
-                            <div class="img-container">
-                                <img src="assets/images/banner1.jpg" alt="" />
-                            </div>
-                            <div class="overlay">
-                                <div class="view">
-                                    <i class="fa fa-eye"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="album-title">
-                        Album Name
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

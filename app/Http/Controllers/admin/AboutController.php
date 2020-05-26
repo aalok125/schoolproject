@@ -71,7 +71,7 @@ class AboutController extends Controller
         );
 
         foreach ($inputs as $inputKey => $inputValue) {
-            if ($inputKey == 'logo' || $inputKey == 'favicon' || $inputKey == 'vdc_logo') {
+            if ($inputKey == 'logo' || $inputKey == 'favicon' || $inputKey == 'vdc_logo' || $inputKey == 'principal_image' || $inputKey == 'adhyaksh_image') {
                 $file = $inputValue;
                 // Delete old file
                 $this->deleteImage($inputKey);

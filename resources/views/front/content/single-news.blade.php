@@ -10,15 +10,15 @@
             <img src="assets/images/banner1.jpg" alt="" />
             <div class="overlay">
                 <div class="title">
-                    News
+                    {{ getLanguage('news') }}
                 </div>
             </div>
         </div>
     </div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="news.html">News</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('front.news') }}">News</a></li>
             <li class="breadcrumb-item active" aria-current="page">
                 News Title
             </li>
@@ -34,42 +34,16 @@
                             <div class="news-wrapper">
                                 <div class="img-container">
                                     <img
-                                            src="assets/images/banner1.jpg"
+                                            src="{{ asset($news->image) }}"
                                             alt=""
                                             class="img-fluid"
                                     />
                                 </div>
                                 <div class="title">
-                                    News Title of Durbar High School.
+                                    {{ $news->title }}
                                 </div>
                                 <div class="long-description">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-                                        vitae, animi deleniti quaerat architecto ipsum dolor beatae, ipsa
-                                        saepe dolore reiciendis vel minus non veritatis quod obcaecati at
-                                        fugiat cumque! Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Perspiciatis similique autem nisi, voluptas fugiat dolor velit
-                                        sint laborum atque nesciunt veniam maxime doloribus temporibus
-                                        aliquam quod adipisci. Eius, quo aspernatur.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-                                        vitae, animi deleniti quaerat architecto ipsum dolor beatae, ipsa
-                                        saepe dolore reiciendis vel minus non veritatis quod obcaecati at
-                                        fugiat cumque! Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Perspiciatis similique autem nisi, voluptas fugiat dolor velit
-                                        sint laborum atque nesciunt veniam maxime doloribus temporibus
-                                        aliquam quod adipisci. Eius, quo aspernatur.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-                                        vitae, animi deleniti quaerat architecto ipsum dolor beatae, ipsa
-                                        saepe dolore reiciendis vel minus non veritatis quod obcaecati at
-                                        fugiat cumque! Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Perspiciatis similique autem nisi, voluptas fugiat dolor velit
-                                        sint laborum atque nesciunt veniam maxime doloribus temporibus
-                                        aliquam quod adipisci. Eius, quo aspernatur.
-                                    </p>
+                                    <p>{!! $news->content !!}</p>
                                 </div>
                                 <div class="date">
                                     March 10, 2020
@@ -81,36 +55,17 @@
                 <div class="col-md-4">
                     <div class="sidebar-section">
                         <div class="sidebar-title">Recent News</div>
-                        <ul>
-                            <li>
-                                <a href="">Recent Notice Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Notice Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Notice Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Notice Title will be placed Here</a>
-                            </li>
-                        </ul>
-                        <hr />
-                        <div class="sidebar-title">Recent Events</div>
-                        <ul>
-                            <li>
-                                <a href="">Recent Events Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Events Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Events Title will be placed Here</a>
-                            </li>
-                            <li>
-                                <a href="">Recent Events Title will be placed Here</a>
-                            </li>
-                        </ul>
+                        @if($context->recent_news->isNotEmpty())
+                            <ul>
+                                @foreach($context->recent_news as $news)
+                                    <li>
+                                        <a href="{{ route('front.singleNews',$news->id) }}">{{$news->title}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <span>No recent news to show.</span>
+                        @endif
                     </div>
                 </div>
             </div>

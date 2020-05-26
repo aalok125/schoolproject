@@ -72,7 +72,7 @@ class SliderController extends Controller
                 \File::makeDirectory($thumbnailPath, 0777, true, true);
 
             }
-            $ImageUpload->resize(250,250, 'center', false, 'fff');
+//            $ImageUpload->resize(250,250, 'center', false, 'fff');
             $ImageUpload = $ImageUpload->save($thumbnailPath.$time.$file->getClientOriginalName());
 
             // for save large image
@@ -81,7 +81,7 @@ class SliderController extends Controller
                 \File::makeDirectory($largePath, 0777, true, true);
 
             }
-            $ImageUpload->resize(1920,800, 'center', false, 'fff');
+//            $ImageUpload->resize(1920,800, 'center', false, 'fff');
             $ImageUpload = $ImageUpload->save($largePath.$time.$file->getClientOriginalName());
             $slider->image = $db_path;
         }

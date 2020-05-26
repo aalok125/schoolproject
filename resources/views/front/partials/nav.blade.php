@@ -8,7 +8,9 @@
             </div>
             <div class="center-container">
                 <div class="company_name">{{ isset($settings['name']) ? $settings['name'] : "High School" }}</div>
-                <div class="company_address">Jamal, Kathmandu</div>
+                <div class="company_address">
+                    {{ isset($settings['address']) ? $settings['address'] : "" }}
+                </div>
             </div>
         </div>
 
@@ -35,17 +37,17 @@
     </a>
 
     <div class="overlay-content">
-        <a href="index.html">Home</a>
+        <a href="{{ route('front.home') }}">Home</a>
 
         <div class="dropdown">
             <button class="dropbtn">
                 School Overview <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="about.html">About Us</a>
-                <a href="mission-vision.html">Vision & Mission</a>
-                <a href="principal-note.html">Principal Note</a>
-                <a href="gallery.html">Gallery</a>
+                <a href="{{ route('front.about') }}">About Us</a>
+                <a href="{{ route('front.mission-vision') }}">Vision & Mission</a>
+                <a href="{{ route('front.principal-note') }}">Principal Note</a>
+                <a href="{{ route('front.gallery') }}">Gallery</a>
             </div>
         </div>
 
@@ -54,9 +56,11 @@
                 Facilities <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="science-lab.html">Science Lab</a>
-                <a href="library.html">Library</a>
-                <a href="computer-lab.html">Computer lab</a>
+                @if(isset($asset_categories))
+                    @foreach($asset_categories as $category)
+                        <a href="{{ route('front.asset_category', $category->id) }}">{{$category->title}}</a>
+                    @endforeach
+                @endif
             </div>
         </div>
         <div class="dropdown">

@@ -12,10 +12,10 @@
                     <div class="main-title">
                         Contact Us
                     </div>
-                    <div class="sub-title">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Provident possimus voluptatibus porro corrupti
-                    </div>
+                    {{--<div class="sub-title">--}}
+                        {{--Lorem, ipsum dolor sit amet consectetur adipisicing elit.--}}
+                        {{--Provident possimus voluptatibus porro corrupti--}}
+                    {{--</div>--}}
                     <form action="">
                         <div class="form-group">
                             <input
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="img-container d-none d-md-block">
-                        <img src="assets/images/contact.jpg" alt="" class="img-fluid" />
+                        <img src="{{ asset('front/assets/images/contact.jpg') }}" alt="" class="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -78,10 +78,7 @@
                                 Call Us!
                             </div>
                             <div class="phone">
-                                +977- 01438923
-                            </div>
-                            <div class="phone">
-                                +977- 9841438923
+                                {{ isset($settings['phone']) ? $settings['phone'] : "" }}
                             </div>
                             <div class="phone-wrapper-icon">
                                 <i class="fa fa-phone"></i>
@@ -94,11 +91,11 @@
                                 Email Us!
                             </div>
                             <div class="phone">
-                                info@schoolname.com
+                                {{ isset($settings['email']) ? $settings['email'] : "" }}
                             </div>
-                            <div class="phone">
-                                administration@schoolname.com
-                            </div>
+                            {{--<div class="phone">--}}
+                                {{--administration@schoolname.com--}}
+                            {{--</div>--}}
                             <div class="phone-wrapper-icon">
                                 <i class="fa fa-envelope"></i>
                             </div>
@@ -110,11 +107,11 @@
                                 Locate Us!
                             </div>
                             <div class="phone">
-                                Shorakhutte, Kathmandu
+                                {{ isset($settings['address']) ? $settings['address'] : "" }}
                             </div>
-                            <div class="phone">
-                                Province Number 2
-                            </div>
+                            {{--<div class="phone">--}}
+                                {{--Province Number 3--}}
+                            {{--</div>--}}
                             <div class="phone-wrapper-icon">
                                 <i class="fa fa-map-marker-alt"></i>
                             </div>

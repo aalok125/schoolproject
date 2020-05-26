@@ -21,8 +21,8 @@
             <div class="float-right page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                    <li class="breadcrumb-item "><a href="{{ route('admin.album.all') }}">Asset</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('admin.album.gallery',$asset->slug) }}">{{ $asset->title }}</a></li>
+                    <li class="breadcrumb-item "><a href="{{ route('admin.assets') }}">Asset</a></li>
+                    <li class="breadcrumb-item active"><a href="#">{{ $asset->title }}</a></li>
                 </ol>
             </div>
             <h5 class="page-title">Name : {{ $asset->title }}</h5>

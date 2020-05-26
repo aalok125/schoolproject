@@ -111,7 +111,7 @@
                     <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-article"></i> <span>{{ getLanguage('cms') }}</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.event.all') }}">{{ getLanguage('events') }}</a></li>
-                        <li><a href="{{ route('admin.staff.all') }}">{{ getLanguage('news') }}</a></li>
+                        <li><a href="{{ route('admin.news.all') }}">{{ getLanguage('news') }}</a></li>
                         <li><a href="{{ route('admin.notice.all') }}">{{ getLanguage('notice') }}</a></li>
                         <li><a href="{{ route('admin.tender.all') }}">{{ getLanguage('tender') }}</a></li>
                     </ul>
