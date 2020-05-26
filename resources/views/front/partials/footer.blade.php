@@ -18,25 +18,16 @@
                     <div class="link-title">Important Links</div>
                     <ul>
                         <li>
-                            <a href="">Here Comes Link 1</a>
+                            <a href="{{ route('front.home') }}">Home</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 1</a>
+                            <a href="{{ route('front.about') }}">About Us</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 1</a>
+                            <a href="{{ route('front.contact') }}">Contact</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 1</a>
-                        </li>
-                        <li>
-                            <a href="">Here Comes Link 1</a>
-                        </li>
-                        <li>
-                            <a href="">Here Comes Link 1</a>
-                        </li>
-                        <li>
-                            <a href="">Here Comes Link 1</a>
+                            <a href="{{ route('front.gallery') }}">Gallery</a>
                         </li>
                     </ul>
                 </div>
@@ -45,11 +36,6 @@
                 <div class="link-container">
                     <div class="link-title">Similar Sites</div>
                     <ul>
-                        <li>
-                            <a href=""
-                            >Similar sites like Durbar High School will be here</a
-                            >
-                        </li>
                         <li>
                             <a href=""
                             >Similar sites like Durbar High School will be here</a
@@ -71,22 +57,13 @@
                             <a href="">Here Comes Link 1</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 1</a>
+                            <a href="">Here Comes Link 2</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 1</a>
+                            <a href="">Here Comes Link 3</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 1</a>
-                        </li>
-                        <li>
-                            <a href="">Here Comes Link 1</a>
-                        </li>
-                        <li>
-                            <a href="">Here Comes Link 1</a>
-                        </li>
-                        <li>
-                            <a href="">Here Comes Link 1</a>
+                            <a href="">Here Comes Link 4</a>
                         </li>
                     </ul>
                 </div>
