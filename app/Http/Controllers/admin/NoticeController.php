@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Model\Notice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class NoticeController extends Controller
 {
@@ -18,6 +19,12 @@ class NoticeController extends Controller
     }
 
     public function store(Request $request){
+        $validator = Validator::make($request->all(), [
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 //        dd($request);
         $Notice = new Notice();
         $Notice->school_id = 1;

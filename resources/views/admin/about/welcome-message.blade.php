@@ -68,6 +68,12 @@
                                     </div>
                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                         <div class="form-group">
+                                            <label>Adhyaksh Name</label>
+                                            <input type="text" name="adhyaksh_name"
+                                                   value="@if(getAbout('adhyaksh_name')) {{getAbout('adhyaksh_name')}} @endif"
+                                                   class="form-control">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Adhyaksh Image</label>
                                             <input type="file" name="adhyaksh_image" class="form-control">
                                             @if(getAbout('adhyaksh_image'))
@@ -82,6 +88,12 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane p-3" id="messages-1" role="tabpanel">
+                                        <div class="form-group">
+                                            <label>Principal Name</label>
+                                            <input type="text" name="principal_name"
+                                                   value="@if(getAbout('principal_name')) {{getAbout('principal_name')}} @endif"
+                                                   class="form-control">
+                                        </div>
                                         <div class="form-group">
                                             <label>Principal Image</label>
                                             <input type="file" name="principal_image" class="form-control">

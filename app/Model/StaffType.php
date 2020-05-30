@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -9,13 +10,24 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class StaffType extends Model
 {
     use SoftDeletes;
+    use Sluggable;
     protected $fillable = [
 
         'title',
+        'slug',
         'remarks',
         'school_id',
 
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
     use LogsActivity;
     protected static $logOnlyDirty = true;

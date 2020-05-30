@@ -25,7 +25,7 @@
                 <div class="carousel-item {{ $context->sliders[0]->id == $slider->id ? 'active' : '' }}">
                     <a href="{{isset($slider->link)?$slider->link:"#"}}">
                         <img
-                                src="{{ asset($slider->image) }}"
+                                src="{{ asset('large/'.$slider->image) }}"
                                 alt="{{ $slider->title }}"
                                 class="img-fluid"
                         />
@@ -118,17 +118,20 @@
                                     <div class="col-md-4 col-4">
                                         <div class="img-container">
                                             <img
-                                                    src="assets/images/voice.jpg"
+                                                    src="{{asset(isset($settings['adhyaksh_image']) ? 'thumbnail/'.$settings['adhyaksh_image']:'')}}"
                                                     alt=""
                                                     class="img-fluid"
                                             />
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-8">
-                                        <div class="officer-name">Aalok Niraula</div>
+                                        <div class="officer-name">{{isset($settings['adhyaksh_name']) ? $settings['adhyaksh_name']:''}}</div>
                                         <div class="officer-designation">
-                                            Educational Minister
+                                            Ward Chairman
                                         </div>
+                                        <a href="{{ route('front.principal-note') }}" style="float: right">
+                                            View Message&nbsp;<i class="fa fa-arrow-right"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -140,17 +143,20 @@
                                     <div class="col-md-4 col-4">
                                         <div class="img-container">
                                             <img
-                                                    src="assets/images/voice.jpg"
+                                                    src="{{asset(isset($settings['principal_image']) ? 'thumbnail/'.$settings['principal_image']:'')}}"
                                                     alt=""
                                                     class="img-fluid"
                                             />
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-8">
-                                        <div class="officer-name">Mrs Aalok Niraula</div>
+                                        <div class="officer-name">{{isset($settings['principal_name']) ? $settings['principal_name']:''}}</div>
                                         <div class="officer-designation">
                                             Principal
                                         </div>
+                                        <a href="{{ route('front.principal-note') }}" style="float: right">
+                                            View Message&nbsp;<i class="fa fa-arrow-right"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -205,8 +211,8 @@
                                         @if($context->news->isNotEmpty())
                                             @foreach($context->news as $news)
                                                 <div class="tab-item">
-                                                    <div class="title">
-                                                        <a href="{{ route('front.singleNews',$news->id) }}">
+                                                    <div class="title" style="font-weight:600">
+                                                        <a href="{{ route('front.singleNews',[$news->id,getNepaliDate($news->created_at)]) }}">
                                                             {{ $news->title }}
                                                         </a>
                                                     </div>
@@ -215,7 +221,7 @@
                                                             {{ isset($news->created_at)?$news->created_at->format('Y-m-d'):"" }}
                                                         </div>
                                                         <div class="morebtn">
-                                                            <a href="{{ route('front.singleNews',$news->id) }}">
+                                                            <a href="{{ route('front.singleNews',[$news->id,getNepaliDate($news->created_at)]) }}">
                                                                 View <i class="fa fa-arrow-right"></i>
                                                             </a>
                                                         </div>
@@ -251,15 +257,15 @@
                                         @if($context->tenders->isNotEmpty())
                                             @foreach($context->tenders as $tender)
                                                 <div class="tab-item">
-                                                    <div class="title">
-                                                        <a href="{{ route('front.singleTender',$tender->id) }}">
+                                                    <div class="title" style="font-weight:600">
+                                                        <a href="{{ route('front.singleTender',[$tender->id,getNepaliDate($tender->created_at)]) }}">
                                                             {{ $tender->title }}
                                                         </a>
                                                     </div>
                                                     <div class="info">
                                                         {{--<div class="date">2076-12-12</div>--}}
                                                         <div class="morebtn">
-                                                            <a href="{{ route('front.singleTender',$tender->id) }}">
+                                                            <a href="{{ route('front.singleTender',[$tender->id,getNepaliDate($tender->created_at)]) }}">
                                                                 View <i class="fa fa-arrow-right"></i>
                                                             </a>
                                                         </div>
@@ -295,15 +301,15 @@
                                         @if($context->events->isNotEmpty())
                                             @foreach($context->events as $event)
                                                 <div class="tab-item">
-                                                    <div class="title">
-                                                        <a href="{{ route('front.singleEvent',$event->id) }}">
+                                                    <div class="title" style="font-weight:600">
+                                                        <a href="{{ route('front.singleEvent',[$event->id,getNepaliDate($event->created_at)]) }}">
                                                             {{ $event->title }}
                                                         </a>
                                                     </div>
                                                     <div class="info">
                                                         {{--<div class="date">2076-12-12</div>--}}
                                                         <div class="morebtn">
-                                                            <a href="{{ route('front.singleEvent',$event->id) }}">
+                                                            <a href="{{ route('front.singleEvent',[$event->id,getNepaliDate($event->created_at)]) }}">
                                                                 View <i class="fa fa-arrow-right"></i>
                                                             </a>
                                                         </div>
@@ -329,7 +335,6 @@
                                         @endif
                                     </div>
                                     <div class="morebtn">
-                                        ser
                                         <a href="{{ route('front.events') }}">
                                             View More <i class="fa fa-arrow-right"></i>
                                         </a>
@@ -337,64 +342,39 @@
                                 </div>
                                 <div class="tab-pane container fade" id="scholarships">
                                     <div class="tab-detail">
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    scholarships dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
+                                        @if($context->scholarships->isNotEmpty())
+                                            @foreach($context->scholarships as $scholarship)
+                                            <div class="tab-item">
+                                                <div class="title" style="font-weight:600">
                                                     <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
+                                                        {{ $scholarship->title }}
                                                     </a>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    scholarships ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
-                                                    <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
-                                                    </a>
+                                                <div class="info">
+                                                    <div class="date">{{ getNepaliDate($scholarship->created_at) }}</div>
+                                                    <div class="morebtn">
+                                                        <a href="{{ route('front.singleScholarship',[$scholarship->id,getNepaliDate($scholarship->created_at)]) }}">
+                                                            View <i class="fa fa-arrow-right"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-item">
+                                            @endforeach
+                                        @else
+                                            <div class="tab-item">
                                             <div class="title">
                                                 <a href="">
-                                                    Lorem ipsum dolor, sit amet consectetur
-                                                    adipisicing elit. Veniam sed, facere eligendi sint
-                                                    dolorum officia
+                                                    No Scholarship Available
                                                 </a>
                                             </div>
-                                            <div class="info">
-                                                <div class="date">2076-12-12</div>
-                                                <div class="morebtn">
-                                                    <a href="">
-                                                        View <i class="fa fa-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
                                         </div>
+                                        @endif
                                     </div>
-                                    <div class="morebtn">
-                                        ser
-                                        <a href="/event">
-                                            View More <i class="fa fa-arrow-right"></i>
-                                        </a>
-                                    </div>
+                                    {{--<div class="morebtn">--}}
+                                        {{--<a href="/event">--}}
+                                            {{--View More <i class="fa fa-arrow-right"></i>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
                                 </div>
                             </div>
                         </div>
@@ -408,20 +388,18 @@
 
                         <div class="tab-pane container active">
                             <div class="tab-detail">
-                                @if($context->slider_notices->isNotEmpty())
-                                    @foreach($context->slider_notices as $notice)
+                                @if($context->block_notices->isNotEmpty())
+                                    @foreach($context->block_notices as $notice)
                                         <div class="tab-item">
-                                            <div class="title">
-                                                <a href="">
-                                                    {{$notice->title}}
-                                                </a>
+                                            <div class="title" style="font-weight:600">
+                                                {{$notice->title}}
                                             </div>
                                             <div class="info">
                                                 <div class="date">
-                                                    {{ isset($notice->created_at)?$notice->created_at->format('Y-m-d'):"" }}
+                                                    {{ getNepaliDate($notice->created_at) }}
                                                 </div>
                                                 <div class="morebtn">
-                                                    <a href="{{ route('front.singleNotice',$notice->id) }}">
+                                                    <a href="{{ route('front.singleNotice',[$notice->id,getNepaliDate($notice->created_at)]) }}">
                                                         View <i class="fa fa-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -484,19 +462,17 @@
     <div class="counter-container">
         <div class="container">
             <div class="main-title">
-                Our Assets
+                Our School Family
             </div>
             <div class="sub-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-                deserunt consequuntur dicta, cupiditate odit repellat, ex veniam
-                dolor
+                We strive towards success and greatness.
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
                     <div class="counter">
                         <h2
                                 class="timer count-title count-number"
-                                data-to="{{$context->administration_count}}"
+                                data-to="{{ isset($settings['total_administrations']) ? $settings['total_administrations'] : "" }}"
                                 data-speed="3000"
                         ></h2>
                         <p class="count-text ">Administration Member</p>
@@ -506,7 +482,7 @@
                     <div class="counter">
                         <h2
                                 class="timer count-title count-number"
-                                data-to="{{$context->teacher_count}}"
+                                data-to="{{ isset($settings['total_teachers']) ? $settings['total_teachers'] : "" }}"
                                 data-speed="3000"
                         ></h2>
                         <p class="count-text ">Our Excellent Teachers</p>
@@ -516,7 +492,7 @@
                     <div class="counter">
                         <h2
                                 class="timer count-title count-number"
-                                data-to="{{ $context->student_count }}"
+                                data-to="{{ isset($settings['total_student']) ? $settings['total_student'] : "" }}"
                                 data-speed="3000"
                         ></h2>
                         <p class="count-text ">Our Geniues Students</p>
@@ -543,103 +519,70 @@
             </ul>
 
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="testimonial-wrapper">
-                                <div class="title">What people are saying</div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Aperiam aliquid unde magni aspernatur excepturi nobis
-                                    nihil,
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Libero sequi, est quas distinctio atque, debitis
-                                    voluptatum
-                                </p>
-                                <div class="name">David</div>
-                                <div class="designation">
-                                    Full Stack Developer
+                @if($context->testimonials->isNotEmpty())
+                    @foreach($context->testimonials as $testimonial)
+                    <div class="carousel-item @if($context->testimonials[0]->id == $testimonial->id)active @endif">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="testimonial-wrapper">
+                                    <div class="title">What people are saying</div>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Aperiam aliquid unde magni aspernatur excepturi nobis
+                                        nihil,
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Libero sequi, est quas distinctio atque, debitis
+                                        voluptatum
+                                    </p>
+                                    <div class="name">{{$testimonial->name}}</div>
+                                    <div class="designation">
+                                        {{ $testimonial->designation }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="img-container">
-                                <img
-                                        src="assets/images/voice.jpg"
-                                        alt=""
-                                        class="img-fluid"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="testimonial-wrapper">
-                                <div class="title">What people are saying</div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Aperiam aliquid unde magni aspernatur excepturi nobis
-                                    nihil,
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Libero sequi, est quas distinctio atque, debitis
-                                    voluptatum
-                                </p>
-                                <div class="name">David</div>
-                                <div class="designation">
-                                    Full Stack Developer
+                            <div class="col-md-6">
+                                <div class="img-container">
+                                    <img
+                                            src="{{ asset(isset($testimonial->image) ? 'thumbnail/'.$testimonial->image :$settings['logo'] ) }}"
+                                            alt=""
+                                            class="img-fluid"
+                                    />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="img-container">
-                                <img
-                                        src="assets/images/voice.jpg"
-                                        alt=""
-                                        class="img-fluid"
-                                />
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="testimonial-wrapper">
-                                <div class="title">What people are saying</div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Aperiam aliquid unde magni aspernatur excepturi nobis
-                                    nihil,
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Libero sequi, est quas distinctio atque, debitis
-                                    voluptatum
-                                </p>
-                                <div class="name">David</div>
-                                <div class="designation">
-                                    Full Stack Developer
+                    @endforeach
+                @else
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="testimonial-wrapper">
+                                    <div class="title">What people are saying</div>
+                                    <p>
+                                        No Testimonials Available
+                                    </p>
+                                    <div class="name">David</div>
+                                    <div class="designation">
+                                        Admin
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="img-container">
+                                    <img
+                                            src="{{ asset(isset($settings['logo'])?$settings['logo']:'') }}"
+                                            alt=""
+                                            class="img-fluid"
+                                    />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="img-container">
-                                <img
-                                        src="assets/images/voice.jpg"
-                                        alt=""
-                                        class="img-fluid"
-                                />
-                            </div>
-                        </div>
                     </div>
-                </div>
+                @endif
             </div>
 
             <a

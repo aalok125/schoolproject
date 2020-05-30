@@ -59,7 +59,7 @@
                             <ul>
                                 @foreach($context->recent_events as $event)
                                     <li>
-                                        <a href="{{ route('front.singleEvent', $event->id) }}">{{ $event->title }}</a>
+                                        <a href="{{ route('front.singleEvent', [$event->id,getNepaliDate($event->created_at)]) }}">{{ $event->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>

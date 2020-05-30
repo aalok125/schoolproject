@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2020 at 04:23 PM
+-- Generation Time: May 27, 2020 at 10:27 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -42,7 +42,7 @@ CREATE TABLE `abouts` (
 --
 
 INSERT INTO `abouts` (`id`, `key`, `value`, `school_id`, `created_at`, `updated_at`) VALUES
-(1, 'total_student', '500', 1, '2020-04-01 09:15:09', '2020-04-01 09:15:09'),
+(1, 'total_student', '15', 1, '2020-04-01 09:15:09', '2020-05-26 13:10:59'),
 (2, 'male_student', '230', 1, '2020-04-01 09:15:09', '2020-04-01 09:15:09'),
 (3, 'female_student', '270', 1, '2020-04-01 09:15:09', '2020-04-01 09:15:09'),
 (4, 'dalit_student', '56', 1, '2020-04-01 09:15:09', '2020-04-01 09:15:09'),
@@ -64,7 +64,9 @@ INSERT INTO `abouts` (`id`, `key`, `value`, `school_id`, `created_at`, `updated_
 (20, 'adhyaksh_image', 'images/about/1590347067istockphoto-1040308104-612x612.jpg', 1, '2020-05-24 13:15:30', '2020-05-24 13:19:28'),
 (21, 'adhyaksh_message', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Pathshala, as always, is determined to foster not only knowledge development of learners but also their multiple intelligence and to cultivate the sentiment of global changes and challenges. Such achievements are possible only through the inspiring and able faculty members. Only they can transform the motto of the school, ‘meaningful education for meaningful life’, into the reality. Therefore, we value the welfare of our teachers by providing better working environment and opportunities to grow professionally as well as personally. We encourage them to use the best resources and their best experiences.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">We assure that Pathshala is all set for the new years ahead with new endeavors towards the new height of achievements! We welcome all to work and walk hand in hand with us in creating a new meaningful sensation in the world of learners! Let us all come together to render our part of meaningful contribution to the society, nation and the world.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">We welcome you at Pathshala at New Baneshwor or Bagdol to discover what we offer and what really makes Pathshala an appropriate school for your child.</p>', 1, '2020-05-24 13:15:30', '2020-05-24 13:15:30'),
 (22, 'principal_image', 'images/about/1590347068gettyimages-480440376-612x612.jpg', 1, '2020-05-24 13:15:30', '2020-05-24 13:19:28'),
-(23, 'principal_message', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">Welcome to Pathshala, a learning organization that thrives always to learn the best practices in local and global context and keep transforming itself as a whole institution!</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">Pathshala is the institution that believes in providing opportunities and environment for children to aspire for high achievement with practice of values. Pathshala Team is well aware of the fact that every individual child has innate potential that has to be identified and nurtured in time. Therefore, it is well prepared to encourage every student’s insightful learning with confidence and skills.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">The vision and implementation strategies for progress of this institution has inspired many which encouraged us to perform better every year with wider innovations and deep-commitment day in and day out. This also has enabled us to gain the trust of children, their parents and guardians and many well-wishers of the society. Their support and wishes have made us thrive more for the best outcome and move ahead. Pathshala successfully sent the nine batches of SLC/SEE graduates.</p>', 1, '2020-05-24 13:15:30', '2020-05-24 13:15:30');
+(23, 'principal_message', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">Welcome to Pathshala, a learning organization that thrives always to learn the best practices in local and global context and keep transforming itself as a whole institution!</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">Pathshala is the institution that believes in providing opportunities and environment for children to aspire for high achievement with practice of values. Pathshala Team is well aware of the fact that every individual child has innate potential that has to be identified and nurtured in time. Therefore, it is well prepared to encourage every student’s insightful learning with confidence and skills.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">The vision and implementation strategies for progress of this institution has inspired many which encouraged us to perform better every year with wider innovations and deep-commitment day in and day out. This also has enabled us to gain the trust of children, their parents and guardians and many well-wishers of the society. Their support and wishes have made us thrive more for the best outcome and move ahead. Pathshala successfully sent the nine batches of SLC/SEE graduates.</p>', 1, '2020-05-24 13:15:30', '2020-05-24 13:15:30'),
+(24, 'total_teachers', '20', 1, '2020-05-26 13:16:29', '2020-05-26 13:16:29'),
+(25, 'total_administrations', '30', 1, '2020-05-26 13:16:29', '2020-05-26 13:16:29');
 
 -- --------------------------------------------------------
 
@@ -154,7 +156,29 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_id`, `subj
 (61, 'default', 'created', 3, 'App\\Model\\Grade', 3, 'App\\User', '{\"attributes\":{\"title\":\"3\",\"slug\":\"3\",\"remarks\":null,\"school_id\":1}}', '2020-05-26 08:35:01', '2020-05-26 08:35:01'),
 (62, 'default', 'created', 4, 'App\\Model\\Grade', 3, 'App\\User', '{\"attributes\":{\"title\":\"4\",\"slug\":\"4\",\"remarks\":null,\"school_id\":1}}', '2020-05-26 08:35:08', '2020-05-26 08:35:08'),
 (63, 'default', 'created', 5, 'App\\Model\\Grade', 3, 'App\\User', '{\"attributes\":{\"title\":\"5\",\"slug\":\"5\",\"remarks\":null,\"school_id\":1}}', '2020-05-26 08:35:14', '2020-05-26 08:35:14'),
-(64, 'default', 'created', 6, 'App\\Model\\Grade', 3, 'App\\User', '{\"attributes\":{\"title\":\"6\",\"slug\":\"6\",\"remarks\":null,\"school_id\":1}}', '2020-05-26 08:35:18', '2020-05-26 08:35:18');
+(64, 'default', 'created', 6, 'App\\Model\\Grade', 3, 'App\\User', '{\"attributes\":{\"title\":\"6\",\"slug\":\"6\",\"remarks\":null,\"school_id\":1}}', '2020-05-26 08:35:18', '2020-05-26 08:35:18'),
+(65, 'default', 'This model has been updated', 1, 'App\\Model\\About', 3, 'App\\User', '{\"attributes\":{\"value\":\"15\"},\"old\":{\"value\":\"500\"}}', '2020-05-26 13:10:59', '2020-05-26 13:10:59'),
+(66, 'default', 'This model has been created', 24, 'App\\Model\\About', 3, 'App\\User', '{\"attributes\":{\"key\":\"total_teachers\",\"value\":\"20\",\"school_id\":1}}', '2020-05-26 13:16:29', '2020-05-26 13:16:29'),
+(67, 'default', 'This model has been created', 25, 'App\\Model\\About', 3, 'App\\User', '{\"attributes\":{\"key\":\"total_administrations\",\"value\":\"30\",\"school_id\":1}}', '2020-05-26 13:16:29', '2020-05-26 13:16:29'),
+(68, 'default', 'created', 4, 'App\\Model\\Gallery', 3, 'App\\User', '{\"attributes\":{\"album_id\":1,\"title\":null,\"image\":\"images\\/album\\/program\\/159052152448883.jpg\",\"school_id\":1}}', '2020-05-26 13:47:05', '2020-05-26 13:47:05'),
+(69, 'default', 'created', 5, 'App\\Model\\Gallery', 3, 'App\\User', '{\"attributes\":{\"album_id\":1,\"title\":null,\"image\":\"images\\/album\\/program\\/15905215331557458478185517734.jpg\",\"school_id\":1}}', '2020-05-26 13:47:13', '2020-05-26 13:47:13'),
+(70, 'default', 'created', 6, 'App\\Model\\Gallery', 3, 'App\\User', '{\"attributes\":{\"album_id\":1,\"title\":null,\"image\":\"images\\/album\\/program\\/1590521542check.jpg\",\"school_id\":1}}', '2020-05-26 13:47:22', '2020-05-26 13:47:22'),
+(71, 'default', 'created', 7, 'App\\Model\\Gallery', 3, 'App\\User', '{\"attributes\":{\"album_id\":1,\"title\":null,\"image\":\"images\\/album\\/program\\/1590521565ben-eaton--jwxNkfoPP8-unsplash (1).jpg\",\"school_id\":1}}', '2020-05-26 13:47:46', '2020-05-26 13:47:46'),
+(72, 'default', 'deleted', 2, 'App\\Model\\StaffType', 3, 'App\\User', '{\"attributes\":{\"title\":\"Principal\",\"remarks\":null,\"school_id\":1}}', '2020-05-27 10:18:38', '2020-05-27 10:18:38'),
+(73, 'default', 'deleted', 3, 'App\\Model\\StaffType', 3, 'App\\User', '{\"attributes\":{\"title\":\"Chairman\",\"remarks\":\"Adhyaksha\",\"school_id\":1}}', '2020-05-27 10:18:50', '2020-05-27 10:18:50'),
+(74, 'default', 'created', 6, 'App\\Model\\StaffType', 3, 'App\\User', '{\"attributes\":{\"title\":\"Accountant\",\"remarks\":null,\"school_id\":1}}', '2020-05-27 10:18:59', '2020-05-27 10:18:59'),
+(75, 'default', 'updated', 1, 'App\\Model\\Staff', 3, 'App\\User', '{\"attributes\":[],\"old\":[]}', '2020-05-27 13:00:08', '2020-05-27 13:00:08'),
+(76, 'default', 'created', 1, 'App\\Model\\Scholarship', 3, 'App\\User', '{\"attributes\":{\"title\":\"Class 5 Scholarship\",\"slug\":\"class-5-scholarship\",\"file\":\"admin\\/scholarship\\/1590606369-5169.pdf\",\"content\":\"<p>new scholarship for class 5 students<\\/p>\",\"status\":\"Active\",\"school_id\":1}}', '2020-05-27 13:21:09', '2020-05-27 13:21:09'),
+(77, 'default', 'updated', 1, 'App\\Model\\Scholarship', 3, 'App\\User', '{\"attributes\":{\"status\":\"Inactive\"},\"old\":{\"status\":\"Active\"}}', '2020-05-27 13:21:16', '2020-05-27 13:21:16'),
+(78, 'default', 'updated', 1, 'App\\Model\\Scholarship', 3, 'App\\User', '{\"attributes\":{\"status\":\"Active\"},\"old\":{\"status\":\"Inactive\"}}', '2020-05-27 13:21:19', '2020-05-27 13:21:19'),
+(79, 'default', 'updated', 1, 'App\\Model\\Scholarship', 3, 'App\\User', '{\"attributes\":{\"title\":\"Class 5 Scholarshipsss\",\"content\":\"<p>new scholarship for class 5 studentssss<\\/p>\",\"status\":\"Inactive\"},\"old\":{\"title\":\"Class 5 Scholarship\",\"content\":\"<p>new scholarship for class 5 students<\\/p>\",\"status\":\"Active\"}}', '2020-05-27 13:21:42', '2020-05-27 13:21:42'),
+(80, 'default', 'updated', 1, 'App\\Model\\Scholarship', 3, 'App\\User', '{\"attributes\":{\"file\":\"admin\\/scholarship\\/1590606421-3973.pdf\"},\"old\":{\"file\":\"admin\\/scholarship\\/1590606369-5169.pdf\"}}', '2020-05-27 13:22:01', '2020-05-27 13:22:01'),
+(81, 'default', 'updated', 1, 'App\\Model\\Scholarship', 3, 'App\\User', '{\"attributes\":{\"status\":\"Active\"},\"old\":{\"status\":\"Inactive\"}}', '2020-05-27 13:22:15', '2020-05-27 13:22:15'),
+(82, 'default', 'created', 2, 'App\\Model\\Scholarship', 3, 'App\\User', '{\"attributes\":{\"title\":\"Class 10 scholarship\",\"slug\":\"class-10-scholarship\",\"file\":\"admin\\/scholarship\\/1590606460-5340.pdf\",\"content\":\"<p>class 10 scholarship<\\/p>\",\"status\":\"Active\",\"school_id\":1}}', '2020-05-27 13:22:40', '2020-05-27 13:22:40'),
+(83, 'default', 'created', 6, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906102471562065867.jpg\",\"school_id\":1}}', '2020-05-27 14:25:47', '2020-05-27 14:25:47'),
+(84, 'default', 'created', 7, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906102521562090995.jpg\",\"school_id\":1}}', '2020-05-27 14:25:52', '2020-05-27 14:25:52'),
+(85, 'default', 'created', 8, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590610263education-study-in-nepal.jpg\",\"school_id\":1}}', '2020-05-27 14:26:03', '2020-05-27 14:26:03'),
+(86, 'default', 'created', 9, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590610270gettyimages-480440376-612x612.jpg\",\"school_id\":1}}', '2020-05-27 14:26:10', '2020-05-27 14:26:10');
 
 -- --------------------------------------------------------
 
@@ -258,7 +282,11 @@ CREATE TABLE `asset_images` (
 INSERT INTO `asset_images` (`id`, `asset_id`, `image`, `school_id`, `created_at`, `updated_at`) VALUES
 (3, 1, 'images/asset/dsfsdfds/1590427710school-logo.png', 1, '2020-05-25 11:43:31', '2020-05-25 11:43:31'),
 (4, 2, 'images/asset/computer/1590427885computerlab.jpg', 1, '2020-05-25 11:46:25', '2020-05-25 11:46:25'),
-(5, 4, 'images/asset/microscope/1590427911sciencelab.jpg', 1, '2020-05-25 11:46:52', '2020-05-25 11:46:52');
+(5, 4, 'images/asset/microscope/1590427911sciencelab.jpg', 1, '2020-05-25 11:46:52', '2020-05-25 11:46:52'),
+(6, 1, 'images/asset/dsfsdfds/15906102471562065867.jpg', 1, '2020-05-27 14:25:47', '2020-05-27 14:25:47'),
+(7, 1, 'images/asset/dsfsdfds/15906102521562090995.jpg', 1, '2020-05-27 14:25:52', '2020-05-27 14:25:52'),
+(8, 1, 'images/asset/dsfsdfds/1590610263education-study-in-nepal.jpg', 1, '2020-05-27 14:26:03', '2020-05-27 14:26:03'),
+(9, 1, 'images/asset/dsfsdfds/1590610270gettyimages-480440376-612x612.jpg', 1, '2020-05-27 14:26:10', '2020-05-27 14:26:10');
 
 -- --------------------------------------------------------
 
@@ -398,7 +426,11 @@ CREATE TABLE `galleries` (
 INSERT INTO `galleries` (`id`, `album_id`, `title`, `image`, `school_id`, `created_at`, `updated_at`) VALUES
 (1, 1, NULL, 'images/album/program/159011846495244966_319222415714481_190659405065224192_n (1).jpg', 1, '2020-05-21 21:49:24', '2020-05-21 21:49:24'),
 (2, 1, NULL, 'images/album/program/1590118467default.png', 1, '2020-05-21 21:49:27', '2020-05-21 21:49:27'),
-(3, 1, NULL, 'images/album/program/1590118471logo.png', 1, '2020-05-21 21:49:31', '2020-05-21 21:49:31');
+(3, 1, NULL, 'images/album/program/1590118471logo.png', 1, '2020-05-21 21:49:31', '2020-05-21 21:49:31'),
+(4, 1, NULL, 'images/album/program/159052152448883.jpg', 1, '2020-05-26 13:47:05', '2020-05-26 13:47:05'),
+(5, 1, NULL, 'images/album/program/15905215331557458478185517734.jpg', 1, '2020-05-26 13:47:13', '2020-05-26 13:47:13'),
+(6, 1, NULL, 'images/album/program/1590521542check.jpg', 1, '2020-05-26 13:47:22', '2020-05-26 13:47:22'),
+(7, 1, NULL, 'images/album/program/1590521565ben-eaton--jwxNkfoPP8-unsplash (1).jpg', 1, '2020-05-26 13:47:46', '2020-05-26 13:47:46');
 
 -- --------------------------------------------------------
 
@@ -450,106 +482,107 @@ CREATE TABLE `languages` (
 --
 
 INSERT INTO `languages` (`id`, `name`, `english_name`, `nepali_name`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'dashboard', 'Dashboard', 'दाशबोर्ड', 'Backend', '2020-04-03 09:45:58', '2020-04-03 10:01:34'),
-(2, 'students', 'Students', 'विद्यार्थी', 'Backend', '2020-04-03 09:46:16', '2020-04-03 10:01:08'),
+(1, 'dashboard', 'Dashboard', 'ड्यासबोर्ड', 'Backend', '2020-04-03 09:45:58', '2020-04-13 21:32:58'),
+(2, 'students', 'Students', 'विद्यार्थीहरू', 'Backend', '2020-04-03 09:46:16', '2020-04-13 22:42:26'),
 (3, 'occupation', 'Occupation', 'पेशा', 'Backend', '2020-04-03 09:46:33', '2020-04-03 10:00:24'),
 (4, 'ethnicity', 'Ethnicity', 'जात', 'Backend', '2020-04-03 09:47:27', '2020-04-03 09:59:47'),
-(5, 'asset', 'Asset', '#', 'Backend', '2020-04-11 21:38:36', '2020-04-11 21:38:36'),
-(7, 'album', 'Album', '#', 'Backend', '2020-04-11 21:44:44', '2020-04-11 21:44:44'),
-(8, 'grade', 'Grade', '#', 'Backend', '2020-04-11 21:45:15', '2020-04-11 21:45:15'),
-(9, 'exam', 'Exam', '#', 'Backend', '2020-04-11 21:46:22', '2020-04-11 21:46:22'),
-(10, 'subject', 'Subject', '#', 'Backend', '2020-04-11 21:47:37', '2020-04-11 21:47:37'),
-(11, 'staff', 'Staff', '#', 'Backend', '2020-04-11 21:48:51', '2020-04-11 21:48:51'),
-(12, 'stafftype', 'Stafftype', '#', 'Backend', '2020-04-11 21:49:08', '2020-04-11 21:49:08'),
-(13, 'staffclasssubject', 'StaffClassSubject', '#', 'Backend', '2020-04-11 21:49:43', '2020-04-11 21:49:43'),
-(14, 'committee', 'Committee', '#', 'Backend', '2020-04-11 21:49:52', '2020-04-11 21:49:52'),
-(15, 'cms', 'Cms', '#', 'Backend', '2020-04-11 21:49:56', '2020-04-11 21:49:56'),
-(16, 'about', 'About', '#', 'Backend', '2020-04-11 21:49:59', '2020-04-11 21:49:59'),
-(17, 'user', 'User', '#', 'Backend', '2020-04-11 21:50:01', '2020-04-11 21:50:01'),
-(18, 'basic-info', 'Basic Info', '#', 'Backend', '2020-04-11 21:50:07', '2020-04-11 21:50:07'),
-(19, 'history', 'History', '#', 'Backend', '2020-04-11 21:50:14', '2020-04-11 21:50:14'),
-(20, 'message', 'Message', '#', 'Backend', '2020-04-11 21:50:17', '2020-04-11 21:50:17'),
-(21, 'student', 'Student', '#', 'Backend', '2020-04-11 21:50:20', '2020-04-11 21:50:20'),
-(22, 'user-1', 'User', '#', 'Backend', '2020-04-11 21:50:23', '2020-04-11 21:50:23'),
-(23, 'search', 'Search', '#', 'Backend', '2020-04-11 21:50:27', '2020-04-11 21:50:27'),
-(24, 'profile', 'Profile', '#', 'Backend', '2020-04-11 21:50:33', '2020-04-11 21:50:33'),
-(25, 'password', 'Password', '#', 'Backend', '2020-04-11 21:50:38', '2020-04-11 21:50:38'),
-(26, 'confirm-password', 'Confirm Password', '#', 'Backend', '2020-04-11 21:50:53', '2020-04-11 21:50:53'),
-(27, 'email', 'Email', '#', 'Backend', '2020-04-11 21:50:56', '2020-04-11 21:50:56'),
-(28, 'name', 'Name', '#', 'Backend', '2020-04-11 21:50:58', '2020-04-11 21:50:58'),
-(29, 'full-name', 'Full Name', '#', 'Backend', '2020-04-11 21:51:03', '2020-04-11 21:51:03'),
-(30, 'total', 'Total', '#', 'Backend', '2020-04-11 21:51:09', '2020-04-11 21:51:09'),
-(31, 'logout', 'Logout', '#', 'Backend', '2020-04-11 21:51:12', '2020-04-11 21:51:12'),
-(32, 'notification', 'Notification', '#', 'Backend', '2020-04-11 21:51:25', '2020-04-11 21:51:25'),
-(33, 'select-grade', 'Select Grade', '#', 'Backend', '2020-04-11 21:51:30', '2020-04-11 21:51:30'),
-(34, 'class', 'Class', '#', 'Backend', '2020-04-11 21:51:35', '2020-04-11 21:51:35'),
-(35, 'add-new', 'Add New', '#', 'Backend', '2020-04-11 21:51:40', '2020-04-11 21:51:40'),
-(36, 'index', 'Index', '#', 'Backend', '2020-04-11 21:51:44', '2020-04-11 21:51:44'),
-(37, 'select', 'Select', '#', 'Backend', '2020-04-11 21:51:51', '2020-04-11 21:51:51'),
-(38, 'guardian', 'Guardian', '#', 'Backend', '2020-04-11 21:52:31', '2020-04-11 21:52:31'),
-(39, 'phone', 'Phone', '#', 'Backend', '2020-04-11 21:53:01', '2020-04-11 21:53:01'),
-(40, 'image', 'Image', '#', 'Backend', '2020-04-11 21:53:10', '2020-04-11 21:53:10'),
-(41, 'address', 'Address', '#', 'Backend', '2020-04-11 21:53:13', '2020-04-11 21:53:13'),
-(42, 'gender', 'Gender', '#', 'Backend', '2020-04-11 21:53:19', '2020-04-11 21:53:19'),
-(43, 'disablity', 'Disablity', '#', 'Backend', '2020-04-11 21:53:32', '2020-04-11 21:53:32'),
-(44, 'religion', 'Religion', '#', 'Backend', '2020-04-11 21:53:40', '2020-04-11 21:53:40'),
-(45, 'birth-date', 'Birth Date', '#', 'Backend', '2020-04-11 21:53:47', '2020-04-11 21:53:47'),
-(46, 'age', 'Age', '#', 'Backend', '2020-04-11 21:53:50', '2020-04-11 21:53:50'),
-(47, 'action', 'Action', '#', 'Backend', '2020-04-11 21:53:54', '2020-04-11 21:53:54'),
-(48, 'delete', 'Delete', '#', 'Backend', '2020-04-11 21:53:58', '2020-04-11 21:53:58'),
-(49, 'edit', 'Edit', '#', 'Backend', '2020-04-11 21:54:02', '2020-04-11 21:54:02'),
-(50, 'link', 'Link', '#', 'Backend', '2020-04-11 21:54:04', '2020-04-11 21:54:04'),
-(51, 'title', 'Title', '#', 'Backend', '2020-04-11 21:54:08', '2020-04-11 21:54:08'),
-(52, 'list', 'List', '#', 'Backend', '2020-04-11 21:54:26', '2020-04-11 21:54:26'),
-(53, 'remarks', 'Remarks', '#', 'Backend', '2020-04-11 21:54:30', '2020-04-11 21:54:30'),
-(54, 'save', 'Save', '#', 'Backend', '2020-04-11 21:54:33', '2020-04-11 21:54:33'),
-(55, 'quantity', 'Quantity', '#', 'Backend', '2020-04-11 21:54:50', '2020-04-11 21:54:50'),
-(56, 'file', 'File', '#', 'Backend', '2020-04-11 21:54:52', '2020-04-11 21:54:52'),
-(57, 'exam-start-date', 'Exam Start Date', '#', 'Backend', '2020-04-11 21:55:17', '2020-04-11 21:55:17'),
-(58, 'result', 'Result', '#', 'Backend', '2020-04-11 21:55:22', '2020-04-11 21:55:22'),
-(59, 'job-title', 'Job Title', '#', 'Backend', '2020-04-11 21:55:28', '2020-04-11 21:55:28'),
-(60, 'join-date', 'Join Date', '#', 'Backend', '2020-04-11 21:55:39', '2020-04-11 21:55:39'),
-(61, 'teacher-name', 'Teacher Name', '#', 'Backend', '2020-04-11 21:56:08', '2020-04-11 21:56:08'),
-(62, 'degination', 'Degination', '#', 'Backend', '2020-04-11 21:56:17', '2020-04-11 21:56:17'),
-(63, 'status', 'Status', '#', 'Backend', '2020-04-11 21:56:21', '2020-04-11 21:56:21'),
-(64, 'show-in-front', 'Show in Front', '#', 'Backend', '2020-04-11 21:56:27', '2020-04-11 21:56:27'),
-(65, 'welcome-message', 'Welcome Message', '#', 'Backend', '2020-04-11 21:56:33', '2020-04-11 21:56:33'),
-(66, 'vdc-municipality-adhyaksh-message', 'VDC/Municipality Adhyaksh Message', '#', 'Backend', '2020-04-11 21:57:40', '2020-04-11 21:57:40'),
-(67, 'princiapal-message', 'Princiapal Message', '#', 'Backend', '2020-04-11 21:57:48', '2020-04-11 21:57:48'),
-(68, 'dalit-student', 'Dalit Student', '#', 'Backend', '2020-04-11 21:57:58', '2020-04-11 21:57:58'),
-(69, 'male-student', 'Male Student', '#', 'Backend', '2020-04-11 21:58:05', '2020-04-11 21:58:05'),
-(70, 'femalestudent', 'FemaleStudent', '#', 'Backend', '2020-04-11 21:58:15', '2020-04-11 21:58:15'),
-(71, 'total-disable-student', 'Total Disable Student', '#', 'Backend', '2020-04-11 21:58:32', '2020-04-11 21:58:32'),
-(72, 'school', 'School', '#', 'Backend', '2020-04-11 21:58:39', '2020-04-11 21:58:39'),
-(73, 'logo', 'Logo', '#', 'Backend', '2020-04-11 21:58:42', '2020-04-11 21:58:42'),
-(74, 'favicon', 'Favicon', '#', 'Backend', '2020-04-11 21:58:47', '2020-04-11 21:58:47'),
-(75, 'description', 'Description', '#', 'Backend', '2020-04-11 21:59:00', '2020-04-11 21:59:00'),
-(76, 'vdc-municipality-name', 'VDC/Municipality Name', '#', 'Backend', '2020-04-11 21:59:36', '2020-04-11 21:59:36'),
-(77, 'vdc-municipality-logo', 'VDC/Municipality Logo', '#', 'Backend', '2020-04-11 21:59:42', '2020-04-11 21:59:42'),
-(78, 'facebook', 'Facebook', '#', 'Backend', '2020-04-11 21:59:47', '2020-04-11 21:59:47'),
-(79, 'twitter', 'Twitter', '#', 'Backend', '2020-04-11 21:59:50', '2020-04-11 21:59:50'),
-(80, 'youtube', 'Youtube', '#', 'Backend', '2020-04-11 22:00:04', '2020-04-11 22:00:04'),
-(85, 'update', 'Update', '#', 'Backend', '2020-04-11 22:00:30', '2020-04-11 22:00:30'),
-(86, '1', '1', '#', 'Backend', '2020-04-11 22:01:08', '2020-04-11 22:01:08'),
-(87, '2', '2', '#', 'Backend', '2020-04-11 22:01:09', '2020-04-11 22:01:09'),
-(88, '3', '3', '#', 'Backend', '2020-04-11 22:01:10', '2020-04-11 22:01:10'),
-(89, '4', '4', '#', 'Backend', '2020-04-11 22:01:11', '2020-04-11 22:01:11'),
-(90, '5', '5', '#', 'Backend', '2020-04-11 22:01:12', '2020-04-11 22:01:12'),
-(91, '6', '6', '#', 'Backend', '2020-04-11 22:01:14', '2020-04-11 22:01:14'),
-(92, '7', '7', '#', 'Backend', '2020-04-11 22:01:15', '2020-04-11 22:01:15'),
-(93, '8', '8', '#', 'Backend', '2020-04-11 22:01:16', '2020-04-11 22:01:16'),
-(94, '9', '9', '#', 'Backend', '2020-04-11 22:01:18', '2020-04-11 22:01:18'),
-(95, '0', '0', '#', 'Backend', '2020-04-11 22:01:19', '2020-04-11 22:01:19'),
-(96, 'view-all', 'View All', '#', 'Backend', '2020-04-11 22:01:32', '2020-04-11 22:01:32'),
-(97, 'read-more', 'Read More', '#', 'Backend', '2020-04-11 22:01:37', '2020-04-11 22:01:37'),
-(98, 'setup', 'Setup', '#', 'Backend', '2020-04-11 22:01:42', '2020-04-11 22:01:42'),
-(99, 'slider', 'Slider', '#', 'Backend', '2020-04-11 22:27:12', '2020-04-11 22:27:12'),
-(100, 'staff-setup', 'Staff Setup', '#', 'Backend', '2020-04-11 22:27:22', '2020-04-11 22:27:22'),
-(101, 'events', 'Events', '#', 'Backend', '2020-04-11 22:30:09', '2020-04-11 22:30:09'),
-(102, 'news', 'News', '#', 'Backend', '2020-04-11 22:30:12', '2020-04-11 22:30:12'),
-(103, 'notice', 'Notice', '#', 'Backend', '2020-04-11 22:30:24', '2020-04-11 22:30:24'),
-(104, 'tender', 'Tender', '#', 'Backend', '2020-04-11 22:30:32', '2020-04-11 22:30:32'),
-(105, 'language', 'Language', '#', 'Backend', '2020-04-11 22:33:40', '2020-04-11 22:33:40');
+(5, 'asset', 'Asset', 'सम्पत्ति', 'Backend', '2020-04-11 21:38:36', '2020-04-13 22:53:45'),
+(7, 'album', 'Album', 'एल्बम', 'Backend', '2020-04-11 21:44:44', '2020-04-13 22:52:56'),
+(8, 'grade', 'Grade', 'ग्रेड', 'Backend', '2020-04-11 21:45:15', '2020-04-13 22:52:36'),
+(9, 'exam', 'Exam', 'परीक्षा', 'Backend', '2020-04-11 21:46:22', '2020-04-13 22:52:16'),
+(10, 'subject', 'Subject', 'विषय', 'Backend', '2020-04-11 21:47:37', '2020-04-13 22:51:23'),
+(11, 'staff', 'Staff', 'कर्मचारी', 'Backend', '2020-04-11 21:48:51', '2020-04-13 22:50:54'),
+(12, 'stafftype', 'Staff type', 'कर्मचारीको प्रकार', 'Backend', '2020-04-11 21:49:08', '2020-04-13 22:50:15'),
+(13, 'staffclasssubject', 'Staff Class Subject', 'कर्मचारी वर्ग विषय', 'Backend', '2020-04-11 21:49:43', '2020-04-13 22:48:56'),
+(14, 'committee', 'Committee', 'समिति', 'Backend', '2020-04-11 21:49:52', '2020-04-13 22:47:57'),
+(15, 'cms', 'Cms', 'सियमयस', 'Backend', '2020-04-11 21:49:56', '2020-04-13 22:47:28'),
+(16, 'about', 'About', 'बारेमा', 'Backend', '2020-04-11 21:49:59', '2020-04-13 22:45:27'),
+(17, 'user', 'User', 'प्रयोगकर्ता', 'Backend', '2020-04-11 21:50:01', '2020-04-13 22:45:05'),
+(18, 'basic-info', 'Basic Info', 'आधारभूत जानकारी', 'Backend', '2020-04-11 21:50:07', '2020-04-13 22:44:40'),
+(19, 'history', 'History', 'ईतिहास', 'Backend', '2020-04-11 21:50:14', '2020-04-13 22:43:45'),
+(20, 'message', 'Message', 'सन्देश', 'Backend', '2020-04-11 21:50:17', '2020-04-13 22:42:48'),
+(21, 'student', 'Student', 'विद्यार्थी', 'Backend', '2020-04-11 21:50:20', '2020-04-13 22:41:48'),
+(22, 'user-1', 'User', 'प्रयोगकर्ता', 'Backend', '2020-04-11 21:50:23', '2020-04-13 22:41:10'),
+(23, 'search', 'Search', 'खोज्नुहोस्', 'Backend', '2020-04-11 21:50:27', '2020-04-13 22:40:19'),
+(24, 'profile', 'Profile', 'प्रोफाइल', 'Backend', '2020-04-11 21:50:33', '2020-04-13 22:39:53'),
+(25, 'password', 'Password', 'पासवर्ड', 'Backend', '2020-04-11 21:50:38', '2020-04-13 22:39:27'),
+(26, 'confirm-password', 'Confirm Password', 'पासवर्ड सुनिश्चित गर्नुहोस', 'Backend', '2020-04-11 21:50:53', '2020-04-13 22:39:09'),
+(27, 'email', 'Email', 'ईमेल', 'Backend', '2020-04-11 21:50:56', '2020-04-13 22:38:33'),
+(28, 'name', 'Name', 'नाम', 'Backend', '2020-04-11 21:50:58', '2020-04-13 22:37:51'),
+(29, 'full-name', 'Full Name', 'पुरा नाम', 'Backend', '2020-04-11 21:51:03', '2020-04-13 22:37:37'),
+(30, 'total', 'Total', 'जम्मा', 'Backend', '2020-04-11 21:51:09', '2020-04-13 22:36:52'),
+(31, 'logout', 'Logout', 'बाहिर निस्कनु', 'Backend', '2020-04-11 21:51:12', '2020-04-13 22:36:01'),
+(32, 'notification', 'Notification', 'सूचित गर्नु', 'Backend', '2020-04-11 21:51:25', '2020-04-13 22:35:25'),
+(33, 'select-grade', 'Select Grade', 'ग्रेड चयन गर्नुहोस्', 'Backend', '2020-04-11 21:51:30', '2020-04-13 22:34:17'),
+(34, 'class', 'Class', 'कक्षा', 'Backend', '2020-04-11 21:51:35', '2020-04-13 22:33:41'),
+(35, 'add-new', 'Add New', 'थप नयाँ', 'Backend', '2020-04-11 21:51:40', '2020-04-13 22:33:11'),
+(36, 'index', 'Index', 'सूचकांक', 'Backend', '2020-04-11 21:51:44', '2020-04-13 22:31:52'),
+(37, 'select', 'Select', 'छन्नु', 'Backend', '2020-04-11 21:51:51', '2020-04-13 22:30:54'),
+(38, 'guardian', 'Guardian', 'अभिभावक', 'Backend', '2020-04-11 21:52:31', '2020-04-13 22:28:13'),
+(39, 'phone', 'Phone', 'फोन', 'Backend', '2020-04-11 21:53:01', '2020-04-13 22:27:44'),
+(40, 'image', 'Image', 'तस्वीर', 'Backend', '2020-04-11 21:53:10', '2020-04-13 22:27:21'),
+(41, 'address', 'Address', 'ठेगाना', 'Backend', '2020-04-11 21:53:13', '2020-04-13 22:26:28'),
+(42, 'gender', 'Gender', 'लिङ्ग', 'Backend', '2020-04-11 21:53:19', '2020-04-13 22:25:50'),
+(43, 'disablity', 'Disablity', 'अशक्तता', 'Backend', '2020-04-11 21:53:32', '2020-04-13 22:24:26'),
+(44, 'religion', 'Religion', 'धर्म', 'Backend', '2020-04-11 21:53:40', '2020-04-13 22:23:59'),
+(45, 'birth-date', 'Birth Date', 'जन्म मिति', 'Backend', '2020-04-11 21:53:47', '2020-04-13 22:23:37'),
+(46, 'age', 'Age', 'उमेर', 'Backend', '2020-04-11 21:53:50', '2020-04-13 22:23:14'),
+(47, 'action', 'Action', 'कार्य', 'Backend', '2020-04-11 21:53:54', '2020-04-13 22:22:51'),
+(48, 'delete', 'Delete', 'मेटाउनुस्', 'Backend', '2020-04-11 21:53:58', '2020-04-13 22:22:23'),
+(49, 'edit', 'Edit', 'सम्पादन', 'Backend', '2020-04-11 21:54:02', '2020-04-13 22:21:27'),
+(50, 'link', 'Link', 'लिंक', 'Backend', '2020-04-11 21:54:04', '2020-04-13 22:20:51'),
+(51, 'title', 'Title', 'शीर्षक', 'Backend', '2020-04-11 21:54:08', '2020-04-13 22:20:30'),
+(52, 'list', 'List', 'सूची', 'Backend', '2020-04-11 21:54:26', '2020-04-13 22:19:43'),
+(53, 'remarks', 'Remarks', 'टिप्पणीहरू', 'Backend', '2020-04-11 21:54:30', '2020-04-13 22:19:05'),
+(54, 'save', 'Save', 'सुरक्षित', 'Backend', '2020-04-11 21:54:33', '2020-04-13 22:18:22'),
+(55, 'quantity', 'Quantity', 'मात्रा', 'Backend', '2020-04-11 21:54:50', '2020-04-13 22:16:32'),
+(56, 'file', 'File', 'फाईल', 'Backend', '2020-04-11 21:54:52', '2020-04-13 22:16:08'),
+(57, 'exam-start-date', 'Exam Start Date', 'परिक्षा संचालन मिति', 'Backend', '2020-04-11 21:55:17', '2020-04-13 22:15:40'),
+(58, 'result', 'Result', 'परिणाम', 'Backend', '2020-04-11 21:55:22', '2020-04-13 22:14:07'),
+(59, 'job-title', 'Job Title', 'जागीरको शीर्षक', 'Backend', '2020-04-11 21:55:28', '2020-04-13 22:13:42'),
+(60, 'join-date', 'Join Date', 'भर्ना भएको मिति', 'Backend', '2020-04-11 21:55:39', '2020-04-13 22:11:16'),
+(61, 'teacher-name', 'Teacher Name', 'शिक्षकको नाम', 'Backend', '2020-04-11 21:56:08', '2020-04-13 22:10:28'),
+(62, 'degination', 'Degination', 'पद', 'Backend', '2020-04-11 21:56:17', '2020-04-13 22:09:42'),
+(63, 'status', 'Status', 'स्थिति', 'Backend', '2020-04-11 21:56:21', '2020-04-13 22:09:14'),
+(64, 'show-in-front', 'Show in Front', 'अगाडि देखाउनुस्', 'Backend', '2020-04-11 21:56:27', '2020-04-13 22:08:34'),
+(65, 'welcome-message', 'Welcome Message', 'स्वागत मन्तव्य', 'Backend', '2020-04-11 21:56:33', '2020-04-13 22:05:05'),
+(66, 'vdc-municipality-adhyaksh-message', 'VDC/Municipality Adhyaksh Message', 'गाउँपालिका / नगरपालिका अध्यक्षको मन्तव्य', 'Backend', '2020-04-11 21:57:40', '2020-04-13 22:05:31'),
+(67, 'princiapal-message', 'Princiapal Message', 'प्रिन्सिपलको मन्तव्य', 'Backend', '2020-04-11 21:57:48', '2020-04-13 22:05:42'),
+(68, 'dalit-student', 'Dalit Student', 'दलित विद्यार्थी', 'Backend', '2020-04-11 21:57:58', '2020-04-13 22:00:09'),
+(69, 'male-student', 'Male Student', 'छात्र विद्यार्थी', 'Backend', '2020-04-11 21:58:05', '2020-04-13 21:59:23'),
+(70, 'femalestudent', 'Female Student', 'छात्रा विद्यार्थी', 'Backend', '2020-04-11 21:58:15', '2020-04-13 21:58:47'),
+(71, 'total-disable-student', 'Total Disable Student', 'कुल असक्षम  विद्यार्थी', 'Backend', '2020-04-11 21:58:32', '2020-04-13 21:53:43'),
+(72, 'school', 'School', 'स्कुल', 'Backend', '2020-04-11 21:58:39', '2020-04-13 21:52:08'),
+(73, 'logo', 'Logo', 'लोगो', 'Backend', '2020-04-11 21:58:42', '2020-04-13 21:51:43'),
+(74, 'favicon', 'Favicon', 'फ्याभिकन', 'Backend', '2020-04-11 21:58:47', '2020-04-13 21:51:31'),
+(75, 'description', 'Description', 'वर्णन', 'Backend', '2020-04-11 21:59:00', '2020-04-13 21:50:58'),
+(76, 'vdc-municipality-name', 'VDC/Municipality Name', 'गाउँपालिका / नगरपालिकाको नाम', 'Backend', '2020-04-11 21:59:36', '2020-04-13 21:50:24'),
+(77, 'vdc-municipality-logo', 'VDC/Municipality Logo', 'गाउँपालिका / नगरपालिका लोगो', 'Backend', '2020-04-11 21:59:42', '2020-04-13 21:49:36'),
+(78, 'facebook', 'Facebook', 'फेसबुक', 'Backend', '2020-04-11 21:59:47', '2020-04-13 21:48:17'),
+(79, 'twitter', 'Twitter', 'टि्वटर', 'Backend', '2020-04-11 21:59:50', '2020-04-13 21:47:57'),
+(80, 'youtube', 'Youtube', 'युटुब', 'Backend', '2020-04-11 22:00:04', '2020-04-13 21:46:58'),
+(85, 'update', 'Update', 'अपडेट', 'Backend', '2020-04-11 22:00:30', '2020-04-13 21:45:26'),
+(86, '1', '1', '१', 'Backend', '2020-04-11 22:01:08', '2020-04-13 23:01:00'),
+(87, '2', '2', '२', 'Backend', '2020-04-11 22:01:09', '2020-04-13 23:00:50'),
+(88, '3', '3', '३', 'Backend', '2020-04-11 22:01:10', '2020-04-13 23:00:33'),
+(89, '4', '4', '४', 'Backend', '2020-04-11 22:01:11', '2020-04-13 23:00:19'),
+(90, '5', '5', '५', 'Backend', '2020-04-11 22:01:12', '2020-04-13 23:00:05'),
+(91, '6', '6', '६', 'Backend', '2020-04-11 22:01:14', '2020-04-13 22:59:48'),
+(92, '7', '7', '७', 'Backend', '2020-04-11 22:01:15', '2020-04-13 22:59:35'),
+(93, '8', '8', '८', 'Backend', '2020-04-11 22:01:16', '2020-04-13 22:59:21'),
+(94, '9', '9', '९', 'Backend', '2020-04-11 22:01:18', '2020-04-13 22:58:52'),
+(95, '10', '10', '१०', 'Backend', '2020-04-11 22:01:19', '2020-04-13 22:58:30'),
+(96, 'view-all', 'View All', 'धेरै कुराहरू हेर्नुहोस्', 'Backend', '2020-04-11 22:01:32', '2020-04-13 21:44:35'),
+(97, 'read-more', 'Read More', 'पुरा पढ्नुहोस्', 'Backend', '2020-04-11 22:01:37', '2020-04-13 21:42:41'),
+(98, 'setup', 'Setup', 'व्यवस्थापन', 'Backend', '2020-04-11 22:01:42', '2020-04-13 21:39:50'),
+(99, 'slider', 'Slider', 'स्लाइडर', 'Backend', '2020-04-11 22:27:12', '2020-04-13 21:39:20'),
+(100, 'staff-setup', 'Staff Setup', 'कर्मचारी व्यवस्थापन', 'Backend', '2020-04-11 22:27:22', '2020-04-13 21:38:27'),
+(101, 'events', 'Events', 'कार्यक्रम', 'Backend', '2020-04-11 22:30:09', '2020-04-13 21:37:26'),
+(102, 'news', 'News', 'समचार', 'Backend', '2020-04-11 22:30:12', '2020-04-13 21:36:38'),
+(103, 'notice', 'Notice', 'सूचना', 'Backend', '2020-04-11 22:30:24', '2020-04-13 21:36:10'),
+(104, 'tender', 'Tender', 'बोलपत्र', 'Backend', '2020-04-11 22:30:32', '2020-04-13 21:35:32'),
+(105, 'language', 'Language', 'भाषा', 'Backend', '2020-04-11 22:33:40', '2020-04-13 21:34:20'),
+(106, 'scholarship', 'Scholarship', 'छात्रवृत्ति', 'Backend', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -602,7 +635,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (77, '2020_03_30_075947_create_abouts_table', 10),
 (78, '2020_03_30_085428_create_sliders_table', 10),
 (79, '2020_04_03_150642_create_languages_table', 11),
-(80, '2020_04_02_165605_create_activity_log_table', 12);
+(80, '2020_04_02_165605_create_activity_log_table', 12),
+(81, '2020_05_27_182633_create_scholarships_table', 13);
 
 -- --------------------------------------------------------
 
@@ -789,6 +823,32 @@ CREATE TABLE `results` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `scholarships`
+--
+
+CREATE TABLE `scholarships` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `school_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `scholarships`
+--
+
+INSERT INTO `scholarships` (`id`, `title`, `slug`, `file`, `status`, `content`, `school_id`, `created_at`, `updated_at`) VALUES
+(1, 'Class 5 Scholarshipsss', 'class-5-scholarship', 'admin/scholarship/1590606421-3973.pdf', 'Active', '<p>new scholarship for class 5 studentssss</p>', 1, '2020-05-27 13:21:09', '2020-05-27 13:22:15'),
+(2, 'Class 10 scholarship', 'class-10-scholarship', 'admin/scholarship/1590606460-5340.pdf', 'Active', '<p>class 10 scholarship</p>', 1, '2020-05-27 13:22:40', '2020-05-27 13:22:40');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `schools`
 --
 
@@ -864,7 +924,7 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`id`, `name`, `slug`, `image`, `job_title`, `address`, `gender`, `DOB`, `join_date`, `phone`, `email`, `staff_type_id`, `school_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Ram Gyawali', 'ram-gyawali', 'images/staff/1590252043zr2h449m1jq01.jpg', 'Math Teacher', 'Kavre, Dhulikhel', 'Male', '1985-05-22', '2020-05-23', '9851234567', 'ram@gmail.com', 1, 1, NULL, '2020-05-23 10:55:45', '2020-05-23 10:55:45'),
+(1, 'Ram Gyawali', 'ram-gyawali', 'images/staff/1590605108support.png', 'Math Teacher', 'Kavre, Dhulikhel', 'Male', '1985-05-22', '2020-05-23', '9851234567', 'ram@gmail.com', 1, 1, NULL, '2020-05-23 10:55:45', '2020-05-27 13:00:08'),
 (2, 'Sita Basnet', 'sita-basnet', 'images/staff/1590252414c24db58e5cfebbce65da.jpeg', 'Nepali Teacher', 'Balkhu, Lalitpur', 'Female', '1987-04-23', '2020-05-25', '9841234567', 'sita@gmail.com', 1, 1, NULL, '2020-05-23 11:01:54', '2020-05-23 11:01:54');
 
 -- --------------------------------------------------------
@@ -928,6 +988,7 @@ CREATE TABLE `staff_expriences` (
 CREATE TABLE `staff_types` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remarks` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `school_id` int(10) UNSIGNED NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -939,10 +1000,9 @@ CREATE TABLE `staff_types` (
 -- Dumping data for table `staff_types`
 --
 
-INSERT INTO `staff_types` (`id`, `title`, `remarks`, `school_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Teacher', 'Subject Teacher', 1, NULL, '2020-04-03 09:00:06', '2020-05-23 10:48:04'),
-(2, 'Principal', NULL, 1, NULL, '2020-05-23 10:48:27', '2020-05-23 10:48:27'),
-(3, 'Chairman', 'Adhyaksha', 1, NULL, '2020-05-25 11:20:05', '2020-05-25 11:20:05');
+INSERT INTO `staff_types` (`id`, `title`, `slug`, `remarks`, `school_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Teacher', 'teacher', 'Subject Teacher', 1, NULL, '2020-04-03 09:00:06', '2020-05-23 10:48:04'),
+(6, 'Accountant', 'accountant', NULL, 1, NULL, '2020-05-27 10:18:59', '2020-05-27 10:18:59');
 
 -- --------------------------------------------------------
 
@@ -1210,6 +1270,12 @@ ALTER TABLE `results`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `scholarships`
+--
+ALTER TABLE `scholarships`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `schools`
 --
 ALTER TABLE `schools`
@@ -1285,13 +1351,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `abouts`
 --
 ALTER TABLE `abouts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `albums`
@@ -1315,7 +1381,7 @@ ALTER TABLE `asset_categories`
 -- AUTO_INCREMENT for table `asset_images`
 --
 ALTER TABLE `asset_images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `committees`
@@ -1345,7 +1411,7 @@ ALTER TABLE `exams`
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `grades`
@@ -1357,13 +1423,13 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -1400,6 +1466,12 @@ ALTER TABLE `occupations`
 --
 ALTER TABLE `results`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `scholarships`
+--
+ALTER TABLE `scholarships`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `schools`
@@ -1441,7 +1513,7 @@ ALTER TABLE `staff_expriences`
 -- AUTO_INCREMENT for table `staff_types`
 --
 ALTER TABLE `staff_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `students`

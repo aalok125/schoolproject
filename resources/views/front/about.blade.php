@@ -7,7 +7,7 @@
 
     <div class="sub-banner">
         <div class="img-container">
-            <img src="{{ asset('front/assets/images/banner1.jpg') }}" alt="" />
+            <img src="{{ asset('front/assets/check_header.png') }}" alt="" />
             <div class="overlay">
                 <div class="title">
                     About

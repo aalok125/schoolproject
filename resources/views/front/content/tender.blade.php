@@ -41,10 +41,10 @@
                                             {!! substr($tender->content,0,300) !!}
                                         </div>
                                         <div class="date">
-                                            Publish Date: {{ $tender->created_at->format('Y-m-d') }}
+                                            Publish Date: {{ getNepaliDate($tender->created_at) }}
                                         </div>
                                         <div class="button-container">
-                                            <a href="{{ route('front.singleTender',$tender->id) }}">View Detail</a>
+                                            <a href="{{ route('front.singleTender',[$tender->id, getNepaliDate($tender->created_at)]) }}">View Detail</a>
                                         </div>
                                     </div>
                                 @endforeach
@@ -61,7 +61,7 @@
                             <ul>
                                 @foreach($context->recent_news as $news)
                                     <li>
-                                        <a href="{{ route('front.singleNews',$news->id) }}">{{$news->title}}</a>
+                                        <a href="{{ route('front.singleNews',[$news->id,getNepaliDate($news->created_at)]) }}">{{$news->title}}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -76,7 +76,7 @@
                             <ul>
                                 @foreach($context->recent_events as $event)
                                     <li>
-                                        <a href="{{ route('front.singleEvent',$event->id) }}">{{ $event->title }}</a>
+                                        <a href="{{ route('front.singleEvent',[$event->id,getNepaliDate($event->created_at)]) }}">{{ $event->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>

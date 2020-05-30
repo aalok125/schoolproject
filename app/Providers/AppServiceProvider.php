@@ -38,12 +38,6 @@ class AppServiceProvider extends ServiceProvider
         foreach ($abouts as $about){
             $settings[$about->key] = $about->value;
         }
-        if(Schema::hasTable('asset_categories')) {
-            $asset_categories = AssetCategory::where('school_id', 1)->get();
-        }
-        else{
-            $asset_categories = [];
-        }
-        View::share(compact('settings','asset_categories'));
+        View::share(compact('settings'));
     }
 }

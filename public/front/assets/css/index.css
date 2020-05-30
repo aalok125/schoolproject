@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap");
 html {
   scroll-behavior: smooth;
 }
@@ -46,6 +46,23 @@ a {
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   margin-bottom: 30px;
+}
+
+.slim-navbar {
+  background: #2161bb;
+  padding: 5px 15px;
+  color: white;
+  font-family: "Mukta", sans-serif;
+  font-size: 14px;
+}
+
+.slim-navbar .slim-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 /* Style the navbar */
@@ -163,7 +180,8 @@ a {
 
 #secondNavbar .nav a {
   color: #fff;
-  padding: 15px 20px;
+  text-align: center;
+  padding: 15px 5px;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: bold;
@@ -1040,7 +1058,7 @@ a {
 
 .sub-banner .img-container {
   width: 100vw;
-  height: 350px;
+  height: 300px;
   position: relative;
   overflow: hidden;
 }
@@ -1061,13 +1079,19 @@ a {
 }
 
 .sub-banner .img-container .overlay .title {
-  margin-top: 250px;
+  margin-top: 15%;
   font-size: 60px;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .sub-banner .img-container .overlay .title {
+    font-size: 36px;
+  }
 }
 
 .breadcrumb {
@@ -2244,29 +2268,10 @@ a {
 }
 
 .inner-page-tite {
-  text-align: center;
-  text-align: center;
+  text-align: left;
   font-size: 46px;
   font-weight: bold;
   margin-bottom: 15px;
-}
-
-.inner-page-tite::before {
-  content: "";
-  height: 5px;
-  width: 40px;
-  background-color: #2161bb;
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.inner-page-tite::after {
-  content: "";
-  height: 5px;
-  width: 40px;
-  background-color: #2161bb;
-  display: inline-block;
-  margin-left: 10px;
 }
 
 .administration-container {
@@ -2281,23 +2286,17 @@ a {
 }
 
 .administration-container p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 
 .inner-container p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   margin-bottom: 30px;
 }
 
 .single-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   padding: 15px;
   -webkit-box-shadow: 0px 0px 15px #dbdcdc;
           box-shadow: 0px 0px 15px #dbdcdc;
@@ -2306,37 +2305,41 @@ a {
 }
 
 .single-item .single-item-img {
-  width: 200px;
+  height: 200px;
   border: 2px solid #fff;
   background-position: center;
   border-radius: 5px;
   background-size: cover;
 }
 
-.single-item .single-item-content {
-  margin-left: 10px;
+.single-item .content-title {
+  margin: 15px auto;
 }
 
-.single-item .single-item-content .content-title-text {
-  font-size: 12px;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 15px;
-}
-
-.single-item .single-item-content .content-nom-text {
-  font-size: 12px;
-  display: block;
-  line-height: 15px;
-}
-
-.single-item .single-item-content .morebtn {
+.single-item .morebtn {
   margin-top: 15px;
+  text-align: center;
 }
 
-.single-item .single-item-content a {
-  margin-top: 15px;
+.single-item .morebtn a {
+  margin: 15px auto;
+  background: #1976d2;
   font-size: 14px;
+  display: block;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 8px 15px;
+}
+
+.single-item .morebtn a:hover {
+  background: #1565c0;
+}
+
+@media (max-width: 768px) {
+  .single-item .single-item-img {
+    height: 120px;
+  }
 }
 
 .eventTemplate {
@@ -2557,6 +2560,34 @@ a {
   }
   .main-inner-section .single-teacher-img img {
     width: 100%;
+  }
+}
+
+.result-section .nav {
+  margin-top: 60px;
+}
+
+.result-section .nav-tabs {
+  border-bottom: 1px solid #2196F3;
+}
+
+.result-section thead {
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.result-section .nav-link {
+  padding: 0.5rem 1.5rem !important;
+}
+
+.result-section .nav-tabs .nav-item.show .nav-link, .result-section .nav-tabs .nav-link.active {
+  background: #007bff;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .result-section .nav-link {
+    padding: 0.5rem !important;
   }
 }
 /*# sourceMappingURL=index.css.map */

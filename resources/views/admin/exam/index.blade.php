@@ -4,6 +4,7 @@
 
 {{--Page specific styles--}}
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{ asset('nepaliDate/css/nepali.datepicker.v3.min.css') }}">
 <style>
     .select2-container {
         width: 100% !important;
@@ -116,6 +117,13 @@
 
 @push('scripts')
 
+<script src="{{ asset('nepaliDate/js/nepali.datepicker.v3.min.js') }}"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var mainInput = document.getElementById("nepali-datepicker");
+        mainInput.nepaliDatePicker();
+    };
+</script>
 <!-- Required datatable js -->
 <script src="{{ asset('admin/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin/assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
@@ -123,6 +131,7 @@
 <!-- Datatable init js -->
 <script src="{{ asset('admin/assets/pages/datatables.init.js') }}"></script>
 {{--Page specific scripts--}}
+
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 {{--Select 2 INIT--}}

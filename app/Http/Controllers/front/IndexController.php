@@ -6,12 +6,15 @@ use App\Model\About;
 use App\Model\Album;
 use App\Model\Asset;
 use App\Model\AssetCategory;
+use App\Model\AssetImage;
 use App\Model\Event;
 use App\Model\Gallery;
 use App\Model\News;
 use App\Model\Notice;
+use App\Model\Scholarship;
 use App\Model\Slider;
 use App\Model\Tender;
+use App\Model\Testimonial;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,25 +32,19 @@ class IndexController extends Controller
         $context->news = News::where('school_id',$school_id)->where('status',1)->orderBy('created_at','desc')->get(['id','title','created_at'])->take(3);
         $context->events = Event::where('school_id',$school_id)->where('status',1)->orderBy('created_at','desc')->get(['id','title','created_at'])->take(3);
         $context->sliders = Slider::where('status',$school_id)->where('school_id',1)->get();
+        $context->scholarships = Scholarship::where('school_id',$school_id)->where('status',1)->orderBy('created_at','desc')->get(['id','title','created_at']);
+        $context->testimonials = Testimonial::where('school_id',$school_id)->where('status',1)->orderBy('created_at','desc')->get()->take(5);
 
         $assetCategories = AssetCategory::where('school_id',$school_id)->get(['id','title']);
         foreach ($assetCategories as $category){
-            $img = null;
-            foreach ($category->assets as $asset){
-                foreach ($asset->assetImages as $image){
-                    if(file_exists($image->image)){
-                        $img = $image->image;
-                        break 2;
-                    }
-                }
+            $image = null;
+            if($category->assets){
+                $ids = $category->assets->pluck('id')->toArray();
+                $image = AssetImage::whereIn('asset_id',$ids)->inRandomOrder()->first();
             }
-            $category->preview_image = $img;
+            $category->preview_image = $image? 'thumbnail/'.$image->image : null;
         }
         $context->asset_categories = $assetCategories;
-        $context->student_count = schoolStudentsCount($school_id);
-        $context->administration_count = schoolAdministrationCount($school_id);
-        $context->teacher_count = schoolTeacherCount($school_id);
-//        dd($context);
         return view('front.index',compact('context'));
     }
 
@@ -91,6 +88,17 @@ class IndexController extends Controller
             }
         }
         return view('front.school.asset-single', compact('assets','asset_category','images'));
+    }
+
+    public function calendar(){
+        return view('front.calendar');
+    }
+
+    public function frontLanguage(Request $request){
+        $language= $request->language;
+        \Session::put('front_lang_session', $language);
+
+        return redirect()->back();
     }
 
 }

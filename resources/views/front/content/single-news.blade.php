@@ -59,7 +59,7 @@
                             <ul>
                                 @foreach($context->recent_news as $news)
                                     <li>
-                                        <a href="{{ route('front.singleNews',$news->id) }}">{{$news->title}}</a>
+                                        <a href="{{ route('front.singleNews',[$news->id, getNepaliDate($news->created_at)]) }}">{{$news->title}}</a>
                                     </li>
                                 @endforeach
                             </ul>

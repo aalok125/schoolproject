@@ -43,7 +43,7 @@
                                             {{ isset($notice->created_at) ? $notice->created_at->format('Y-m-d') : '' }}
                                         </div>
                                         <div class="button-container">
-                                            <a href="{{ route('front.singleNotice',$notice->id) }}">View Detail</a>
+                                            <a href="{{ route('front.singleNotice',[$notice->id, getNepaliDate($notice->created_at)]) }}">View Detail</a>
                                         </div>
                                     </div>
                                 @endforeach
@@ -64,7 +64,7 @@
                             <ul>
                                 @foreach($context->recent_news as $news)
                                     <li>
-                                        <a href="{{ route('front.singleNews',$news->id) }}">{{$news->title}}</a>
+                                        <a href="{{ route('front.singleNews',[$news->id, getNepaliDate($news->created_at)]) }}">{{$news->title}}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -79,7 +79,7 @@
                             <ul>
                                 @foreach($context->recent_events as $event)
                                     <li>
-                                        <a href="{{ route('front.singleEvent',$event->id) }}">{{ $event->title }}</a>
+                                        <a href="{{ route('front.singleEvent',[$event->id, getNepaliDate($event->created_at)]) }}">{{ $event->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>

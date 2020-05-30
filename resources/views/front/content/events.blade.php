@@ -33,10 +33,10 @@
                                 @foreach($context->events as $event)
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <a href="{{ route('front.singleEvent',$event->id) }}">
+                                            <a href="{{ route('front.singleEvent',[$event->id,getNepaliDate($event->created_at)]) }}">
                                                 <div class="img-container">
                                                     <img
-                                                            src="{{ $event->image }}"
+                                                            src="{{ asset('thumbnail/'.$event->image) }}"
                                                             alt=""
                                                             class="img-fluid"
                                                     />
@@ -45,14 +45,14 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="title">
-                                                <a href="{{ route('front.singleEvent',$event->id) }}">
+                                                <a href="{{ route('front.singleEvent',[$event->id, getNepaliDate($event->created_at)]) }}">
                                                     {{ $event->title }}
                                                 </a>
                                             </div>
                                             <div class="short-description">
-                                                {!! substr($event->content,0,250) !!}
+                                                {!! substr($event->content,0,500) !!}
                                             </div>
-                                            <div class="date">March 03, 2020</div>
+                                            <div class="date">{{ getNepaliDate($event->created_at) }}</div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -67,7 +67,7 @@
                             <ul>
                                 @foreach($context->recent_notices as $notice)
                                     <li>
-                                        <a href="{{ route('front.singleNotice',$notice->id) }}">{{$notice->title}}</a>
+                                        <a href="{{ route('front.singleNotice',[$notice->id, getNepaliDate($notice->created_at)]) }}">{{$notice->title}}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -82,7 +82,7 @@
                             <ul>
                                 @foreach($context->recent_news as $news)
                                     <li>
-                                        <a href="{{ route('front.singleNews',$news->id) }}">{{ $news->title }}</a>
+                                        <a href="{{ route('front.singleNews',[$news->id, getNepaliDate($news->created_at)]) }}">{{ $news->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>

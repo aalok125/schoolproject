@@ -114,6 +114,7 @@
                         <li><a href="{{ route('admin.news.all') }}">{{ getLanguage('news') }}</a></li>
                         <li><a href="{{ route('admin.notice.all') }}">{{ getLanguage('notice') }}</a></li>
                         <li><a href="{{ route('admin.tender.all') }}">{{ getLanguage('tender') }}</a></li>
+                        <li><a href="{{ route('admin.scholarship.all') }}">{{ getLanguage('scholarship') }}</a></li>
                     </ul>
                 </li>
 
@@ -124,6 +125,7 @@
                         <li><a href="{{ route('admin.about') }}">{{ getLanguage('about') }}</a></li>
                         <li><a href="{{ route('admin.history') }}">{{ getLanguage('history') }}</a></li>
                         <li><a href="{{ route('admin.welcome.message') }}">{{ getLanguage('message') }}</a></li>
+                        <li><a href="{{ route('admin.testimonials') }}">{{ getLanguage('testimonial') }}</a></li>
                         <li><a href="{{ route('admin.about.student') }}">{{ getLanguage('student') }}</a></li>
                     </ul>
                 </li>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Model\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -18,6 +19,12 @@ class EventController extends Controller
     }
 
     public function store(Request $request){
+        $validator = Validator::make($request->all(), [
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 //         dd($request);
         $event = new Event();
         $event->school_id = 1;

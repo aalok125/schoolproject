@@ -18,7 +18,7 @@ class TenderController extends Controller
         $context->recent_events = Event::where('school_id',1)->where('status',1)->orderBy('created_at','desc')->get()->take(5);
         return view('front.content.tender',compact('context'));
     }
-    public function singleTender($id){
+    public function singleTender($id,$date){
         $context = new Collection();
         $context->recent_tenders = Tender::where('school_id',1)->where('status',1)->where('id','!=',$id)->orderBy('created_at','desc')->get()->take(5);
         $tender = Tender::findOrFail($id);

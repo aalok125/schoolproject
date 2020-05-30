@@ -7,6 +7,7 @@ use App\Model\Gallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Image;
 
 class GalleryController extends Controller
@@ -26,6 +27,12 @@ class GalleryController extends Controller
     }
 
     public function upload(Request $request,$album_id){
+        $validator = Validator::make($request->all(), [
+            'album_image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()->all()],400);
+        }
         $album = Album::find($album_id);
         $gallery = new Gallery();
         if($request->hasFile('album_image')) {

@@ -5,6 +5,7 @@
 {{--Page specific styles--}}
     <!-- Dropzone css -->
 {{--    <link href="{{ asset('admin/assets/plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css">--}}
+    <link rel="stylesheet" href="{{ asset('nepaliDate/css/nepali.datepicker.v3.min.css') }}">
     <style>
         .image_preview{
             width: 100%;
@@ -74,13 +75,13 @@
 
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title" id="title" class="form-control" required>
+                            <input type="text" name="title" id="title" value="{{old("title")}}" class="form-control" required>
                         </div>
 
 
                         <div class="form-group">
                             <label for="content">Event Description:</label>
-                            <textarea name="contents" id="content" class="summernote" ></textarea>
+                            <textarea name="contents" id="content" class="summernote" >{{ old('contents') }}</textarea>
                         </div>
 
                         <div class="row">
@@ -88,6 +89,7 @@
                                 <div class="form-group">
                                     <label for="photo">Event Image</label>
                                     <input type="file" name="image" id="photo" class="form-control" required>
+                                    <span style="color: red">*Max Size: 1 MB</span>
                                 </div>
                                 <div class="image_preview">
                                     <div class="z-depth-1-half mb-4" style="text-align: center;">
@@ -100,7 +102,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="date">Event Date</label>
-                                    <input type="date" name="date" value="" id="date" class="form-control" required>
+                                    <input type="text" name="date" value="{{old("date")}}" id="nepali-datepicker"
+                                           placeholder="Select Nepali Date" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="status">Status</label>
@@ -115,6 +118,11 @@
                                 </div>
                             </div>
                         </div>
+                        @if ($errors->has('image'))
+                            <span class="alert alert-danger" role="alert">
+                                            <strong>{{ $errors->first('image') }}</strong>
+                                        </span>
+                        @endif
 
                         <button type="submit" class="btn btn-success pull-right">Save changes</button>
                     </form>
@@ -131,6 +139,13 @@
 
 {{--SummerNote--}}
 <script src="{{ asset('admin/assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script src="{{ asset('nepaliDate/js/nepali.datepicker.v3.min.js') }}"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var mainInput = document.getElementById("nepali-datepicker");
+        mainInput.nepaliDatePicker();
+    };
+</script>
 <script>
     jQuery(document).ready(function(){
         $('.summernote').summernote({

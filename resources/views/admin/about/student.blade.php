@@ -32,15 +32,12 @@
         <div class="col-12">
             <div class="card m-b-30">
                 <div class="card-body">
-
                     <h4 class="mt-0 header-title">School Info</h4>
-
-
                     <form class="" action="{{ route('admin.about.update') }}" method="post" enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Total Student</label>
                                     <input value="{{ getAbout('total_student') }}" type="number" name="total_student" class="form-control">
@@ -65,18 +62,21 @@
                                     <label>Total Disable Student</label>
                                     <input value="{{ getAbout('disable_student') }}" type="number" name="disable_student" class="form-control">
                                 </div>
-
-
-
-
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Total Teachers</label>
+                                    <input value="{{ getAbout('total_teachers') }}" type="number" name="total_teachers" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Total Administration Staffs</label>
+                                    <input value="{{ getAbout('total_administrations') }}" type="number" name="total_administrations" class="form-control">
+                                </div>
                             </div>
 
                         </div>
-
-
                         <button type="submit" class="btn btn-success waves-effect waves-light float-right">Update</button>
                     </form>
-
                 </div>
             </div>
         </div> <!-- end col -->

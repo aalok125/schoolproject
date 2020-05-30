@@ -7,6 +7,7 @@ use App\Model\AssetCategory;
 use App\Model\AssetImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class AssetController extends Controller
 {
@@ -213,6 +214,12 @@ class AssetController extends Controller
 
 
     public function upload(Request $request,$id){
+        $validator = Validator::make($request->all(), [
+            'asset_image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()->all()],400);
+        }
         $asset = Asset::find($id);
         $assetImages = new AssetImage();
         if($request->hasFile('asset_image')) {

@@ -50,6 +50,7 @@ class SliderController extends Controller
         $slider->link = $request->link;
         $slider->school_id =1;
 
+
         if($request->hasFile('image')){
             $file =  $request->image;
             $time = time();
@@ -67,13 +68,13 @@ class SliderController extends Controller
             $ImageUpload->save($originalPath.$time.$file->getClientOriginalName());
 
             // for save thumnail image
-            if(!\File::isDirectory($thumbnailPath)){
-
-                \File::makeDirectory($thumbnailPath, 0777, true, true);
-
-            }
-//            $ImageUpload->resize(250,250, 'center', false, 'fff');
-            $ImageUpload = $ImageUpload->save($thumbnailPath.$time.$file->getClientOriginalName());
+//            if(!\File::isDirectory($thumbnailPath)){
+//
+//                \File::makeDirectory($thumbnailPath, 0777, true, true);
+//
+//            }
+//            $ImageUpload->resizeCanvas(350, 350, 'center', false, 'fff');
+//            $ImageUpload = $ImageUpload->save($thumbnailPath.$time.$file->getClientOriginalName());
 
             // for save large image
             if(!\File::isDirectory($largePath)){
@@ -81,7 +82,10 @@ class SliderController extends Controller
                 \File::makeDirectory($largePath, 0777, true, true);
 
             }
-//            $ImageUpload->resize(1920,800, 'center', false, 'fff');
+            $ImageUpload->resize(1920, 700, function ($constraint){
+                $constraint->aspectRatio();
+            });
+            $ImageUpload->resizeCanvas(1920,700, 'center', false, 'fff');
             $ImageUpload = $ImageUpload->save($largePath.$time.$file->getClientOriginalName());
             $slider->image = $db_path;
         }
@@ -163,14 +167,14 @@ class SliderController extends Controller
             }
             $ImageUpload->save($originalPath.$time.$file->getClientOriginalName());
 
-            // for save thumnail image
-            if(!\File::isDirectory($thumbnailPath)){
-
-                \File::makeDirectory($thumbnailPath, 0777, true, true);
-
-            }
-            $ImageUpload->resize(250,250);
-            $ImageUpload = $ImageUpload->save($thumbnailPath.$time.$file->getClientOriginalName());
+//            // for save thumnail image
+//            if(!\File::isDirectory($thumbnailPath)){
+//
+//                \File::makeDirectory($thumbnailPath, 0777, true, true);
+//
+//            }
+//            $ImageUpload->resizeCanvas(350, 350, 'center', false, 'fff');
+//            $ImageUpload = $ImageUpload->save($thumbnailPath.$time.$file->getClientOriginalName());
 
             // for save large image
             if(!\File::isDirectory($largePath)){
@@ -178,7 +182,10 @@ class SliderController extends Controller
                 \File::makeDirectory($largePath, 0777, true, true);
 
             }
-            $ImageUpload->resize(1920,800);
+            $ImageUpload->resize(1920, 700, function ($constraint){
+                $constraint->aspectRatio();
+            });
+            $ImageUpload->resizeCanvas(1920, 700, 'center', false, 'fff');
             $ImageUpload = $ImageUpload->save($largePath.$time.$file->getClientOriginalName());
             $slider->image = $db_path;
         }
@@ -227,7 +234,7 @@ class SliderController extends Controller
         $count = 1;
         foreach ($sliders as $slider){
             $slider->count = $count;
-            $slider->image = asset('thumbnail/'.$slider->image);
+            $slider->image = asset('large/'.$slider->image);
             $count++;
         }
         return datatables($sliders)->toJson();

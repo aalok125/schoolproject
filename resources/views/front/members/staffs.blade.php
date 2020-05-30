@@ -24,45 +24,40 @@
             <div class="row">
                 <div class="col-lg-8 col-md-6">
                     <div class="inner-container">
-                        <h1 class="inner-page-tite">Teachers</h1>
+                        <h1 class="inner-page-tite">{{ $context->staffType->title }}</h1>
                         <p>
-                            A teacher is a person who helps people to learn. A teacher often
-                            works in a classroom. There are many different kinds of
-                            teachers. Some teachers teach young children in kindergarten or
-                            primary schools.
+                            {{ $context->staffType->remarks }}
                         </p>
                         <div class="inner--container">
                             <div class="row">
                                 @if($context->staffs->isNotEmpty())
                                     @foreach($context->staffs as $staff)
-                                        <div class="col-md-6">
-                                            <div class="single-item">
-                                                <div
-                                                        class="single-item-img"
-                                                        style="background-image: url({{asset($staff->image)}});"
-                                                ></div>
-                                                <div class="single-item-content">
-                                                        <span class="content-title-text"
-                                                        >Name: {{ $staff->name }}</span
-                                                        >
-                                                    <span class="content-nom-text"
-                                                    >Address: {{ $staff->address }}</span
-                                                    >
-                                                    <span class="content-nom-text"
-                                                    >Phone: {{ $staff->phone }}</span
-                                                    >
-                                                    <div class="morebtn text-right">
-                                                        <a href="{{ route('front.teacherDetail',$staff->id) }}">
-                                                            View Details <i class="fa fa-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
+
+                                    <div class="col-md-4 col-6">
+                                        <div class="single-item">
+
+                                            <div
+                                                    class="single-item-img"
+                                                    style="
+                                                        background-image: url({{asset('thumbnail/'.$staff->image)}});
+                                                    "
+                                            ></div>
+                                            <div class="content-title">
+                                                {{ $staff->name }}
                                             </div>
+                                            <div class="morebtn">
+                                                <a href="{{ route('front.staffDetail',[$staff->id,$context->staffType->slug]) }}">
+                                                    View More
+                                                </a>
+                                            </div>
+
                                         </div>
+                                    </div>
                                     @endforeach
                                 @endif
                             </div>
                         </div>
+
                         {{--<nav aria-label="Page navigation example text-center">--}}
                             {{--<ul class="pagination justify-content-center">--}}
                                 {{--<li class="page-item">--}}
@@ -97,7 +92,7 @@
                                         <div class="info">
                                             <div class="date">{{ $notice->created_at->format('Y-m-d') }}</div>
                                             <div class="morebtn">
-                                                <a href="{{ route('front.singleNotice',$notice->id) }}"> View <i class="fa fa-arrow-right"></i> </a>
+                                                <a href="{{ route('front.singleNotice',[$notice->id,getNepaliDate($notice->created_at)]) }}"> View <i class="fa fa-arrow-right"></i> </a>
                                             </div>
                                         </div>
                                     </div>

@@ -89,13 +89,18 @@ class StaffController extends Controller
         $staff->email = $request->email;
         $staff->staff_type_id = $request->staff_type_id;
 
-        $save = $staff->update();
-
         if($request->hasFile('image')){
             $image = $request->file('image');
+            if (file_exists(public_path().'/'.$staff->image)) {
+                unlink(public_path().'/'.$staff->image);
+            }
+            if (file_exists(public_path().'/thumbnail/'.$staff->image)) {
+                unlink(public_path().'/thumbnail/'.$staff->image);
+            }
             $db_path = imageUpload($image,  'images/staff/');
             $staff->image = $db_path;
         }
+        $save = $staff->update();
 
         if($save) {
 

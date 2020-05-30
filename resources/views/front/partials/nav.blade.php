@@ -1,3 +1,14 @@
+<div class="slim-navbar">
+    <div class="container slim-wrapper">
+        <div class="phone">
+            <i class="fa fa-phone"></i> Phone: (+977)- 014323477, 9841582585
+        </div>
+        <div class="social-link">
+            <i class="fab fa-facebook"></i> Facebook |
+            <i class="fab fa-twitter"></i> Twitter
+        </div>
+    </div>
+</div>
 <div id="navbar">
     <div class="container d-flex justify-content-between">
         <div class="right-container">
@@ -56,11 +67,9 @@
                 Facilities <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                @if(isset($asset_categories))
-                    @foreach($asset_categories as $category)
+                    @foreach(get_asset_categories(1) as $category)
                         <a href="{{ route('front.asset_category', $category->id) }}">{{$category->title}}</a>
                     @endforeach
-                @endif
             </div>
         </div>
         <div class="dropdown">
@@ -68,8 +77,9 @@
                 Members Enrolled <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="{{route('front.teachers')}}">Teachers</a>
-                <a href="{{ route('front.administration') }}">Administration</a>
+                @foreach(get_staff_types(1) as $type)
+                    <a href="{{ route('front.staffs',$type->slug) }}">{{$type->title}}</a>
+                @endforeach
             </div>
         </div>
 
@@ -84,7 +94,18 @@
                 <a href="{{route('front.tender')}}">Tender</a>
             </div>
         </div>
-        <a href="calender.html">Calender</a>
+        <a href="{{ route('front.calendar') }}">Calender</a>
+        <div class="dropdown">
+            <button class="dropbtn">
+                Result <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="result.html">2076</a>
+                <a href="result.html">2075</a>
+                <a href="result.html">2074</a>
+                <a href="result.html">2073</a>
+            </div>
+        </div>
         <a href="{{ route('front.contact') }}">Contact Us</a>
     </div>
 </div>
@@ -110,11 +131,9 @@
                     Facilities <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    @if(isset($asset_categories))
-                        @foreach($asset_categories as $category)
-                            <a href="{{ route('front.asset_category', $category->id) }}">{{$category->title}}</a>
-                        @endforeach
-                    @endif
+                    @foreach(get_asset_categories(1) as $category)
+                        <a href="{{ route('front.asset_category', $category->id) }}">{{$category->title}}</a>
+                    @endforeach
                 </div>
             </div>
             <div class="dropdown">
@@ -122,8 +141,9 @@
                     Members Enrolled <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{{ route('front.teachers') }}">Teachers</a>
-                    <a href="{{ route('front.administration') }}">Administration</a>
+                    @foreach(get_staff_types(1) as $type)
+                        <a href="{{ route('front.staffs',$type->slug) }}">{{$type->title}}</a>
+                    @endforeach
                 </div>
             </div>
 
@@ -138,13 +158,25 @@
                     <a href="{{ route('front.tender') }}">Tender</a>
                 </div>
             </div>
-            <a href="calender.html">Calender</a>
+            <a href="{{ route('front.calendar') }}">Calender</a>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Result <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="result.html">2076</a>
+                    <a href="result.html">2075</a>
+                    <a href="result.html">2074</a>
+                    <a href="result.html">2073</a>
+                </div>
+            </div>
             <a href="{{ route('front.contact') }}">Contact Us</a>
-            <form action="">
+            <form method="post" action="{{ route('front.setLanguage') }}">
+                {{csrf_field()}}
                 <div class="form-group">
                     <select name="" id="">
-                        <option value="">Nep</option>
-                        <option value="">Eng</option>
+                        <option value="eng" @if(\Session::get('front_lang_session') == "eng") selected @endif>Eng</option>
+                        <option value="nep" @if(\Session::get('front_lang_session') == "nep") selected @endif>Nep</option>
                     </select>
                 </div>
             </form>
@@ -158,11 +190,12 @@
 					<i class="fa fa-bars"></i>
 				</span>
 
-        <form action="" class="d-block d-lg-none">
+        <form method="post" action="{{ route('front.setLanguage') }}" class="d-block d-lg-none">
+            {{csrf_field()}}
             <div class="form-group">
                 <select name="" id="">
-                    <option value="">Nep</option>
-                    <option value="">Eng</option>
+                    <option value="eng" @if(\Session::get('front_lang_session') == "eng") selected @endif>Eng</option>
+                    <option value="nep" @if(\Session::get('front_lang_session') == "nep") selected @endif>Nep</option>
                 </select>
             </div>
         </form>

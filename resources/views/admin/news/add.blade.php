@@ -73,7 +73,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="title">News Title</label>
-                            <input type="text" name="title" id="title" class="form-control" required>
+                            <input type="text" name="title" id="title" value="{{old("title")}}" class="form-control" required>
                         </div>
 
                         <div class="row">
@@ -92,6 +92,7 @@
                                 <div class="form-group">
                                     <label for="photo">News Image (If any)</label>
                                     <input type="file" name="image" id="photo" class="form-control">
+                                    <span style="color: red">*Max Size: 1 MB</span>
                                 </div>
                                 <div class="image_preview">
                                     <div class="z-depth-1-half mb-4" style="text-align: center;">
@@ -104,10 +105,15 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label for="content">News Description:</label>
-                                    <textarea name="contents" id="content" class="summernote" ></textarea>
+                                    <textarea name="contents" id="content" class="summernote" >{{old("contents")}}</textarea>
                                 </div>
                             </div>
                         </div>
+                        @if ($errors->has('image'))
+                            <span class="alert alert-danger" role="alert">
+                                            <strong>{{ $errors->first('image') }}</strong>
+                                        </span>
+                        @endif
 
                         <button type="submit" class="btn btn-success pull-right">Save changes</button>
                     </form>

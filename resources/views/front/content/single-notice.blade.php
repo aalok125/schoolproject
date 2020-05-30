@@ -64,7 +64,7 @@
                             <ul>
                                 @foreach($context->recent_notices as $notice)
                                     <li>
-                                        <a href="{{ route('front.singleNotice',$notice->id) }}">{{$notice->title}}</a>
+                                        <a href="{{ route('front.singleNotice',[$notice->id, getNepaliDate($notice->created_at)]) }}">{{$notice->title}}</a>
                                     </li>
                                 @endforeach
                             </ul>

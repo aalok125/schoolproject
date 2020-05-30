@@ -34,10 +34,10 @@
                                 @if($context->news->isNotEmpty())
                                     @foreach($context->news as $news)
                                         <div class="col-md-6">
-                                            <a href="{{ route('front.singleNews',$news->id) }}">
+                                            <a href="{{ route('front.singleNews',[$news->id, getNepaliDate($news->created_at)]) }}">
                                                 <div class="img-container">
                                                     <img
-                                                            src="{{ asset(isset($news->image)?$news->image:"front/assets/images/banner1.jpg") }}"
+                                                            src="{{ asset(isset($news->image)?'thumbnail/'.$news->image:"front/assets/images/banner1.jpg") }}"
                                                             alt=""
                                                             class="img-fluid"
                                                     />
@@ -68,7 +68,7 @@
                             <ul>
                                 @foreach($context->recent_notices as $notice)
                                     <li>
-                                        <a href="{{ route('front.singleNews',$notice->id) }}">{{$notice->title}}</a>
+                                        <a href="{{ route('front.singleNews',[$notice->id, getNepaliDate($notice->created_at)]) }}">{{$notice->title}}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -83,7 +83,7 @@
                             <ul>
                                 @foreach($context->recent_events as $event)
                                     <li>
-                                        <a href="{{ route('front.singleEvent',$event->id) }}">{{ $event->title }}</a>
+                                        <a href="{{ route('front.singleEvent',[$event->id, getNepaliDate($event->created_at)]) }}">{{ $event->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>

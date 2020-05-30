@@ -39,7 +39,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="text-center">Image Upload Section For Album:</h5>
+                    <h5 class="text-center" id="title">Image Upload Section For Album:</h5>
 
                     <div class="row">
                         <div class="col-md-12">
@@ -47,6 +47,9 @@
                                 <h3 class="text-center" id="no_image" style="display: none;">
                                     No images in this album. Upload Below.
                                 </h3>
+                                <div class="alert alert-danger print-error-msg" style="display:none">
+                                    <ul></ul>
+                                </div>
                                 <div class="row preview_image">
                                 </div>
                                 <br>
@@ -55,6 +58,7 @@
                                     <div class="col-md-4 form-group">
                                         <label for="">Image File</label>
                                         <input id="image_submit" type="file" name="album_image" class="form-control">
+                                        <span style="color: red">* Maximum File Size : 1 MB *</span>
                                     </div>
                                 </div>
                             </div>
@@ -154,15 +158,25 @@
             {
                 console.log(result);
                 get_images();
+                $("#image_submit").val(null);
 
             },
             error: function(data)
             {
-                console.log(data);
+                printErrorMsg(data.responseJSON.error);
+                $("#image_submit").val(null);
+                document.getElementById('title').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
             }
 
         })
     });
+    function printErrorMsg (msg) {
+        $(".print-error-msg").find("ul").html('');
+        $(".print-error-msg").css('display','block');
+        $.each( msg, function( key, value ) {
+            $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+        });
+    }
 </script>
 
 <script>

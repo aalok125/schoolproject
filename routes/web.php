@@ -17,29 +17,33 @@ Route::group([
     'namespace'=>'front',
     'middleware' => []
 ], function () {
+    Route::get('/setFrontlanguage','IndexController@frontLanguage')->name('setLanguage');
     Route::get('/','IndexController@home')->name('home');
     Route::get('/contact','IndexController@contact')->name('contact');
     Route::get('/about','IndexController@about')->name('about');
     Route::get('/mission-vision','IndexController@mission_vision')->name('mission-vision');
     Route::get('/principal-note','IndexController@principal_note')->name('principal-note');
     Route::get('/asset/{id}','IndexController@asset_category')->name('asset_category');
+    Route::get('/calendar','IndexController@calendar')->name('calendar');
 
     Route::get('/gallery','IndexController@gallery')->name('gallery');
     Route::get('/gallery/{album_slug}','IndexController@singleAlbum')->name('singleAlbum');
 
     Route::get('/news','NewsNoticeController@news')->name('news');
-    Route::get('/news/{id}','NewsNoticeController@singleNews')->name('singleNews');
+    Route::get('/news/{id}/{date}','NewsNoticeController@singleNews')->name('singleNews');
     Route::get('/events','NewsNoticeController@events')->name('events');
-    Route::get('/event/{id}','NewsNoticeController@singleEvent')->name('singleEvent');
+    Route::get('/event/{id}/{date}','NewsNoticeController@singleEvent')->name('singleEvent');
     Route::get('/notices','NewsNoticeController@notice')->name('notice');
-    Route::get('/notice/{id}','NewsNoticeController@singleNotice')->name('singleNotice');
+    Route::get('/notice/{id}/{date}','NewsNoticeController@singleNotice')->name('singleNotice');
 
     Route::get('/tenders','TenderController@tender')->name('tender');
-    Route::get('/tender/{id}','TenderController@singleTender')->name('singleTender');
+    Route::get('/tender/{id}/{date}','TenderController@singleTender')->name('singleTender');
 
-    Route::get('/members/teachers','MemberController@teachers')->name('teachers');
-    Route::get('/members/teacher/{id}','MemberController@teacherDetail')->name('teacherDetail');
-    Route::get('/members/administration','MemberController@administration')->name('administration');
+    Route::get('/scholarship','NewsNoticeController@scholarship')->name('scholarship');
+    Route::get('/scholarship/{id}/{date}','NewsNoticeController@singleScholarship')->name('singleScholarship');
+
+    Route::get('/members/{staffTypeSlug}','MemberController@staffs')->name('staffs');
+    Route::get('/members/{staff_id}/{staffTypeSlug}','MemberController@staffDetail')->name('staffDetail');
 
 });
 
@@ -190,6 +194,19 @@ Route::group([
     });
 
     Route::group([
+        'prefix'=>'scholarships',
+        'as' => 'scholarship.',
+    ], function(){
+        Route::get('/','ScholarshipController@index')->name('all');
+        Route::get('/add','ScholarshipController@add')->name('add');
+        Route::post('/add','ScholarshipController@store')->name('store');
+        Route::get('/edit/{tender_slug}','ScholarshipController@edit')->name('edit');
+        Route::post('/edit/{tender_slug}','ScholarshipController@update')->name('update');
+        Route::post('/delete','ScholarshipController@delete')->name('delete');
+        Route::get('/changestatus/{tender_id}','ScholarshipController@changestatus')->name('changestatus');
+    });
+
+    Route::group([
         'prefix'=>'logs',
         'as' => 'log.',
     ], function(){
@@ -198,6 +215,15 @@ Route::group([
         Route::get('/getJson/details/{log_id}','LogController@details')->name('details');
 
     });
+
+    Route::get('testimonials', 'TestimonialController@index')->name('testimonials');
+    Route::get('testimonial/create', 'TestimonialController@create')->name('testimonial.create');
+    Route::post('testimonial/store', 'TestimonialController@store')->name('testimonial.store');
+    Route::post('testimonial/update', 'TestimonialController@update')->name('testimonial.update');
+    Route::get('testimonial/json', 'TestimonialController@getJson')->name('testimonial.json');
+    Route::get('testimonial/edit/{id}', 'TestimonialController@edit')->name('testimonial.edit');
+    Route::get('testimonial/delete/{id}', 'TestimonialController@destroy')->name('testimonial.delete');
+
 
 
 //    Student Route

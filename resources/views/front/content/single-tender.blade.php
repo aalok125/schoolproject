@@ -17,7 +17,7 @@
     </div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ asset('front.home') }}"><i class="fa fa-home"> </i> Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('front.home') }}"><i class="fa fa-home"> </i> Home</a></li>
 
             <li class="breadcrumb-item active" aria-current="page">
                 Tender Notice
@@ -35,7 +35,7 @@
                                     {{ $tender->title }}
                                 </div>
                                 <div class="long-description">
-                                    <p>{{ $tender->content }}</p>
+                                    <p>{!! $tender->content !!}</p>
 
                                 </div>
                                 <div class="download-title">
@@ -60,7 +60,7 @@
                                     @endif
                                 </ul>
                                 <div class="date">
-                                    Publish Date: {{ $tender->created_at->format('Y-m-d') }}
+                                    Publish Date: {{ getNepaliDate($tend->created_at) }}
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                             <ul>
                                 @foreach($context->recent_tenders as $tend)
                                     <li>
-                                        <a href="{{ route('front.singleNews',$tend->id) }}">{{$tend->title}}</a>
+                                        <a href="{{ route('front.singleTender',[$tend->id,getNepaliDate($tend->created_at)]) }}">{{$tend->title}}</a>
                                     </li>
                                 @endforeach
                             </ul>

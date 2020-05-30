@@ -16,7 +16,7 @@
                 >
             </li>
             <li>
-                <a href="{{ route('front.teachers') }}" style="color: #2a98ef;"
+                <a href="{{ route('front.staffs',$staffType->slug) }}" style="color: #2a98ef;"
                 >Teachers &nbsp >> &nbsp</a
                 >
             </li>
@@ -25,14 +25,14 @@
     </div>
     <section class="main-inner-section">
         <div class="container">
-            <h1 class="inner-section-title">{{ $teacher->name }}</h1>
+            <h1 class="inner-section-title">{{ $staff->name }}</h1>
             {{--<p class="inner-section-subject">"The Human Computer"</p>--}}
             <div class="row">
                 <div class="col-lg-5 col-md-12">
                     <div class="single-teacher-img">
                         <img
-                                src="{{ asset($teacher->image) }}"
-                                alt="{{ $teacher->name }}"
+                                src="{{ asset($staff->image) }}"
+                                alt="{{ $staff->name }}"
                                 class="profile"
                         />
                         <div class="d-flex justify-content-center">
@@ -94,15 +94,15 @@
                 <div class="col-lg-7 col-md-12">
                     <div class="single-bio-details">
                         <ul>
-                            <li><strong>Full name: </strong> {{ $teacher->name }}</li>
+                            <li><strong>Full name: </strong> {{ $staff->name }}</li>
                             {{--<li>--}}
                                 {{--<strong>Education: </strong> BA, Mathematics, Kathmadu Model--}}
                                 {{--College--}}
                             {{--</li>--}}
-                            <li><strong>Position: </strong> {{ $teacher->job_title }}</li>
-                            <li><str    ong>Email: </strong> {{ $teacher->email }}</li>
-                            <li><strong>Phone: </strong> {{ $teacher->phone }}</li>
-                            <li><strong>Date Joined: </strong>{{ $teacher->join_date }}</li>
+                            <li><strong>Position: </strong> {{ $staff->job_title }}</li>
+                            <li><strong>Email: </strong> {{ $staff->email }}</li>
+                            <li><strong>Phone: </strong> {{ $staff->phone }}</li>
+                            <li><strong>Date Joined: </strong>{{ $staff->join_date }}</li>
                         </ul>
                         <div class="single-short-bio">
                             <h2>A Short Bio</h2>
