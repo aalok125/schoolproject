@@ -19,6 +19,10 @@ class LanguageController extends Controller
         return view('admin.language.index');
     }
 
+    public function indexFrontend(){
+        return view('admin.language.frontLanguage');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -37,8 +41,6 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $this->validate($request,[
             'english_name'=>'required',
 //            'nepali_name'=>'required',
@@ -46,7 +48,7 @@ class LanguageController extends Controller
 
         $language = new Language();
         $language->english_name = $request->english_name;
-        $language->nepali_name = "#";
+        $language->nepali_name = $request->nepali_name;
         $language->type = "Backend";
 
 
@@ -66,6 +68,35 @@ class LanguageController extends Controller
         }
 
 
+    }
+
+    public function storeFrontend(Request $request){
+        $this->validate($request,[
+            'english_name'=>'required',
+//            'nepali_name'=>'required',
+        ]);
+
+        $language = new Language();
+        $language->name = $request->name;
+        $language->english_name = $request->english_name;
+        $language->nepali_name = $request->nepali_name;
+        $language->type = "Frontend";
+
+
+
+        $response = $language->save();
+        if($response){
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Language Successfully Added.'
+            ], 201);
+        }else{
+            return response()->json([
+                'status' => 'error',
+                'message' => '...........Error.........'
+            ], 201);
+        }
     }
 
     /**
@@ -130,13 +161,13 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
-        $ethnicity =Language::find($id);
+        $language =Language::find($id);
 
-        $response = $ethnicity->delete();
+        $response = $language->delete();
 
         if($response){
 
-            return redirect()->back()->with('success', 'Ethnicity Successfully Deleted.');
+            return redirect()->back()->with('success', 'Language Successfully Deleted.');
         }
         else{
             return redirect()->back()->with('error', '...........Error.........');
@@ -145,7 +176,18 @@ class LanguageController extends Controller
 
 
     public function getJson(){
-        $languages = Language::all();
+        $languages = Language::where('type','Backend')->get();
+        $count = 1;
+        foreach ($languages as $language){
+            $language->count = $count;
+            $count++;
+        }
+        return datatables($languages)->toJson();
+    }
+
+
+    public function getJsonFrontend(){
+        $languages = Language::where('type','Frontend')->get();
         $count = 1;
         foreach ($languages as $language){
             $language->count = $count;

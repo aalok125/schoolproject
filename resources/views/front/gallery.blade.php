@@ -17,7 +17,7 @@
     </div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">
                 Gallery
             </li>
@@ -45,7 +45,7 @@
                                 </a>
                             </div>
                             <div class="album-title">
-                                Album Name
+                                {{ $album->title }}
                             </div>
                         </div>
                     @endforeach

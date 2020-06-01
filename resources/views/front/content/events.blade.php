@@ -10,16 +10,16 @@
             <img src="assets/images/banner1.jpg" alt="" />
             <div class="overlay">
                 <div class="title">
-                    Events
+                    {{ getFrontLanguage('event') }}
                 </div>
             </div>
         </div>
     </div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('front.home') }}">{{ getFrontLanguage('home') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-                Events
+                {{ getFrontLanguage('event') }}
             </li>
         </ol>
     </nav>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="sidebar-section">
-                        <div class="sidebar-title">Recent Notices</div>
+                        <div class="sidebar-title">{{ getFrontLanguage('recent') }} {{getFrontLanguage('notice-1')}}</div>
                         @if($context->recent_notices->isNotEmpty())
                             <ul>
                                 @foreach($context->recent_notices as $notice)
@@ -74,10 +74,10 @@
                         @else
                             <span>No recent news to show.</span>
                         @endif
-
-                        <hr />
-
-                        <div class="sidebar-title">Recent News</div>
+                    </div>
+                    <hr />
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">{{ getFrontLanguage('recent') }} {{getFrontLanguage('news-1')}}</div>
                         @if($context->recent_news->isNotEmpty())
                             <ul>
                                 @foreach($context->recent_news as $news)

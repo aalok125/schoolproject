@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-6">
                     <div class="marquee-notice">
-                        <div class="title">Notice</div>
+                        <div class="title">{{ getFrontLanguage('notice-1') }}</div>
                         <div class="content">
                             <div
                                     id="notice-carousel"
@@ -175,7 +175,7 @@
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
                                     <a class="nav-link active" data-toggle="tab" href="#news">
-                                        News Update
+                                        {{ getFrontLanguage('news-1') }}
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -184,13 +184,13 @@
                                             data-toggle="tab"
                                             href="#tendernotice"
                                     >
-                                        Tender Notice
+                                        {{ getFrontLanguage('tender-1') }}
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#events">
-                                        Events
+                                        {{ getFrontLanguage('event') }}
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -276,7 +276,7 @@
                                             <div class="tab-item">
                                                 <div class="title">
                                                     <a href="">
-                                                        No tenders availbale currently.
+                                                        No tenders available currently.
                                                     </a>
                                                 </div>
                                                 <div class="info">
@@ -320,7 +320,7 @@
                                             <div class="tab-item">
                                                 <div class="title">
                                                     <a href="">
-                                                        No events availbale currently.
+                                                        No events available currently.
                                                     </a>
                                                 </div>
                                                 <div class="info">
@@ -383,7 +383,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="eventTemplate">
                         <div class="main-title">
-                            Notice
+                            {{ getFrontLanguage('notice-1') }}
                         </div>
 
                         <div class="tab-pane container active">
@@ -430,7 +430,7 @@
     </div>
     <div class="facilities">
         <div class="main-title">
-            Facilities
+            {{ getFrontLanguage('facilities') }}
         </div>
         <div class="sub-title">
             Our School is equipped with many facilities
@@ -462,7 +462,7 @@
     <div class="counter-container">
         <div class="container">
             <div class="main-title">
-                Our School Family
+                {{ getFrontLanguage('our-school-family') }}
             </div>
             <div class="sub-title">
                 We strive towards success and greatness.
@@ -475,7 +475,7 @@
                                 data-to="{{ isset($settings['total_administrations']) ? $settings['total_administrations'] : "" }}"
                                 data-speed="3000"
                         ></h2>
-                        <p class="count-text ">Administration Member</p>
+                        <p class="count-text ">{{ getFrontLanguage('administration-members') }}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -485,7 +485,7 @@
                                 data-to="{{ isset($settings['total_teachers']) ? $settings['total_teachers'] : "" }}"
                                 data-speed="3000"
                         ></h2>
-                        <p class="count-text ">Our Excellent Teachers</p>
+                        <p class="count-text ">{{ getFrontLanguage('our-excellent-teachers') }}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -495,7 +495,7 @@
                                 data-to="{{ isset($settings['total_student']) ? $settings['total_student'] : "" }}"
                                 data-speed="3000"
                         ></h2>
-                        <p class="count-text ">Our Geniues Students</p>
+                        <p class="count-text ">{{ getFrontLanguage('our-genius-students') }}</p>
                     </div>
                 </div>
             </div>
@@ -525,7 +525,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="testimonial-wrapper">
-                                    <div class="title">What people are saying</div>
+                                    <div class="title">{{ getFrontLanguage('what-people-are-saying') }}</div>
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         Aperiam aliquid unde magni aspernatur excepturi nobis
@@ -560,7 +560,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="testimonial-wrapper">
-                                    <div class="title">What people are saying</div>
+                                    <div class="title">{{ getFrontLanguage('what-people-are-saying') }}</div>
                                     <p>
                                         No Testimonials Available
                                     </p>

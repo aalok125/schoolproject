@@ -48,33 +48,33 @@
     </a>
 
     <div class="overlay-content">
-        <a href="{{ route('front.home') }}">Home</a>
+        <a href="{{ route('front.home') }}">{{ getFrontLanguage('home') }}</a>
 
         <div class="dropdown">
             <button class="dropbtn">
-                School Overview <i class="fa fa-caret-down"></i>
+                {{ getFrontLanguage('school-overview')}} <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="{{ route('front.about') }}">About Us</a>
+                <a href="{{ route('front.about') }}">{{ getFrontLanguage('about-us') }}</a>
                 <a href="{{ route('front.mission-vision') }}">Vision & Mission</a>
-                <a href="{{ route('front.principal-note') }}">Principal Note</a>
-                <a href="{{ route('front.gallery') }}">Gallery</a>
+                <a href="{{ route('front.principal-note') }}">{{ getFrontLanguage('administration-note') }}</a>
+                <a href="{{ route('front.gallery') }}">{{ getFrontLanguage('gallery') }}</a>
             </div>
         </div>
 
         <div class="dropdown">
             <button class="dropbtn">
-                Facilities <i class="fa fa-caret-down"></i>
+                {{ getFrontLanguage('facilities')}} <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                     @foreach(get_asset_categories(1) as $category)
-                        <a href="{{ route('front.asset_category', $category->id) }}">{{$category->title}}</a>
+                        <a href="{{ route('front.asset_category', [$category->id,getNepaliDate($category->created_at)]) }}">{{$category->title}}</a>
                     @endforeach
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">
-                Members Enrolled <i class="fa fa-caret-down"></i>
+                {{ getFrontLanguage('members-enrolled')}} <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 @foreach(get_staff_types(1) as $type)
@@ -85,19 +85,19 @@
 
         <div class="dropdown">
             <button class="dropbtn">
-                News & Notice <i class="fa fa-caret-down"></i>
+                {{ getFrontLanguage('information')}} <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="{{ route('front.notice') }}">Notice</a>
-                <a href="{{ route('front.news') }}">News</a>
-                <a href="{{ route('front.events') }}">Events</a>
-                <a href="{{route('front.tender')}}">Tender</a>
+                <a href="{{ route('front.notice') }}">{{ getFrontLanguage('notice-1') }}</a>
+                <a href="{{ route('front.news') }}">{{ getFrontLanguage('news-1') }}</a>
+                <a href="{{ route('front.events') }}">{{ getFrontLanguage('event') }}</a>
+                <a href="{{route('front.tender')}}">{{ getFrontLanguage('tender-1') }}</a>
             </div>
         </div>
-        <a href="{{ route('front.calendar') }}">Calender</a>
+        <a href="{{ route('front.calendar') }}">{{ getFrontLanguage('calendar')}}</a>
         <div class="dropdown">
             <button class="dropbtn">
-                Result <i class="fa fa-caret-down"></i>
+                {{ getFrontLanguage('result-1')}} <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 <a href="result.html">2076</a>
@@ -106,33 +106,33 @@
                 <a href="result.html">2073</a>
             </div>
         </div>
-        <a href="{{ route('front.contact') }}">Contact Us</a>
+        <a href="{{ route('front.contact') }}">{{ getFrontLanguage('contact-us')}}</a>
     </div>
 </div>
 <div id="secondNavbar" class="d-none  d-lg-block">
     <div class="container ">
         <div class="nav  d-flex justify-content-around">
-            <a href="{{ route('front.home') }}">Home</a>
+            <a href="{{ route('front.home') }}">{{ getFrontLanguage('home') }}</a>
 
             <div class="dropdown">
                 <button class="dropbtn">
-                    School Overview <i class="fa fa-caret-down"></i>
+                    {{ getFrontLanguage('school-overview')}} <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{{ route('front.about') }}">About Us</a>
+                    <a href="{{ route('front.about') }}">{{ getFrontLanguage('about-us')}}</a>
                     <a href="{{ route('front.mission-vision') }}">Vision & Mission</a>
-                    <a href="{{ route('front.principal-note') }}">Principal Note</a>
-                    <a href="{{ route('front.gallery') }}">Gallery</a>
+                    <a href="{{ route('front.principal-note') }}">{{ getFrontLanguage('administration-note') }}</a>
+                    <a href="{{ route('front.gallery') }}">{{ getFrontLanguage('gallery') }}</a>
                 </div>
             </div>
 
             <div class="dropdown">
                 <button class="dropbtn">
-                    Facilities <i class="fa fa-caret-down"></i>
+                    {{ getFrontLanguage('facilities')}} <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
                     @foreach(get_asset_categories(1) as $category)
-                        <a href="{{ route('front.asset_category', $category->id) }}">{{$category->title}}</a>
+                        <a href="{{ route('front.asset_category', [$category->id,getNepaliDate($category->created_at)]) }}">{{$category->title}}</a>
                     @endforeach
                 </div>
             </div>
@@ -149,19 +149,19 @@
 
             <div class="dropdown">
                 <button class="dropbtn">
-                    News & Notice <i class="fa fa-caret-down"></i>
+                    {{ getFrontLanguage('information')}} <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{{ route('front.notice') }}">Notice</a>
-                    <a href="{{ route('front.news') }}">News</a>
-                    <a href="{{ route('front.events') }}">Events</a>
-                    <a href="{{ route('front.tender') }}">Tender</a>
+                    <a href="{{ route('front.notice') }}">{{ getFrontLanguage('notice-1') }}</a>
+                    <a href="{{ route('front.news') }}">{{ getFrontLanguage('news-1') }}</a>
+                    <a href="{{ route('front.events') }}">{{ getFrontLanguage('event') }}</a>
+                    <a href="{{ route('front.tender') }}">{{ getFrontLanguage('tender-1') }}</a>
                 </div>
             </div>
-            <a href="{{ route('front.calendar') }}">Calender</a>
+            <a href="{{ route('front.calendar') }}">{{ getFrontLanguage('calendar')}}</a>
             <div class="dropdown">
                 <button class="dropbtn">
-                    Result <i class="fa fa-caret-down"></i>
+                    {{ getFrontLanguage('result-1')}} <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
                     <a href="result.html">2076</a>
@@ -170,11 +170,11 @@
                     <a href="result.html">2073</a>
                 </div>
             </div>
-            <a href="{{ route('front.contact') }}">Contact Us</a>
+            <a href="{{ route('front.contact') }}">{{ getFrontLanguage('contact-us')}}</a>
             <form method="post" action="{{ route('front.setLanguage') }}">
                 {{csrf_field()}}
                 <div class="form-group">
-                    <select name="" id="">
+                    <select name="language" class="frontselectlanguage">
                         <option value="eng" @if(\Session::get('front_lang_session') == "eng") selected @endif>Eng</option>
                         <option value="nep" @if(\Session::get('front_lang_session') == "nep") selected @endif>Nep</option>
                     </select>
@@ -193,7 +193,7 @@
         <form method="post" action="{{ route('front.setLanguage') }}" class="d-block d-lg-none">
             {{csrf_field()}}
             <div class="form-group">
-                <select name="" id="">
+                <select name="language" class="frontselectlanguage">
                     <option value="eng" @if(\Session::get('front_lang_session') == "eng") selected @endif>Eng</option>
                     <option value="nep" @if(\Session::get('front_lang_session') == "nep") selected @endif>Nep</option>
                 </select>

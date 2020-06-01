@@ -18,7 +18,7 @@ use App\Model\Testimonial;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
@@ -74,7 +74,7 @@ class IndexController extends Controller
         return view('front.school.principal-note');
     }
 
-    public function asset_category($id){
+    public function asset_category($id, $date){
         $asset_category = AssetCategory::findOrFail($id);
         $assets = $asset_category->assets;
         $images = [];
@@ -96,7 +96,7 @@ class IndexController extends Controller
 
     public function frontLanguage(Request $request){
         $language= $request->language;
-        \Session::put('front_lang_session', $language);
+        Session::put('front_lang_session', $language);
 
         return redirect()->back();
     }

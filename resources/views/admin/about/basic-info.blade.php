@@ -56,10 +56,10 @@
 
                                 <div class="form-group">
                                     <label for="photo">School Logo</label>
-                                    <input type="file" name="logo" id="photo" class="form-control">
+                                    <input type="file" name="logo" id="logo" class="form-control">
                                     <div class="image_preview">
                                         <div class="z-depth-1-half mb-4" style="text-align: center;">
-                                            <img style="width: 100px;" id="preview_image" src="{{ asset('thumbnail/'.getAbout('logo')) }}" class="avatar-pic img-fluid" title="Click To Upload news Photo"
+                                            <img style="width: 100px;" id="preview_logo" src="{{ asset('thumbnail/'.getAbout('logo')) }}" class="avatar-pic img-fluid" title="Click To Upload news Photo"
                                                  alt="news Image">
                                         </div>
                                     </div>
@@ -69,10 +69,10 @@
 
                                 <div class="form-group">
                                     <label for="photo">School Favicon</label>
-                                    <input type="file" name="favicon" id="photo" class="form-control">
+                                    <input type="file" name="favicon" id="favicon" class="form-control">
                                     <div class="image_preview">
                                         <div class="z-depth-1-half mb-4" style="text-align: center;">
-                                            <img style="width: 100px;" id="preview_image" src="{{ asset('thumbnail/'.getAbout('favicon')) }}" class="avatar-pic img-fluid" title="Click To Upload news Photo"
+                                            <img style="width: 100px;" id="preview_favicon" src="{{ asset('thumbnail/'.getAbout('favicon')) }}" class="avatar-pic img-fluid" title="Click To Upload news Photo"
                                                  alt="news Image">
                                         </div>
                                     </div>
@@ -126,10 +126,10 @@
 
                                 <div class="form-group">
                                     <label for="photo">VDC Logo</label>
-                                    <input type="file" name="vdc_logo" id="photo" class="form-control">
+                                    <input type="file" name="vdc_logo" id="vdc" class="form-control">
                                     <div class="image_preview">
                                         <div class="z-depth-1-half mb-4" style="text-align: center;">
-                                            <img style="width: 100px;" id="preview_image" src="{{ asset('thumbnail/'.getAbout('vdc_logo')) }}" class="avatar-pic img-fluid" title="Click To Upload news Photo"
+                                            <img style="width: 100px;" id="preview_vdc" src="{{ asset('thumbnail/'.getAbout('vdc_logo')) }}" class="avatar-pic img-fluid" title="Click To Upload news Photo"
                                                  alt="news Image">
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@
             const reader = new FileReader();
             reader.addEventListener('load',function(){
 
-                const previewImage = document.querySelector('#preview_image')
+                const previewImage = document.querySelector('#preview_'+e.target.id)
                 console.log(previewImage)
                 previewImage.setAttribute("src",reader.result)
             });

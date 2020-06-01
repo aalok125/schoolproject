@@ -35,7 +35,7 @@
 
 
                     <h4 class="mt-0 header-title">Language List<button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">Add New</button></h4>
-                        @include('admin.language.add')
+                    @include('admin.language.add')
                     <div class="modal fade edu-edit-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     </div>
                     <table id="datatable-students" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -86,7 +86,7 @@
             bFilter: true,
             bInfo: false,
             bAutoWidth: false,
-            ajax: "{{ route('admin.language.json') }}",
+            ajax: "{{ route('admin.language.jsonFrontend') }}",
             columns: [
                 {
                     data: 'count',
@@ -155,7 +155,7 @@
         var form = new FormData($('#languageForm')[0]);
         var params = $('#languageForm').serializeArray();
 
-        var myUrl = "{{ route('admin.language.store') }}";
+        var myUrl = "{{ route('admin.language.storeFrontEnd') }}";
 
         $.each(params, function (i, val) {
             form.append(val.name, val.value)

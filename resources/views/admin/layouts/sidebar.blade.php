@@ -6,7 +6,6 @@
 
     <div class="left-side-logo d-block d-lg-none">
         <div class="text-center">
-
             <a href="{{ url('admins/dashboard') }}" class="logo">
                 @if(getAbout('logo'))
                     <img src="{{ asset('thumbnail/'.getAbout('logo')) }}" style="width: 70px;" alt="logo">
@@ -138,12 +137,12 @@
                     </a>
                 </li>
 
-
-                <li>
-                    <a href="{{ route('admin.languages') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
-                        <span> {{ getLanguage('language') }} </span>
-                    </a>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-archive"></i> <span>{{ getLanguage('language') }}</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ route('admin.languages') }}">{{ getLanguage('dashboardLanguage') }}</a></li>
+                        <li><a href="{{ route('admin.languagesFrontend') }}">{{ getLanguage('homepageLanguage') }}</a></li>
+                    </ul>
                 </li>
 
             </ul>

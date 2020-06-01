@@ -11,16 +11,16 @@
             <img src="assets/images/banner1.jpg" alt="" />
             <div class="overlay">
                 <div class="title">
-                    News
+                    {{ getFrontLanguage('news-1') }}
                 </div>
             </div>
         </div>
     </div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('front.home') }}">{{ getFrontLanguage('home') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-                News
+                {{ getFrontLanguage('news-1') }}
             </li>
         </ol>
     </nav>
@@ -37,7 +37,7 @@
                                             <a href="{{ route('front.singleNews',[$news->id, getNepaliDate($news->created_at)]) }}">
                                                 <div class="img-container">
                                                     <img
-                                                            src="{{ asset(isset($news->image)?'thumbnail/'.$news->image:"front/assets/images/banner1.jpg") }}"
+                                                            src="{{ asset(isset($news->image)? $news->image:"front/assets/images/banner1.jpg") }}"
                                                             alt=""
                                                             class="img-fluid"
                                                     />
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="sidebar-section">
-                        <div class="sidebar-title">Recent Notices</div>
+                        <div class="sidebar-title">{{ getFrontLanguage('recent') }} {{getFrontLanguage('notice-1')}}</div>
                         @if($context->recent_notices->isNotEmpty())
                             <ul>
                                 @foreach($context->recent_notices as $notice)
@@ -75,10 +75,10 @@
                         @else
                             <span>No recent notices to show.</span>
                         @endif
-
+                    </div>
                         <hr />
-
-                        <div class="sidebar-title">Recent Events</div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">{{ getFrontLanguage('recent') }} {{getFrontLanguage('event')}}</div>
                         @if($context->recent_events->isNotEmpty())
                             <ul>
                                 @foreach($context->recent_events as $event)

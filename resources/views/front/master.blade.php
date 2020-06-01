@@ -48,6 +48,13 @@
         crossorigin="anonymous"
 ></script>
 <script src="{{asset('front/assets/js/index.js')}}"></script>
+<script>
+    jQuery(function() {
+        $('.frontselectlanguage').change(function() {
+            this.form.submit();
+        });
+    });
+</script>
 @stack('script')
 </body>
 </html>

@@ -18,16 +18,16 @@
                     <div class="link-title">Important Links</div>
                     <ul>
                         <li>
-                            <a href="{{ route('front.home') }}">Home</a>
+                            <a href="{{ route('front.home') }}">{{ getFrontLanguage('home') }}</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.about') }}">About Us</a>
+                            <a href="{{ route('front.about') }}">{{ getFrontLanguage('about-us') }}</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.contact') }}">Contact</a>
+                            <a href="{{ route('front.contact') }}">{{ getFrontLanguage('contact-us') }}</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.gallery') }}">Gallery</a>
+                            <a href="{{ route('front.gallery') }}">{{ getFrontLanguage('gallery') }}</a>
                         </li>
                     </ul>
                 </div>

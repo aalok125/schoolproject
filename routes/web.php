@@ -17,13 +17,13 @@ Route::group([
     'namespace'=>'front',
     'middleware' => []
 ], function () {
-    Route::get('/setFrontlanguage','IndexController@frontLanguage')->name('setLanguage');
+    Route::post('/setFrontlanguage','IndexController@frontLanguage')->name('setLanguage');
     Route::get('/','IndexController@home')->name('home');
     Route::get('/contact','IndexController@contact')->name('contact');
     Route::get('/about','IndexController@about')->name('about');
     Route::get('/mission-vision','IndexController@mission_vision')->name('mission-vision');
     Route::get('/principal-note','IndexController@principal_note')->name('principal-note');
-    Route::get('/asset/{id}','IndexController@asset_category')->name('asset_category');
+    Route::get('/asset/{id}/{date}','IndexController@asset_category')->name('asset_category');
     Route::get('/calendar','IndexController@calendar')->name('calendar');
 
     Route::get('/gallery','IndexController@gallery')->name('gallery');
@@ -352,7 +352,7 @@ Route::group([
 
 
 
-//    Language Route
+//    Language Route (Backend Languages)
 
     Route::get('languages', 'LanguageController@index')->name('languages');
     Route::get('language/create', 'LanguageController@create')->name('language.create');
@@ -362,6 +362,11 @@ Route::group([
     Route::get('language/edit/{id}', 'LanguageController@edit')->name('language.edit');
     Route::get('language/delete/{id}', 'LanguageController@destroy')->name('language.delete');
 
+
+//    Language ROutes (FrontEnd Part)
+    Route::get('languages/frontend', 'LanguageController@indexFrontend')->name('languagesFrontend');
+    Route::post('language/frontend/store', 'LanguageController@storeFrontend')->name('language.storeFrontEnd');
+    Route::get('language/frontend/json', 'LanguageController@getJsonFrontend')->name('language.jsonFrontend');
 });
 
 

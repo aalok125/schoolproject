@@ -43,7 +43,7 @@
             <div class="title">
                 History
             </div>
-            <div class="whoweare-detail">
+            <div class="about-detail">
                 <p>
                     {!! isset($settings['history']) ? $settings['history']: "" !!}
                 </p>
@@ -56,7 +56,7 @@
                         <div class="counter">
                             <h2
                                     class="timer count-title count-number"
-                                    data-to="25"
+                                    data-to="{{ isset($settings['total_administrations']) ? $settings['total_administrations'] : "" }}"
                                     data-speed="3000"
                             ></h2>
                             <p class="count-text ">Administration Member</p>
@@ -66,7 +66,7 @@
                         <div class="counter">
                             <h2
                                     class="timer count-title count-number"
-                                    data-to="45"
+                                    data-to="{{ isset($settings['total_teachers']) ? $settings['total_teachers'] : "" }}"
                                     data-speed="3000"
                             ></h2>
                             <p class="count-text ">Our Excellent Teachers</p>
@@ -76,7 +76,7 @@
                         <div class="counter">
                             <h2
                                     class="timer count-title count-number"
-                                    data-to="1000"
+                                    data-to="{{ isset($settings['total_student']) ? $settings['total_student'] : "" }}"
                                     data-speed="2000"
                             ></h2>
                             <p class="count-text ">Our Geniues Students</p>
