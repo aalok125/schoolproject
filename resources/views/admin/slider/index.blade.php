@@ -59,6 +59,27 @@
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h4>All Page Heading Banner</h4>
+                    <div class="image-container">
+                        <img src="{{ asset(getAbout('bannerImage')) }}" id="preview_image" alt="Banner Image" style="height: auto; width: 800px;">
+                    </div>
+                    <br>
+                    <form action="{{ route('admin.about.bannerImage') }}" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label for="">Banner Image</label>
+                            <input type="file" name="bannerImage" id="bannerImageInput">
+                        </div>
+                        <button class="btn btn-success pull-right">Change</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -145,5 +166,27 @@
     });
 
 </script>
+
+<script>
+    $('#bannerImageInput').on('change', function(e){
+        $this = $(this);
+        uploadimages(e, this)
+    });
+
+    function uploadimages(e){
+        const file = e.target.files[0];
+        if(file){
+            const reader = new FileReader();
+            reader.addEventListener('load',function(){
+
+                const previewImage = document.querySelector('#preview_image')
+                console.log(previewImage)
+                previewImage.setAttribute("src",reader.result)
+            });
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
 
 @endpush

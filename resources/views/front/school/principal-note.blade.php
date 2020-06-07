@@ -7,7 +7,7 @@
 
     <div class="sub-banner">
         <div class="img-container">
-            <img src="{{ asset('front/assets/images/banner1.jpg') }}" alt="" />
+            <img src="{{ asset(isset($settings['bannerImage']) ? $settings['bannerImage']: "") }}" alt="" />
             <div class="overlay">
                 <div class="title">
                     Message
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="mission-title">
-                        Principal Note
+                        Message From Principal
                     </div>
                     <div class="mission-detail">
                         {!! isset($settings['principal_message']) ? $settings['principal_message']: '' !!}
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="mission-title">
-                        Adhyaksha Note
+                        Message From Adhyaksha
                     </div>
                     <div class="mission-detail">
                         {!! isset($settings['adhyaksh_message']) ? $settings['adhyaksh_message']: '' !!}

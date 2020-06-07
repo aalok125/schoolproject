@@ -7,10 +7,10 @@
 
     <div class="sub-banner">
         <div class="img-container">
-            <img src="assets/images/banner1.jpg" alt="" />
+            <img src="{{ asset(isset($settings['bannerImage'])?$settings['bannerImage']:'') }}" alt="" />
             <div class="overlay">
                 <div class="title">
-                    Scholarship
+                    {{ getFrontLanguage('scholarship-1') }}
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
             <li class="breadcrumb-item"><a href="{{ route('front.home') }}"><i class="fa fa-home"> </i> Home</a></li>
 
             <li class="breadcrumb-item active" aria-current="page">
-                Scholarship Notice
+                {{ getFrontLanguage('scholarship-1') }}
             </li>
         </ol>
     </nav>

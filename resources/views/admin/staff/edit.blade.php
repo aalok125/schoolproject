@@ -135,6 +135,16 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Quick Description</label>
+                                    <textarea name="description" class="summernote form-control">{{$staff->description}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-success pull-right">Save changes</button>
                     </form>
                 </div>

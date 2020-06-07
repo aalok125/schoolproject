@@ -101,10 +101,37 @@ class AboutController extends Controller
             if(file_exists($file_path)){
             unlink($file_path);
             }
-                if(file_exists($thumbnail_path)){
-                    unlink($thumbnail_path);
-                }
+            if(file_exists($thumbnail_path)){
+                unlink($thumbnail_path);
             }
         }
+    }
+
+    public function bannerUpdate(Request $request){
+        $inputKey = 'bannerImage';
+        if ($request->hasFile($inputKey)){
+            $this->deleteImage($inputKey);
+
+            $file = $request->file($inputKey);
+            $time = time();
+            $path = 'admin/banner/';
+
+            $db_path = $path.$time.$file->getClientOriginalName();
+            $ImageUpload = \Image::make($file);
+            $originalPath = public_path('admin/banner/');
+
+            if(!\File::isDirectory($originalPath)){
+                \File::makeDirectory($originalPath, 0777, true, true);
+            }
+
+            $ImageUpload->save($originalPath.$time.$file->getClientOriginalName());
+
+            About::updateOrCreate(['key' => $inputKey], ['value' => $db_path, 'school_id' => 1]);
+            return redirect()->back()->with('success','Banner Image Changed');
+
+        }else{
+            return redirect()->back()->with('error','Select a banner image first !!');
+        }
+    }
 
 }

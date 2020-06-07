@@ -25,6 +25,7 @@ Route::group([
     Route::get('/principal-note','IndexController@principal_note')->name('principal-note');
     Route::get('/asset/{id}/{date}','IndexController@asset_category')->name('asset_category');
     Route::get('/calendar','IndexController@calendar')->name('calendar');
+    Route::get('/result/{id}/{date}','IndexController@result')->name('result');
 
     Route::get('/gallery','IndexController@gallery')->name('gallery');
     Route::get('/gallery/{album_slug}','IndexController@singleAlbum')->name('singleAlbum');
@@ -325,6 +326,7 @@ Route::group([
     Route::get('basic-info', 'AboutController@basicInfo')->name('basic.info');
     Route::post('about/update', 'AboutController@update')->name('about.update');
     Route::get('about/student', 'AboutController@aboutStudent')->name('about.student');
+    Route::post('about/bannerImage', 'AboutController@bannerUpdate')->name('about.bannerImage');
 
 
 //    Slider Route

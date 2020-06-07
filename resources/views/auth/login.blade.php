@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+<style>
+    .accountbg{
+        background: url({{asset('front/assets/login-background.jpg')}}) !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+</style>
+
 @section('contents')
     <div class="accountbg">
 
@@ -12,7 +20,7 @@
                                 <div class="card-body">
 
                                     <h3 class="text-center mt-0 m-b-15">
-                                        <a href="{{ url('/') }}" class="logo logo-admin"><img src="assets/images/logo-dark.png" height="30" alt="logo"></a>
+                                        <a href="{{ url('/') }}" class="logo logo-admin"><img src="{{ isset($settings['logo'])?asset($settings['logo']):'' }}" height="30" alt="website logo"></a>
                                     </h3>
 
                                     <h4 class="text-muted text-center font-18"><b>Sign In</b></h4>

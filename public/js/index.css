@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap");
 html {
   scroll-behavior: smooth;
 }
@@ -596,7 +596,7 @@ a {
 
 .counter-container .count-text {
   text-align: center;
-  font-size: 22px;
+  font-size: 36px;
   font-weight: 600;
 }
 
@@ -605,7 +605,7 @@ a {
     width: 100%;
   }
   .counter-container .count-text {
-    font-size: 18px;
+    font-size: 24px;
   }
 }
 
@@ -703,7 +703,6 @@ a {
 .service-container .tab-detail .tab-item .title a {
   text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
   color: black;
 }
 
@@ -974,7 +973,6 @@ a {
 
 .footer ul li a {
   color: #fff;
-  font-size: 14px;
 }
 
 .footer .img-logo-container {
@@ -1125,7 +1123,7 @@ a {
 }
 
 .about-section .about-title {
-  font-size: 36px;
+  font-size: 60px;
   font-weight: bold;
 }
 
@@ -1166,7 +1164,7 @@ a {
 }
 
 .mission-section .mission-title {
-  font-size: 36px;
+  font-size: 60px;
   font-weight: bold;
 }
 
@@ -1207,7 +1205,7 @@ a {
 }
 
 .chairman-section .chairman-title {
-  font-size: 36px;
+  font-size: 60px;
   font-weight: bold;
 }
 
@@ -1233,7 +1231,7 @@ a {
 }
 
 .gallery-section .main-title {
-  font-size: 36px;
+  font-size: 60px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
@@ -1327,7 +1325,7 @@ a {
 }
 
 .science-lab-section .main-title {
-  font-size: 36px;
+  font-size: 60px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
@@ -1416,7 +1414,7 @@ a {
 }
 
 .library-section .main-title {
-  font-size: 36px;
+  font-size: 60px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
@@ -1470,7 +1468,7 @@ a {
 }
 
 .computer-lab-section .main-title {
-  font-size: 36px;
+  font-size: 60px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
@@ -1970,13 +1968,9 @@ a {
   margin-bottom: 30px;
 }
 
-.news-notice-section .sidebar-section ul li {
-  margin-bottom: 15px;
-}
-
 .news-notice-section .sidebar-section ul li a {
   color: #000;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 @media (max-width: 768px) {
@@ -2286,9 +2280,8 @@ a {
 }
 
 .administration-container .main-title {
-  font-size: 36px;
+  font-size: 50px;
   font-weight: bold;
-  text-align: center;
   margin-bottom: 15px;
 }
 

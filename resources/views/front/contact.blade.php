@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="img-container d-none d-md-block">
-                        <img src="{{ asset('front/assets/images/contact.jpg') }}" alt="" class="img-fluid" />
+                        <img src="{{ asset('front/assets/contact-bg.jpg') }}" alt="" class="img-fluid" />
                     </div>
                 </div>
             </div>

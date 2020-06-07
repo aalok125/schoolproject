@@ -14,7 +14,7 @@
         <div class="right-container">
             <div class="logo">
                 <img
-                        src="{{ isset($settings['logo']) ? $settings['logo'] : "front/assets/images/logo.png" }}"
+                        src="{{ asset(isset($settings['logo']) ? $settings['logo'] : "front/assets/images/logo.png") }}"
                         alt="" class="img-fluid" />
             </div>
             <div class="center-container">
@@ -35,7 +35,7 @@
             </div>
             <div class="logo">
                 <img
-                        src="{{ isset($settings['vdc_logo']) ? $settings['vdc_logo'] : "front/assets/images/logo.png" }}"
+                        src="{{ asset(isset($settings['vdc_logo']) ? $settings['vdc_logo'] : "front/assets/images/logo.png") }}"
                         alt="" class="img-fluid" />
             </div>
         </div>
@@ -56,7 +56,7 @@
             </button>
             <div class="dropdown-content">
                 <a href="{{ route('front.about') }}">{{ getFrontLanguage('about-us') }}</a>
-                <a href="{{ route('front.mission-vision') }}">Vision & Mission</a>
+                {{--<a href="{{ route('front.mission-vision') }}">Vision & Mission</a>--}}
                 <a href="{{ route('front.principal-note') }}">{{ getFrontLanguage('administration-note') }}</a>
                 <a href="{{ route('front.gallery') }}">{{ getFrontLanguage('gallery') }}</a>
             </div>
@@ -100,10 +100,8 @@
                 {{ getFrontLanguage('result-1')}} <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="result.html">2076</a>
-                <a href="result.html">2075</a>
-                <a href="result.html">2074</a>
-                <a href="result.html">2073</a>
+                <a href="{{ route('front.result',[1,'2020-05-04']) }}">2076</a>
+                <a href="{{ route('front.result',[1,'2020-05-04']) }}">2077</a>
             </div>
         </div>
         <a href="{{ route('front.contact') }}">{{ getFrontLanguage('contact-us')}}</a>
@@ -120,7 +118,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="{{ route('front.about') }}">{{ getFrontLanguage('about-us')}}</a>
-                    <a href="{{ route('front.mission-vision') }}">Vision & Mission</a>
+{{--                    <a href="{{ route('front.mission-vision') }}">Vision & Mission</a>--}}
                     <a href="{{ route('front.principal-note') }}">{{ getFrontLanguage('administration-note') }}</a>
                     <a href="{{ route('front.gallery') }}">{{ getFrontLanguage('gallery') }}</a>
                 </div>
@@ -138,7 +136,7 @@
             </div>
             <div class="dropdown">
                 <button class="dropbtn">
-                    Members Enrolled <i class="fa fa-caret-down"></i>
+                    {{ getFrontLanguage('members-enrolled') }} <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
                     @foreach(get_staff_types(1) as $type)
@@ -164,10 +162,8 @@
                     {{ getFrontLanguage('result-1')}} <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="result.html">2076</a>
-                    <a href="result.html">2075</a>
-                    <a href="result.html">2074</a>
-                    <a href="result.html">2073</a>
+                    <a href="{{ route('front.result',[1,'2020-05-04']) }}">2076</a>
+                    <a href="{{ route('front.result',[1,'2020-05-04']) }}">2077</a>
                 </div>
             </div>
             <a href="{{ route('front.contact') }}">{{ getFrontLanguage('contact-us')}}</a>

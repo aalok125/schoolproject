@@ -15,7 +15,7 @@
 
             <div class="col-lg-3 col-md-6 ">
                 <div class="link-container">
-                    <div class="link-title">Important Links</div>
+                    <div class="link-title">{{ getFrontLanguage('important-links') }}</div>
                     <ul>
                         <li>
                             <a href="{{ route('front.home') }}">{{ getFrontLanguage('home') }}</a>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-3 col-md-6 ">
                 <div class="link-container">
-                    <div class="link-title">Similar Sites</div>
+                    <div class="link-title">{{ getFrontLanguage('similar-websites') }}</div>
                     <ul>
                         <li>
                             <a href=""
@@ -51,7 +51,7 @@
             </div>
             <div class="col-lg-3 col-md-6 ">
                 <div class="link-container">
-                    <div class="link-title">Downloads</div>
+                    <div class="link-title">{{ getFrontLanguage('download') }}</div>
                     <ul>
                         <li>
                             <a href="">Here Comes Link 1</a>

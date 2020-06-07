@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2020 at 10:27 PM
+-- Generation Time: Jun 07, 2020 at 06:58 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -66,7 +66,10 @@ INSERT INTO `abouts` (`id`, `key`, `value`, `school_id`, `created_at`, `updated_
 (22, 'principal_image', 'images/about/1590347068gettyimages-480440376-612x612.jpg', 1, '2020-05-24 13:15:30', '2020-05-24 13:19:28'),
 (23, 'principal_message', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">Welcome to Pathshala, a learning organization that thrives always to learn the best practices in local and global context and keep transforming itself as a whole institution!</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">Pathshala is the institution that believes in providing opportunities and environment for children to aspire for high achievement with practice of values. Pathshala Team is well aware of the fact that every individual child has innate potential that has to be identified and nurtured in time. Therefore, it is well prepared to encourage every student’s insightful learning with confidence and skills.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Poppins;\">The vision and implementation strategies for progress of this institution has inspired many which encouraged us to perform better every year with wider innovations and deep-commitment day in and day out. This also has enabled us to gain the trust of children, their parents and guardians and many well-wishers of the society. Their support and wishes have made us thrive more for the best outcome and move ahead. Pathshala successfully sent the nine batches of SLC/SEE graduates.</p>', 1, '2020-05-24 13:15:30', '2020-05-24 13:15:30'),
 (24, 'total_teachers', '20', 1, '2020-05-26 13:16:29', '2020-05-26 13:16:29'),
-(25, 'total_administrations', '30', 1, '2020-05-26 13:16:29', '2020-05-26 13:16:29');
+(25, 'total_administrations', '30', 1, '2020-05-26 13:16:29', '2020-05-26 13:16:29'),
+(26, 'adhyaksh_name', 'Ram Prasai', 1, '2020-05-29 07:10:00', '2020-05-29 07:10:00'),
+(27, 'principal_name', 'Hari Bahadur', 1, '2020-05-29 07:10:00', '2020-05-29 07:10:00'),
+(28, 'bannerImage', 'admin/banner/1591041226testimonial-1.jpg', 1, '2020-06-01 14:08:46', '2020-06-01 14:08:46');
 
 -- --------------------------------------------------------
 
@@ -178,7 +181,40 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_id`, `subj
 (83, 'default', 'created', 6, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906102471562065867.jpg\",\"school_id\":1}}', '2020-05-27 14:25:47', '2020-05-27 14:25:47'),
 (84, 'default', 'created', 7, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906102521562090995.jpg\",\"school_id\":1}}', '2020-05-27 14:25:52', '2020-05-27 14:25:52'),
 (85, 'default', 'created', 8, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590610263education-study-in-nepal.jpg\",\"school_id\":1}}', '2020-05-27 14:26:03', '2020-05-27 14:26:03'),
-(86, 'default', 'created', 9, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590610270gettyimages-480440376-612x612.jpg\",\"school_id\":1}}', '2020-05-27 14:26:10', '2020-05-27 14:26:10');
+(86, 'default', 'created', 9, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590610270gettyimages-480440376-612x612.jpg\",\"school_id\":1}}', '2020-05-27 14:26:10', '2020-05-27 14:26:10'),
+(87, 'default', 'deleted', 9, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590610270gettyimages-480440376-612x612.jpg\",\"school_id\":1}}', '2020-05-28 14:31:08', '2020-05-28 14:31:08'),
+(88, 'default', 'deleted', 8, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590610263education-study-in-nepal.jpg\",\"school_id\":1}}', '2020-05-28 14:31:11', '2020-05-28 14:31:11'),
+(89, 'default', 'deleted', 7, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906102521562090995.jpg\",\"school_id\":1}}', '2020-05-28 14:31:13', '2020-05-28 14:31:13'),
+(90, 'default', 'deleted', 6, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906102471562065867.jpg\",\"school_id\":1}}', '2020-05-28 14:31:15', '2020-05-28 14:31:15'),
+(91, 'default', 'deleted', 3, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590427710school-logo.png\",\"school_id\":1}}', '2020-05-28 14:31:16', '2020-05-28 14:31:16'),
+(92, 'default', 'created', 10, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906969871562064312.jpg\",\"school_id\":1}}', '2020-05-28 14:31:27', '2020-05-28 14:31:27'),
+(93, 'default', 'created', 11, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906969951562090995.jpg\",\"school_id\":1}}', '2020-05-28 14:31:35', '2020-05-28 14:31:35'),
+(94, 'default', 'created', 12, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":7,\"image\":\"images\\/asset\\/english-novels\\/159069843186492490_205775957274385_2206500802204270592_n.jpg\",\"school_id\":1}}', '2020-05-28 14:55:32', '2020-05-28 14:55:32'),
+(95, 'default', 'deleted', 12, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":7,\"image\":\"images\\/asset\\/english-novels\\/159069843186492490_205775957274385_2206500802204270592_n.jpg\",\"school_id\":1}}', '2020-05-28 14:55:35', '2020-05-28 14:55:35'),
+(96, 'default', 'deleted', 3, 'App\\Model\\Gallery', 3, 'App\\User', '{\"attributes\":{\"album_id\":1,\"title\":null,\"image\":\"images\\/album\\/program\\/1590118471logo.png\",\"school_id\":1}}', '2020-05-28 14:58:49', '2020-05-28 14:58:49'),
+(97, 'default', 'deleted', 1, 'App\\Model\\Gallery', 3, 'App\\User', '{\"attributes\":{\"album_id\":1,\"title\":null,\"image\":\"images\\/album\\/program\\/159011846495244966_319222415714481_190659405065224192_n (1).jpg\",\"school_id\":1}}', '2020-05-28 14:58:51', '2020-05-28 14:58:51'),
+(98, 'default', 'created', 3, 'App\\Model\\Event', 3, 'App\\User', '{\"attributes\":{\"title\":\"sadas\",\"slug\":\"sadas\",\"image\":\"images\\/events\\/159070175286492490_205775957274385_2206500802204270592_n.jpg\",\"event_date\":\"2077-02-17\",\"content\":\"<p>sadsad<\\/p>\",\"status\":\"Active\",\"school_id\":1}}', '2020-05-28 15:50:53', '2020-05-28 15:50:53'),
+(99, 'default', 'deleted', 3, 'App\\Model\\Event', 3, 'App\\User', '{\"attributes\":{\"title\":\"sadas\",\"slug\":\"sadas\",\"image\":\"images\\/events\\/159070175286492490_205775957274385_2206500802204270592_n.jpg\",\"event_date\":\"2077-02-17\",\"content\":\"<p>sadsad<\\/p>\",\"status\":\"Active\",\"school_id\":1}}', '2020-05-28 15:51:06', '2020-05-28 15:51:06'),
+(100, 'default', 'deleted', 11, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906969951562090995.jpg\",\"school_id\":1}}', '2020-05-29 05:03:10', '2020-05-29 05:03:10'),
+(101, 'default', 'deleted', 10, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/15906969871562064312.jpg\",\"school_id\":1}}', '2020-05-29 05:03:12', '2020-05-29 05:03:12'),
+(102, 'default', 'created', 13, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590749306afasdaf.png\",\"school_id\":1}}', '2020-05-29 05:03:27', '2020-05-29 05:03:27'),
+(103, 'default', 'created', 14, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590749317ben-eaton--jwxNkfoPP8-unsplash (1).jpg\",\"school_id\":1}}', '2020-05-29 05:03:38', '2020-05-29 05:03:38'),
+(104, 'default', 'deleted', 14, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590749317ben-eaton--jwxNkfoPP8-unsplash (1).jpg\",\"school_id\":1}}', '2020-05-29 05:09:25', '2020-05-29 05:09:25'),
+(105, 'default', 'deleted', 13, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590749306afasdaf.png\",\"school_id\":1}}', '2020-05-29 05:09:27', '2020-05-29 05:09:27'),
+(106, 'default', 'created', 15, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590749675afasdaf.png\",\"school_id\":1}}', '2020-05-29 05:09:36', '2020-05-29 05:09:36'),
+(107, 'default', 'created', 16, 'App\\Model\\AssetImage', 3, 'App\\User', '{\"attributes\":{\"asset_id\":1,\"image\":\"images\\/asset\\/dsfsdfds\\/1590749684ben-eaton--jwxNkfoPP8-unsplash (1).jpg\",\"school_id\":1}}', '2020-05-29 05:09:45', '2020-05-29 05:09:45'),
+(108, 'default', 'This model has been created', 26, 'App\\Model\\About', 3, 'App\\User', '{\"attributes\":{\"key\":\"adhyaksh_name\",\"value\":\"Ram Prasai\",\"school_id\":1}}', '2020-05-29 07:10:00', '2020-05-29 07:10:00'),
+(109, 'default', 'This model has been created', 27, 'App\\Model\\About', 3, 'App\\User', '{\"attributes\":{\"key\":\"principal_name\",\"value\":\"Hari Bahadur\",\"school_id\":1}}', '2020-05-29 07:10:00', '2020-05-29 07:10:00'),
+(110, 'default', 'created', 3, 'App\\Model\\Exam', 3, 'App\\User', '{\"attributes\":{\"title\":\"Second Term\",\"slug\":\"second-term\",\"start_date\":\"2020-05-28\",\"remarks\":\"asdas\",\"school_id\":1}}', '2020-05-29 11:40:51', '2020-05-29 11:40:51'),
+(111, 'default', 'deleted', 1, 'App\\Model\\Exam', 3, 'App\\User', '{\"attributes\":{\"title\":\"dfssdf\",\"slug\":\"dfssdf\",\"start_date\":\"2020-04-07\",\"remarks\":\"dsfsdf\",\"school_id\":1}}', '2020-05-29 11:43:20', '2020-05-29 11:43:20'),
+(112, 'default', 'deleted', 2, 'App\\Model\\Exam', 3, 'App\\User', '{\"attributes\":{\"title\":\"fdgfdgg\",\"slug\":\"fdgfdgg\",\"start_date\":\"2020-04-06\",\"remarks\":\"fgd\",\"school_id\":1}}', '2020-05-29 11:43:25', '2020-05-29 11:43:25'),
+(113, 'default', 'deleted', 3, 'App\\Model\\Exam', 3, 'App\\User', '{\"attributes\":{\"title\":\"Second Term\",\"slug\":\"second-term\",\"start_date\":\"2020-05-28\",\"remarks\":\"asdas\",\"school_id\":1}}', '2020-05-29 11:43:29', '2020-05-29 11:43:29'),
+(114, 'default', 'This model has been created', 28, 'App\\Model\\About', 3, 'App\\User', '{\"attributes\":{\"key\":\"bannerImage\",\"value\":\"admin\\/banner\\/1591041226testimonial-1.jpg\",\"school_id\":1}}', '2020-06-01 14:08:46', '2020-06-01 14:08:46'),
+(115, 'default', 'created', 2, 'App\\Model\\Tender', 3, 'App\\User', '{\"attributes\":{\"title\":\"newhbe wehjk\",\"slug\":\"newhbe-wehjk\",\"file\":null,\"content\":\"<p>asdasd<\\/p>\",\"status\":\"Active\",\"school_id\":1}}', '2020-06-01 14:37:33', '2020-06-01 14:37:33'),
+(116, 'default', 'updated', 1, 'App\\Model\\Staff', 3, 'App\\User', '{\"attributes\":[],\"old\":[]}', '2020-06-05 13:31:56', '2020-06-05 13:31:56'),
+(117, 'default', 'updated', 1, 'App\\Model\\Staff', 3, 'App\\User', '{\"attributes\":[],\"old\":[]}', '2020-06-05 13:39:58', '2020-06-05 13:39:58'),
+(118, 'default', 'updated', 1, 'App\\Model\\Staff', 3, 'App\\User', '{\"attributes\":[],\"old\":[]}', '2020-06-05 13:41:25', '2020-06-05 13:41:25'),
+(119, 'default', 'updated', 1, 'App\\Model\\Staff', 3, 'App\\User', '{\"attributes\":[],\"old\":[]}', '2020-06-05 13:48:18', '2020-06-05 13:48:18');
 
 -- --------------------------------------------------------
 
@@ -280,13 +316,10 @@ CREATE TABLE `asset_images` (
 --
 
 INSERT INTO `asset_images` (`id`, `asset_id`, `image`, `school_id`, `created_at`, `updated_at`) VALUES
-(3, 1, 'images/asset/dsfsdfds/1590427710school-logo.png', 1, '2020-05-25 11:43:31', '2020-05-25 11:43:31'),
 (4, 2, 'images/asset/computer/1590427885computerlab.jpg', 1, '2020-05-25 11:46:25', '2020-05-25 11:46:25'),
 (5, 4, 'images/asset/microscope/1590427911sciencelab.jpg', 1, '2020-05-25 11:46:52', '2020-05-25 11:46:52'),
-(6, 1, 'images/asset/dsfsdfds/15906102471562065867.jpg', 1, '2020-05-27 14:25:47', '2020-05-27 14:25:47'),
-(7, 1, 'images/asset/dsfsdfds/15906102521562090995.jpg', 1, '2020-05-27 14:25:52', '2020-05-27 14:25:52'),
-(8, 1, 'images/asset/dsfsdfds/1590610263education-study-in-nepal.jpg', 1, '2020-05-27 14:26:03', '2020-05-27 14:26:03'),
-(9, 1, 'images/asset/dsfsdfds/1590610270gettyimages-480440376-612x612.jpg', 1, '2020-05-27 14:26:10', '2020-05-27 14:26:10');
+(15, 1, 'images/asset/dsfsdfds/1590749675afasdaf.png', 1, '2020-05-29 05:09:36', '2020-05-29 05:09:36'),
+(16, 1, 'images/asset/dsfsdfds/1590749684ben-eaton--jwxNkfoPP8-unsplash (1).jpg', 1, '2020-05-29 05:09:45', '2020-05-29 05:09:45');
 
 -- --------------------------------------------------------
 
@@ -382,8 +415,9 @@ CREATE TABLE `exams` (
 --
 
 INSERT INTO `exams` (`id`, `title`, `slug`, `start_date`, `remarks`, `school_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'dfssdf', 'dfssdf', '2020-04-07', 'dsfsdf', 1, NULL, '2020-04-03 08:58:39', '2020-04-03 08:58:39'),
-(2, 'fdgfdgg', 'fdgfdgg', '2020-04-06', 'fgd', 1, NULL, '2020-04-03 08:59:03', '2020-04-03 08:59:03');
+(1, 'dfssdf', 'dfssdf', '2020-04-07', 'dsfsdf', 1, '2020-05-29 11:43:20', '2020-04-03 08:58:39', '2020-05-29 11:43:20'),
+(2, 'fdgfdgg', 'fdgfdgg', '2020-04-06', 'fgd', 1, '2020-05-29 11:43:25', '2020-04-03 08:59:03', '2020-05-29 11:43:25'),
+(3, 'Second Term', 'second-term', '2020-05-28', 'asdas', 1, '2020-05-29 11:43:29', '2020-05-29 11:40:51', '2020-05-29 11:43:29');
 
 -- --------------------------------------------------------
 
@@ -395,13 +429,6 @@ CREATE TABLE `exam_grade` (
   `exam_id` int(10) UNSIGNED NOT NULL,
   `grade_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `exam_grade`
---
-
-INSERT INTO `exam_grade` (`exam_id`, `grade_id`) VALUES
-(2, 2);
 
 -- --------------------------------------------------------
 
@@ -424,9 +451,7 @@ CREATE TABLE `galleries` (
 --
 
 INSERT INTO `galleries` (`id`, `album_id`, `title`, `image`, `school_id`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, 'images/album/program/159011846495244966_319222415714481_190659405065224192_n (1).jpg', 1, '2020-05-21 21:49:24', '2020-05-21 21:49:24'),
 (2, 1, NULL, 'images/album/program/1590118467default.png', 1, '2020-05-21 21:49:27', '2020-05-21 21:49:27'),
-(3, 1, NULL, 'images/album/program/1590118471logo.png', 1, '2020-05-21 21:49:31', '2020-05-21 21:49:31'),
 (4, 1, NULL, 'images/album/program/159052152448883.jpg', 1, '2020-05-26 13:47:05', '2020-05-26 13:47:05'),
 (5, 1, NULL, 'images/album/program/15905215331557458478185517734.jpg', 1, '2020-05-26 13:47:13', '2020-05-26 13:47:13'),
 (6, 1, NULL, 'images/album/program/1590521542check.jpg', 1, '2020-05-26 13:47:22', '2020-05-26 13:47:22'),
@@ -582,7 +607,48 @@ INSERT INTO `languages` (`id`, `name`, `english_name`, `nepali_name`, `type`, `c
 (103, 'notice', 'Notice', 'सूचना', 'Backend', '2020-04-11 22:30:24', '2020-04-13 21:36:10'),
 (104, 'tender', 'Tender', 'बोलपत्र', 'Backend', '2020-04-11 22:30:32', '2020-04-13 21:35:32'),
 (105, 'language', 'Language', 'भाषा', 'Backend', '2020-04-11 22:33:40', '2020-04-13 21:34:20'),
-(106, 'scholarship', 'Scholarship', 'छात्रवृत्ति', 'Backend', NULL, NULL);
+(106, 'scholarship', 'Scholarship', 'छात्रवृत्ति', 'Backend', NULL, NULL),
+(107, 'testimonial', 'Testimonial', 'प्रशंसापत्र', 'Backend', '2020-05-28 18:15:00', NULL),
+(108, 'dashboardLanguage', 'Dashboard Language', 'ड्यासबोर्ड भाषा', 'Backend', '2020-05-31 06:43:01', '2020-05-31 06:46:17'),
+(109, 'homepageLanguage', 'Homepage Language', 'होमपेज भाषा', 'Backend', '2020-05-31 06:46:50', '2020-05-31 06:48:05'),
+(110, 'home', 'Home', 'होमपेज', 'Frontend', '2020-05-31 06:50:20', '2020-05-31 06:54:35'),
+(111, 'about-us', 'About Us', 'हाम्रोबारे', 'Frontend', '2020-05-31 06:51:51', '2020-05-31 06:55:08'),
+(112, 'contact-us', 'Contact Us', 'सम्पर्क', 'Frontend', '2020-05-31 06:52:11', '2020-05-31 06:55:23'),
+(113, 'school-overview', 'School Overview', 'स्कूल अवलोकन', 'Frontend', '2020-05-31 06:52:59', '2020-05-31 06:55:49'),
+(114, 'facilities', 'Facilities', 'सुविधा', 'Frontend', '2020-05-31 06:53:18', '2020-05-31 06:56:48'),
+(115, 'members-enrolled', 'Members Enrolled', 'सदस्यहरू', 'Frontend', '2020-05-31 06:54:16', '2020-05-31 06:54:16'),
+(116, 'information', 'Information', 'जानकारी खण्ड', 'Frontend', '2020-05-31 06:57:35', '2020-05-31 06:57:35'),
+(117, 'calendar', 'Calendar', 'पात्रो', 'Frontend', '2020-05-31 06:57:57', '2020-05-31 06:57:57'),
+(118, 'result-1', 'Result', 'परीक्षाफल', 'Frontend', '2020-05-31 06:59:36', '2020-05-31 06:59:36'),
+(119, 'news-1', 'News', 'समाचार', 'Frontend', '2020-05-31 07:00:12', '2020-05-31 07:00:12'),
+(120, 'notice-1', 'Notice', 'सूचना', 'Frontend', '2020-05-31 07:00:25', '2020-05-31 07:00:25'),
+(121, 'event', 'Event', 'कार्यक्रम', 'Frontend', '2020-05-31 07:00:57', '2020-05-31 07:00:57'),
+(122, 'tender-1', 'Tender', 'टेन्डर', 'Frontend', '2020-05-31 07:01:11', '2020-05-31 07:01:11'),
+(123, 'administration-note', 'Administration Note', 'प्रशासन सन्देश', 'Frontend', '2020-05-31 07:02:23', '2020-05-31 07:02:23'),
+(124, 'gallery', 'Gallery', 'ग्यालरी', 'Frontend', '2020-05-31 07:02:44', '2020-05-31 07:02:44'),
+(125, 'our-school-family', 'Our School Family', 'हाम्रो स्कूल परिवार', 'Frontend', '2020-05-31 07:03:50', '2020-05-31 07:03:50'),
+(126, 'administration-members', 'Administration Members', 'प्रशासन सदस्यहरू', 'Frontend', '2020-05-31 07:04:28', '2020-05-31 07:04:28'),
+(127, 'our-excellent-teachers', 'Our Excellent Teachers', 'हाम्रा उत्कृष्ट शिक्षकहरू', 'Frontend', '2020-05-31 07:04:51', '2020-05-31 07:04:51'),
+(128, 'our-genius-students', 'Our Genius Students', 'हाम्रो प्रतिभाशाली विद्यार्थीहरू', 'Frontend', '2020-05-31 07:05:17', '2020-05-31 07:05:17'),
+(129, 'what-people-are-saying', 'What People Are Saying', 'हाम्रोबारे जनताको भनाईहरू', 'Frontend', '2020-05-31 07:11:20', '2020-05-31 07:11:20'),
+(130, 'recent', 'Recent', 'नयाँ', 'Frontend', '2020-06-01 12:59:08', '2020-06-01 12:59:08'),
+(131, 'view-detail', 'View Detail', 'विवरण हेर्नुहोस्', 'Frontend', '2020-06-01 13:05:31', '2020-06-01 13:05:31'),
+(132, 'officer', 'Officer', 'प्रमुख अधिकारी', 'Frontend', '2020-06-01 13:17:49', '2020-06-01 13:17:49'),
+(133, 'ward-chairman', 'Ward Chairman', 'वडा अध्यक्ष', 'Frontend', '2020-06-01 13:19:58', '2020-06-01 13:19:58'),
+(134, 'principal', 'Principal', 'प्रिन्सिपल', 'Frontend', '2020-06-01 13:20:23', '2020-06-01 13:20:23'),
+(135, 'view-message', 'View Message', 'सन्देश हेर्नुहोस्', 'Frontend', '2020-06-01 13:23:02', '2020-06-01 13:23:02'),
+(136, 'school-history', 'School History', 'स्कूल ईतिहास', 'Frontend', '2020-06-01 13:27:35', '2020-06-01 13:27:35'),
+(137, 'similar-websites', 'Similar Websites', 'समान वेबसाइटहरू', 'Frontend', '2020-06-01 13:30:27', '2020-06-01 13:30:27'),
+(138, 'download', 'Downloads', 'डाउनलोड', 'Frontend', '2020-06-01 13:31:25', '2020-06-01 13:31:46'),
+(139, 'important-links', 'Important Links', 'महत्वपूर्ण लिंकहरू', 'Frontend', '2020-06-01 13:33:15', '2020-06-01 13:33:15'),
+(140, 'read-more-1', 'Read More', 'थप पढ्नुहोस्', 'Frontend', '2020-06-01 13:36:49', '2020-06-01 13:36:49'),
+(141, 'scholarship-1', 'Scholarship', 'छात्रवृत्ति', 'Frontend', '2020-06-01 13:38:25', '2020-06-01 13:38:25'),
+(142, 'a-short-bio', 'A Short Bio', 'छोटो परिचय', 'Frontend', '2020-06-05 13:44:59', '2020-06-05 13:44:59'),
+(143, 'full-name-1', 'Full Name', 'पुरा नाम', 'Frontend', '2020-06-05 13:50:28', '2020-06-05 13:50:28'),
+(144, 'position', 'Position', 'पद', 'Frontend', '2020-06-05 13:51:05', '2020-06-05 13:51:05'),
+(145, 'email-1', 'Email', 'ईमेल', 'Frontend', '2020-06-05 13:52:28', '2020-06-05 13:52:28'),
+(146, 'phone-1', 'Phone', 'फोन', 'Frontend', '2020-06-05 13:53:09', '2020-06-05 13:53:09'),
+(147, 'date-joined', 'Date Joined', 'मिति सामेल भको', 'Frontend', '2020-06-05 13:55:16', '2020-06-05 13:55:16');
 
 -- --------------------------------------------------------
 
@@ -636,7 +702,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (78, '2020_03_30_085428_create_sliders_table', 10),
 (79, '2020_04_03_150642_create_languages_table', 11),
 (80, '2020_04_02_165605_create_activity_log_table', 12),
-(81, '2020_05_27_182633_create_scholarships_table', 13);
+(81, '2020_05_27_182633_create_scholarships_table', 13),
+(84, '2020_05_29_120802_create_testimonials_table', 14);
 
 -- --------------------------------------------------------
 
@@ -890,9 +957,9 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `title`, `image`, `status`, `link`, `school_id`, `created_at`, `updated_at`) VALUES
-(1, 'Banner1', 'images/slider/1590354944banner1.jpg', 'Active', NULL, 1, '2020-05-24 15:30:45', '2020-05-24 15:30:45'),
 (2, 'Banner 2', 'images/slider/1590354963banner2.jpg', 'Active', NULL, 1, '2020-05-24 15:31:03', '2020-05-24 15:31:03'),
-(3, 'Banner 3', 'images/slider/1590354980banner3.jpg', 'Active', NULL, 1, '2020-05-24 15:31:20', '2020-05-24 15:31:20');
+(3, 'Banner 3', 'images/slider/1590354980banner3.jpg', 'Active', NULL, 1, '2020-05-24 15:31:20', '2020-05-24 15:31:20'),
+(5, 'banner 3', 'images/slider/159075100548883.jpg', 'Active', NULL, 1, '2020-05-29 05:14:11', '2020-05-29 05:31:48');
 
 -- --------------------------------------------------------
 
@@ -913,6 +980,7 @@ CREATE TABLE `staff` (
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `staff_type_id` int(10) UNSIGNED NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `school_id` int(10) UNSIGNED NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -923,9 +991,9 @@ CREATE TABLE `staff` (
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`id`, `name`, `slug`, `image`, `job_title`, `address`, `gender`, `DOB`, `join_date`, `phone`, `email`, `staff_type_id`, `school_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Ram Gyawali', 'ram-gyawali', 'images/staff/1590605108support.png', 'Math Teacher', 'Kavre, Dhulikhel', 'Male', '1985-05-22', '2020-05-23', '9851234567', 'ram@gmail.com', 1, 1, NULL, '2020-05-23 10:55:45', '2020-05-27 13:00:08'),
-(2, 'Sita Basnet', 'sita-basnet', 'images/staff/1590252414c24db58e5cfebbce65da.jpeg', 'Nepali Teacher', 'Balkhu, Lalitpur', 'Female', '1987-04-23', '2020-05-25', '9841234567', 'sita@gmail.com', 1, 1, NULL, '2020-05-23 11:01:54', '2020-05-23 11:01:54');
+INSERT INTO `staff` (`id`, `name`, `slug`, `image`, `job_title`, `address`, `gender`, `DOB`, `join_date`, `phone`, `email`, `staff_type_id`, `description`, `school_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Ram Gyawali', 'ram-gyawali', 'images/staff/1590605108support.png', 'Math Teacher', 'Kavre, Dhulikhel', 'Male', '1985-05-22', '2020-05-23', '9851234567', 'ram@gmail.com', 1, '<p>Helllo</p><p><br></p>', 1, NULL, '2020-05-23 10:55:45', '2020-06-05 13:48:18'),
+(2, 'Sita Basnet', 'sita-basnet', 'images/staff/1590252414c24db58e5cfebbce65da.jpeg', 'Nepali Teacher', 'Balkhu, Lalitpur', 'Female', '1987-04-23', '2020-05-25', '9841234567', 'sita@gmail.com', 1, NULL, 1, NULL, '2020-05-23 11:01:54', '2020-05-23 11:01:54');
 
 -- --------------------------------------------------------
 
@@ -1083,7 +1151,34 @@ CREATE TABLE `tenders` (
 --
 
 INSERT INTO `tenders` (`id`, `title`, `slug`, `file`, `status`, `content`, `school_id`, `created_at`, `updated_at`) VALUES
-(1, 'Library Building', 'library-building', 'admin/tender/1590353897-8002.pdf', 'Active', 'New Library building construction needeed', 1, '2020-05-24 15:13:17', '2020-05-24 15:13:17');
+(1, 'Library Building', 'library-building', 'admin/tender/1590353897-8002.pdf', 'Active', 'New Library building construction needeed', 1, '2020-05-24 15:13:17', '2020-05-24 15:13:17'),
+(2, 'newhbe wehjk', 'newhbe-wehjk', NULL, 'Active', '<p>asdasd</p>', 1, '2020-06-01 14:37:33', '2020-06-01 14:37:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testimonials`
+--
+
+CREATE TABLE `testimonials` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comment` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `school_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `testimonials`
+--
+
+INSERT INTO `testimonials` (`id`, `name`, `designation`, `image`, `comment`, `status`, `school_id`, `created_at`, `updated_at`) VALUES
+(2, 'Ram', 'Teacher', 'images/testimonial/159075759267558098_456661401732014_7341550227989463040_n.jpg', 'heloooo', 'Active', 1, '2020-05-29 07:21:32', '2020-05-29 07:21:32'),
+(3, 'Shyam', 'Student', NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 'Active', 1, '2020-05-29 07:22:08', '2020-05-29 07:22:08');
 
 -- --------------------------------------------------------
 
@@ -1336,6 +1431,12 @@ ALTER TABLE `tenders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -1351,13 +1452,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `abouts`
 --
 ALTER TABLE `abouts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `albums`
@@ -1381,7 +1482,7 @@ ALTER TABLE `asset_categories`
 -- AUTO_INCREMENT for table `asset_images`
 --
 ALTER TABLE `asset_images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `committees`
@@ -1399,13 +1500,13 @@ ALTER TABLE `ethnicities`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `exams`
 --
 ALTER TABLE `exams`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `galleries`
@@ -1423,13 +1524,13 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -1483,7 +1584,7 @@ ALTER TABLE `schools`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -1531,7 +1632,13 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `tenders`
 --
 ALTER TABLE `tenders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

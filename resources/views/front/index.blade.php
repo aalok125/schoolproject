@@ -105,13 +105,13 @@
                             {!! isset($settings['welcome_message']) ? $settings['welcome_message'] : ''  !!}
                         </div>
                         <div class="button-container">
-                            <a href="{{ route('front.about') }}">Read More</a>
+                            <a href="{{ route('front.about') }}">{{ getFrontLanguage('read-more-1') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="officer-container">
-                        <h5>Officer</h5>
+                        <h5>{{ getFrontLanguage('officer') }}</h5>
                         <div class="officer-item">
                             <div class="container-fluid">
                                 <div class="row">
@@ -127,10 +127,10 @@
                                     <div class="col-md-8 col-8">
                                         <div class="officer-name">{{isset($settings['adhyaksh_name']) ? $settings['adhyaksh_name']:''}}</div>
                                         <div class="officer-designation">
-                                            Ward Chairman
+                                            {{ getFrontLanguage('ward-chairman') }}
                                         </div>
                                         <a href="{{ route('front.principal-note') }}" style="float: right">
-                                            View Message&nbsp;<i class="fa fa-arrow-right"></i>
+                                            {{ getFrontLanguage('view-message') }}&nbsp;<i class="fa fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -152,10 +152,10 @@
                                     <div class="col-md-8 col-8">
                                         <div class="officer-name">{{isset($settings['principal_name']) ? $settings['principal_name']:''}}</div>
                                         <div class="officer-designation">
-                                            Principal
+                                            {{ getFrontLanguage('principal') }}
                                         </div>
                                         <a href="{{ route('front.principal-note') }}" style="float: right">
-                                            View Message&nbsp;<i class="fa fa-arrow-right"></i>
+                                            {{ getFrontLanguage('view-message') }}&nbsp;<i class="fa fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@
                                             data-toggle="tab"
                                             href="#tendernotice"
                                     >
-                                        {{ getFrontLanguage('tender-1') }}
+                                        {{ getFrontLanguage('tender-1')." ".getFrontLanguage('notice-1') }}
                                     </a>
                                 </li>
 
@@ -199,7 +199,7 @@
                                             data-toggle="tab"
                                             href="#scholarships"
                                     >
-                                        Scholarships
+                                        {{ getFrontLanguage('scholarship-1') }}
                                     </a>
                                 </li>
                             </ul>

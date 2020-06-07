@@ -7,7 +7,7 @@
 
     <div class="sub-banner">
         <div class="img-container">
-            <img src="assets/images/banner1.jpg" alt="" />
+            <img src="{{ asset(isset($settings['bannerImage']) ? $settings['bannerImage']: "") }}" alt="" />
             <div class="overlay">
                 <div class="title">
                     {{ getFrontLanguage('tender-1')."  ".getFrontLanguage('notice-1') }}
@@ -30,16 +30,16 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="content-section">
-                        <div class="notice-section">
-                            @if($context->tenders->isNotEmpty())
-                                @foreach($context->tenders as $tender)
+                        @if($context->tenders->isNotEmpty())
+                            <div class="notice-section">
+                            @foreach($context->tenders as $tender)
                                     <div class="notice-wrapper">
                                         <div class="title">
                                             {{ $tender->title }}
                                         </div>
-                                        <div class="short-description">
-                                            {!! substr($tender->content,0,300) !!}
-                                        </div>
+                                        {{--<div class="short-description">--}}
+                                            {{--{!! substr($tender->content,0,300) !!}--}}
+                                        {{--</div>--}}
                                         <div class="date">
                                             Publish Date: {{ getNepaliDate($tender->created_at) }}
                                         </div>
@@ -47,13 +47,12 @@
                                             <a href="{{ route('front.singleTender',[$tender->id, getNepaliDate($tender->created_at)]) }}">{{ getFrontLanguage('view-detail') }}</a>
                                         </div>
                                     </div>
-                                @endforeach
-                            @else
-                                <span>No tenders available currently.</span>
-                            @endif
-                        </div>
+                            @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
+
                 <div class="col-md-4">
                     <div class="sidebar-section">
                         <div class="sidebar-title">{{ getFrontLanguage('recent') }} {{getFrontLanguage('news-1')}}</div>

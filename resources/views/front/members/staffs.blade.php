@@ -11,11 +11,11 @@
                 style="background-color: #E9ECEF;"
         >
             <li>
-                <a href="javascript:void(0);" style="color: #2a98ef;"
+                <a href="{{ route('front.home') }}" style="color: #2a98ef;"
                 ><i class="fa fa-home"></i> Home &nbsp >> &nbsp</a
                 >
             </li>
-            <li class="active" style="color: black;">Teachers</li>
+            <li class="active" style="color: black;">Staffs</li>
         </ol>
     </div>
 

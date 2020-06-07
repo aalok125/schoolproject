@@ -98,31 +98,6 @@
             </li>
         </ol>
     </nav>
-    <div class="gallery-section">
-        <div class="container">
-            @if($galleries->isNotEmpty())
-                <div class="slider-for">
-                    @foreach($galleries as $gallery)
-                        <div>
-                            <div class="img-container">
-                                <img src="{{ asset($gallery->image) }}" alt="" class="img-fluid" />
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="slider-nav">
-                    @foreach($galleries as $gallery)
-                        <div>
-                            <div class="img-container">
-                                <img src="{{ asset($gallery->image) }}" alt="" class="img-fluid" />
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-    </div>
-
     <div class="container page-top">
         <div class="row">
             @if($galleries->isNotEmpty())

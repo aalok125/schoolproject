@@ -7,19 +7,19 @@
 
     <div class="sub-banner">
         <div class="img-container">
-            <img src="{{ asset('front/assets/check_header.png') }}" alt="" />
+            <img src="{{ asset( isset($settings['bannerImage']) ? $settings['bannerImage']: "") }}" alt="" />
             <div class="overlay">
                 <div class="title">
-                    About
+                    {{ getFrontLanguage('about-us') }}
                 </div>
             </div>
         </div>
     </div>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('front.home') }}">{{ getFrontLanguage('home') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-                About
+                {{ getFrontLanguage('about-us') }}
             </li>
         </ol>
     </nav>
@@ -33,7 +33,7 @@
                 {{--</div>--}}
                 <div class="col-md-12">
                     <div class="about-title">
-                        About
+                        {{ getFrontLanguage('about-us') }}
                     </div>
                     <div class="about-detail">
                         {!! isset($settings['about']) ? $settings['about'] : "" !!}
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="title">
-                History
+                {{ getFrontLanguage('school-history') }}
             </div>
             <div class="about-detail">
                 <p>
@@ -59,7 +59,7 @@
                                     data-to="{{ isset($settings['total_administrations']) ? $settings['total_administrations'] : "" }}"
                                     data-speed="3000"
                             ></h2>
-                            <p class="count-text ">Administration Member</p>
+                            <p class="count-text ">{{ getFrontLanguage('administration-members') }}</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -69,7 +69,7 @@
                                     data-to="{{ isset($settings['total_teachers']) ? $settings['total_teachers'] : "" }}"
                                     data-speed="3000"
                             ></h2>
-                            <p class="count-text ">Our Excellent Teachers</p>
+                            <p class="count-text ">{{ getFrontLanguage('our-excellent-teachers') }}</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -79,7 +79,7 @@
                                     data-to="{{ isset($settings['total_student']) ? $settings['total_student'] : "" }}"
                                     data-speed="2000"
                             ></h2>
-                            <p class="count-text ">Our Geniues Students</p>
+                            <p class="count-text ">{{ getFrontLanguage('our-genius-students') }}</p>
                         </div>
                     </div>
                 </div>

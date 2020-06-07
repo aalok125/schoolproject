@@ -20,7 +20,7 @@
                 >Teachers &nbsp >> &nbsp</a
                 >
             </li>
-            <li class="active" style="color: #000;">Teacher Details</li>
+            <li class="active" style="color: #000;">Staff Details</li>
         </ol>
     </div>
     <section class="main-inner-section">
@@ -94,32 +94,20 @@
                 <div class="col-lg-7 col-md-12">
                     <div class="single-bio-details">
                         <ul>
-                            <li><strong>Full name: </strong> {{ $staff->name }}</li>
+                            <li><strong>{{ getFrontLanguage('full-name-1') }}: </strong> {{ $staff->name }}</li>
                             {{--<li>--}}
                                 {{--<strong>Education: </strong> BA, Mathematics, Kathmadu Model--}}
                                 {{--College--}}
                             {{--</li>--}}
-                            <li><strong>Position: </strong> {{ $staff->job_title }}</li>
-                            <li><strong>Email: </strong> {{ $staff->email }}</li>
-                            <li><strong>Phone: </strong> {{ $staff->phone }}</li>
-                            <li><strong>Date Joined: </strong>{{ $staff->join_date }}</li>
+                            <li><strong>{{ getFrontLanguage('position') }}: </strong> {{ $staff->job_title }}</li>
+                            <li><strong>{{ getFrontLanguage('email-1') }}: </strong> {{ $staff->email }}</li>
+                            <li><strong>{{ getFrontLanguage('phone-1') }}: </strong> {{ $staff->phone }}</li>
+                            <li><strong>{{ getFrontLanguage('date-joined') }}: </strong>{{ $staff->join_date }}</li>
                         </ul>
                         <div class="single-short-bio">
-                            <h2>A Short Bio</h2>
+                            <h2>{{ getFrontLanguage('a-short-bio') }}</h2>
                             <p>
-                                Those who speak of NASA's pioneers rarely mention the name
-                                Dorothy Vaughan, but as the head of the NACA's segregated West
-                                Area Computing Unit, Vaughan was both a respected
-                                mathematician and NASA's first African-American manager.
-                            </p>
-
-                            <p>
-                                Dorothy Vaughan was assigned to the segregated "West Area
-                                Computing" unit, an all-black group of female mathematicians,
-                                who were originally required to use separate dining and
-                                bathroom facilities. Over time, both individually and as a
-                                group, the West Computers distinguished themselves with
-                                contributions to virtually every area of research at Langley.
+                                {!! $staff->description !!}
                             </p>
                         </div>
                     </div>

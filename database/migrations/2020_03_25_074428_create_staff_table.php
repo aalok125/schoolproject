@@ -26,6 +26,7 @@ class CreateStaffTable extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->integer('staff_type_id')->unsigned();
+            $table->longText('description')->nullable();
             $table->integer('school_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();

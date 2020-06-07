@@ -7,7 +7,7 @@
 
     <div class="sub-banner">
         <div class="img-container">
-            <img src="assets/images/banner1.jpg" alt="" />
+            <img src="{{ asset(isset($settings['bannerImage'])?$settings['bannerImage']:'') }}" alt="" />
             <div class="overlay">
                 <div class="title">
                     Tender
@@ -60,7 +60,7 @@
                                     @endif
                                 </ul>
                                 <div class="date">
-                                    Publish Date: {{ getNepaliDate($tend->created_at) }}
+                                    Publish Date: {{ getNepaliDate($tender->created_at) }}
                                 </div>
                             </div>
                         </div>

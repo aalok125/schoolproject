@@ -33,7 +33,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Default Datatable (needs script to be added)</h4>
+                    <h4 class="mt-0 header-title">All Grades</h4>
                     <div>
                         <button class="pull-right btn btn-primary"
                             data-toggle="modal" data-target="#add_content">
@@ -87,5 +87,10 @@
 @push('scripts')
 
     {{--Page specific scripts--}}
+    <script src="{{ asset('admin/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <!-- Datatable init js -->
+    <script src="{{ asset('admin/assets/pages/datatables.init.js') }}"></script>
 
 @endpush
