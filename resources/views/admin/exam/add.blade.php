@@ -18,7 +18,7 @@
 
                     <div class="form-group">
                         <label>Start Date</label>
-                        <input type="text" id="nepali-datepicker" name="start_date"  required placeholder="Select Nepali Date"/>
+                        <input type="text" id="nepali-datepicker" class="form-control" name="start_date"  required />
                     </div>
 
                     <div class="form-group">

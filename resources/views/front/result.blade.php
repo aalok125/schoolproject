@@ -27,139 +27,47 @@
     <div class="result-section">
         <div class="container">
             <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#firstTerm"
-                    >First Term</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#secondTerm"
-                    >Second Term</a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#thirdTerm"
-                    >Third Term</a
-                    >
-                </li>
+                @foreach($exams as $exam)
+                    <li class="nav-item">
+                        <a class="nav-link @if($exams[0]->id == $exam->id) active @endif" data-toggle="tab" href="#term{{$exam->id}}">
+                            {{$exam->title}}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content mb-5">
-                <div class="tab-pane  active" id="firstTerm">
-                    <table class="table  table-bordered table-striped table-hover">
-                        <thead class="bg-primary">
-                        <tr>
-                            <th>S.N.</th>
-                            <th>Class</th>
-                            <th>Download</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Nursery</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>LKG</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>UKG</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>One</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Two</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="tab-pane  fade" id="secondTerm">
-                    <table class="table  table-bordered table-striped table-hover">
-                        <thead class="bg-primary">
-                        <tr>
-                            <th>S.N.</th>
-                            <th>Class</th>
-                            <th>Download</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Nursery</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>LKG</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>UKG</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>One</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Two</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="tab-pane  fade" id="thirdTerm">
-                    <table class="table  table-bordered table-striped table-hover">
-                        <thead class="bg-primary">
-                        <tr>
-                            <th>S.N.</th>
-                            <th>Class</th>
-                            <th>Download</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Nursery</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>LKG</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>UKG</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>One</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Two</td>
-                            <td><a href=""><i class="fa fa-download"></i></a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                @foreach($exams as $exam)
+                    <div class="tab-pane @if($exams[0]->id == $exam->id) active @endif " id="term{{$exam->id}}">
+                        <table class="table  table-bordered table-striped table-hover">
+                            <thead class="bg-primary">
+                            <tr>
+                                <th>{{ getFrontLanguage('serial') }}</th>
+                                <th>{{ getFrontLanguage('class-1') }}</th>
+                                <th>{{ getFrontLanguage('download-1') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @php $counter=1; @endphp
+                            @foreach($exam->grades as $grade)
+                                <tr>
+                                    <td>{{$counter}}</td>
+                                    <td>{{ getFrontLanguage('class-1') }} {{$grade->title}}</td>
+                                    <td>
+                                        @if($result = $grade->results->where('exam_id',$exam->id)->first())
+                                            <a href="{{ asset($result->file) }}" target="_blank"><i class="fa fa-download"></i></a>
+                                        @else
+                                            No result
+                                        @endif
+                                    </td>
+                                </tr>
+                                @php $counter++; @endphp
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

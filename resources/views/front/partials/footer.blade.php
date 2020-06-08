@@ -51,19 +51,19 @@
             </div>
             <div class="col-lg-3 col-md-6 ">
                 <div class="link-container">
-                    <div class="link-title">{{ getFrontLanguage('download') }}</div>
+                    <div class="link-title">{{ getFrontLanguage('information') }}</div>
                     <ul>
                         <li>
-                            <a href="">Here Comes Link 1</a>
+                            <a href="{{ route('front.download') }}">{{ getFrontLanguage('download') }}</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 2</a>
+                            <a href="{{ route('front.news') }}">{{ getFrontLanguage('news-1') }}</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 3</a>
+                            <a href="{{ route('front.notice') }}">{{ getFrontLanguage('notice-1') }}</a>
                         </li>
                         <li>
-                            <a href="">Here Comes Link 4</a>
+                            <a href="{{ route('front.events') }}">{{ getFrontLanguage('event') }}</a>
                         </li>
                     </ul>
                 </div>

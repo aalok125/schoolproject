@@ -1,0 +1,43 @@
+Step 1: Database reconfigure:
+
+	a) Delete table "sm_class_teachers"
+	b) Delete table "sm_assign_class_teachers"
+	c) Upload new table "sm_assign_class_teachers" FIRST*
+	d) Upload new table "sm_class_teachers"
+
+Step 2: Class Teacher files download:
+	
+	a) Migration => "create_assign_class_teachers_table"
+	b) Model => "SmAssignClassTeacher.php"
+	c) Blade => backends/academics/assign_class_teacher.blade.php
+	d) controller => "SmAssignClassTeacherControler"
+
+step 3: Class routine files download:
+
+	a) "custom.js" => insidee function validateAddNewroutine => comment line 1375-1381
+	b) "sm_weekends_table" data modified
+		- setting saturday to weekend and changing order
+	c) Blade => backend/studentPanel/class_routine.blade.php
+		 => backend/reports/class_routine_report.blade.php
+	d) web.php => line 943 "Route::post('student-attendance-classteacher......"
+
+step 4: Student Attendance Files:
+	
+	a) Blade => backend/information/student_attendance.blade.php
+	b) Controller => SmStudentAttendanceController.php
+
+
+
+new Changes
+
+web.php 1379
+/backEnd/studentInformation/student_by_gender
+SmStudentByGenderController
+
+addHomework
+homeworkEdit
+homework evaluation
+SmHomeworkController
+studentPanel/Student_homework (selected)
+studentPanel/StudentHomeworkView (selected) full lenght homework
+parentPanel/homeworkview blade extension

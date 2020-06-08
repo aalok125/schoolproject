@@ -37,7 +37,7 @@
 
                 <li>
                     <a href="{{ route('admin.sliders') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-store"></i>
                         <span> {{ getLanguage('slider') }} </span>
                     </a>
                 </li>
@@ -45,19 +45,19 @@
 
                 <li>
                     <a href="{{ route('admin.occupations') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-briefcase"></i>
                         <span> {{ getLanguage('occupation') }} </span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.ethnicitys') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-home"></i>
                         <span> {{ getLanguage('ethnicity') }} </span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.assets') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-print"></i>
                         <span> {{ getLanguage('asset') }} </span>
                     </a>
                 </li>
@@ -65,28 +65,28 @@
 
                 <li>
                     <a href="{{ route('admin.album.all') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-photo-group"></i>
                         <span> {{ getLanguage('album') }} </span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('admin.grade.all') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-graduation"></i>
                         <span> {{ getLanguage('grade') }} </span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('admin.exams') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-pencil"></i>
                         <span> {{ getLanguage('exam') }} </span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('admin.subject.all') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-folder-open"></i>
                         <span> {{ getLanguage('subject') }} </span>
                     </a>
                 </li>
@@ -101,13 +101,13 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.committees') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-pin"></i>
                         <span> {{ getLanguage('committee') }} </span>
                     </a>
                 </li>
 
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-article"></i> <span>{{ getLanguage('cms') }}</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-device-desktop"></i> <span>{{ getLanguage('cms') }}</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.event.all') }}">{{ getLanguage('events') }}</a></li>
                         <li><a href="{{ route('admin.news.all') }}">{{ getLanguage('news') }}</a></li>
@@ -115,6 +115,13 @@
                         <li><a href="{{ route('admin.tender.all') }}">{{ getLanguage('tender') }}</a></li>
                         <li><a href="{{ route('admin.scholarship.all') }}">{{ getLanguage('scholarship') }}</a></li>
                     </ul>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.download.all') }}" class="waves-effect">
+                        <i class="dripicons-cloud-download"></i>
+                        <span> Download </span>
+                    </a>
                 </li>
 
                 <li class="has_sub">
@@ -132,7 +139,7 @@
 
                 <li>
                     <a href="{{ route('admin.users') }}" class="waves-effect">
-                        <i class="dripicons-meter"></i>
+                        <i class="dripicons-user"></i>
                         <span> {{ getLanguage('user') }} </span>
                     </a>
                 </li>

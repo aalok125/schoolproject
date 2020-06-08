@@ -19,7 +19,7 @@
 
                     <div class="form-group">
                         <label>Start Date</label>
-                        <input type="date" name="start_date" value="{{ $exam->start_date }}" class="form-control" required placeholder="Title"/>
+                        <input type="text" name="start_date" value="{{ $exam->start_date }}" class="nepali-datepicker form-control" required />
                     </div>
 
                     <div class="form-group">

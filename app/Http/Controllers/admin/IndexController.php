@@ -67,4 +67,8 @@ class IndexController extends Controller
         return redirect()->back();
 
     }
+
+    public function unauthorized(){
+        return view('admin.layouts.unauthorized');
+    }
 }

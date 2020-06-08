@@ -25,7 +25,7 @@ Route::group([
     Route::get('/principal-note','IndexController@principal_note')->name('principal-note');
     Route::get('/asset/{id}/{date}','IndexController@asset_category')->name('asset_category');
     Route::get('/calendar','IndexController@calendar')->name('calendar');
-    Route::get('/result/{id}/{date}','IndexController@result')->name('result');
+    Route::get('/result/{date}','FileController@result')->name('result');
 
     Route::get('/gallery','IndexController@gallery')->name('gallery');
     Route::get('/gallery/{album_slug}','IndexController@singleAlbum')->name('singleAlbum');
@@ -39,6 +39,9 @@ Route::group([
 
     Route::get('/tenders','TenderController@tender')->name('tender');
     Route::get('/tender/{id}/{date}','TenderController@singleTender')->name('singleTender');
+
+    Route::get('/download','FileController@download')->name('download');
+    Route::get('/download/{id}/{date}','FileController@singleDownload')->name('singleDownload');
 
     Route::get('/scholarship','NewsNoticeController@scholarship')->name('scholarship');
     Route::get('/scholarship/{id}/{date}','NewsNoticeController@singleScholarship')->name('singleScholarship');
@@ -323,7 +326,7 @@ Route::group([
     Route::get('about', 'AboutController@about')->name('about');
     Route::get('history', 'AboutController@history')->name('history');
     Route::get('welcome-message', 'AboutController@welcomeMessage')->name('welcome.message');
-    Route::get('basic-info', 'AboutController@basicInfo')->name('basic.info');
+    Route::get('basic-info', 'AboutController@basicInfo')->name('basic.info')->middleware('admin');
     Route::post('about/update', 'AboutController@update')->name('about.update');
     Route::get('about/student', 'AboutController@aboutStudent')->name('about.student');
     Route::post('about/bannerImage', 'AboutController@bannerUpdate')->name('about.bannerImage');
@@ -351,6 +354,9 @@ Route::group([
     Route::get('user/edit/{id}', 'UserController@edit')->name('user.edit');
     Route::get('user/delete/{id}', 'UserController@destroy')->name('user.delete');
 
+    Route::get('/profile','ProfileController@edit')->name('self_profile');
+    Route::post('/profile','ProfileController@update')->name('profile.update');
+
 
 
 
@@ -369,6 +375,22 @@ Route::group([
     Route::get('languages/frontend', 'LanguageController@indexFrontend')->name('languagesFrontend');
     Route::post('language/frontend/store', 'LanguageController@storeFrontend')->name('language.storeFrontEnd');
     Route::get('language/frontend/json', 'LanguageController@getJsonFrontend')->name('language.jsonFrontend');
+
+    //download section
+    Route::group([
+        'prefix'=>'downloads',
+        'as' => 'download.',
+    ], function(){
+        Route::get('/','DownloadController@index')->name('all');
+        Route::get('/add','DownloadController@add')->name('add');
+        Route::post('/add','DownloadController@store')->name('store');
+        Route::get('/edit/{id}','DownloadController@edit')->name('edit');
+        Route::post('/edit/{id}','DownloadController@update')->name('update');
+        Route::post('/delete','DownloadController@delete')->name('delete');
+        Route::get('/changestatus/{download_id}','DownloadController@changestatus')->name('changestatus');
+    });
+
+    Route::get('/unauthorized','IndexController@unauthorized')->name('unauthorized');
 });
 
 

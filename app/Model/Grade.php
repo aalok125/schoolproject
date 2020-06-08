@@ -66,6 +66,10 @@ class Grade extends Model
     public function subjects(){
         return $this->hasMany(Subject::class,'grade_id');
     }
+
+    public function results(){
+        return $this->hasMany(Result::class,'grade_id');
+    }
 }
 
 

@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('image')->nullable();
-            $table->enum('role', ['Super Admin', 'Admin', 'Editor','Mayor'])->nullable();
+            $table->integer('role_id')->unsigned()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('school_id')->unsigned();

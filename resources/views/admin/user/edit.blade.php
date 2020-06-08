@@ -62,9 +62,9 @@
                                     <label>Role</label>
                                     <select class="form-control" name="role">
                                         <option>Select Role</option>
-                                        <option @if($user->role == "Super Admin") selected @endif value="Super Admin">Super Admin</option>
-                                        <option @if($user->role == "Admin") selected @endif  value="Admin">Admin</option>
-                                        <option @if($user->role == "Editor") selected @endif  value="Editor">Editor</option>
+                                        @foreach($roles as $role)
+                                            <option @if($user->role_id == $role->id) selected @endif value="{{ $role->id }}">{{ $role->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,6 +10,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('super-admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +32,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.add');
+        $roles = Role::all();
+        return view('admin.user.add',compact('roles'));
     }
 
     /**
@@ -47,7 +54,7 @@ class UserController extends Controller
 
         $user = new User();
         $user->name = $request->name;
-        $user->role = $request->role;
+        $user->role_id = $request->role;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
@@ -97,7 +104,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.user.edit', compact('user'));
+        $roles = Role::all();
+        return view('admin.user.edit', compact('user','roles'));
     }
 
     /**
@@ -117,7 +125,7 @@ class UserController extends Controller
 
         $user = User::where('id', $request->user_id)->first();
         $user->name = $request->name;
-        $user->role = $request->role;
+        $user->role_id = $request->role;
         $user->email = $request->email;
         $user->phone = $request->phone;
 
@@ -195,6 +203,7 @@ class UserController extends Controller
         $count = 1;
         foreach ($users as $user){
             $user->count = $count;
+            $user->role = isset($user->role_id) ? Role::find($user->role_id)->name : 'None';
             $user->image = asset('thumbnail/'.$user->image);
             $count++;
         }

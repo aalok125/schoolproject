@@ -21,7 +21,7 @@ class ExamController extends Controller
     public function index()
     {
         $grades = Grade::all();
-        $exams = Exam::all();
+        $exams = Exam::orderBy('created_at','desc')->get();
 
         $count = 1;
         foreach ($exams as $exam){

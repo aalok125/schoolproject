@@ -113,11 +113,21 @@
                                     <input type="email" name="email"  value="{{ getAbout('email') }}" class="form-control" placeholder="Email"/>
                                 </div>
 
-
-
+                                <div class="form-group">
+                                    <label>Province Number</label>
+                                    <input type="number" name="province_number"  value="{{ getAbout('province_number') }}" class="form-control" placeholder="Province Number"/>
+                                </div>
                                 <div class="form-group">
                                     <label>VDC Name</label>
-                                    <input type="title" name="vdc_name"  value="{{ getAbout('vdc_name') }}" class="form-control" placeholder="Name"/>
+                                    <input type="text" name="vdc_name"  value="{{ getAbout('vdc_name') }}" class="form-control" placeholder="Name"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>VDC Address</label>
+                                    <input type="text" name="vdc_address"  value="{{ getAbout('vdc_address') }}" class="form-control" placeholder="Address"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>VDC Phone</label>
+                                    <input type="text" name="vdc_phone"  value="{{ getAbout('vdc_phone') }}" class="form-control" placeholder="Phone"/>
                                 </div>
 
 

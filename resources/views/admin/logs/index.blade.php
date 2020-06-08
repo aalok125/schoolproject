@@ -47,7 +47,7 @@
                     <h4 class="mt-0 header-title">User Logs</h4>
 
                     <hr>
-                    <div class="text-center school-select">
+                    <div class="text-center school-select" style="display: none;">
                         <div class="school-header">
                             <h4>Select School:</h4>
                         </div>
@@ -58,8 +58,8 @@
                                 @endforeach
                             </select>
                         </div>
+                        <hr>
                     </div>
-                    <hr>
 
                     <div class="modal fade edu-edit-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     </div>

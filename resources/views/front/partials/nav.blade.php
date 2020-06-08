@@ -1,7 +1,7 @@
 <div class="slim-navbar">
     <div class="container slim-wrapper">
         <div class="phone">
-            <i class="fa fa-phone"></i> Phone: (+977)- 014323477, 9841582585
+            <i class="fa fa-phone"></i> Phone: {{ isset($settings['phone']) ? $settings['phone'] : "" }}, {{ isset($settings['vdc_phone']) ? $settings['vdc_phone'] : "" }}
         </div>
         <div class="social-link">
             <i class="fab fa-facebook"></i> Facebook |
@@ -27,10 +27,10 @@
 
         <div class="right-container d-none d-md-flex">
             <div class="ministry">
-                <div class="company_province">Province No. 5</div>
+                <div class="company_province">{{ getFrontLanguage('province-no') }}. {{ isset($settings['province_number']) ? $settings['province_number'] :"" }}</div>
                 <div class="company_ministry">
-                    Ministry of Education <br />
-                    Science And Technology
+                    {{ isset($settings['vdc_name']) ? $settings['vdc_name'] : "Ministry of Education" }}<br />
+                    {{ isset($settings['vdc_address']) ? $settings['vdc_address'] : "Science And Technology"}}
                 </div>
             </div>
             <div class="logo">
@@ -92,6 +92,7 @@
                 <a href="{{ route('front.news') }}">{{ getFrontLanguage('news-1') }}</a>
                 <a href="{{ route('front.events') }}">{{ getFrontLanguage('event') }}</a>
                 <a href="{{route('front.tender')}}">{{ getFrontLanguage('tender-1') }}</a>
+                <a href="{{ route('front.download') }}">{{ getFrontLanguage('download') }}</a>
             </div>
         </div>
         <a href="{{ route('front.calendar') }}">{{ getFrontLanguage('calendar')}}</a>
@@ -100,8 +101,9 @@
                 {{ getFrontLanguage('result-1')}} <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="{{ route('front.result',[1,'2020-05-04']) }}">2076</a>
-                <a href="{{ route('front.result',[1,'2020-05-04']) }}">2077</a>
+                @foreach(get_result_years() as $result_year)
+                    <a href="{{ route('front.result',$result_year) }}">{{$result_year}}</a>
+                @endforeach
             </div>
         </div>
         <a href="{{ route('front.contact') }}">{{ getFrontLanguage('contact-us')}}</a>
@@ -154,6 +156,7 @@
                     <a href="{{ route('front.news') }}">{{ getFrontLanguage('news-1') }}</a>
                     <a href="{{ route('front.events') }}">{{ getFrontLanguage('event') }}</a>
                     <a href="{{ route('front.tender') }}">{{ getFrontLanguage('tender-1') }}</a>
+                    <a href="{{ route('front.download') }}">{{ getFrontLanguage('download') }}</a>
                 </div>
             </div>
             <a href="{{ route('front.calendar') }}">{{ getFrontLanguage('calendar')}}</a>
@@ -162,8 +165,9 @@
                     {{ getFrontLanguage('result-1')}} <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="{{ route('front.result',[1,'2020-05-04']) }}">2076</a>
-                    <a href="{{ route('front.result',[1,'2020-05-04']) }}">2077</a>
+                    @foreach(get_result_years() as $result_year)
+                        <a href="{{ route('front.result',$result_year) }}">{{$result_year}}</a>
+                    @endforeach
                 </div>
             </div>
             <a href="{{ route('front.contact') }}">{{ getFrontLanguage('contact-us')}}</a>

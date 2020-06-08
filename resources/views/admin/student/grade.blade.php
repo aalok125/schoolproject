@@ -2,7 +2,12 @@
 
 @push('styles')
 
-{{--Page specific styles--}}
+    <style>
+        .calendar{
+            margin: 30px 30px auto;
+            text-align: center;
+        }
+    </style>
 
 @endpush
 
@@ -55,6 +60,19 @@
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="calendar">
+                        <iframe src="https://www.hamropatro.com/widgets/calender-full.php" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"
+                                style="border:none; overflow:hidden; width:800px; height:840px;" allowtransparency="true"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

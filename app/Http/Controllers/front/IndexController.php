@@ -74,10 +74,6 @@ class IndexController extends Controller
         return view('front.school.principal-note');
     }
 
-    public function result($id){
-        return view('front.result');
-    }
-
     public function asset_category($id, $date){
         $asset_category = AssetCategory::findOrFail($id);
         $assets = $asset_category->assets;

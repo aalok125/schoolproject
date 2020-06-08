@@ -54,6 +54,19 @@ function get_staff_types($school_id){
     return $asset_categories;
 }
 
+function get_result_years(){
+    $school_id = 1;
+    if(Schema::hasTable('exams')){
+        $exam_years = \App\Model\Exam::where('school_id',$school_id)->get()->pluck('start_date')->toArray();
+        $years = [];
+        foreach ($exam_years as $y) {
+            $years[] = date('Y', strtotime($y));
+        }
+        $years = array_unique($years,SORT_DESC);
+        return $years;
+    }
+}
+
 
 function schoolStudentsCount($school_id){
     $grades = \App\Model\Grade::where('school_id',$school_id)->get();
@@ -102,6 +115,23 @@ function getFrontLanguage($key){
     }
 
     return null;
+}
+
+function getAdminNotifications(){
+    $logs = \Spatie\Activitylog\Models\Activity::orderBy('created_at','desc')->get()->take(4);
+    return $logs;
+}
+
+function getNotificationIcon($description){
+    if($description == "created")
+        return "mdi mdi-library-plus";
+    elseif ($description == "deleted")
+        return "mdi mdi-delete-forever";
+    elseif ($description == "updated")
+        return "mdi mdi-format-text";
+    else
+        return null;
+
 }
 
 
