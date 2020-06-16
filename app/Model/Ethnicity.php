@@ -49,4 +49,8 @@ class Ethnicity extends Model
 
         return $this->hasMany(Staff::class, 'ethnicity_id');
     }
+
+    public function student_details(){
+        return $this->hasMany(StudentDetail::class,'ethnicity_id');
+    }
 }

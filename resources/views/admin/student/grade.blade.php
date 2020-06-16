@@ -23,7 +23,7 @@
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Students </h5>
+            <h5 class="page-title"> {{ getLanguage('students') }} </h5>
         </div>
     </div>
     <!-- end row -->
@@ -38,7 +38,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Select Grade<a href="{{ route('admin.student.create') }}" class="btn btn-primary waves-effect waves-light float-right">Add New</a></h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('select') }} {{ getLanguage('grade') }}<a href="{{ route('admin.student.create') }}" class="btn btn-primary waves-effect waves-light float-right">{{ getLanguage('add-new') }} {{ getLanguage('student') }}</a></h4>
 
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
@@ -53,8 +53,6 @@
                             </div>
                         </div>
                     </div>
-
-
 
                 </div>
             </div>

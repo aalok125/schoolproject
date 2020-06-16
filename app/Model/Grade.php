@@ -70,6 +70,10 @@ class Grade extends Model
     public function results(){
         return $this->hasMany(Result::class,'grade_id');
     }
+
+    public function student_details(){
+        return $this->hasMany(StudentDetail::class,'grade_id');
+    }
 }
 
 

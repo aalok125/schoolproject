@@ -4,14 +4,14 @@
         @csrf
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Album</h5>
+            <h5 class="modal-title" id="exampleModalLabel">{{ getLanguage('album') }} {{ getLanguage('edit') }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <label for="title">Title</label>
+                <label for="title">{{ getLanguage('album') }} {{ getLanguage('title') }}</label>
                 <input type="text" name="title" value="{{$content->title}}" id="title" class="form-control" required>
             </div>
         </div>

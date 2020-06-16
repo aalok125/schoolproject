@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Ethnicity </h5>
+            <h5 class="page-title"> {{ getLanguage('ethnicity') }} </h5>
         </div>
     </div>
     <!-- end row -->
@@ -34,20 +34,23 @@
                 <div class="card-body">
 
 
-                    <h4 class="mt-0 header-title">Ethnicity List<button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">Add New</button></h4>
+                    <h4 class="mt-0 header-title">
+                        {{ getLanguage('ethnicity').' '.getLanguage('list') }}
+                        <button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">
+                            {{ getLanguage('add-new').' '.getLanguage('ethnicity') }}
+                        </button>
+                    </h4>
                         @include('admin.ethnicity.add')
                     <div class="modal fade edu-edit-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     </div>
                     <table id="datatable-students" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>S.N</th>
-                            <th>Title</th>
-                            <th>Action</th>
+                            <th>{{ getLanguage('serial-1') }}</th>
+                            <th>{{ getLanguage('ethnicity').' '.getLanguage('title') }}</th>
+                            <th>{{ getLanguage('action') }}</th>
                         </tr>
                         </thead>
-
-
                         <tbody>
 
                         </tbody>
@@ -105,8 +108,8 @@
                         var tempDeleteUrl = "{{ route('admin.ethnicity.delete', ':id') }}";
                         tempDeleteUrl = tempDeleteUrl.replace(':id', data);
                         var actions = '';
-                        actions += "<button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i></button>";
-                        actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i></a>";
+                        actions += "<button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i>{{ getLanguage('edit') }}</button>";
+                        actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i>{{ getLanguage('delete') }}</a>";
                         return actions;
                     }
                 },

@@ -131,7 +131,16 @@ function getNotificationIcon($description){
         return "mdi mdi-format-text";
     else
         return null;
+}
 
+function getUnreadMessageCount(){
+    $count = \App\Model\Contact::where('view',0)->count();
+    return $count;
+}
+
+function getLatestMessages(){
+    $messages = \App\Model\Contact::where('view',0)->orderBy('created_at','desc')->get()->take(5);
+    return $messages;
 }
 
 

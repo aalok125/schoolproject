@@ -20,6 +20,7 @@ Route::group([
     Route::post('/setFrontlanguage','IndexController@frontLanguage')->name('setLanguage');
     Route::get('/','IndexController@home')->name('home');
     Route::get('/contact','IndexController@contact')->name('contact');
+    Route::post('contact/store/','IndexController@contactStore')->name('contact.store');
     Route::get('/about','IndexController@about')->name('about');
     Route::get('/mission-vision','IndexController@mission_vision')->name('mission-vision');
     Route::get('/principal-note','IndexController@principal_note')->name('principal-note');
@@ -219,6 +220,10 @@ Route::group([
         Route::get('/getJson/details/{log_id}','LogController@details')->name('details');
 
     });
+
+    Route::get('/contacts','ContactController@index')->name('contact');
+    Route::get('/contact/{id}','ContactController@view')->name('contact.view');
+    Route::post('/contacts/delete','ContactController@delete')->name('contact.delete');
 
     Route::get('testimonials', 'TestimonialController@index')->name('testimonials');
     Route::get('testimonial/create', 'TestimonialController@create')->name('testimonial.create');

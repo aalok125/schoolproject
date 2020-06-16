@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Add</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Add Student</h5>
+            <h5 class="page-title">{{ getLanguage('add-new') }} {{ getLanguage('student') }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -33,7 +33,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Add Student</h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('student') }} {{ getLanguage('information') }}</h4>
 
 
                     <form class="" action="{{ route('admin.student.store') }}" method="post" enctype="multipart/form-data">
@@ -42,16 +42,16 @@
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <label>Full Name</label>
-                                    <input type="text" name="name" class="form-control" required placeholder="Full Name"/>
+                                    <label>{{ getLanguage('full-name') }}</label>
+                                    <input type="text" name="name" class="form-control" required placeholder="{{ getLanguage('full-name') }}"/>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Grade</label>
+                                            <label>{{ getLanguage('grade') }}</label>
                                             <select class="form-control" name="grade_id">
-                                                <option>Select Grade</option>
+                                                <option>{{ getLanguage('grade') }} {{getLanguage('select')}}</option>
                                                 @foreach($grades as $grade)
                                                     <option value="{{ $grade->id }}">
                                                         {{ $grade->title }}
@@ -62,9 +62,9 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Ethnicity</label>
-                                            <select class="form-control" name="ethnicity_id">
-                                                <option value="">Select Ethnicity</option>
+                                            <label>{{ getLanguage('ethnicity') }}</label>
+                                            <select class="form-control" name="ethnicity_id" required>
+                                                <option value="">{{ getLanguage('ethnicity') }} {{ getLanguage('select') }}</option>
                                                 @foreach($ethnicitys as $ethnicity)
                                                     <option value="{{ $ethnicity->id }}">
                                                         {{ $ethnicity->title }}
@@ -76,27 +76,36 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" name="address" class="form-control" required placeholder="Student Address"/>
+                                    <label>{{ getLanguage('address') }}</label>
+                                    <input type="text" name="address" class="form-control" required placeholder="{{ getLanguage('student') }} {{getLanguage('address')}}"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Guardian Name</label>
-                                    <input type="text" name="guardian_name" class="form-control" required placeholder="Guardian Name"/>
+                                    <label>{{ getLanguage('fathers') }} {{ getLanguage('name') }}</label>
+                                    <input type="text" name="father_name" class="form-control" required placeholder="{{ getLanguage('mothers') }} {{ getLanguage('name') }}"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ getLanguage('mothers') }} {{ getLanguage('name') }}</label>
+                                    <input type="text" name="mother_name" class="form-control" required placeholder="{{ getLanguage('fathers') }} {{ getLanguage('name') }}"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Guardian Phone</label>
-                                    <input type="text" name="guardian_phone" class="form-control" placeholder="Guardian Phone"/>
+                                    <label>{{ getLanguage('guardian') }} {{ getLanguage('address') }}</label>
+                                    <input type="text" name="guardian_phone" class="form-control" placeholder="{{ getLanguage('guardian') }} {{ getLanguage('address') }}"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>{{ getLanguage('guardian') }} {{ getLanguage('phone') }}</label>
+                                    <input type="text" name="guardian_phone" class="form-control" placeholder="{{ getLanguage('guardian') }} {{ getLanguage('phone') }}"/>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Guardian Occupation</label>
-                                            <button class="btn btn-sm btn-primary waves-effect waves-light float-right">Add New</button>
+                                            <label>{{ getLanguage('guardian') }} {{ getLanguage('occupation') }}</label>
+                                            {{--<button class="btn btn-sm btn-primary waves-effect waves-light float-right">Add New</button>--}}
                                             <select class="form-control" name="occupation_id">
-                                                <option>Select Occupation</option>
+                                                <option> {{ getLanguage('occupation') }} {{ getLanguage('select') }}</option>
                                                 @foreach($occupations as $occupation)
                                                     <option value="{{ $occupation->id }}">
                                                         {{ $occupation->title }}
@@ -111,26 +120,26 @@
                             <div class="col-md-3">
 
                                 <div class="form-group">
-                                    <label>Gender</label>
+                                    <label>{{  getLanguage('gender') }}</label>
                                     <select class="form-control" name="gender">
-                                        <option>Select Gender</option>
+                                        <option>{{ getLanguage('gender') }} {{ getLanguage('select') }}</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Other">Other</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Disability</label>
+                                    <label>{{ getLanguage('disablity') }}</label>
                                     <select class="form-control" name="disability">
-                                        <option>Select Disability</option>
-                                        <option value="No">No</option>
+                                        <option>{{ getLanguage('select') }}</option>
+                                        <option value="No" selected>No</option>
                                         <option value="Yes">Yes</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Religion</label>
+                                    <label> {{ getLanguage('religion') }}</label>
                                     <select class="form-control" name="religion">
-                                        <option>Select Religion</option>
+                                        <option> {{ getLanguage('religion') }}  {{ getLanguage('select') }}</option>
                                         <option value="Hindu">Hindu</option>
                                         <option value="Christian">Christian</option>
                                         <option value="Buddhism">Buddhism</option>
@@ -140,12 +149,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Birth Date</label>
-                                    <input type="date" name="DOB" class="form-control" placeholder="Birth Date"/>
+                                    <label> {{ getLanguage('birth-date') }}</label>
+                                    <input type="text" id="dob" name="DOB" class="nepali-calendar form-control" required/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Student Image</label>
+                                    <label> {{ getLanguage('student') }}  {{ getLanguage('image') }}</label>
                                     <input type="file" name="image" class="form-control" />
                                 </div>
 

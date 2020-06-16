@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Slider </h5>
+            <h5 class="page-title"> {{ getLanguage('slider') }} </h5>
         </div>
     </div>
     <!-- end row -->
@@ -34,18 +34,23 @@
                 <div class="card-body">
 
 
-                    <h4 class="mt-0 header-title">Slider List<button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">Add New</button></h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('slider') }} {{ getLanguage('list') }}
+                        <button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">
+                            {{ getLanguage('add-new') }}
+                        </button>
+                    </h4>
                         @include('admin.slider.add')
+
                     <div class="modal fade edu-edit-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     </div>
                     <table id="datatable-students" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
                             <th>S.N</th>
-                            <th>Title</th>
-                            <th>Image</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>{{ getLanguage('title') }}</th>
+                            <th>{{ getLanguage('image') }}</th>
+                            <th>{{ getLanguage('status') }}</th>
+                            <th>{{ getLanguage('action') }}</th>
                         </tr>
                         </thead>
 
@@ -129,7 +134,7 @@
                 },
                 {data: 'status',
                     render: function (data, type, row) {
-                        return data == "Active" ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>';
+                        return data == "Active" ? '<span class="badge badge-success">{{ getLanguage("active") }}</span>' : '<span class="badge badge-danger">{{ getLanguage("inactive") }}</span>';
                     }
                 },
                 {
@@ -139,8 +144,8 @@
                         var tempDeleteUrl = "{{ route('admin.slider.delete', ':id') }}";
                         tempDeleteUrl = tempDeleteUrl.replace(':id', data);
                         var actions = '';
-                        actions += "<button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i></button>";
-                        actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i></a>";
+                        actions += "<button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i>{{ getLanguage('edit') }}</button>";
+                        actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i>{{ getLanguage('delete') }}</a>";
                         return actions;
                     }
                 },

@@ -31,9 +31,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card m-b-30">
-                <div class="card-body">
+                <div class="card-body" >
 
-                    <h4 class="mt-0 header-title">School Info</h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('school') }} {{getLanguage('information-1')}}</h4>
 
 
                     <form class="" action="{{ route('admin.about.update') }}" method="post" enctype="multipart/form-data">
@@ -42,7 +42,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>About</label>
+                                    <label>{{ getLanguage('about') }}</label>
                                     <textarea name="about" style="height: 500px;" class="summernote">
                                         {{ getAbout('about') }}
                                     </textarea>
@@ -73,10 +73,11 @@
 <script>
     jQuery(document).ready(function(){
         $('.summernote').summernote({
-            height: 500,                 // set editor height
-            minHeight: 500,             // set minimum height of editor
+            height: 800,                 // set editor height
+            minHeight: null,             // set minimum height of editor
             maxHeight: null,             // set maximum height of editor
-            focus: true                 // set focus to editable area after initializing summernote
+            focus: true,               // set focus to editable area after initializing summernote
+//            disableResizeEditor: false   // disable resizing editor
         });
     });
 </script>

@@ -25,7 +25,9 @@ class CreateStudentsTable extends Migration
             $table->enum('disability', ['No', 'Yes']);
             $table->enum('religion', ['Hindu', 'Christian', 'Buddhism', 'Islam', 'Other']);
             $table->date('DOB')->nullable();
-            $table->string('guardian_name')->nullable();
+            $table->string('father_name')->nullable();
+            $table->string('mother_name')->nullable();
+            $table->string('guardian_address')->nullable();
             $table->string('guardian_phone')->nullable();
             $table->string('guardian_email')->nullable();
             $table->integer('occupation_id')->unsigned();

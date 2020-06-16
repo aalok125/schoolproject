@@ -53,7 +53,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.download.add') }}">Add</a></li>
                 </ol>
             </div>
-            <h5 class="page-title"> Add New Download</h5>
+            <h5 class="page-title"> {{ getLanguage('add-new').' '.getLanguage('download') }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -67,19 +67,19 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="modal-title text-center" id="exampleModalLabel">Download File Information </h4>
+                    <h4 class="modal-title text-center" id="exampleModalLabel">{{ getLanguage('download').' '.getLanguage('file').' '.getLanguage('information-1') }} </h4>
 
                     <form method="post" action="{{ route('admin.download.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="title">File Title</label>
+                            <label for="title">{{ getLanguage('file').' '.getLanguage('title') }}</label>
                             <input type="text" name="title" id="title" class="form-control" required>
                         </div>
 
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="status">Status</label>
+                                    <label for="status">{{ getLanguage('status') }}</label>
                                     <div class="btn-group btn-group-toggle form-control" style="height: 49px"  data-toggle="buttons">
                                         <label class="btn btn-light active">
                                             <input type="radio" name="status" id="option1" checked value="1"> Active
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="photo">File Attachment</label>
+                                    <label for="photo">{{ getLanguage('file') }}</label>
                                     <input type="file" name="file" id="photo" required class="form-control">
                                 </div>
 

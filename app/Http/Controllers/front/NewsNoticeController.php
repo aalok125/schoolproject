@@ -32,7 +32,8 @@ class NewsNoticeController extends Controller
         $context = new Collection();
         $context->recent_news = News::where('school_id',1)->where('status',1)->orderBy('created_at','desc')->get()->take(5);
         $context->recent_events = Event::where('school_id',1)->where('status',1)->orderBy('created_at','desc')->get()->take(5);
-        $context->notices = Notice::where('school_id',1)->where('status',1)->orderBy('created_at','desc')->get();
+        $context->notices = Notice::where('school_id',1)->where('status',1)->orderBy('created_at','desc')->paginate(2);
+//        dd($context);
         return view('front.content.notice',compact('context'));
     }
 

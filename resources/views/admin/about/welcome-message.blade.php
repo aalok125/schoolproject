@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Add</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Basic Info</h5>
+            <h5 class="page-title"> {{ getLanguage('basic').' '.getLanguage('information-1') }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -33,7 +33,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">School Info</h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('school').' '.getLanguage('information-1') }}</h4>
 
 
                     <form class="" action="{{ route('admin.about.update') }}" method="post" enctype="multipart/form-data">
@@ -46,13 +46,13 @@
 
                                 <ul class="nav nav-pills nav-justified" role="tablist">
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link active" data-toggle="tab" href="#home-1" role="tab">Welcome Message</a>
+                                        <a class="nav-link active" data-toggle="tab" href="#home-1" role="tab">{{ getLanguage('welcome-message') }}</a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-toggle="tab" href="#profile-1" role="tab">Adhyaksh Message</a>
+                                        <a class="nav-link" data-toggle="tab" href="#profile-1" role="tab">{{ getLanguage('vdc-municipality-adhyaksh-message') }}</a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-toggle="tab" href="#messages-1" role="tab">Principal Message</a>
+                                        <a class="nav-link" data-toggle="tab" href="#messages-1" role="tab">{{ getLanguage('princiapal-message') }}</a>
                                     </li>
                                 </ul>
 
@@ -60,7 +60,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane active p-3" id="home-1" role="tabpanel">
                                         <div class="form-group">
-                                            <label>Welcome Message</label>
+                                            <label>{{ getLanguage('welcome-message  ') }}</label>
                                             <textarea name="welcome_message" style="height: 500px;" class="summernote">
                                                 {{ getAbout('welcome_message') }}
                                             </textarea>
@@ -68,20 +68,20 @@
                                     </div>
                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                         <div class="form-group">
-                                            <label>Adhyaksh Name</label>
+                                            <label>{{ getLanguage('adhyaksha').' '. getLanguage('name')}}</label>
                                             <input type="text" name="adhyaksh_name"
                                                    value="@if(getAbout('adhyaksh_name')) {{getAbout('adhyaksh_name')}} @endif"
                                                    class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Adhyaksh Image</label>
+                                            <label>{{ getLanguage('adhyaksha').' '.getLanguage('image') }}</label>
                                             <input type="file" name="adhyaksh_image" class="form-control">
                                             @if(getAbout('adhyaksh_image'))
                                                 <img src="{{ asset('/thumbnail/'.getAbout('adhyaksh_image')) }}" style="width: 100px;">
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Adhyaksh Message</label>
+                                            <label>{{ getLanguage('adhyaksha').' '.getLanguage('message') }}</label>
                                             <textarea name="adhyaksh_message" style="height: 500px;" class="summernote">
                                                 {{ getAbout('adhyaksh_message') }}
                                             </textarea>
@@ -89,20 +89,20 @@
                                     </div>
                                     <div class="tab-pane p-3" id="messages-1" role="tabpanel">
                                         <div class="form-group">
-                                            <label>Principal Name</label>
+                                            <label>{{ getLanguage('principal-1').' '.getLanguage('name') }}</label>
                                             <input type="text" name="principal_name"
                                                    value="@if(getAbout('principal_name')) {{getAbout('principal_name')}} @endif"
                                                    class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Principal Image</label>
+                                            <label>{{ getLanguage('principal-1').' '.getLanguage('image') }}</label>
                                             <input type="file" name="principal_image" class="form-control">
                                             @if(getAbout('principal_image'))
                                                 <img src="{{ asset('/thumbnail/'.getAbout('principal_image')) }}" style="width: 100px;">
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Principal Message</label>
+                                            <label>{{ getLanguage('principal-1').' '.getLanguage('message') }}</label>
                                             <textarea name="principal_message" style="height: 500px;" class="summernote">
                                                 {{ getAbout('principal_message') }}
                                             </textarea>

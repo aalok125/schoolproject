@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Add</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Basic Info</h5>
+            <h5 class="page-title">{{ getLanguage('basic-info') }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -33,7 +33,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">School Info</h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('school').' '.getLanguage('information-1') }}</h4>
 
 
                     <form class="" action="{{ route('admin.about.update') }}" method="post" enctype="multipart/form-data">
@@ -42,20 +42,20 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>School Name</label>
+                                    <label>{{ getLanguage('school').' '.getFrontLanguage('name') }}</label>
                                     <input type="text" value="{{ getAbout('name') }}" name="name" class="form-control" required placeholder="School Name"/>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label>School Description</label>
+                                    <label>{{ getLanguage('school').' '.getLanguage('description') }}</label>
                                     <textarea type="text" value="{{ getAbout('description') }}" name="description" class="form-control" > </textarea>
                                 </div>
 
 
 
                                 <div class="form-group">
-                                    <label for="photo">School Logo</label>
+                                    <label for="photo">{{ getLanguage('school').' '.getLanguage('logo') }}</label>
                                     <input type="file" name="logo" id="logo" class="form-control">
                                     <div class="image_preview">
                                         <div class="z-depth-1-half mb-4" style="text-align: center;">
@@ -68,7 +68,7 @@
 
 
                                 <div class="form-group">
-                                    <label for="photo">School Favicon</label>
+                                    <label for="photo">{{ getLanguage('school').' '.getLanguage('favicon') }}</label>
                                     <input type="file" name="favicon" id="favicon" class="form-control">
                                     <div class="image_preview">
                                         <div class="z-depth-1-half mb-4" style="text-align: center;">
@@ -80,53 +80,53 @@
 
 
                                 <div class="form-group">
-                                    <label>Facebook Link</label>
+                                    <label>{{ getLanguage('facebook').' '.getLanguage('link') }}</label>
                                     <input type="text"  value="{{ getAbout('facebook_link') }}" name="facebook_link" class="form-control" required placeholder="Facebook Link "/>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label>Youtube Link</label>
+                                    <label>{{ getLanguage('youtube').' '.getLanguage('link') }}</label>
                                     <input type="text"  value="{{ getAbout('youtube_link') }}" name="youtube_link" class="form-control" required placeholder="Youtube Link "/>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label>Twitter Link</label>
+                                    <label>{{ getLanguage('twitter').' '.getLanguage('link') }}</label>
                                     <input type="text"  value="{{ getAbout('twitter_link') }}" name="twitter_link" class="form-control" required placeholder="Twitter Link "/>
                                 </div>
 
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>School Address</label>
+                                    <label>{{ getLanguage('school').' '.getLanguage('address') }}</label>
                                     <input type="text" name="address"  value="{{ getAbout('address') }}" class="form-control" required placeholder="Address"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Phone Number</label>
+                                    <label>{{ getLanguage('school').' '.getLanguage('phone') }}</label>
                                     <input type="text" name="phone"  value="{{ getAbout('phone') }}" class="form-control" placeholder="Phone Number"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>School Email</label>
+                                    <label>{{ getLanguage('school').' '.getLanguage('email') }}</label>
                                     <input type="email" name="email"  value="{{ getAbout('email') }}" class="form-control" placeholder="Email"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Province Number</label>
+                                    <label>{{ getLanguage('province-number') }}</label>
                                     <input type="number" name="province_number"  value="{{ getAbout('province_number') }}" class="form-control" placeholder="Province Number"/>
                                 </div>
                                 <div class="form-group">
-                                    <label>VDC Name</label>
+                                    <label>{{ getLanguage('vdc-municipality-name') }}</label>
                                     <input type="text" name="vdc_name"  value="{{ getAbout('vdc_name') }}" class="form-control" placeholder="Name"/>
                                 </div>
                                 <div class="form-group">
-                                    <label>VDC Address</label>
+                                    <label>{{ getLanguage('vdc-municipality-address') }}</label>
                                     <input type="text" name="vdc_address"  value="{{ getAbout('vdc_address') }}" class="form-control" placeholder="Address"/>
                                 </div>
                                 <div class="form-group">
-                                    <label>VDC Phone</label>
+                                    <label>{{ getLanguage('vdc-municipality-phone') }}</label>
                                     <input type="text" name="vdc_phone"  value="{{ getAbout('vdc_phone') }}" class="form-control" placeholder="Phone"/>
                                 </div>
 
@@ -135,7 +135,7 @@
 
 
                                 <div class="form-group">
-                                    <label for="photo">VDC Logo</label>
+                                    <label for="photo">{{ getLanguage('vdc-municipality-logo') }}</label>
                                     <input type="file" name="vdc_logo" id="vdc" class="form-control">
                                     <div class="image_preview">
                                         <div class="z-depth-1-half mb-4" style="text-align: center;">

@@ -17,7 +17,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.grade.all') }}">Grades</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Grades</h5>
+            <h5 class="page-title">{{ getLanguage('grade') }}</h5>
             
         </div>
     </div>
@@ -33,21 +33,24 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">All Grades</h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('all') }} {{ getLanguage('grade') }}</h4>
                     <div>
                         <button class="pull-right btn btn-primary"
                             data-toggle="modal" data-target="#add_content">
-                            ADD NEW</button>
+                            {{ getLanguage('add-new') }} {{ getLanguage('grade') }}</button>
                     </div>
                     @include('admin.grade.add')
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>S.No</th>
-                            <th>Title</th>
-                            <th>Total Student</th>
-                            <th>Remarks</th>
-                            <th>Action</th>
+                            <th>{{ getLanguage('serial-1') }}</th>
+                            <th>{{ getLanguage('title') }}</th>
+                            @foreach($ethnicities as $ethnicity)
+                            <th>{{$ethnicity->title}}</th>
+                            @endforeach
+                            <th>{{ getLanguage('total').' '.getLanguage('students') }}</th>
+                            <th>{{ getLanguage('remarks') }}</th>
+                            <th>{{ getLanguage('action') }}</th>
                         </tr>
                         </thead>
 
@@ -56,18 +59,24 @@
                             @foreach($contents as $content)
                             <tr>
                                 <td>{{ $content->id }}</td>
-                                <td>Class {{$content->title}}</td>
-                                <td> {{$content->studentCount}}</td>
+                                <td>{{ getLanguage('grade') }} {{$content->title}}</td>
+                                @foreach($ethnicities as $ethnicity)
+                                <td>
+                                    {{ getLanguage('male') }}: {{isset($content->male[$ethnicity->id])? $content->male[$ethnicity->id]:0 }}
+                                    <br>{{ getLanguage('female') }}: {{isset($content->female[$ethnicity->id])? $content->female[$ethnicity->id]:0 }}
+                                </td>
+                                @endforeach
+                                <td> {{$content->total_students}}</td>
                                 <td>{{$content->remarks}}</td>
                                 <td>
                                     <button class="btn btn-primary btn-icon-text mr-2 p-1"
                                         data-toggle="modal" data-target="#edit_content{{$content->id}}">
-                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-edit"></i>{{ getLanguage('edit') }}
                                     </button>
                                     @include('admin.grade.edit')
                                     <button class="btn btn-danger btn-icon-text mr-2 p-1"
                                         data-toggle="modal" data-target="#delete_content{{$content->id}}">
-                                        <i class="fa fa-trash"></i>
+                                        <i class="fa fa-trash"></i> {{getLanguage('delete')}}
                                     </button>
                                     @include('admin.grade.delete')
                                 </td>

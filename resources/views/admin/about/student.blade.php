@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Add</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Basic Info</h5>
+            <h5 class="page-title">{{ getLanguage('basic').' '. getLanguage('information-1') }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -32,44 +32,44 @@
         <div class="col-12">
             <div class="card m-b-30">
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">School Info</h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('school').' '.getLanguage('information-1') }}</h4>
                     <form class="" action="{{ route('admin.about.update') }}" method="post" enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Total Student</label>
+                                    <label>{{ getLanguage('total') }} {{ getLanguage('student') }} *</label>
                                     <input value="{{ getAbout('total_student') }}" type="number" name="total_student" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Male Student</label>
+                                    <label>{{ getLanguage('male-student') }}</label>
                                     <input value="{{ getAbout('male_student') }}" type="number" name="male_student" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Female Student</label>
+                                    <label>{{ getLanguage('femalestudent') }}</label>
                                     <input value="{{ getAbout('female_student') }}" type="number" name="female_student" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Total Dalit</label>
+                                    <label>{{ getLanguage('total').' '.getLanguage('dalit-student') }}</label>
                                     <input value="{{ getAbout('dalit_student') }}" type="number" name="dalit_student" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Total Disable Student</label>
+                                    <label>{{ getLanguage('total').' '.getLanguage('disable-student') }}</label>
                                     <input value="{{ getAbout('disable_student') }}" type="number" name="disable_student" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Total Teachers</label>
+                                    <label>{{ getLanguage('total').' '.getLanguage('teachers') }}</label>
                                     <input value="{{ getAbout('total_teachers') }}" type="number" name="total_teachers" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Total Administration Staffs</label>
+                                    <label>{{ getLanguage('total').' '. getLanguage('administration-staff')}}</label>
                                     <input value="{{ getAbout('total_administrations') }}" type="number" name="total_administrations" class="form-control">
                                 </div>
                             </div>

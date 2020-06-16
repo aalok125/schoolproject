@@ -25,58 +25,45 @@
                     </div>
                 </form>
             </li>
-            {{--<li class="list-inline-item dropdown notification-list">--}}
-                {{--<a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"--}}
-                   {{--aria-haspopup="false" aria-expanded="false">--}}
-                    {{--<i class="mdi mdi-email-outline noti-icon"></i>--}}
-                    {{--<span class="badge badge-danger badge-pill noti-icon-badge">5</span>--}}
-                {{--</a>--}}
-                {{--<div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg">--}}
-                    {{--<!-- item-->--}}
-                    {{--<div class="dropdown-item noti-title">--}}
+            <li class="list-inline-item dropdown notification-list">
+                <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                    <i class="mdi mdi-email-outline noti-icon"></i>
+                    <span class="badge badge-danger badge-pill noti-icon-badge">{{ getUnreadMessageCount() }}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg">
+                    <!-- item-->
+                    <div class="dropdown-item noti-title">
                         {{--<span class="badge badge-danger float-right">367</span>--}}
-                        {{--<h5>Messages</h5>--}}
-                    {{--</div>--}}
-                    {{--<div class="slimscroll" style="max-height: 230px;">--}}
-                        {{--<!-- item-->--}}
-                        {{--<a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-                            {{--<div class="notify-icon"><img src="assets/images/users/user-2.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>--}}
-                            {{--<p class="notify-details"><b>Charles M. Jones</b><span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>--}}
-                        {{--</a>--}}
+                        <h5>Messages</h5>
+                    </div>
+                    <div class="slimscroll" style="max-height: 230px;">
 
-                        {{--<!-- item-->--}}
-                        {{--<a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-                            {{--<div class="notify-icon"><img src="assets/images/users/user-3.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>--}}
-                            {{--<p class="notify-details"><b>Thomas J. Mimms</b><span class="text-muted">You have 87 unread messages</span></p>--}}
-                        {{--</a>--}}
+                        @if(getLatestMessages()->isNotEmpty())
+                            @foreach(getLatestMessages() as $message)
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    {{--<div class="notify-icon"> </div>--}}
+                                    <p class="notify-details"><b>{{ $message->name }}</b><span class="text-muted">{{ $message->email }}</span></p>
+                                </a>
+                            @endforeach
+                        @else
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                {{--<div class="notify-icon"> </div>--}}
+                                <p class="notify-details"><b>No New Messages</b></p>
+                            </a>
+                        @endif
 
-                        {{--<!-- item-->--}}
-                        {{--<a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-                            {{--<div class="notify-icon"><img src="assets/images/users/user-4.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>--}}
-                            {{--<p class="notify-details">Luis M. Konrad<span class="text-muted">It is a long established fact that a reader will</span></p>--}}
-                        {{--</a>--}}
-
-                        {{--<!-- item-->--}}
-                        {{--<a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-                            {{--<div class="notify-icon"><img src="assets/images/users/user-5.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>--}}
-                            {{--<p class="notify-details"><b>Kendall E. Walker</b><span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>--}}
-                        {{--</a>--}}
-
-                        {{--<!-- item-->--}}
-                        {{--<a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-                            {{--<div class="notify-icon"><img src="assets/images/users/user-6.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>--}}
-                            {{--<p class="notify-details"><b>David M. Ryan</b><span class="text-muted">You have 87 unread messages</span></p>--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
+                    </div>
 
 
-                    {{--<!-- All-->--}}
-                    {{--<a href="javascript:void(0);" class="dropdown-item notify-all">--}}
-                        {{--View All--}}
-                    {{--</a>--}}
+                    <!-- All-->
+                    <a href="{{ route('admin.contact') }}" class="dropdown-item notify-all">
+                        View All
+                    </a>
 
-                {{--</div>--}}
-            {{--</li>--}}
+                </div>
+            </li>
 
             <li class="list-inline-item dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"

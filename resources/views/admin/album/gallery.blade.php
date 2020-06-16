@@ -25,7 +25,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.album.gallery',$album->slug) }}">{{ $album->title }}</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Name : {{ $album->name }}</h5>
+            <h5 class="page-title">{{ getLanguage('album') }} {{ getLanguage('title') }} : {{ $album->title }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -39,7 +39,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="text-center" id="title">Image Upload Section For Album:</h5>
+                    <h5 class="text-center" id="title">{{ getLanguage('image') }} Upload For {{ getLanguage('album') }}:
+                        <br>
+                        <span style="color: red;">
+                         {{ getLanguage('album-del-warning-1') }}
+                        </span>
+                    </h5>
 
                     <div class="row">
                         <div class="col-md-12">
@@ -56,7 +61,7 @@
                                 <hr><hr>
                                 <div class="row">
                                     <div class="col-md-4 form-group">
-                                        <label for="">Image File</label>
+                                        <label for="">{{ getLanguage('image') }} {{ getLanguage('select') }}</label>
                                         <input id="image_submit" type="file" name="album_image" class="form-control">
                                         <span style="color: red">* Maximum File Size : 1 MB *</span>
                                     </div>
@@ -111,7 +116,7 @@
                             "</a>" +
                             "</div>" +
                             "<div class='card-footer text-center'>" +
-                            "<button class='btn btn-danger text-center delete_document' value='" + value.id + "'>delete</button>" +
+                            "<button class='btn btn-danger text-center delete_document' value='" + value.id + "'>{{ getLanguage('delete') }}</button>" +
                             "<br>" +
                             "</div>" +
                             "</div>" +

@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Add</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Basic Info</h5>
+            <h5 class="page-title"> {{ getLanguage('basic').' '.getLanguage('information-1') }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -33,7 +33,7 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">School Info</h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('school').' '.getLanguage('information-1') }}</h4>
 
 
                     <form class="" action="{{ route('admin.about.update') }}" method="post" enctype="multipart/form-data">
@@ -42,7 +42,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>History</label>
+                                    <label>{{ getLanguage('history') }}</label>
                                     <textarea name="history" style="height: 500px;" class="summernote">
 {{ getAbout('history') }}
                                     </textarea>

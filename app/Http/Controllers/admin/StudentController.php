@@ -59,7 +59,9 @@ class StudentController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'grade_id'=>'required',
-            'guardian_name'=>'required',
+            'father_name'=>'required',
+            'mother_name'=>'required',
+            'DOB'=>'required',
         ]);
 
         $student = new Student();
@@ -69,7 +71,9 @@ class StudentController extends Controller
         $student->address = $request->address;
         $student->gender = $request->gender;
         $student->DOB = $request->DOB;
-        $student->guardian_name = $request->guardian_name;
+        $student->father_name = $request->father_name;
+        $student->mother_name = $request->mother_name;
+        $student->guardian_address = $request->guardian_address;
         $student->guardian_phone = $request->guardian_phone;
         $student->guardian_email = $request->email;
         $student->occupation_id = $request->occupation_id;
@@ -132,7 +136,9 @@ class StudentController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'grade_id'=>'required',
-            'guardian_name'=>'required',
+            'father_name'=>'required',
+            'mother_name'=>'required',
+            'DOB'=>'required',
         ]);
 
         $student = Student::where('id', $request->student_id)->first();
@@ -142,7 +148,9 @@ class StudentController extends Controller
         $student->address = $request->address;
         $student->gender = $request->gender;
         $student->DOB = $request->DOB;
-        $student->guardian_name = $request->guardian_name;
+        $student->father_name = $request->father_name;
+        $student->mother_name = $request->mother_name;
+        $student->guardian_address = $request->guardian_address;
         $student->guardian_phone = $request->guardian_phone;
         $student->guardian_email = $request->email;
         $student->occupation_id = $request->occupation_id;

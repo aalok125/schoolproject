@@ -55,12 +55,13 @@
                         <span> {{ getLanguage('ethnicity') }} </span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('admin.assets') }}" class="waves-effect">
-                        <i class="dripicons-print"></i>
-                        <span> {{ getLanguage('asset') }} </span>
-                    </a>
-                </li>
+
+                {{--<li>--}}
+                    {{--<a href="{{ route('admin.assets') }}" class="waves-effect">--}}
+                        {{--<i class="dripicons-print"></i>--}}
+                        {{--<span> {{ getLanguage('school') }} {{ getLanguage('facilities-1') }} </span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
 
 
                 <li>
@@ -129,7 +130,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{ route('admin.basic.info') }}">{{ getLanguage('basic-info') }}</a></li>
                         <li><a href="{{ route('admin.about') }}">{{ getLanguage('about') }}</a></li>
-                        <li><a href="{{ route('admin.history') }}">{{ getLanguage('history') }}</a></li>
+                        {{--<li><a href="{{ route('admin.history') }}">{{ getLanguage('history') }}</a></li>--}}
                         <li><a href="{{ route('admin.welcome.message') }}">{{ getLanguage('message') }}</a></li>
                         <li><a href="{{ route('admin.testimonials') }}">{{ getLanguage('testimonial') }}</a></li>
                         <li><a href="{{ route('admin.about.student') }}">{{ getLanguage('student') }}</a></li>

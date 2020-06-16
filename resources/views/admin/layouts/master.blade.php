@@ -24,6 +24,8 @@
     <!-- Sweet Alert -->
     <link href="{{ asset('admin/assets/plugins/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="{{ asset('nepaliDate/css/nepali.datepicker.v3.min.css') }}">
+
     @stack('styles')
     <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
 </head>
@@ -127,6 +129,15 @@
         });
     });
 </script>
+
+<script src="{{ asset('nepaliDate/js/nepali.datepicker.v3.min.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.nepali-calendar').nepaliDatePicker();
+    });
+
+</script>
+
 @stack('scripts')
 
 </body>

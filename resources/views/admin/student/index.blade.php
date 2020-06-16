@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Students </h5>
+            <h5 class="page-title"> {{ getLanguage('students') }} </h5>
         </div>
     </div>
     <!-- end row -->
@@ -33,19 +33,19 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Grade {{ $grade->title }} Student List<a href="{{ route('admin.student.create') }}" class="btn btn-primary waves-effect waves-light float-right">Add New</a></h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('grade') }} {{ $grade->title }} {{ getLanguage('student') }} {{ getLanguage('list') }}<a href="{{ route('admin.student.create') }}" class="btn btn-primary waves-effect waves-light float-right">{{ getLanguage('add-new') }} {{ getLanguage('student') }}</a></h4>
 
 
                     <table id="datatable-students" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
                             <th>S.N</th>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Grade</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Action</th>
+                            <th>{{ getLanguage('name') }}</th>
+                            <th>{{ getLanguage('image') }}</th>
+                            <th>{{ getLanguage('grade') }}</th>
+                            <th>{{ getLanguage('age') }}</th>
+                            <th>{{ getLanguage('gender') }}</th>
+                            <th>{{ getLanguage('action') }}</th>
                         </tr>
                         </thead>
 
@@ -133,8 +133,8 @@
                         var tempDeleteUrl = "{{ route('admin.student.delete', ':id') }}";
                         tempDeleteUrl = tempDeleteUrl.replace(':id', data);
                         var actions = '';
-                        actions += "<a href=" + tempEditUrl + " class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i></a>";
-                        actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i></a>";
+                        actions += "<a href=" + tempEditUrl + " class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id=" + row.id + "><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i>{{ getLanguage('edit') }}</a>";
+                        actions += "<a href=" + tempDeleteUrl + " class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' data-id=" + row.id + "><i class=' mdi mdi-delete btn-icon-prepend'></i>{{ getLanguage('delete') }}</a>";
                         return actions;
                     }
                 },

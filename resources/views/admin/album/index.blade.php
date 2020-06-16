@@ -17,7 +17,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.album.all') }}">Albums</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Albums</h5>
+            <h5 class="page-title">{{ getLanguage('album') }}</h5>
 
         </div>
     </div>
@@ -33,10 +33,10 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title text-center">All Image Albums</h4>
+                    <h4 class="mt-0 header-title text-center">{{ getLanguage('image') }} {{ getLanguage('album') }}</h4>
                     <div>
                         <button data-toggle="modal" data-target="#add_content" class="pull-right btn btn-primary">
-                            Create New Album</button>
+                            {{ getLanguage('add-new') }} {{ getLanguage('album') }}</button>
                         @include('admin.album.add')
 
                     </div>
@@ -44,10 +44,10 @@
                         <thead>
                             <tr>
                                 <th>S.No</th>
-                                <th>Album Title</th>
-                                <th>Date</th>
-                                <th>Images</th>
-                                <th>Action</th>
+                                <th>{{ getLanguage('album') }} {{ getLanguage('title') }}</th>
+                                <th>{{ getLanguage('date') }}</th>
+                                <th>{{ getLanguage('image') }}</th>
+                                <th>{{ getLanguage('action') }}</th>
                             </tr>
                         </thead>
 
@@ -56,22 +56,22 @@
                             <tr>
                                 <td>{{ $content->id }}</td>
                                 <td>{{$content->title}}</td>
-                                <td>{{$content->created_at}}</td>
+                                <td>{{ getNepaliDate($content->created_at)}}</td>
                                 <td>
                                     <a href="{{ route('admin.album.gallery',$content->slug) }}" class="btn btn-success btn-icon-text mr-2 p-1">
-                                        Gallery
+                                        {{ getLanguage('album') }} {{ getLanguage('image') }} {{ getLanguage('view-and-edit') }}
                                     </a>
                                 </td>
                                 <td>
                                     <button data-toggle="modal" data-target="#edit_content{{$content->id}}" class="btn btn-primary btn-icon-text mr-2 p-1" title="Edit">
-                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-edit"></i> {{getLanguage('edit')}}
                                     </button>
                                     @include('admin.album.edit')
 
 
                                     <button class="btn btn-danger btn-icon-text mr-2 p-1"
                                             data-toggle="modal" data-target="#delete_content{{$content->id}}" title="Delete">
-                                        <i class="fa fa-trash"></i>
+                                        <i class="fa fa-trash"></i> {{ getLanguage('delete') }}
                                     </button>
                                     @include('admin.album.delete')
 

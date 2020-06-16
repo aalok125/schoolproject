@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Model\Contact;
 use App\Model\About;
 use App\Model\Album;
 use App\Model\Asset;
@@ -51,6 +52,31 @@ class IndexController extends Controller
     public function contact(){
         return view('front.contact');
     }
+
+
+    public function contactStore(Request $request){
+
+
+        $contact = new Contact();
+        $contact->name = $request['name'];
+        $contact->email = $request['email'];
+        $contact->subject = $request['subject'];
+        $contact->phone = $request['phone'];
+        $contact->message = $request['message'];
+        $success = $contact->save();
+
+        if($success){
+
+            return response()->json([
+                'status' => 'success',
+            ], 201);
+        }else{
+            return response()->json([
+                'status' => 'error',
+            ], 201);
+        }
+    }
+
 
     public function gallery(){
         $albums = Album::where('school_id',1)->get();

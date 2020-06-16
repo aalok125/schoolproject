@@ -18,7 +18,7 @@
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Asset </h5>
+            <h5 class="page-title"> {{ getLanguage('facilities-1') }} </h5>
         </div>
     </div>
     <!-- end row -->
@@ -34,8 +34,14 @@
                 <div class="card-body">
 
 
-                    <h4 class="mt-0 header-title">Asset List<button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">Add New</button></h4>
-                        @include('admin.asset.addcategory')
+                    <h4 class="mt-0 header-title">{{ getLanguage('facilities-1') }} {{ getLanguage('list') }}
+                        <button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">
+                            {{ getLanguage('add-new') }} {{getLanguage('asset-1')}}
+                        </button>
+                    </h4>
+
+                    @include('admin.asset.addcategory')
+
                     <div class="modal fade edu-edit-category" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     </div>
 
@@ -48,9 +54,9 @@
                         <thead>
                         <tr>
                             <th>S.N</th>
-                            <th>Title</th>
-                            <th>Asset</th>
-                            <th>Action</th>
+                            <th>{{ getLanguage('title') }}</th>
+                            <th>{{ getLanguage('asset') }}</th>
+                            <th>{{ getLanguage('action') }}</th>
                         </tr>
                         </thead>
 
@@ -66,13 +72,13 @@
                                 <table width="100%" border="0" bgcolor="" cellspacing="0">
                                     <tr>
                                         <th>
-                                            Name
+                                            {{ getLanguage('name') }}
                                         </th>
                                         <th>
-                                            Quantity
+                                            {{ getLanguage('quantity') }}
                                         </th>
                                         <th>
-                                            Action
+                                            {{ getLanguage('action') }}
                                         </th>
                                     </tr>
                                     @if($category->assets)
@@ -85,9 +91,9 @@
                                             {{ $asset->quantity }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.asset.image', $asset->slug) }}" class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' ><i class=' mdi mdi-plus btn-icon-prepend'></i>Images</a>
-                                            <button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id="{{ $asset->id }}"><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i></button>
-                                            <a href="{{ route('admin.asset.delete',$asset->id) }}" class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' ><i class=' mdi mdi-delete btn-icon-prepend'></i></a>
+                                            <a href="{{ route('admin.asset.image', $asset->slug) }}" class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' ><i class=' mdi mdi-plus btn-icon-prepend'></i>{{ getLanguage('image') }}</a>
+                                            <button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row' data-id="{{ $asset->id }}"><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i>{{ getLanguage('edit') }}</button>
+                                            <a href="{{ route('admin.asset.delete',$asset->id) }}" class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' ><i class=' mdi mdi-delete btn-icon-prepend'></i>{{ getLanguage('delete') }}</a>
                                         </td>
                                     </tr>
                                         @endforeach
@@ -95,9 +101,11 @@
                                 </table>
                             </td>
                            <td>
-                               <button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-category-row' data-id="{{ $category->id }}"><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i></button>
-                               <a href="{{ route('admin.asset.category.delete', $category->id) }}" class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' ><i class=' mdi mdi-delete btn-icon-prepend'></i></a>
-                               <button type="button " class='btn btn-success btn-icon-text mr-2 p-1 btn-add-asset' data-id="{{ $category->id }}"><i class=' mdi mdi-plus btn-icon-prepend'></i></button>
+
+                               <button type="button " class='btn btn-success btn-icon-text mr-2 p-1 btn-add-asset' data-id="{{ $category->id }}"><i class=' mdi mdi-plus btn-icon-prepend'></i>{{ getLanguage('add-new') }} {{ $category->title }} {{getLanguage('asset')}}</button>
+                               <hr>
+                               <button type='button'  class='btn btn-dark btn-icon-text mr-2 p-1 btn-edit-category-row' data-id="{{ $category->id }}"><i class=' mdi mdi-grease-pencil btn-icon-prepend'></i>{{ getLanguage('title') }} {{ getLanguage('edit') }}</button>
+                               <a href="{{ route('admin.asset.category.delete', $category->id) }}" class='btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row' ><i class=' mdi mdi-delete btn-icon-prepend'></i>{{ $category->title }} {{ getLanguage('delete') }}</a>
                            </td>
                         </tr>
                         @endforeach

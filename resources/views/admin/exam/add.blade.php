@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title mt-0">Add Exam</h5>
+                <h5 class="modal-title mt-0">{{ getLanguage('add-new').' '.getLanguage('exam') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,19 +12,19 @@
 
                 {{ csrf_field() }}
                     <div class="form-group">
-                        <label>Title</label>
+                        <label>{{ getLanguage('exam').' '.getLanguage('title') }}</label>
                         <input type="text" name="title" class="form-control" required placeholder="Title"/>
                     </div>
 
                     <div class="form-group">
-                        <label>Start Date</label>
-                        <input type="text" id="nepali-datepicker" class="form-control" name="start_date"  required />
+                        <label>{{ getLanguage('exam-start-date') }}</label>
+                        <input type="text" class="form-control nepali-calendar" name="start_date" id="start_date"  required />
                     </div>
 
                     <div class="form-group">
-                        <label>Select Grade</label>
+                        <label>{{ getLanguage('grade').' '.getLanguage('select') }}</label>
                         <select class="form-control js-example-basic-multiple" name="grade_id[]" multiple="multiple">
-                            <option value="" disabled>Select Grade</option>
+                            <option value="" disabled>{{ getLanguage('grade').' '.getLanguage('select') }}</option>
                             @foreach($grades as $grade)
                                 <option value="{{$grade->id}}">{{$grade->title}}</option>
                             @endforeach
@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Remarks</label>
+                        <label>{{ getLanguage('remarks') }}</label>
                         <textarea class="form-control" name="remarks">
 
                         </textarea>

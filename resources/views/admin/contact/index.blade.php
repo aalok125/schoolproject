@@ -17,7 +17,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.download.all') }}">Download</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">{{ getLanguage('download') }}</h5>
+            <h5 class="page-title">{{ getLanguage('contact-messages') }}</h5>
             
         </div>
     </div>
@@ -33,16 +33,15 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title text-center">{{ getLanguage('school') }} {{ getLanguage('download') }} {{ getLanguage('file') }}</h4>
-                    <div>
-                        <a href="{{ route('admin.download.add') }}" class="pull-right btn btn-primary">
-                            {{ getLanguage('add-new').' '.getLanguage('download') }}</a>
-                    </div>
+                    <h4 class="mt-0 header-title text-center">{{ getLanguage('school') }} {{ getLanguage('contact-messages') }}</h4>
+
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
                             <th>{{ getLanguage('serial-1') }}</th>
-                            <th>{{ getLanguage('title') }}</th>
+                            <th>{{ getLanguage('name') }}</th>
+                            <th>{{ getLanguage('email') }}</th>
+                            <th>{{ getLanguage('subject') }}</th>
                             <th>{{ getLanguage('status') }}</th>
                             <th>{{ getLanguage('action') }}</th>
                         </tr>
@@ -52,35 +51,23 @@
                         <tbody>
                             @foreach($contents as $content)
                             <tr>
-                                <td>{{ $content->id }}</td>
-                                <td>{{$content->title}}</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{$content->name}}</td>
+                                <td>{{$content->email}}</td>
+                                <td>{{$content->subject}}</td>
+                                <td>{{ $content->view == 1 ? "Read": "Unread" }}</td>
                                 <td>
-                                    <a href="{{route('admin.download.changestatus',$content->id)}}">
-                                    @if($content->status == 1)
-                                        <button data-id="{{$content->id}}" class="btn-chnage-status btn btn-sm btn-default text-primary btn-success" title="Active"><i class="ion-toggle-filled"></i> </button>
-                                    @else
-                                        <button data-id="{{ $content->id }}" class="btn-chnage-status btn btn-sm btn-default text-primary btn-danger" title="Inactive"><i class="ion-toggle"></i></button>
-                                    @endif
-                                    </a>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary btn-icon-text mr-2 p-1" title="View Details" data-toggle="modal" data-target="#view_content{{$content->id}}">
+                                    <button class="btn btn-primary btn-icon-text mr-2 p-1 btn-view-row" data-id="{{$content->id}}" title="View Details">
                                         <i class="fa fa-eye"></i>
                                         {{ getLanguage('details') }}
                                     </button>
-                                    @include('admin.download.details')
-
-                                    <a href="{{ route('admin.download.edit',$content->id) }}" class="btn btn-success btn-icon-text mr-2 p-1" title="Edit">
-                                        <i class="fa fa-edit"></i>
-                                        {{ getLanguage('edit') }}
-                                    </a>
 
                                     <button class="btn btn-danger btn-icon-text mr-2 p-1"
                                             data-toggle="modal" data-target="#delete_content{{$content->id}}" title="Delete">
                                         <i class="fa fa-trash"></i>
                                         {{ getLanguage('delete') }}
                                     </button>
-                                    @include('admin.download.delete')
+                                    @include('admin.contact.delete')
 
                                 </td>
                             </tr>
@@ -91,7 +78,11 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="modal fade edu-view-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    </div>
+
+
 
 
 @endsection
@@ -105,5 +96,22 @@
 
     <!-- Datatable init js -->
     <script src="{{ asset('admin/assets/pages/datatables.init.js') }}"></script>
+
+    <script>
+        $(document).on("click", ".btn-view-row", function (e) {
+            e.preventDefault();
+            $this = $(this);
+            var id = $this.attr('data-id');
+
+            var tempEditUrl = "{{ route('admin.contact.view', ':id') }}";
+            tempEditUrl = tempEditUrl.replace(':id', id);
+            console.log(tempEditUrl);
+            var $modal = $('.edu-view-new');
+            $modal.load(tempEditUrl, function (response) {
+                $modal.modal('show');
+            });
+        });
+
+    </script>
 
 @endpush

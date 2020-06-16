@@ -4,14 +4,14 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create New Album</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ getLanguage('add-new') }} {{ getLanguage('album') }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="title">Album Title</label>
+                        <label for="title">{{ getLanguage('ablum') }} {{ getLanguage('title') }}</label>
                         <input type="text" name="title" value="" id="title" class="form-control" required>
                     </div>
                 </div>

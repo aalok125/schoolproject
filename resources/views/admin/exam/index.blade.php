@@ -4,7 +4,6 @@
 
 {{--Page specific styles--}}
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="{{ asset('nepaliDate/css/nepali.datepicker.v3.min.css') }}">
 <style>
     .select2-container {
         width: 100% !important;
@@ -25,7 +24,7 @@
                     <li class="breadcrumb-item active">Index</li>
                 </ol>
             </div>
-            <h5 class="page-title"> Exam </h5>
+            <h5 class="page-title"> {{ getLanguage('exam') }} </h5>
         </div>
     </div>
     <!-- end row -->
@@ -41,7 +40,12 @@
                 <div class="card-body">
 
 
-                    <h4 class="mt-0 header-title">Exam List<button type="button" id="add_exam" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">Add New</button></h4>
+                    <h4 class="mt-0 header-title">
+                        {{ getLanguage('exam').' '.getLanguage('list') }}
+                        <button type="button" id="add_exam" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">
+                            {{ getLanguage('add-new').' '.getLanguage('exam') }}
+                        </button>
+                    </h4>
                         @include('admin.exam.add')
                     <div class="modal fade edu-edit-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     </div>
@@ -51,11 +55,11 @@
                     <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>S.N</th>
-                            <th>Title</th>
-                            <th>Start Date</th>
-                            <th>Grade</th>
-                            <th>Action</th>
+                            <th>{{ getLanguage('serial') }}</th>
+                            <th>{{ getLanguage('exam').' '.getLanguage('title') }}</th>
+                            <th>{{ getLanguage('exam-start-date') }}</th>
+                            <th>{{ getLanguage('grade') }}</th>
+                            <th>{{ getLanguage('action') }}</th>
                         </tr>
                         </thead>
 
@@ -69,20 +73,20 @@
                                     <table width="100%" border="0" bgcolor="" cellspacing="0">
                                         <tr>
                                             <th>
-                                                Class
+                                                {{ getLanguage('grade') }}
                                             </th>
                                             <th>
-                                                Action
+                                                {{ getLanguage('action') }}
                                             </th>
                                         </tr>
                                         @if($exam->grades)
                                             @foreach($exam->grades as $grade)
                                                 <tr>
                                                     <td>
-                                                        Class {{ $grade->title }}
+                                                        {{ getLanguage('grade') }} {{ $grade->title }}
                                                     </td>
                                                     <td>
-                                                        <button type='button'  class='btn btn-primary btn-icon-text mr-2 p-1 btn-result-row' grade-id="{{ $grade->id }}" data-id="{{ $exam->id }}"><i class=" mdi mdi-plus btn-icon-prepend"></i>Result</button>
+                                                        <button type='button'  class='btn btn-primary btn-icon-text mr-2 p-1 btn-result-row' grade-id="{{ $grade->id }}" data-id="{{ $exam->id }}"><i class=" mdi mdi-plus btn-icon-prepend"></i>{{ getLanguage('result') }}</button>
                                                         @if($exam->month >= 9)
                                                         <a href='{{ route('admin.exam.pass.student', $grade->id) }}'  class='btn btn-success btn-icon-text mr-2 p-1'><i class=" mdi mdi-plus btn-icon-prepend"></i>Upgrade Student</a>
                                                             @endif
@@ -94,8 +98,8 @@
 
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row" data-id="{{ $exam->id }}" ><i class=" mdi mdi-grease-pencil btn-icon-prepend"></i></button>
-                                    <a href="{{ route('admin.exam.delete', $exam->id) }}" class="btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row" data-id="1"><i class=" mdi mdi-delete btn-icon-prepend"></i></a>
+                                    <button type="button" id="edit_exam" class="btn btn-dark btn-icon-text mr-2 p-1 btn-edit-row" data-id="{{ $exam->id }}" ><i class=" mdi mdi-grease-pencil btn-icon-prepend"></i>{{ getLanguage('exam').' '.getLanguage('edit') }}</button>
+                                    <a href="{{ route('admin.exam.delete', $exam->id) }}" class="btn btn-danger btn-icon-text mr-2 p-1 btn-delete-row" data-id="1"><i class=" mdi mdi-delete btn-icon-prepend"></i>{{ getLanguage('exam').' '.getLanguage('delete') }}</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -117,15 +121,7 @@
 
 @push('scripts')
 
-<script src="{{ asset('nepaliDate/js/nepali.datepicker.v3.min.js') }}"></script>
-<script type="text/javascript">
-    $('#add_exam').on('click',function () {
 
-        var mainInput = document.getElementById("nepali-datepicker");
-        mainInput.nepaliDatePicker();
-    })
-
-</script>
 <!-- Required datatable js -->
 <script src="{{ asset('admin/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin/assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
@@ -181,6 +177,18 @@
     });
 
 </script>
+
+<!-- <script>
+     var mainInput =  $(".nepali-datepicker");
+       
+       /* Initialize Datepicker with options */
+    mainInput.nepaliDatePicker({
+        dateFormat: "MM/DD/YYYY"
+    });
+    
+    var apple = NepaliFunctions.GetCurrentBsDate();
+    console.log(NepaliFunctions.ConvertDateFormat(apple, "MM/DD/YYYY"))
+</script> -->
 
 
 
