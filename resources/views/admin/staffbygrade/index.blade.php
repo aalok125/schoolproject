@@ -25,7 +25,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.staffbygrade.all') }}">Staff-Grade-Subject</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Staff By Grades</h5>
+            <h5 class="page-title">{{ getLanguage('staff-by-grade') }}</h5>
 
         </div>
     </div>
@@ -41,14 +41,14 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title">Teacher Assigned To Specific Class (needs script to be added)</h4>
+                    <h4 class="mt-0 header-title">{{ getLanguage('subject-teacher-assign') }}</h4>
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>S.No</th>
-                            <th>Grade</th>
-                            <th class="text-center">Teachers By Subject</th>
+                            <th>{{ getLanguage('serial-1') }}</th>
+                            <th>{{ getLanguage('grade') }}</th>
+                            <th class="text-center">{{ getLanguage('teachers') }}</th>
                         </tr>
                         </thead>
 
@@ -61,9 +61,9 @@
                                 <td>
                                     <table style="width: 100%">
                                         <tr class="table-primary">
-                                            <td>Subject</td>
-                                            <td>Teacher Name</td>
-                                            <td>Action</td>
+                                            <td>{{ getLanguage('subject') }}</td>
+                                            <td>{{ getLanguage('teacher-name') }}</td>
+                                            <td>{{ getLanguage('action') }}</td>
                                         </tr>
                                         @foreach($content->subjects as $subject)
                                         <tr>

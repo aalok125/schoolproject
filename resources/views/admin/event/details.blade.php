@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-center" id="exampleModalLabel">Event Name : {{$content->title}}t</h5>
+                    <h5 class="modal-title text-center" id="exampleModalLabel">{{ getLanguage('events').' '.getLanguage('name') }} : {{$content->title}}t</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -10,7 +10,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <strong>Event Date:</strong>
+                            <strong>{{ getLanguage('events').' '.getLanguage('date') }}:</strong>
                         </div>
                         <div class="col-md-6">
                             <strong>{{ $content->event_date }}</strong>
@@ -18,7 +18,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <strong>Status</strong>
+                            <strong>{{ getLanguage('status') }}</strong>
                         </div>
                         <div class="col-md-6">
                             <strong>{{ $content->status }}</strong>
@@ -27,7 +27,7 @@
                     <hr><hr>
                     <div class="row">
                         <div class="col-md-2">
-                            <strong>Content:</strong>
+                            <strong>{{ getLanguage('events').' '.getLanguage('description') }}:</strong>
                         </div>
                         <div class="col-md-10">
                             <p>{!! $content->content !!}</p>
@@ -36,7 +36,7 @@
                     <hr><hr>
                     <div class="row">
                         <div class="col-md-2">
-                            <strong>Event Image:</strong>
+                            <strong>{{ getLanguage('events').' '.getLanguage('image') }}:</strong>
                         </div>
                         <div class="col-md-10">
                             <a href="{{ asset($content->image) }}" target="_blank">

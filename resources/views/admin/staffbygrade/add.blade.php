@@ -12,19 +12,19 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label>Class</label>
+                        <label>{{ getLanguage('grade') }}</label>
                         <select name="grade_id" class="form-control" required>
                             <option value="{{$content->id}}" selected>{{$content->title}}</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Subject</label>
+                        <label>{{ getLanguage('subject') }}</label>
                         <select name="subject_id" class="form-control" required>
                             <option value="{{$subject->id}}" selected>{{$subject->title}}</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Staff</label>
+                        <label>{{ getLanguage('staff') }}</label>
                         <br>
                         <select class="form-control js-example-basic-multiple" name="staff_id[]" multiple="multiple">
                             <option value="" disabled>Select Teachers</option>

@@ -133,7 +133,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.staff.details',$staff->slug) }}">{{ $staff->name }}</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Staff Profile</h5>
+            <h5 class="page-title">{{ getLanguage('staff') }} {{ getLanguage('profile') }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -165,16 +165,16 @@
                             {{ $staff->staffType->title }}
                         </h6>
                         <p>{{$staff->staffType->remarks}}</p>
-                        <p class="proile-rating">School : <span>School Name</span></p>
+                        {{--<p class="proile-rating">School : <span>School Name</span></p>--}}
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ getLanguage('about') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#experience" role="tab" aria-controls="profile" aria-selected="false">Experience</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#experience" role="tab" aria-controls="profile" aria-selected="false">{{ getLanguage('qualifications') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#certificate" role="tab" aria-controls="profile" aria-selected="false">Certificates</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#certificate" role="tab" aria-controls="profile" aria-selected="false">{{ getLanguage('certificates') }}</a>
                             </li>
                         </ul>
                     </div>
@@ -182,16 +182,16 @@
                 <div class="col-md-2">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle profile-edit-btn" data-toggle="dropdown">Edit Profile <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle profile-edit-btn" data-toggle="dropdown">{{ getLanguage('edit') }}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('admin.staff.edit',$staff->slug) }}">
-                                        Edit Basic Info</a>
+                                        {{ getLanguage('basic-info').' '.getLanguage('edit') }}</a>
                                 </li>
                                 <li><a href="{{ route('admin.staff.qualifications',$staff->slug) }}">
-                                        Edit Qualifications</a>
+                                        {{ getLanguage('qualifications').' '.getLanguage('edit') }}</a>
                                 </li>
                                 <li><a href="{{ route('admin.staff.certificates',$staff->slug) }}">
-                                        Edit Certificates</a>
+                                        {{ getLanguage('certificates').' '.getLanguage('edit') }}</a>
                                 </li>
                             </ul>
                         </li>
@@ -212,7 +212,7 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Job Title</label>
+                                    <label>{{ getLanguage('job-title') }}</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>{{ $staff->job_title }}</p>
@@ -220,7 +220,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Ethnicity</label>
+                                    <label>{{ getLanguage('ethnicity') }}</label>
                                 </div>
                                 <div class="col-md-6">
                                     @if(isset($staff->ethnicity))
@@ -230,7 +230,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Gender</label>
+                                    <label>{{ getLanguage('gender') }}</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>{{ $staff->gender }}</p>
@@ -238,7 +238,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Phone</label>
+                                    <label>{{ getLanguage('phone') }}</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>{{ $staff->phone }}</p>
@@ -246,7 +246,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Date Of Birth</label>
+                                    <label>{{ getLanguage('birth-date') }}</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>{{ $staff->DOB }}</p>
@@ -255,7 +255,7 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Address</label>
+                                    <label>{{ getLanguage('address') }}</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>{{ $staff->address }}</p>
@@ -268,12 +268,12 @@
                                     <table id="tech-companies-1" class="table  table-striped">
                                         <thead>
                                         <tr>
-                                            <th data-priority="1">S.No</th>
-                                            <th data-priority="4">Organization Name</th>
-                                            <th data-priority="3">Job Title</th>
-                                            <th data-priority="1">Job Location</th>
-                                            <th data-priority="3">Start Date</th>
-                                            <th data-priority="3">End Date</th>
+                                            <th data-priority="1">{{ getLanguage('serial') }}</th>
+                                            <th data-priority="4">{{ getLanguage('organization-s-name') }}</th>
+                                            <th data-priority="3">{{ getLanguage('job-title') }}</th>
+                                            <th data-priority="1">{{ getLanguage('job-location') }}</th>
+                                            <th data-priority="3">{{ getLanguage('job-start-date') }}</th>
+                                            <th data-priority="3">{{ getLanguage('job-end-date') }}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

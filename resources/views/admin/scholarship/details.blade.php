@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-center" id="exampleModalLabel">Scholarship Title : {{$content->title}}t</h5>
+                    <h5 class="modal-title text-center" id="exampleModalLabel">{{ getLanguage('scholarship').' '.getLanguage('title') }} : {{$content->title}}t</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -10,7 +10,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <strong>Status</strong>
+                            <strong>{{ getLanguage('status') }}</strong>
                         </div>
                         <div class="col-md-6">
                             <strong>{{ $content->status }}</strong>
@@ -19,7 +19,7 @@
                     <hr><hr>
                     <div class="row">
                         <div class="col-md-6">
-                            <strong>Scholarship Attachment:</strong>
+                            <strong>{{ getLanguage('scholarship').' '.getLanguage('file') }}:</strong>
                         </div>
                         <div class="col-md-6">
                             @if(isset($content->file))
@@ -34,7 +34,7 @@
                     <hr><hr>
                     <div class="row">
                         <div class="col-md-2">
-                            <strong>Content:</strong>
+                            <strong>{{ getLanguage('details') }}:</strong>
                         </div>
                         <div class="col-md-10">
                             <p>{!! $content->content !!}</p>

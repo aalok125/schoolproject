@@ -20,7 +20,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.staff.certificates',$staff->slug) }}">Certificates</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Name : {{ $staff->name }}</h5>
+            <h5 class="page-title">{{ getLanguage('name') }} : {{ $staff->name }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -34,7 +34,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="text-center">Certificates Upload Section</h5>
+                    <h5 class="text-center">{{ getLanguage('certificates') }} {{ getLanguage('upload') }}</h5>
 
                     <div class="row">
                         <div class="col-md-12">
@@ -45,18 +45,18 @@
                                 <hr><hr>
                                 <div class="row">
                                     <div class="col-md-4 form-group">
-                                        <label for="">Document Title</label>
+                                        <label for="">{{ getLanguage('document').' '.getLanguage('title') }}</label>
                                         <input id="doc_title" type="text" name="title" class="form-control">
                                     </div>
                                     <div class="col-md-4 form-group">
-                                        <label for="">Document File</label>
+                                        <label for="">{{ getLanguage('document').' '.getLanguage('file') }}</label>
                                         <input id="doc_image" type="file" name="file" class="form-control">
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for=""></label>
                                         <br>
                                         <button id="doc_submit" class="btn btn-outline-primary" type="button">
-                                            Upload
+                                            {{ getLanguage('upload') }}
                                         </button>
                                     </div>
                                 </div>

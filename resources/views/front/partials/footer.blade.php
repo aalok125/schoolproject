@@ -72,18 +72,18 @@
     </div>
     <div class="container">
         <div class="top-footer">
-            <form action="">
-                <input
-                        type="email"
-                        class="form-control"
-                        placeholder="Your Email Address"
-                />
-                <input
-                        type="submit"
-                        class="btn btn-primary form-control"
-                        value="Subscribe"
-                />
-            </form>
+            {{--<form action="">--}}
+                {{--<input--}}
+                        {{--type="email"--}}
+                        {{--class="form-control"--}}
+                        {{--placeholder="Your Email Address"--}}
+                {{--/>--}}
+                {{--<input--}}
+                        {{--type="submit"--}}
+                        {{--class="btn btn-primary form-control"--}}
+                        {{--value="Subscribe"--}}
+                {{--/>--}}
+            {{--</form>--}}
             <div class="social-icon">
                 <ul>
                     <li>

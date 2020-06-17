@@ -17,7 +17,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.scholarship.all') }}">Tender</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Scholarship</h5>
+            <h5 class="page-title">{{ getLanguage('scholarship') }}</h5>
             
         </div>
     </div>
@@ -33,18 +33,18 @@
             <div class="card m-b-30">
                 <div class="card-body">
 
-                    <h4 class="mt-0 header-title text-center">All School Scholarship</h4>
+                    <h4 class="mt-0 header-title text-center">{{ getLanguage('school').' '.getLanguage('scholarship').' '.getLanguage('list') }}</h4>
                     <div>
                         <a href="{{ route('admin.scholarship.add') }}" class="pull-right btn btn-primary">
-                            ADD NEW</a>
+                            {{ getLanguage('add-new').' '.getLanguage('scholarship') }}</a>
                     </div>
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>S.No</th>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>{{ getLanguage('serial-1') }}</th>
+                            <th>{{ getLanguage('title') }}</th>
+                            <th>{{ getLanguage('status') }}</th>
+                            <th>{{ getLanguage('action') }}</th>
                         </tr>
                         </thead>
 
@@ -65,17 +65,17 @@
                                 </td>
                                 <td>
                                     <button class="btn btn-primary btn-icon-text mr-2 p-1" title="View Details" data-toggle="modal" data-target="#view_content{{$content->id}}">
-                                        <i class="fa fa-eye"></i>
+                                        <i class="fa fa-eye"></i> {{ getLanguage('details') }}
                                     </button>
                                     @include('admin.scholarship.details')
 
                                     <a href="{{ route('admin.scholarship.edit',$content->slug) }}" class="btn btn-success btn-icon-text mr-2 p-1" title="Edit">
-                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-edit"></i> {{ getLanguage('edit') }}
                                     </a>
 
                                     <button class="btn btn-danger btn-icon-text mr-2 p-1"
                                             data-toggle="modal" data-target="#delete_content{{$content->id}}" title="Delete">
-                                        <i class="fa fa-trash"></i>
+                                        <i class="fa fa-trash"></i> {{ getLanguage('edit') }}
                                     </button>
                                     @include('admin.scholarship.delete')
 

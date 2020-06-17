@@ -54,7 +54,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.event.add') }}">Add</a></li>
                 </ol>
             </div>
-            <h5 class="page-title"> Add New Event</h5>
+            <h5 class="page-title">{{ getLanguage('add-new').' '.getLanguage('events') }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -68,26 +68,26 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="modal-title text-center" id="exampleModalLabel">Event Information </h4>
+                    <h4 class="modal-title text-center" id="exampleModalLabel">{{ getLanguage('events').' '.getLanguage('information-1') }}</h4>
 
                     <form method="post" action="{{ route('admin.event.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
-                            <label for="title">Title</label>
+                            <label for="title">{{ getLanguage('events').' '.getLanguage('title') }}</label>
                             <input type="text" name="title" id="title" value="{{old("title")}}" class="form-control" required>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="content">Event Description:</label>
+                            <label for="content">{{ getLanguage('events').' '.getLanguage('description') }}:</label>
                             <textarea name="contents" id="content" class="summernote" >{{ old('contents') }}</textarea>
                         </div>
 
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <label for="photo">Event Image</label>
+                                    <label for="photo">{{ getLanguage('events').' '.getLanguage('image') }}</label>
                                     <input type="file" name="image" id="photo" class="form-control" required>
                                     <span style="color: red">*Max Size: 1 MB</span>
                                 </div>
@@ -101,12 +101,12 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="date">Event Date</label>
+                                    <label for="date">{{ getLanguage('events').' '.getLanguage('date') }}</label>
                                     <input type="text" name="date" value="{{old("date")}}" id="nepali-datepicker"
                                            placeholder="Select Nepali Date" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="status">Status</label>
+                                    <label for="status">{{ getLanguage('status') }}</label>
                                     <div class="btn-group btn-group-toggle form-control" style="height: 49px"  data-toggle="buttons">
                                         <label class="btn btn-light active">
                                             <input type="radio" name="status" id="option1" checked value="Active"> Active

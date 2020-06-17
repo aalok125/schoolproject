@@ -19,7 +19,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.staff.qualifications',$staff->slug) }}">Qualifications</a></li>
                 </ol>
             </div>
-            <h5 class="page-title">Name : {{$staff->name}}</h5>
+            <h5 class="page-title">{{ getLanguage('staff').' '.getLanguage('name') }} : {{$staff->name}}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -34,7 +34,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h5 class="text-center">Add Qualifications</h5>
+                    <h5 class="text-center">{{ getLanguage('qualifications') }}</h5>
 
                     <form action="{{ route('admin.staff.qualifications_update',$staff->slug) }}" method="post">
                         @csrf
@@ -43,9 +43,9 @@
                                 <table class="table table-bordered table-qualifications">
                                     <thead>
                                     <tr>
-                                        <th>SN</th>
-                                        <th>Details</th>
-                                        <th>Action</th>
+                                        <th>{{ getLanguage('serial-1') }}</th>
+                                        <th>{{ getLanguage('details') }}</th>
+                                        <th>{{ getLanguage('action') }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -54,24 +54,24 @@
                                         <tr data-row="{{ $count }}">
                                             <td>{{ $count }}</td>
                                             <td>
-                                                <label for="">Organization Name</label>
+                                                <label for="">{{ getLanguage('organization-s-name') }}</label>
                                                 <input type="text" placeholder="Organization Name"
                                                        name="exp[organization_name][{{$exp->id}}]"
                                                        value="{{$exp->organization_name}}" class="form-control"
                                                        required>
-                                                <label for="">Job Title</label>
+                                                <label for="">{{ getLanguage('job-title') }}</label>
                                                 <input type="text" placeholder="Job Title"
                                                        name="exp[job_title][{{$exp->id}}]" value="{{$exp->job_title}}"
                                                        class="form-control" required>
-                                                <label for="">Job Location</label>
+                                                <label for="">{{ getLanguage('job-location') }}</label>
                                                 <input type="text" placeholder="Job Location"
                                                        name="exp[job_location][{{$exp->id}}]"
                                                        value="{{$exp->job_location}}" class="form-control">
-                                                <label>Start Date:</label><input type="date" placeholder="Start Date"
+                                                <label>{{ getLanguage('job-start-date') }}:</label><input type="date" placeholder="Start Date"
                                                                                  name="exp[start_date][{{$exp->id}}]"
                                                                                  value="{{$exp->start_date}}"
                                                                                  class="form-control" required>
-                                                <label>End Date:</label><input type="date" placeholder="End Date"
+                                                <label>{{ getLanguage('job- end-date') }}:</label><input type="date" placeholder="End Date"
                                                                                name="exp[end_date][{{$exp->id}}]"
                                                                                value="{{$exp->end_date}}"
                                                                                class="form-control">
@@ -91,7 +91,7 @@
                                         <th></th>
                                         <th>
                                             <button class="btn btn-primary btn-sm btn-add-qualifications">
-                                                Add New
+                                                {{ getLanguage('add-new') }}
                                             </button>
                                         </th>
                                     </tr>
@@ -134,16 +134,16 @@
         var newRow = jQuery('<tr data-row="' + counter + '">' +
             '<td>' + counter + '</td>' +
             '<td>' +
-            '<label for="">Organization Name</label>' +
+            '<label for="">{{ getLanguage('organization-s-name') }}</label>' +
             '<input type="text" placeholder="Organization Name" name="exp[organization_name][' + randomInteger + ']" class="form-control" required>' +
-            '<label for="">Job Title</label>' +
+            '<label for="">{{ getLanguage('job-title') }}</label>' +
             '<input type="text" placeholder="Job Title" name="exp[job_title][' + randomInteger + ']" class="form-control" required>' +
-            '<label for="">Job Location</label>' +
+            '<label for="">{{ getLanguage('job-location') }}</label>' +
             '<input type="text" placeholder="Job Location" name="exp[job_location][' + randomInteger + ']" class="form-control" required>' +
-            '<label>Start Date:</label><input type="date" placeholder="Start Date" name="exp[start_date][' + randomInteger + ']" class="form-control" required>' +
-            '<label>End Date:</label><input type="date" placeholder="End Date" name="exp[end_date][' + randomInteger + ']" class="form-control" required>' +
+            '<label>{{ getLanguage('job-start-date') }}:</label><input type="date" placeholder="Start Date" name="exp[start_date][' + randomInteger + ']" class="form-control" required>' +
+            '<label>{{ getLanguage('job-end-date') }}:</label><input type="date" placeholder="End Date" name="exp[end_date][' + randomInteger + ']" class="form-control" required>' +
             '</td>' +
-            '<td><button type="button" class="btn btn-danger btn-sm btn-delete-qualifications" data-feature=""><i class="fa fa-minus-circle"></i></button></td>' +
+            '<td><button type="button" class="btn btn-danger btn-sm btn-delete-qualifications" data-feature=""><i class="fa fa-minus-circle"></i>&nbsp;{{ getLanguage('delete') }}</button></td>' +
             '</tr>');
         jQuery('table.table-qualifications').append(newRow);
     });

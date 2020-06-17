@@ -53,7 +53,7 @@
                     <li class="breadcrumb-item active"><a href="{{ route('admin.notice.edit',$notice->slug) }}">Edit</a></li>
                 </ol>
             </div>
-            <h5 class="page-title"> Edit Notice {{ $notice->title }}</h5>
+            <h5 class="page-title">{{ getLanguage('notice').' '.getLanguage('edit') }} : {{ $notice->title }}</h5>
         </div>
     </div>
     <!-- end row -->
@@ -67,18 +67,18 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="modal-title text-center" id="exampleModalLabel">Notice Information </h4>
+                    <h4 class="modal-title text-center" id="exampleModalLabel">{{ getLanguage('notice').' '.getLanguage('information-1') }}</h4>
 
                     <form method="post" action="{{ route('admin.notice.update',$notice->slug) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="title">Title</label>
+                            <label for="title">{{ getLanguage('notice').' '.getLanguage('title') }}</label>
                             <input type="text" name="title" value="{{$notice->title}}" id="title" class="form-control" required>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="status">Status</label>
+                                    <label for="status">{{ getLanguage('status') }}</label>
                                     <div class="btn-group btn-group-toggle form-control" style="height: 49px"  data-toggle="buttons">
 
                                         <label class="btn btn-light @if($notice->status == "Active") active @endif ">
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="photo">Notice Image</label>
+                                    <label for="photo">{{ getLanguage('notice').' '.getLanguage('image') }}</label>
                                     <input type="file" name="image" id="photo" class="form-control" >
                                 </div>
                                 <div class="image_preview">
@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <label for="content">Notice Description:</label>
+                                    <label for="content">{{ getLanguage('notice').' '.getLanguage('details') }}:</label>
                                     <textarea name="contents" id="content" class="summernote" >{!! $notice->content !!}</textarea>
                                 </div>
                             </div>
