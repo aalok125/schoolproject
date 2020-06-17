@@ -8,6 +8,11 @@ use App\Http\Controllers\Controller;
 
 class OccupationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('super-admin');
+    }
     /**
      * Display a listing of the resource.
      *

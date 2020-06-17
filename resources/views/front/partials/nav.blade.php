@@ -62,16 +62,16 @@
             </div>
         </div>
 
-        <div class="dropdown">
-            <button class="dropbtn">
-                {{ getFrontLanguage('facilities')}} <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                    @foreach(get_asset_categories(1) as $category)
-                        <a href="{{ route('front.asset_category', [$category->id,getNepaliDate($category->created_at)]) }}">{{$category->title}}</a>
-                    @endforeach
-            </div>
-        </div>
+        {{--<div class="dropdown">--}}
+            {{--<button class="dropbtn">--}}
+                {{--{{ getFrontLanguage('facilities')}} <i class="fa fa-caret-down"></i>--}}
+            {{--</button>--}}
+            {{--<div class="dropdown-content">--}}
+                    {{--@foreach(get_asset_categories(1) as $category)--}}
+                        {{--<a href="{{ route('front.asset_category', [$category->id,getNepaliDate($category->created_at)]) }}">{{$category->title}}</a>--}}
+                    {{--@endforeach--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <div class="dropdown">
             <button class="dropbtn">
                 {{ getFrontLanguage('members-enrolled')}} <i class="fa fa-caret-down"></i>
@@ -82,7 +82,7 @@
                 @endforeach
             </div>
         </div>
-
+        <a href="{{ route('front.students') }}">{{ getFrontLanguage('student-detail')}}</a>
         <div class="dropdown">
             <button class="dropbtn">
                 {{ getFrontLanguage('information')}} <i class="fa fa-caret-down"></i>
@@ -126,16 +126,16 @@
                 </div>
             </div>
 
-            <div class="dropdown">
-                <button class="dropbtn">
-                    {{ getFrontLanguage('facilities')}} <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    @foreach(get_asset_categories(1) as $category)
-                        <a href="{{ route('front.asset_category', [$category->id,getNepaliDate($category->created_at)]) }}">{{$category->title}}</a>
-                    @endforeach
-                </div>
-            </div>
+            {{--<div class="dropdown">--}}
+                {{--<button class="dropbtn">--}}
+                    {{--{{ getFrontLanguage('facilities')}} <i class="fa fa-caret-down"></i>--}}
+                {{--</button>--}}
+                {{--<div class="dropdown-content">--}}
+                    {{--@foreach(get_asset_categories(1) as $category)--}}
+                        {{--<a href="{{ route('front.asset_category', [$category->id,getNepaliDate($category->created_at)]) }}">{{$category->title}}</a>--}}
+                    {{--@endforeach--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="dropdown">
                 <button class="dropbtn">
                     {{ getFrontLanguage('members-enrolled') }} <i class="fa fa-caret-down"></i>
@@ -146,6 +146,7 @@
                     @endforeach
                 </div>
             </div>
+            <a href="{{ route('front.students') }}">{{ getFrontLanguage('student-detail')}}</a>
 
             <div class="dropdown">
                 <button class="dropbtn">
@@ -175,8 +176,8 @@
                 {{csrf_field()}}
                 <div class="form-group">
                     <select name="language" class="frontselectlanguage">
-                        <option value="eng" @if(\Session::get('front_lang_session') == "eng") selected @endif>Eng</option>
                         <option value="nep" @if(\Session::get('front_lang_session') == "nep") selected @endif>Nep</option>
+                        <option value="eng" @if(\Session::get('front_lang_session') == "eng") selected @endif>Eng</option>
                     </select>
                 </div>
             </form>
@@ -194,8 +195,8 @@
             {{csrf_field()}}
             <div class="form-group">
                 <select name="language" class="frontselectlanguage">
-                    <option value="eng" @if(\Session::get('front_lang_session') == "eng") selected @endif>Eng</option>
                     <option value="nep" @if(\Session::get('front_lang_session') == "nep") selected @endif>Nep</option>
+                    <option value="eng" @if(\Session::get('front_lang_session') == "eng") selected @endif>Eng</option>
                 </select>
             </div>
         </form>

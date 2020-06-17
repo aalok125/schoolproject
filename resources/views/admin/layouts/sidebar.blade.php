@@ -43,6 +43,7 @@
                 </li>
 
 
+                @if(Auth::user()->role_id == 1)
                 <li>
                     <a href="{{ route('admin.occupations') }}" class="waves-effect">
                         <i class="dripicons-briefcase"></i>
@@ -55,6 +56,7 @@
                         <span> {{ getLanguage('ethnicity') }} </span>
                     </a>
                 </li>
+                @endif
 
                 {{--<li>--}}
                     {{--<a href="{{ route('admin.assets') }}" class="waves-effect">--}}
@@ -95,7 +97,9 @@
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-user-id"></i> <span> {{ getLanguage('staff-setup') }} </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{ route('admin.staff_type.all') }}">{{ getLanguage('stafftype') }}</a></li>
+                        @if(Auth::user()->role_id == 1)
+                            <li><a href="{{ route('admin.staff_type.all') }}">{{ getLanguage('stafftype') }}</a></li>
+                        @endif
                         <li><a href="{{ route('admin.staff.all') }}">{{ getLanguage('staff') }}</a></li>
                         <li><a href="{{ route('admin.staffbygrade.all') }}">{{ getLanguage('staffclasssubject') }}</a></li>
                     </ul>
@@ -138,12 +142,14 @@
                 </li>
 
 
-                <li>
-                    <a href="{{ route('admin.users') }}" class="waves-effect">
-                        <i class="dripicons-user"></i>
-                        <span> {{ getLanguage('user') }} </span>
-                    </a>
-                </li>
+                @if(Auth::user()->role_id == 1)
+                    <li>
+                        <a href="{{ route('admin.users') }}" class="waves-effect">
+                            <i class="dripicons-user"></i>
+                            <span> {{ getLanguage('user') }} </span>
+                        </a>
+                    </li>
+                @endif
 
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-archive"></i> <span>{{ getLanguage('language') }}</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>

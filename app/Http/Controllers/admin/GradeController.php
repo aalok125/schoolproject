@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Model\Ethnicity;
 use App\Model\Grade;
-use App\model\StudentDetail;
+use App\Model\StudentDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

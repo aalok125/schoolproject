@@ -14,6 +14,7 @@ use App\Model\News;
 use App\Model\Notice;
 use App\Model\Scholarship;
 use App\Model\Slider;
+use App\Model\Staff;
 use App\Model\Tender;
 use App\Model\Testimonial;
 use Illuminate\Database\Eloquent\Collection;
@@ -36,16 +37,17 @@ class IndexController extends Controller
         $context->scholarships = Scholarship::where('school_id',$school_id)->where('status',1)->orderBy('created_at','desc')->get(['id','title','created_at']);
         $context->testimonials = Testimonial::where('school_id',$school_id)->where('status',1)->orderBy('created_at','desc')->get()->take(5);
 
-        $assetCategories = AssetCategory::where('school_id',$school_id)->get(['id','title']);
-        foreach ($assetCategories as $category){
-            $image = null;
-            if($category->assets){
-                $ids = $category->assets->pluck('id')->toArray();
-                $image = AssetImage::whereIn('asset_id',$ids)->inRandomOrder()->first();
-            }
-            $category->preview_image = $image? 'thumbnail/'.$image->image : null;
-        }
-        $context->asset_categories = $assetCategories;
+//        $assetCategories = AssetCategory::where('school_id',$school_id)->get(['id','title']);
+//        foreach ($assetCategories as $category){
+//            $image = null;
+//            if($category->assets){
+//                $ids = $category->assets->pluck('id')->toArray();
+//                $image = AssetImage::whereIn('asset_id',$ids)->inRandomOrder()->first();
+//            }
+//            $category->preview_image = $image? 'thumbnail/'.$image->image : null;
+//        }
+//        $context->asset_categories = $assetCategories;
+        $context->staffs = Staff::inRandomOrder()->get()->take(6);
         return view('front.index',compact('context'));
     }
 

@@ -43,7 +43,7 @@
                             <th>{{ getLanguage('name') }}</th>
                             <th>{{ getLanguage('image') }}</th>
                             <th>{{ getLanguage('grade') }}</th>
-                            <th>{{ getLanguage('age') }}</th>
+                            <th>{{ getLanguage('birth-date') }}</th>
                             <th>{{ getLanguage('gender') }}</th>
                             <th>{{ getLanguage('action') }}</th>
                         </tr>
@@ -109,7 +109,7 @@
                 {
                     data: 'grade_id',
                     render: function (data, type, row) {
-                        return row.grade_id;
+                        return row.grade_name;
                     }
                 },
                 {

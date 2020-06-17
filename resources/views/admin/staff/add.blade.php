@@ -72,7 +72,7 @@
 
                                 <div class="form-group">
                                     <label for="staff_type">Staff Type:</label>
-                                    <select name="staff_type_id" id="staff_type" class="form-control">
+                                    <select name="staff_type_id" id="staff_type" class="form-control" required>
                                         <option value="" selected disabled="disabled">Select a staff type</option>
                                         @foreach($staff_types as $staff_type)
                                             <option value="{{$staff_type->id}}">{{$staff_type->title}}</option>
@@ -81,11 +81,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone:</label>
-                                    <input type="text" name="phone" id="phone" class="form-control" required>
+                                    <input type="text" name="phone" id="phone" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <input type="text" name="email" id="email" class="form-control" required>
+                                    <input type="text" name="email" id="email" class="form-control" >
                                 </div>
 
                                 <div class="form-group">
@@ -105,11 +105,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="DOB">DOB:</label>
-                                    <input type="date" name="DOB" id="DOB" class="form-control" required>
+                                    <input type="text" name="DOB" id="DOB" class="form-control nepali-calendar" >
                                 </div>
                                 <div class="form-group">
                                     <label for="DOB">Join Date:</label>
-                                    <input type="date" name="join_date" id="DOB" class="form-control" required>
+                                    <input type="text" name="join_date" id="join_date" class="form-control nepali-calendar"  >
                                 </div>
                                 <div class="form-group">
                                     <label for="photo">Profile Image</label>

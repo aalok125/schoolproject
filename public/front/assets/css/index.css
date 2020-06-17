@@ -601,6 +601,9 @@ a {
 }
 
 @media (max-width: 768px) {
+  .counter-container .main-title {
+    font-size: 40px;
+  }
   .counter-container .sub-title {
     width: 100%;
   }
@@ -750,6 +753,14 @@ a {
   background-color: #f3f8ff;
 }
 
+.facilities .slick-next,
+.facilities .slick-prev {
+  background: #2161bb;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+
 .facilities .main-title {
   text-align: center;
   font-size: 60px;
@@ -768,6 +779,17 @@ a {
 
 .facilities .facility-item {
   text-align: center;
+  background: white;
+  -webkit-box-shadow: 0px 5px 10px #c4cdda;
+          box-shadow: 0px 5px 10px #c4cdda;
+  padding-bottom: 15px;
+  margin: 0px 15px;
+}
+
+.facilities .facility-item .slick-slide img {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .facilities .facility-item .img-container {
@@ -776,19 +798,30 @@ a {
 }
 
 .facilities .facility-item .facility-title {
-  margin: 15px auto;
+  margin-top: 15px;
   text-align: center;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
   .facilities .sub-title {
     width: 100%;
   }
+  .facilities .main-title {
+    font-size: 40px;
+  }
+  .facilities .slick-next {
+    right: 0;
+  }
+  .facilities .slick-prev {
+    left: 0;
+    z-index: 9;
+  }
 }
 
 /*testimonial container*/
 .testimonial-container {
-  background: url("../testimonial-bg.png");
+  background: url("../images/appointment.jpg");
   background-size: cover;
   position: relative;
 }
@@ -1120,6 +1153,54 @@ a {
   }
 }
 
+.student-section {
+  padding: 60px 0px;
+}
+
+.student-section .sidebar {
+  background: #f2f2f2;
+  padding: 15px;
+}
+
+.student-section .sidebar .sidebar-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.student-section .sidebar .nav-tabs {
+  display: block;
+  border: none;
+}
+
+.student-section .sidebar .nav-tabs .nav-item {
+  margin-bottom: -1px;
+  border-bottom: 1px solid #bfbcbc;
+}
+
+.student-section .student-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.student-section table thead {
+  background: #2161bb;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .student-section .sidebar {
+    margin-bottom: 15px;
+  }
+  .student-section .sidebar .sidebar-title {
+    margin-bottom: 0px;
+  }
+}
+
 .about-section {
   padding: 60px 0px;
 }
@@ -1133,6 +1214,15 @@ a {
   font-size: 18px;
   text-align: justify;
   font-weight: 300;
+}
+
+.about-section .about-detail h2 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+}
+
+.about-section .about-detail img {
+  width: 100%;
 }
 
 .about-section .title {
@@ -1263,8 +1353,7 @@ a {
 }
 
 .gallery-section .album-container .overlay .view {
-  display: -ms-grid;
-  display: grid;
+  display: none;
   height: 100%;
   text-align: center;
   -webkit-box-align: center;
@@ -2575,7 +2664,7 @@ a {
 }
 
 .result-section .nav-tabs {
-  border-bottom: 1px solid #2196F3;
+  border-bottom: 1px solid #2196f3;
 }
 
 .result-section thead {
@@ -2587,7 +2676,8 @@ a {
   padding: 0.5rem 1.5rem !important;
 }
 
-.result-section .nav-tabs .nav-item.show .nav-link, .result-section .nav-tabs .nav-link.active {
+.result-section .nav-tabs .nav-item.show .nav-link,
+.result-section .nav-tabs .nav-link.active {
   background: #007bff;
   color: #fff;
 }

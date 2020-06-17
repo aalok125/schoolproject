@@ -22,13 +22,14 @@ function getLanguage($key){
     $langSession = \Illuminate\Support\Facades\Session::get('lang_session');
 
     if($language){
-        if($langSession == "nep"){
-           if($language->nepali_name == null || $language->nepali_name == "#"){
-               return $language->english_name;
-           }
+        if($langSession == "eng"){
+            return $language->english_name;
+        }else{
+            if($language->nepali_name == null || $language->nepali_name == "#"){
+                return $language->english_name;
+            }
             return $language->nepali_name;
         }
-        return $language->english_name;
     }
 
     return null;
@@ -105,13 +106,15 @@ function getFrontLanguage($key){
     $langSession = \Illuminate\Support\Facades\Session::get('front_lang_session');
 
     if($language){
-        if($langSession == "nep"){
+        if($langSession == "eng"){
+            return $language->english_name;
+        }else{
             if($language->nepali_name == null || $language->nepali_name == "#"){
                 return $language->english_name;
             }
             return $language->nepali_name;
         }
-        return $language->english_name;
+
     }
 
     return null;

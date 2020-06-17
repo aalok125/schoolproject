@@ -80,9 +80,11 @@ class TenderController extends Controller
 
     public function delete(Request $request){
         if($tender = Tender::findOrFail($request->tender_id)){
-            $file_path=public_path().'/'.$tender->file;
-            if(file_exists($file_path)){
-                unlink($file_path);
+            if($tender->file){
+                $file_path = public_path().'/'.$tender->file;
+                if(file_exists($file_path)){
+                    unlink($file_path);
+                }
             }
             $tender->delete();
             return redirect()->back()->with('success','Tender Deleted Successfully');

@@ -25,6 +25,7 @@
         }
     </style>
 
+
 @endpush
 
 @section('headers')
@@ -72,7 +73,7 @@
 
                                 <div class="form-group">
                                     <label for="staff_type">Staff Type:</label>
-                                    <select name="staff_type_id" id="staff_type" class="form-control">
+                                    <select name="staff_type_id" id="staff_type" class="form-control" required>
                                         <option value="" selected disabled="disabled">Select a staff type</option>
                                         @foreach($staff_types as $staff_type)
                                             <option value="{{$staff_type->id}}"
@@ -100,7 +101,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="gender">Gender:</label>
-                                    <select name="gender" id="gender" class="form-control">
+                                    <select name="gender" id="gender" class="form-control" required>
                                         <option value="Male"
                                                 @if("Male"==$staff->gender) selected @endif
                                         >Male</option>
@@ -114,11 +115,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="DOB">DOB:</label>
-                                    <input type="date" name="DOB" value="{{$staff->DOB}}" id="DOB" class="form-control">
+                                    <input type="text" name="DOB" value="{{$staff->DOB}}" id="DOB" class="form-control nepali-calendar">
                                 </div>
                                 <div class="form-group">
                                     <label for="DOB">Join Date:</label>
-                                    <input type="date" name="join_date" value="{{$staff->join_date}}" id="DOB" class="form-control" required>
+                                    <input type="text" name="join_date" value="{{$staff->join_date}}" id="join_date" class="form-control nepali-calendar" >
                                 </div>
                                 <div class="form-group">
                                     <label for="photo">Profile Image</label>

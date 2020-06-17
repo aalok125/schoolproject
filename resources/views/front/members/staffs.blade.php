@@ -39,7 +39,7 @@
                                             <div
                                                     class="single-item-img"
                                                     style="
-                                                        background-image: url({{asset('thumbnail/'.$staff->image)}});
+                                                        background-image: url('{{asset('thumbnail/'.$staff->image)}}');
                                                     "
                                             ></div>
                                             <div class="content-title">

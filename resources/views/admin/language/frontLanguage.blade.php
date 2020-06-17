@@ -34,8 +34,19 @@
                 <div class="card-body">
 
 
-                    <h4 class="mt-0 header-title">Language List<button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">Add New</button></h4>
+                    <h4 class="mt-0 header-title">
+                        {{ getLanguage('homepageLanguage') }}
+
+                        @if(Auth::user()->role_id == 1)
+                            <button type="button" class="btn btn-primary waves-effect waves-light float-right" data-toggle="modal" data-target=".edu-add-new">
+                                Add New
+                            </button>
+                        @endif
+
+                    </h4>
+
                     @include('admin.language.add')
+
                     <div class="modal fade edu-edit-new" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     </div>
                     <table id="datatable-students" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

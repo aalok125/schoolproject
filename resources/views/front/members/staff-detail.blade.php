@@ -35,60 +35,60 @@
                                 alt="{{ $staff->name }}"
                                 class="profile"
                         />
-                        <div class="d-flex justify-content-center">
-                            <div
-                                    class="social-share-wrapper d-sm-flex justify-content-center"
-                            >
-                                <div class="social-share-block facebook">
-                                    <a title="Share on Facebook" target="_blank" href="#">
-                                        <div class="social-share-icon-block">
-                                            <img
-                                                    src="https://www.finbyz.com/static/media/svg/social-facebook.svg"
-                                                    title="facebook.com/Finbyz"
-                                                    alt="facebook.com/Finbyz"
-                                            />
-                                            <span class="share-text">Share</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="social-share-block twitter ">
-                                    <a title="Share on Twitter" target="_blank" href="#">
-                                        <div class="social-share-icon-block">
-                                            <img
-                                                    src="https://www.finbyz.com/static/media/svg/social-twitter.svg"
-                                                    alt="Twitter/FinByz"
-                                                    title="Twitter/FinByz"
-                                            />
-                                            <span class="share-text">Tweet</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="social-share-block linkedin">
-                                    <a title="Share on LinkedIn" target="_blank" href="#">
-                                        <div class="social-share-icon-block">
-                                            <img
-                                                    src="https://www.finbyz.com/static/media/svg/social-linkedin.svg"
-                                                    alt="linkedin/finbyz"
-                                                    title="linkedin/finbyz"
-                                            />
-                                            <span class="share-text">Share</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="social-share-block email">
-                                    <a title="Share via Email" href="#">
-                                        <div class="social-share-icon-block">
-                                            <img
-                                                    src="https://www.finbyz.com/static/media/svg/social-mail.svg"
-                                                    alt="EMIAL/finbyz"
-                                                    title="EMIAL/finbyz"
-                                            />
-                                            <span class="share-text">Email</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        {{--<div class="d-flex justify-content-center">--}}
+                            {{--<div--}}
+                                    {{--class="social-share-wrapper d-sm-flex justify-content-center"--}}
+                            {{-->--}}
+                                {{--<div class="social-share-block facebook">--}}
+                                    {{--<a title="Share on Facebook" target="_blank" href="#">--}}
+                                        {{--<div class="social-share-icon-block">--}}
+                                            {{--<img--}}
+                                                    {{--src="https://www.finbyz.com/static/media/svg/social-facebook.svg"--}}
+                                                    {{--title="facebook.com/Finbyz"--}}
+                                                    {{--alt="facebook.com/Finbyz"--}}
+                                            {{--/>--}}
+                                            {{--<span class="share-text">Share</span>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
+                                {{--<div class="social-share-block twitter ">--}}
+                                    {{--<a title="Share on Twitter" target="_blank" href="#">--}}
+                                        {{--<div class="social-share-icon-block">--}}
+                                            {{--<img--}}
+                                                    {{--src="https://www.finbyz.com/static/media/svg/social-twitter.svg"--}}
+                                                    {{--alt="Twitter/FinByz"--}}
+                                                    {{--title="Twitter/FinByz"--}}
+                                            {{--/>--}}
+                                            {{--<span class="share-text">Tweet</span>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
+                                {{--<div class="social-share-block linkedin">--}}
+                                    {{--<a title="Share on LinkedIn" target="_blank" href="#">--}}
+                                        {{--<div class="social-share-icon-block">--}}
+                                            {{--<img--}}
+                                                    {{--src="https://www.finbyz.com/static/media/svg/social-linkedin.svg"--}}
+                                                    {{--alt="linkedin/finbyz"--}}
+                                                    {{--title="linkedin/finbyz"--}}
+                                            {{--/>--}}
+                                            {{--<span class="share-text">Share</span>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
+                                {{--<div class="social-share-block email">--}}
+                                    {{--<a title="Share via Email" href="#">--}}
+                                        {{--<div class="social-share-icon-block">--}}
+                                            {{--<img--}}
+                                                    {{--src="https://www.finbyz.com/static/media/svg/social-mail.svg"--}}
+                                                    {{--alt="EMIAL/finbyz"--}}
+                                                    {{--title="EMIAL/finbyz"--}}
+                                            {{--/>--}}
+                                            {{--<span class="share-text">Email</span>--}}
+                                        {{--</div>--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12">
@@ -104,12 +104,14 @@
                             <li><strong>{{ getFrontLanguage('phone-1') }}: </strong> {{ $staff->phone }}</li>
                             <li><strong>{{ getFrontLanguage('date-joined') }}: </strong>{{ $staff->join_date }}</li>
                         </ul>
-                        <div class="single-short-bio">
-                            <h2>{{ getFrontLanguage('a-short-bio') }}</h2>
-                            <p>
-                                {!! $staff->description !!}
-                            </p>
-                        </div>
+                        @if($staff->description)
+                            <div class="single-short-bio">
+                                <h2>{{ getFrontLanguage('a-short-bio') }}</h2>
+                                <p>
+                                    {!! $staff->description !!}
+                                </p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -223,7 +223,8 @@ class StudentController extends Controller
         foreach ($students as $student){
             $student->count = $count;
             $birthdate = Carbon::parse($student->DOB);
-            $student->age =$birthdate->diffInYears($todayDate, false);
+            $student->age = $student->DOB;
+            $student->grade_name = $student->grade->title;
             $student->image = asset('thumbnail/'.$student->image);
             $count++;
         }

@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="img-container">
-                        <img src="{{ asset(isset($settings['principal_image']) ? $settings['principal_image']: 'front/assets/images/about.jpg') }}" alt="" class="img-fluid" />
+                        <img src="{{ asset(isset($settings['principal_image']) ? 'thumbnail/'.$settings['principal_image']: 'front/assets/images/about.jpg') }}" alt="" class="img-fluid" />
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="img-container">
-                        <img src="{{ asset(isset($settings['adhyaksh_image']) ? $settings['adhyaksh_image']: 'front/assets/images/about.jpg') }}" alt="" class="img-fluid" />
+                        <img src="{{ asset(isset($settings['adhyaksh_image']) ? 'thumbnail/'.$settings['adhyaksh_image']: 'front/assets/images/about.jpg') }}" alt="" class="img-fluid" />
                     </div>
                 </div>
                 <div class="col-md-7">

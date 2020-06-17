@@ -2,6 +2,15 @@
 
 @push('style')
 
+<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+/>
+<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+/>
+
 @endpush
 
 @section('content')
@@ -235,22 +244,16 @@
                                                         No News Available Currently.
                                                     </a>
                                                 </div>
-                                                <div class="info">
-                                                    {{--<div class="date">2076-12-12</div>--}}
-                                                    <div class="morebtn">
-                                                        <a href="#">
-                                                            View <i class="fa fa-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
                                             </div>
                                         @endif
                                     </div>
-                                    <div class="morebtn">
-                                        <a href="{{ route('front.news') }}">
-                                            View More <i class="fa fa-arrow-right"></i>
-                                        </a>
-                                    </div>
+                                    @if($context->news->isNotEmpty())
+                                        <div class="morebtn">
+                                            <a href="{{ route('front.news') }}">
+                                                View More <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="tab-pane container fade" id="tendernotice">
                                     <div class="tab-detail">
@@ -279,22 +282,16 @@
                                                         No tenders available currently.
                                                     </a>
                                                 </div>
-                                                <div class="info">
-                                                    {{--<div class="date">2076-12-12</div>--}}
-                                                    <div class="morebtn">
-                                                        <a href="#">
-                                                            View <i class="fa fa-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
                                             </div>
                                         @endif
                                     </div>
-                                    <div class="morebtn">
-                                        <a href="{{ route('front.tender') }}">
-                                            View More <i class="fa fa-arrow-right"></i>
-                                        </a>
-                                    </div>
+                                    @if($context->tenders->isNotEmpty())
+                                        <div class="morebtn">
+                                            <a href="{{ route('front.tender') }}">
+                                                View More <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="tab-pane container fade" id="events">
                                     <div class="tab-detail">
@@ -323,22 +320,16 @@
                                                         No events available currently.
                                                     </a>
                                                 </div>
-                                                <div class="info">
-                                                    {{--<div class="date">2076-12-12</div>--}}
-                                                    <div class="morebtn">
-                                                        <a href="#">
-                                                            View <i class="fa fa-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
                                             </div>
                                         @endif
                                     </div>
-                                    <div class="morebtn">
-                                        <a href="{{ route('front.events') }}">
-                                            View More <i class="fa fa-arrow-right"></i>
-                                        </a>
-                                    </div>
+                                    @if($context->events->isNotEmpty())
+                                        <div class="morebtn">
+                                            <a href="{{ route('front.events') }}">
+                                                View More <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="tab-pane container fade" id="scholarships">
                                     <div class="tab-detail">
@@ -370,11 +361,13 @@
                                         </div>
                                         @endif
                                     </div>
-                                    {{--<div class="morebtn">--}}
-                                        {{--<a href="/event">--}}
-                                            {{--View More <i class="fa fa-arrow-right"></i>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
+                                    @if($context->scholarships->isNotEmpty())
+                                        <div class="morebtn">
+                                            <a href="{{ route('front.scholarship') }}">
+                                                View More <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -430,35 +423,68 @@
     </div>
     <div class="facilities">
         <div class="main-title">
-            {{ getFrontLanguage('facilities') }}
+            {{ getFrontLanguage('our-staff-members') }}
         </div>
         <div class="sub-title">
-            Our School is equipped with many facilities
+            Our generous and hardworking staff members.
         </div>
         <div class="container">
-            <div class="row">
-                @if($context->asset_categories->isNotEmpty())
-                    @foreach($context->asset_categories as $category)
-                        {{--@dd($category)--}}
-                        <div class="col-md-4">
-                            <div class="facility-item">
-                                <div class="img-container">
-                                    <img
-                                            src="{{ asset( isset($category->preview_image) ? $category->preview_image :"front/assets/images/computerlab.jpg") }}"
-                                            alt=""
-                                            class="img-fluid"
-                                    />
-                                </div>
-                                <div class="facility-title">
-                                    {{ $category->title }}
-                                </div>
+            <div class="teacherSlider">
+                @foreach($context->staffs as $staff)
+                    <div>
+                        <div class="facility-item">
+                            <div class="img-container">
+                                <img
+                                        src="{{ asset('thumbnail/'.$staff->image) }}"
+                                        alt=""
+                                        class="img-fluid"
+                                />
+                            </div>
+                            <div class="facility-title">
+                                {{$staff->name}}
+                            </div>
+                            <div class="facility-designation">
+                                {{ $staff->job_title }}
                             </div>
                         </div>
-                    @endforeach
-                @endif
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
+
+
+    {{--<div class="facilities">--}}
+        {{--<div class="main-title">--}}
+            {{--{{ getFrontLanguage('facilities') }}--}}
+        {{--</div>--}}
+        {{--<div class="sub-title">--}}
+            {{--Our School is equipped with many facilities--}}
+        {{--</div>--}}
+        {{--<div class="container">--}}
+            {{--<div class="row">--}}
+                {{--@if($context->asset_categories->isNotEmpty())--}}
+                    {{--@foreach($context->asset_categories as $category)--}}
+                        {{--@dd($category)--}}
+                        {{--<div class="col-md-4">--}}
+                            {{--<div class="facility-item">--}}
+                                {{--<div class="img-container">--}}
+                                    {{--<img--}}
+                                            {{--src="{{ asset( isset($category->preview_image) ? $category->preview_image :"front/assets/images/computerlab.jpg") }}"--}}
+                                            {{--alt=""--}}
+                                            {{--class="img-fluid"--}}
+                                    {{--/>--}}
+                                {{--</div>--}}
+                                {{--<div class="facility-title">--}}
+                                    {{--{{ $category->title }}--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--@endforeach--}}
+                {{--@endif--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="counter-container">
         <div class="container">
             <div class="main-title">
@@ -502,108 +528,146 @@
         </div>
     </div>
 
-    <div class="testimonial-container">
-        <div
-                id="testimonialCarousel"
-                class="carousel slide"
-                data-ride="carousel"
-        >
-            <ul class="carousel-indicators">
-                <li
-                        data-target="#hospitalCarousel"
-                        data-slide-to="0"
-                        class="active"
-                ></li>
-                <li data-target="#hospitalCarousel" data-slide-to="1"></li>
-                <li data-target="#hospitalCarousel" data-slide-to="2"></li>
-            </ul>
+    {{--<div class="testimonial-container">--}}
+        {{--<div--}}
+                {{--id="testimonialCarousel"--}}
+                {{--class="carousel slide"--}}
+                {{--data-ride="carousel"--}}
+        {{-->--}}
+            {{--<ul class="carousel-indicators">--}}
+                {{--<li--}}
+                        {{--data-target="#hospitalCarousel"--}}
+                        {{--data-slide-to="0"--}}
+                        {{--class="active"--}}
+                {{--></li>--}}
+                {{--<li data-target="#hospitalCarousel" data-slide-to="1"></li>--}}
+                {{--<li data-target="#hospitalCarousel" data-slide-to="2"></li>--}}
+            {{--</ul>--}}
 
-            <div class="carousel-inner">
-                @if($context->testimonials->isNotEmpty())
-                    @foreach($context->testimonials as $testimonial)
-                    <div class="carousel-item @if($context->testimonials[0]->id == $testimonial->id)active @endif">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="testimonial-wrapper">
-                                    <div class="title">{{ getFrontLanguage('what-people-are-saying') }}</div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Aperiam aliquid unde magni aspernatur excepturi nobis
-                                        nihil,
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Libero sequi, est quas distinctio atque, debitis
-                                        voluptatum
-                                    </p>
-                                    <div class="name">{{$testimonial->name}}</div>
-                                    <div class="designation">
-                                        {{ $testimonial->designation }}
-                                    </div>
-                                </div>
-                            </div>
+            {{--<div class="carousel-inner">--}}
+                {{--@if($context->testimonials->isNotEmpty())--}}
+                    {{--@foreach($context->testimonials as $testimonial)--}}
+                    {{--<div class="carousel-item @if($context->testimonials[0]->id == $testimonial->id)active @endif">--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-md-6">--}}
+                                {{--<div class="testimonial-wrapper">--}}
+                                    {{--<div class="title">{{ getFrontLanguage('what-people-are-saying') }}</div>--}}
+                                    {{--<p>--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit.--}}
+                                        {{--Aperiam aliquid unde magni aspernatur excepturi nobis--}}
+                                        {{--nihil,--}}
+                                    {{--</p>--}}
+                                    {{--<p>--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit.--}}
+                                        {{--Libero sequi, est quas distinctio atque, debitis--}}
+                                        {{--voluptatum--}}
+                                    {{--</p>--}}
+                                    {{--<div class="name">{{$testimonial->name}}</div>--}}
+                                    {{--<div class="designation">--}}
+                                        {{--{{ $testimonial->designation }}--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                            <div class="col-md-6">
-                                <div class="img-container">
-                                    <img
-                                            src="{{ asset(isset($testimonial->image) ? 'thumbnail/'.$testimonial->image :$settings['logo'] ) }}"
-                                            alt=""
-                                            class="img-fluid"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                @else
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="testimonial-wrapper">
-                                    <div class="title">{{ getFrontLanguage('what-people-are-saying') }}</div>
-                                    <p>
-                                        No Testimonials Available
-                                    </p>
-                                    <div class="name">David</div>
-                                    <div class="designation">
-                                        Admin
-                                    </div>
-                                </div>
-                            </div>
+                            {{--<div class="col-md-6">--}}
+                                {{--<div class="img-container">--}}
+                                    {{--<img--}}
+                                            {{--src="{{ asset(isset($testimonial->image) ? 'thumbnail/'.$testimonial->image :$settings['logo'] ) }}"--}}
+                                            {{--alt=""--}}
+                                            {{--class="img-fluid"--}}
+                                    {{--/>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--@endforeach--}}
+                {{--@else--}}
+                    {{--<div class="carousel-item active">--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-md-6">--}}
+                                {{--<div class="testimonial-wrapper">--}}
+                                    {{--<div class="title">{{ getFrontLanguage('what-people-are-saying') }}</div>--}}
+                                    {{--<p>--}}
+                                        {{--No Testimonials Available--}}
+                                    {{--</p>--}}
+                                    {{--<div class="name">David</div>--}}
+                                    {{--<div class="designation">--}}
+                                        {{--Admin--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                            <div class="col-md-6">
-                                <div class="img-container">
-                                    <img
-                                            src="{{ asset(isset($settings['logo'])?$settings['logo']:'') }}"
-                                            alt=""
-                                            class="img-fluid"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            </div>
+                            {{--<div class="col-md-6">--}}
+                                {{--<div class="img-container">--}}
+                                    {{--<img--}}
+                                            {{--src="{{ asset(isset($settings['logo'])?$settings['logo']:'') }}"--}}
+                                            {{--alt=""--}}
+                                            {{--class="img-fluid"--}}
+                                    {{--/>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--@endif--}}
+            {{--</div>--}}
 
-            <a
-                    class="carousel-control-prev"
-                    href="#testimonialCarousel"
-                    data-slide="prev"
-            >
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a
-                    class="carousel-control-next"
-                    href="#testimonialCarousel"
-                    data-slide="next"
-            >
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
-    </div>
+            {{--<a--}}
+                    {{--class="carousel-control-prev"--}}
+                    {{--href="#testimonialCarousel"--}}
+                    {{--data-slide="prev"--}}
+            {{-->--}}
+                {{--<span class="carousel-control-prev-icon"></span>--}}
+            {{--</a>--}}
+            {{--<a--}}
+                    {{--class="carousel-control-next"--}}
+                    {{--href="#testimonialCarousel"--}}
+                    {{--data-slide="next"--}}
+            {{-->--}}
+                {{--<span class="carousel-control-next-icon"></span>--}}
+            {{--</a>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
 @endsection
 
 @push('script')
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+<script>
+    $(".teacherSlider").slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    });
+
+</script>
 
 @endpush

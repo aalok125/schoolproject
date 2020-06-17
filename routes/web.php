@@ -50,6 +50,8 @@ Route::group([
     Route::get('/members/{staffTypeSlug}','MemberController@staffs')->name('staffs');
     Route::get('/members/{staff_id}/{staffTypeSlug}','MemberController@staffDetail')->name('staffDetail');
 
+    Route::get('/students','MemberController@students')->name('students');
+
 });
 
 Route::group([

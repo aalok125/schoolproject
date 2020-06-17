@@ -19,8 +19,8 @@
                     {{ csrf_field() }}
                     <div class="form-group mb-0">
                         <select class="form-control" name="language" id="selectlanguage">
-                            <option value="eng" @if(\Session::get('lang_session') == "eng") selected @endif >English</option>
                             <option value="nep" @if(\Session::get('lang_session') == "nep") selected @endif >Nepali</option>
+                            <option value="eng" @if(\Session::get('lang_session') == "eng") selected @endif >English</option>
                         </select>
                     </div>
                 </form>
